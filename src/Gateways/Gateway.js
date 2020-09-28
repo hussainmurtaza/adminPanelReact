@@ -1,4 +1,4 @@
-import config from "Configs/index";
+import config from "Configs/Config";
 import Store from "Redux/Store";
 import LogoutHelper from "Helpers/LogoutHelper";
 
