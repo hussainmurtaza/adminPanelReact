@@ -4,13 +4,13 @@ class InputText extends Component {
         return (
             <div className="form-group">
                 <input
-                    type={props.type}
-                    name={props.name}
+                    type={this.props.type}
+                    name={this.props.name}
                     className="form-control"
-                    placeholder={props.placeholder}
-                    onChange={props.handleChange}
-                    onBlur={props.handleBlur}
-                    value={props.value}
+                    placeholder={this.props.placeholder}
+                    onChange={this.props.handleChange}
+                    onBlur={this.props.handleBlur}
+                    value={this.props.value}
                 />
             </div>
         );
