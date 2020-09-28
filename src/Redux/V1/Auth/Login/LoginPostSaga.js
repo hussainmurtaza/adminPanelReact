@@ -7,10 +7,10 @@ import ToastHelper from "Helpers/ToastHelper";
 function* loginPost(data) {
     try {
         ToastHelper.info();
-        const response = yield AuthService.userLogin(data.request);
+        const response = yield AuthService.loginPost(data.request);
         if (response.success) {
             ToastHelper.success(response.message);
-            yield put(LoginAction.postLoginSuccess(response.data));
+            yield put(LoginAction.loginPostSuccess(response.data));
         } else {
             ToastHelper.error(response.error.message);
         }
