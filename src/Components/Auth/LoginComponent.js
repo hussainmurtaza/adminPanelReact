@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import LoginForm from "Components/Forms/LoginForm";
 class Login extends Component {
     render() {
         return (
@@ -26,7 +26,7 @@ class Login extends Component {
                                         Welcome Admin! Please signin to
                                         continue.
                                     </p>
-                                    form
+                                    <LoginForm />
                                 </div>
                             </div>
                             {/* sign-wrapper */}
