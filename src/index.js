@@ -4,12 +4,13 @@ import "./index.css";
 import App from "./App";
 import "ionicons/dist/css/ionicons.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import * as serviceWorker from "./serviceWorker";
 ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
-	document.getElementById("root")
+    <React.StrictMode>
+        <App />
+    </React.StrictMode>,
+    document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change

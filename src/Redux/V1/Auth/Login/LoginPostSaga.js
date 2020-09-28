@@ -28,7 +28,7 @@ function loginPostSuccess(data) {
         "user",
         JSON.stringify(data.response.authentication.user)
     );
-    window.location.href = "/dashboard";
+    // window.location.href = "/dashboard";
 }
 
 function loginPostFailed(data) {

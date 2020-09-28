@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import LoginForm from "Components/Forms/LoginForm";
 class Login extends Component {
     render() {
@@ -26,7 +27,7 @@ class Login extends Component {
                                         Welcome Admin! Please signin to
                                         continue.
                                     </p>
-                                    <LoginForm />
+                                    <LoginForm dis={this.props.dispatch} />
                                 </div>
                             </div>
                             {/* sign-wrapper */}
@@ -39,5 +40,10 @@ class Login extends Component {
         );
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        login: state.login,
+    };
+};
 
-export default Login;
+export default connect(mapStateToProps)(Login);

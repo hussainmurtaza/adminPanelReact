@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputText from "Components/Forms/Fields/InputTextField";
+import LoginAction from "Redux/V1/Auth/Login/LoginPostAction";
 class LoginForm extends Component {
     state = {
         form: {
@@ -24,31 +25,36 @@ class LoginForm extends Component {
     };
 
     handleSubmit = async () => {
-        alert(JSON.stringify(this.state.form));
+        this.props.dis(LoginAction.loginPost(this.state.form));
+        // alert(JSON.stringify(this.state.form));
     };
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <InputText
-                    placeholder={"Email"}
-                    name={"email"}
-                    type={"email"}
-                    value={this.state.form.email}
-                    handleChange={this.handleChange}
-                />
+            <React.Fragment>
+                <form method="POST">
+                    <InputText
+                        placeholder={"Email"}
+                        name={"email"}
+                        type={"email"}
+                        value={this.state.form.email}
+                        handleChange={this.handleChange}
+                    />
 
-                <InputText
-                    placeholder={"Password"}
-                    name={"password"}
-                    type={"password"}
-                    value={this.state.form.password}
-                    handleChange={this.handleChange}
-                />
-
-                <button type="submit" className="btn btn-brand-02 btn-block">
+                    <InputText
+                        placeholder={"Password"}
+                        name={"password"}
+                        type={"password"}
+                        value={this.state.form.password}
+                        handleChange={this.handleChange}
+                    />
+                </form>
+                <button
+                    className="btn btn-brand-02 btn-block"
+                    onClick={this.handleSubmit}
+                >
                     Sign In
                 </button>
-            </form>
+            </React.Fragment>
         );
     }
 }
