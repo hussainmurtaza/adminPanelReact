@@ -28,7 +28,9 @@ function loginPostSuccess(data) {
         "admin_user",
         JSON.stringify(data.response.authentication.user)
     );
-    window.location.href = "/dashboard";
+    setTimeout(() => {
+        window.location.href = "/dashboard";
+    }, 1000);
 }
 
 function loginPostFailed(data) {

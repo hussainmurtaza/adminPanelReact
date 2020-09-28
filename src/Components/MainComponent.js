@@ -7,9 +7,7 @@ import Dashboard from "Components/Dashboard/DashboardComponent";
 
 class Main extends Component {
     render() {
-        console.log(this.props);
         const loggedIn = this.props.Auth.isAuthenticated;
-
         const PrivateRoute = ({ component: Component, ...rest }) => (
             <Route
                 {...rest}
@@ -47,9 +45,13 @@ class Main extends Component {
         return (
             <React.Fragment>
                 <Switch>
-                    <Route path="/login" component={Login} />
-                    <Route path="/dashboard" component={Dashboard} />
-                    {/* <Redirect to="/dashboard" /> */}
+                    <GuestRoute exact path="/login" component={Login} />
+                    <PrivateRoute
+                        exact
+                        path="/dashboard"
+                        component={Dashboard}
+                    />
+                    <Redirect to="/dashboard" />
                 </Switch>
                 <ToastContainer />
             </React.Fragment>

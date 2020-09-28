@@ -1,7 +1,6 @@
 const logout = (status) => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("permissions");
+    localStorage.removeItem("admin_user");
+    localStorage.removeItem("admin_access_token");
     window.location.href = "/login";
 };
 

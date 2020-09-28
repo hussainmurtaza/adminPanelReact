@@ -4,10 +4,12 @@ import LoginHelper from "Helpers/LoginHelper";
 const LoginReducer = (
     state = {
         loading: false,
-        isAuthenticated: localStorage.getItem("access_token") ? true : false,
-        token: localStorage.getItem("access_token"),
-        user: localStorage.getItem("user")
-            ? LoginHelper.localData(localStorage.getItem("user"))
+        isAuthenticated: localStorage.getItem("admin_access_token")
+            ? true
+            : false,
+        token: localStorage.getItem("admin_access_token"),
+        user: localStorage.getItem("admin_user")
+            ? LoginHelper.localData(localStorage.getItem("admin_user"))
             : null,
     },
     action

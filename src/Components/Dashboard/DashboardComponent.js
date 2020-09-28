@@ -7,7 +7,7 @@ class Dashboard extends Component {
                 <h1>Hello Admin</h1>
                 <button
                     className="btn btn-primary"
-                    onClick={LogoutHelper.logout()}
+                    onClick={() => LogoutHelper.logout()}
                 >
                     Logout
                 </button>
