@@ -3,3 +3,4 @@ const V1 = {
         login: "v1/auth/login",
     },
 };
+export default V1;

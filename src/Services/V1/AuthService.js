@@ -1,7 +1,7 @@
 import Gateway from "Gateways/Gateway";
 import V1 from "Constants/V1ApiConstant";
 
-const loginPost=(data) =>{
+async function loginPost(data) {
     const _data = loginPostBody(data);
     const response = await Gateway.guestGateway("POST", V1.auth.login, _data);
     return response;

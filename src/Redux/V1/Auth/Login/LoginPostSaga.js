@@ -39,10 +39,10 @@ export function* loginPostSaga() {
     yield takeEvery(LOGIN.LOGIN_POST, loginPost);
 }
 
-export function* postLoginSuccessSaga() {
+export function* loginPostSuccessSaga() {
     yield takeEvery(LOGIN.LOGIN_POST_SUCCESS, loginPostSuccess);
 }
 
-export function* postLoginFailedSaga() {
+export function* loginPostFailedSaga() {
     yield takeEvery(LOGIN.LOGIN_POST_FAILED, loginPostFailed);
 }
