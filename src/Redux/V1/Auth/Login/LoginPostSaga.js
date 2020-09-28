@@ -21,14 +21,14 @@ function* loginPost(data) {
 
 function loginPostSuccess(data) {
     localStorage.setItem(
-        "access_token",
+        "admin_access_token",
         data.response.authentication.access_token
     );
     localStorage.setItem(
-        "user",
+        "admin_user",
         JSON.stringify(data.response.authentication.user)
     );
-    // window.location.href = "/dashboard";
+    window.location.href = "/dashboard";
 }
 
 function loginPostFailed(data) {

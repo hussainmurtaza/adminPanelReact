@@ -7,12 +7,49 @@ import Dashboard from "Components/Dashboard/DashboardComponent";
 
 class Main extends Component {
     render() {
+        console.log(this.props);
+        const loggedIn = this.props.Auth.isAuthenticated;
+
+        const PrivateRoute = ({ component: Component, ...rest }) => (
+            <Route
+                {...rest}
+                render={(props) =>
+                    loggedIn ? (
+                        <Component {...props} />
+                    ) : (
+                        <Redirect
+                            to={{
+                                pathname: "/login",
+                                state: { from: props.location },
+                            }}
+                        />
+                    )
+                }
+            />
+        );
+        const GuestRoute = ({ component: Component, ...rest }) => (
+            <Route
+                {...rest}
+                render={(props) =>
+                    !loggedIn ? (
+                        <Component {...props} />
+                    ) : (
+                        <Redirect
+                            to={{
+                                pathname: "/dashboard",
+                                state: { from: props.location },
+                            }}
+                        />
+                    )
+                }
+            />
+        );
         return (
             <React.Fragment>
                 <Switch>
                     <Route path="/login" component={Login} />
                     <Route path="/dashboard" component={Dashboard} />
-                    <Redirect to="/" />
+                    {/* <Redirect to="/dashboard" /> */}
                 </Switch>
                 <ToastContainer />
             </React.Fragment>
@@ -22,7 +59,7 @@ class Main extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        Auth: state.Login,
+        Auth: state.login,
     };
 };
 
