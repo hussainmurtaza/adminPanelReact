@@ -9,13 +9,6 @@ const LoginReducer = (
         user: localStorage.getItem("user")
             ? LoginHelper.localData(localStorage.getItem("user"))
             : null,
-        permissions: localStorage.getItem("permissions")
-            ? LoginHelper.localData(localStorage.getItem("permissions"))
-            : [],
-        form: {},
-        wallet: localStorage.getItem("wallet")
-            ? LoginHelper.localData(localStorage.getItem("wallet"))
-            : [],
     },
     action
 ) => {
