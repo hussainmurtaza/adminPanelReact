@@ -1,26 +1,14 @@
-aside {
-    width: 204px !important;
+/******General CSS***********/
+.content-components .container {
+	padding: 0;
+	max-width: 780px;
+}
+.content-components {
+	margin-right: 240px;
+	margin-top: 60px;
+	margin-left: 240px;
 }
 
-.border-circle {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    margin-top: 15px;
-    text-align: center;
-    border: 2px solid #06123b;
-    border-radius: 50%;
-}
-
-.border-circle h2 {
-    line-height: 5;
-}
-.dropdown-toggle::after {
-    display: none !important;
-}
-.cursor-pointer {
-    cursor: pointer;
-}
-aside .nav-link:active {
-    color: #06123b !important;
+.logo {
+	max-width: 160px;
 }
