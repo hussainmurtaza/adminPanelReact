@@ -35,3 +35,12 @@
 .logo {
 	max-width: 160px;
 }
+/* #root {
+	background-color: #f7f9fa;
+}
+.sidebar {
+	background-color: #ffffff !important;
+} */
+.user-list-page .table thead th {
+	text-align: center;
+}

@@ -4,7 +4,7 @@ import Select from "react-select";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
 
-class CreateUserComponent extends Component {
+class UpdateUserComponent extends Component {
 	render() {
 		const options = [
 			{ value: "purple", label: "Purple" },
@@ -22,7 +22,7 @@ class CreateUserComponent extends Component {
 
 				<div className="content content-components">
 					<div className="container">
-						<h4 className="tx-color-01 mg-b-15">Create New User</h4>
+						<h4 className="tx-color-01 mg-b-15">Update User</h4>
 						<Row>
 							<Col sm={6} className="form-group">
 								<label>Firstname</label>
@@ -105,4 +105,4 @@ class CreateUserComponent extends Component {
 	}
 }
 
-export default CreateUserComponent;
+export default UpdateUserComponent;

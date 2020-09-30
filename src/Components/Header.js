@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import LogoutHelper from "Helpers/LogoutHelper";
 class Header extends Component {
 	render() {
 		return (
@@ -16,6 +16,14 @@ class Header extends Component {
 								className="img-fluid"
 							/>
 						</a>
+					</div>
+					<div class="navbar-right">
+						<button
+							className="btn btn-buy"
+							onClick={() => LogoutHelper.logout()}
+						>
+							<i data-feather="log-out"></i> <span>LogOut</span>
+						</button>
 					</div>
 					{/* <div id="navbarMenu" class="navbar-menu-wrapper">
 						<div class="navbar-menu-header">

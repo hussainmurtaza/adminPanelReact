@@ -9,6 +9,7 @@ import UpdateUserComponent from "Components/Users/UpdateUserComponent";
 import DeleteUserComponent from "Components/Users/DeleteUserComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import AllRolesComponent from "Components/Roles/AllRolesComponent";
+import UserSingleComponent from "Components/Users/UserSingleComponent";
 
 class Main extends Component {
 	render() {
@@ -86,7 +87,11 @@ class Main extends Component {
 						path="/all-roles"
 						component={AllRolesComponent}
 					/>
-
+					<PrivateRoute
+						exact
+						path="/user-single"
+						component={UserSingleComponent}
+					/>
 					<Redirect to="/dashboard" />
 				</Switch>
 				<ToastContainer />

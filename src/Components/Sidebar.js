@@ -21,7 +21,7 @@ class Sidebar extends Component {
 						<ul className="sidebar-nav">
 							<li className="nav-item">
 								<a
-									href="create-user"
+									href="dashboard"
 									//className="nav-link active"
 									className={
 										this.props.active === "dashboard"
@@ -47,13 +47,14 @@ class Sidebar extends Component {
 							</li>
 							<li className="nav-item">
 								<a href="/" className="nav-link with-sub">
-									<i data-feather="layers"></i> Users
+									<i data-feather="users"></i> Users
 								</a>
 								<nav className="nav">
 									<a href="create-user">Create User</a>
 									<a href="update-user">Update User</a>
 									<a href="delete-user">Delete User</a>
 									<a href="user-list">User List</a>
+									<a href="user-single">Single User</a>
 								</nav>
 							</li>
 
