@@ -25,7 +25,7 @@
 }
 .content-components .container .container {
 	padding: 0;
-	max-width: 780px !important;
+	/* max-width: 780px !important; */
 }
 .content-components pre[class*="language-"],
 .content-components code[class*="language-"] {

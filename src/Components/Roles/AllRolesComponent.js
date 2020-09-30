@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Badge } from "react-bootstrap";
 // import Select from "react-select";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
@@ -28,27 +28,143 @@ class AllUserComoponent extends Component {
 								<tbody>
 									<tr>
 										<td>Admin</td>
-										<td></td>
-										<td></td>
+										<td className="badge-group">
+											<Badge variant="danger">
+												access All
+											</Badge>
+										</td>
+										<td>
+											<div className="actions">
+												<a href="#">
+													<i data-feather="eye"></i>
+												</a>
+												<a href="#">
+													<i data-feather="edit"></i>
+												</a>
+												<a href="#">
+													<i data-feather="trash"></i>
+												</a>
+											</div>
+										</td>
 									</tr>
 
 									<tr>
 										<td>Assistant</td>
-										<td></td>
-										<td></td>
+										<td className="badge-group">
+											{" "}
+											<Badge variant="danger">
+												vehicle All
+											</Badge>{" "}
+											<Badge variant="danger">
+												passenger All
+											</Badge>
+										</td>
+										<td>
+											<div className="actions">
+												<a href="#">
+													<i data-feather="eye"></i>
+												</a>
+												<a href="#">
+													<i data-feather="edit"></i>
+												</a>
+												<a href="#">
+													<i data-feather="trash"></i>
+												</a>
+											</div>
+										</td>
+									</tr>
+									<tr>
+										<td>Bibi</td>
+										<td className="badge-group">
+											<Badge variant="danger">
+												access All
+											</Badge>
+											<Badge variant="danger">
+												passenger add
+											</Badge>
+											<Badge variant="danger">
+												merchant delete
+											</Badge>
+											<Badge variant="danger">
+												both add
+											</Badge>
+										</td>
+										<td>
+											<div className="actions">
+												<a href="#">
+													<i data-feather="eye"></i>
+												</a>
+												<a href="#">
+													<i data-feather="edit"></i>
+												</a>
+												<a href="#">
+													<i data-feather="trash"></i>
+												</a>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td>Employee</td>
 										<td></td>
-										<td></td>
+										<td>
+											<div className="actions">
+												<a href="#">
+													<i data-feather="eye"></i>
+												</a>
+												<a href="#">
+													<i data-feather="edit"></i>
+												</a>
+												<a href="#">
+													<i data-feather="trash"></i>
+												</a>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td>Merchant</td>
-										<td></td>
+										<td className="badge-group">
+											<Badge variant="danger">
+												access All
+											</Badge>
+											<Badge variant="danger">
+												passenger add
+											</Badge>
+											<Badge variant="danger">
+												merchant delete
+											</Badge>
+											<Badge variant="danger">
+												both add
+											</Badge>
+										</td>
+										<td>
+											<div className="actions">
+												<a href="#">
+													<i data-feather="eye"></i>
+												</a>
+												<a href="#">
+													<i data-feather="edit"></i>
+												</a>
+												<a href="#">
+													<i data-feather="trash"></i>
+												</a>
+											</div>
+										</td>
 									</tr>
 									<tr>
 										<td colSpan="2">Passenger</td>
-										<td></td>
+										<td>
+											<div className="actions">
+												<a href="#">
+													<i data-feather="eye"></i>
+												</a>
+												<a href="#">
+													<i data-feather="edit"></i>
+												</a>
+												<a href="#">
+													<i data-feather="trash"></i>
+												</a>
+											</div>
+										</td>
 									</tr>
 								</tbody>
 							</Table>
