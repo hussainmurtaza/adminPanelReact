@@ -102,12 +102,29 @@ class Sidebar extends Component {
 							</li>
 
 							<li className="nav-item">
-								<a href="/" className="nav-link with-sub">
+								<a
+									href="all-roles"
+									className={
+										this.props.active === "all-roles"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
 									<i data-feather="globe"></i>
 									Roles
 								</a>
 								<nav className="nav">
-									<a href="all-roles"> All Roles</a>
+									<a
+										href="all-roles"
+										className={
+											this.props.active === "all-roles"
+												? "active"
+												: ""
+										}
+									>
+										{" "}
+										All Roles
+									</a>
 									{/* <a href="upate-roles">Update Roles</a> */}
 								</nav>
 							</li>

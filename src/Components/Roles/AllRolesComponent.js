@@ -11,7 +11,7 @@ class AllUserComoponent extends Component {
 		return (
 			<React.Fragment>
 				<Headers />
-				<Sidebar />
+				<Sidebar active="all-roles" />
 				<div className="content content-components">
 					<div className="container">
 						<Container>
