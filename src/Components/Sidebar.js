@@ -34,27 +34,70 @@ class Sidebar extends Component {
 							</li>
 							<li className="nav-item">
 								<a
-									href="create-user"
-									//className="nav-link"
+									href="/"
 									className={
-										this.props.active === "create-user"
-											? "active nav-link"
-											: "nav-link"
+										this.props.active === "create-user" ||
+										this.props.active === "delete-user" ||
+										this.props.active === "update-user" ||
+										this.props.active === "user-list" ||
+										this.props.active === "user-single"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
 									}
 								>
-									<i data-feather="grid"></i> Create Site
-								</a>
-							</li>
-							<li className="nav-item">
-								<a href="/" className="nav-link with-sub">
 									<i data-feather="users"></i> Users
 								</a>
 								<nav className="nav">
-									<a href="create-user">Create User</a>
-									<a href="update-user">Update User</a>
-									<a href="delete-user">Delete User</a>
-									<a href="user-list">User List</a>
-									<a href="user-single">Single User</a>
+									<a
+										href="create-user"
+										className={
+											this.props.active === "create-user"
+												? "active"
+												: ""
+										}
+									>
+										Create User
+									</a>
+									<a
+										href="update-user"
+										className={
+											this.props.active === "update-user"
+												? "active"
+												: ""
+										}
+									>
+										Update User
+									</a>
+									<a
+										href="delete-user"
+										className={
+											this.props.active === "delete-user"
+												? "active"
+												: ""
+										}
+									>
+										Delete User
+									</a>
+									<a
+										href="user-list"
+										className={
+											this.props.active === "user-list"
+												? "active"
+												: ""
+										}
+									>
+										User List
+									</a>
+									<a
+										href="user-single"
+										className={
+											this.props.active === "user-single"
+												? "active"
+												: ""
+										}
+									>
+										Single User
+									</a>
 								</nav>
 							</li>
 							{/* <li className="nav-item show">
