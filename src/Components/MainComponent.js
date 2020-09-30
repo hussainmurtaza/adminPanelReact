@@ -8,8 +8,8 @@ import CreateUserComponent from "Components/Users/CreateUserComponent";
 import UpdateUserComponent from "Components/Users/UpdateUserComponent";
 import DeleteUserComponent from "Components/Users/DeleteUserComponent";
 import UserListComponent from "Components/Users/UserListComponent";
-import AllRolesComponent from "Components/Roles/AllRolesComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
+import AllRolesComponent from "Components/Roles/AllRolesComponent";
 
 class Main extends Component {
 	render() {
@@ -84,13 +84,13 @@ class Main extends Component {
 					/>
 					<PrivateRoute
 						exact
-						path="/all-roles"
-						component={AllRolesComponent}
+						path="/user-single"
+						component={UserSingleComponent}
 					/>
 					<PrivateRoute
 						exact
-						path="/user-single"
-						component={UserSingleComponent}
+						path="/all-roles"
+						component={AllRolesComponent}
 					/>
 					<Redirect to="/dashboard" />
 				</Switch>

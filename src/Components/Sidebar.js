@@ -65,7 +65,7 @@ class Sidebar extends Component {
 								</a>
 								<nav className="nav">
 									<a href="all-roles"> All Roles</a>
-									<a href="upate-roles">Update Roles</a>
+									{/* <a href="upate-roles">Update Roles</a> */}
 								</nav>
 							</li>
 							{/* <li className="nav-item show">
