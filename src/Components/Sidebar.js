@@ -6,9 +6,9 @@ class Sidebar extends Component {
 			<React.Fragment>
 				<div
 					id="sidebarMenu"
-					class="sidebar sidebar-fixed sidebar-components"
+					className="sidebar sidebar-fixed sidebar-components"
 				>
-					<div class="sidebar-header">
+					<div className="sidebar-header">
 						<a href="/" id="mainMenuOpen">
 							<i data-feather="menu"></i>
 						</a>
@@ -17,24 +17,50 @@ class Sidebar extends Component {
 							<i data-feather="x"></i>
 						</a>
 					</div>
-					<div class="sidebar-body">
-						<ul class="sidebar-nav">
-							<li class="nav-label mg-b-15">Browse Components</li>
-							<li class="nav-item">
-								<a href="create-user" class="nav-link active">
+					<div className="sidebar-body">
+						<ul className="sidebar-nav">
+							<li className="nav-item">
+								<a
+									href="create-user"
+									//className="nav-link active"
+									className={
+										this.props.active === "dashboard"
+											? "active nav-link"
+											: "nav-link"
+									}
+								>
 									<i data-feather="layout"></i> Dashboard
 								</a>
 							</li>
-							<li class="nav-item">
-								<a href="create-user" class="nav-link">
+							<li className="nav-item">
+								<a
+									href="create-user"
+									//className="nav-link"
+									className={
+										this.props.active === "create-user"
+											? "active nav-link"
+											: "nav-link"
+									}
+								>
 									<i data-feather="grid"></i> Create Site
 								</a>
 							</li>
-							{/* <li class="nav-item show">
-								<a href="/" class="nav-link with-sub">
+							<li className="nav-item">
+								<a href="/" className="nav-link with-sub">
+									<i data-feather="layers"></i> Users
+								</a>
+								<nav className="nav">
+									<a href="create-user">Create User</a>
+									<a href="update-user">Update User</a>
+									<a href="delete-user">Delete User</a>
+									<a href="user-list">User List</a>
+								</nav>
+							</li>
+							{/* <li className="nav-item show">
+								<a href="/" className="nav-link with-sub">
 									<i data-feather="layers"></i> UI Elements
 								</a>
-								<nav class="nav">
+								<nav className="nav">
 									<a href="el-accordion.html">Accordion</a>
 									<a href="el-alerts.html">Alerts</a>
 									<a href="el-avatar.html">Avatar</a>
@@ -82,11 +108,11 @@ class Sidebar extends Component {
 									</a>
 								</nav>
 							</li>
-							<li class="nav-item show">
-								<a href="/" class="nav-link with-sub">
+							<li className="nav-item show">
+								<a href="/" className="nav-link with-sub">
 									<i data-feather="package"></i> Utilities
 								</a>
-								<nav class="nav">
+								<nav className="nav">
 									<a href="util-animation.html">Animation</a>
 									<a href="util-background.html">
 										Background
@@ -106,11 +132,11 @@ class Sidebar extends Component {
 									<a href="util-extras.html">Extras</a>
 								</nav>
 							</li>
-							<li class="nav-item show">
-								<a href="/" class="nav-link with-sub">
+							<li className="nav-item show">
+								<a href="/" className="nav-link with-sub">
 									<i data-feather="inbox"></i> Forms
 								</a>
-								<nav class="nav">
+								<nav className="nav">
 									<a href="form-elements.html">
 										Form Elements
 									</a>
@@ -141,11 +167,11 @@ class Sidebar extends Component {
 									<a href="form-search.html">Search</a>
 								</nav>
 							</li>
-							<li class="nav-item show">
-								<a href="/" class="nav-link with-sub">
+							<li className="nav-item show">
+								<a href="/" className="nav-link with-sub">
 									<i data-feather="pie-chart"></i> Charts
 								</a>
-								<nav class="nav">
+								<nav className="nav">
 									<a href="chart-flot.html">Flot</a>
 									<a href="chart-chartjs.html">ChartJS</a>
 									<a href="chart-peity.html">Peity</a>
@@ -153,11 +179,11 @@ class Sidebar extends Component {
 									<a href="chart-morris.html">Morris</a>
 								</nav>
 							</li>
-							<li class="nav-item show">
-								<a href="/" class="nav-link with-sub">
+							<li className="nav-item show">
+								<a href="/" className="nav-link with-sub">
 									<i data-feather="map-pin"></i> Maps
 								</a>
-								<nav class="nav">
+								<nav className="nav">
 									<a href="map-google.html">Google Maps</a>
 									<a href="map-leaflet.html">Leaflet Maps</a>
 									<a href="map-vector.html">Vector Maps</a>

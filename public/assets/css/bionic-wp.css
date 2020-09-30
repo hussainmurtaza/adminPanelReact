@@ -1,12 +1,35 @@
 /******General CSS***********/
+.content-components {
+	font-size: 16px;
+	padding: 20px;
+	position: relative;
+	color: #1b2e4b;
+	letter-spacing: -0.2px;
+}
+@media (min-width: 992px) {
+	.content-components {
+		padding: 25px;
+		margin-top: 60px;
+		margin-left: 240px;
+	}
+}
+@media (min-width: 1200px) {
+	.content-components {
+		padding: 30px;
+		margin-right: 240px;
+	}
+}
 .content-components .container {
 	padding: 0;
 	max-width: 780px;
 }
-.content-components {
-	margin-right: 240px;
-	margin-top: 60px;
-	margin-left: 240px;
+.content-components pre[class*="language-"],
+.content-components code[class*="language-"] {
+	border-color: rgba(72, 94, 144, 0.16);
+	font-family: "Roboto Mono", monospace;
+	font-size: 12px;
+	letter-spacing: normal;
+	background-color: #f8f9fc;
 }
 
 .logo {

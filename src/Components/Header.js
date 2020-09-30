@@ -17,7 +17,7 @@ class Header extends Component {
 							/>
 						</a>
 					</div>
-					<div id="navbarMenu" class="navbar-menu-wrapper">
+					{/* <div id="navbarMenu" class="navbar-menu-wrapper">
 						<div class="navbar-menu-header">
 							<a href="/" class="df-logo">
 								<img
@@ -281,33 +281,7 @@ class Header extends Component {
 							</li>
 						</ul>
 					</div>
-					<div class="navbar-right">
-						{/* <a
-							href="http://dribbble.com/themepixels"
-							class="btn btn-social"
-						>
-							<i class="fab fa-dribbble"></i>
-						</a>
-						<a
-							href="https://github.com/themepixels"
-							class="btn btn-social"
-						>
-							<i class="fab fa-github"></i>
-						</a>
-						<a
-							href="https://twitter.com/themepixels"
-							class="btn btn-social"
-						>
-							<i class="fab fa-twitter"></i>
-						</a>
-						<a
-							href="https://themeforest.net/item/azia-responsive-bootstrap-4-dashboard-template/22983790"
-							class="btn btn-buy"
-						>
-							<i data-feather="shopping-bag"></i>{" "}
-							<span>Buy Now</span>
-						</a> */}
-					</div>
+					<div class="navbar-right"></div> */}
 				</header>
 			</React.Fragment>
 		);

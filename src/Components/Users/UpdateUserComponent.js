@@ -1,79 +1,106 @@
 import React, { Component } from "react";
+import { Row, Col } from "react-bootstrap";
+import Select from "react-select";
+import Headers from "Components/Header";
+import Sidebar from "Components/Sidebar";
 
 class UpdateUserComponent extends Component {
 	render() {
+		const options = [
+			{ value: "purple", label: "Purple" },
+			{ value: "orange", label: "Orange" },
+			{ value: "yellow", label: "Yellow" },
+			{ value: "green", label: "Green" },
+			{ value: "forest", label: "Forest" },
+			{ value: "slate", label: "Slate" },
+			{ value: "silver", label: "Silver" },
+		];
 		return (
-			<div class="content">
-				<div class="container">
-					<div class="media align-items-stretch justify-content-center ht-100p">
-						<div class="sign-wrapper mg-lg-r-50 mg-xl-r-60">
-							<div class="pd-t-20 wd-100p">
-								<h4 class="tx-color-01 mg-b-5">Update User</h4>
+			<React.Fragment>
+				<Headers />
+				<Sidebar active="create-user" />
 
-								<div class="form-group">
-									<label>Firstname</label>
-									<input
-										type="text"
-										class="form-control"
-										placeholder="Enter your firstname"
-									/>
-								</div>
-								<div class="form-group">
-									<label>Lastname</label>
-									<input
-										type="text"
-										class="form-control"
-										placeholder="Enter your lastname"
-									/>
-								</div>
-								<div class="form-group">
-									<div class="d-flex justify-content-between mg-b-5">
-										<label class="mg-b-0-f">Password</label>
-									</div>
-									<input
-										type="password"
-										class="form-control"
-										placeholder="Enter your password"
-									/>
-								</div>
-								<div class="form-group">
-									<div class="d-flex justify-content-between mg-b-5">
-										<label class="mg-b-0-f">
-											Confirm Password
-										</label>
-									</div>
-									<input
-										type="password"
-										class="form-control"
-										placeholder="Enter Confirm password"
-									/>
-								</div>
-								<div class="form-group">
-									<label>Email address</label>
-									<input
-										type="email"
-										class="form-control"
-										placeholder="Enter your email address"
-									/>
-								</div>
-
-								<button class="btn btn-brand-02 btn-block">
-									Update User
-								</button>
-							</div>
-						</div>
-						<div class="media-body pd-y-30 pd-lg-x-50 pd-xl-x-60 align-items-center d-none d-lg-flex pos-relative">
-							<div class="mx-lg-wd-500 mx-xl-wd-550">
-								<img
-									src="/assets/img/login-form.png"
-									className="img-fluid"
-									alt="Login Form"
+				<div className="content content-components">
+					<div className="container">
+						<h4 className="tx-color-01 mg-b-15">Update User</h4>
+						<Row>
+							<Col sm={6} className="form-group">
+								<label>Firstname</label>
+								<input
+									type="text"
+									className="form-control"
+									placeholder="Enter your firstname"
 								/>
-							</div>
-						</div>
+							</Col>
+							<Col sm={6} className="form-group">
+								<label>Lastname</label>
+								<input
+									type="text"
+									className="form-control"
+									placeholder="Enter your lastname"
+								/>
+							</Col>
+							<Col sm={6} className="form-group">
+								<div className="d-flex justify-content-between mg-b-5">
+									<label className="mg-b-0-f">Password</label>
+								</div>
+								<input
+									type="password"
+									className="form-control"
+									placeholder="Enter your password"
+								/>
+							</Col>
+							<Col sm={6} className="form-group">
+								<div className="d-flex justify-content-between mg-b-5">
+									<label className="mg-b-0-f">
+										Confirm Password
+									</label>
+								</div>
+								<input
+									type="password"
+									className="form-control"
+									placeholder="Enter Confirm password"
+								/>
+							</Col>
+							<Col sm={12} className="form-group">
+								<label>Email address</label>
+								<input
+									type="email"
+									className="form-control"
+									placeholder="Enter your email address"
+								/>
+							</Col>
+							<Col sm={6} className="form-group">
+								<label>Assign Roles</label>
+								<Select
+									isMulti
+									name="colors"
+									options={options}
+									classNameName="basic-multi-select"
+									classNameNamePrefix="select"
+									placeholder="Select Roles"
+								/>
+							</Col>
+							<Col sm={6} className="form-group">
+								<label>Assign Permissions</label>
+								<Select
+									isMulti
+									name="colors"
+									options={options}
+									classNameName="basic-multi-select"
+									classNameNamePrefix="select"
+									placeholder="Select Permissions"
+								/>
+							</Col>
+							<Col sm={12}>
+								<button className="btn btn-brand-02 btn-block">
+									Create User
+								</button>
+							</Col>
+						</Row>
 					</div>
 				</div>
-			</div>
+			</React.Fragment>
 		);
 	}
 }

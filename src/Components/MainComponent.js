@@ -7,6 +7,7 @@ import Dashboard from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/CreateUserComponent";
 import UpdateUserComponent from "Components/Users/UpdateUserComponent";
 import DeleteUserComponent from "Components/Users/DeleteUserComponent";
+import UserListComponent from "Components/Users/UserListComponent";
 
 class Main extends Component {
 	render() {
@@ -68,6 +69,11 @@ class Main extends Component {
 						exact
 						path="/update-user"
 						component={UpdateUserComponent}
+					/>
+					<GuestRoute
+						exact
+						path="/user-list"
+						component={UserListComponent}
 					/>
 					<Redirect to="/dashboard" />
 				</Switch>
