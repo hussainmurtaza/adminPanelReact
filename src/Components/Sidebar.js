@@ -56,6 +56,17 @@ class Sidebar extends Component {
 									<a href="user-list">User List</a>
 								</nav>
 							</li>
+
+							<li className="nav-item">
+								<a href="/" className="nav-link with-sub">
+									<i data-feather="globe"></i>
+									Roles
+								</a>
+								<nav className="nav">
+									<a href="all-roles"> All Roles</a>
+									<a href="upate-roles">Update Roles</a>
+								</nav>
+							</li>
 							{/* <li className="nav-item show">
 								<a href="/" className="nav-link with-sub">
 									<i data-feather="layers"></i> UI Elements

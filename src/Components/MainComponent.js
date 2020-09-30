@@ -8,6 +8,7 @@ import CreateUserComponent from "Components/Users/CreateUserComponent";
 import UpdateUserComponent from "Components/Users/UpdateUserComponent";
 import DeleteUserComponent from "Components/Users/DeleteUserComponent";
 import UserListComponent from "Components/Users/UserListComponent";
+import AllRolesComponent from "Components/Roles/AllRolesComponent";
 
 class Main extends Component {
 	render() {
@@ -55,26 +56,37 @@ class Main extends Component {
 						path="/dashboard"
 						component={Dashboard}
 					/>
-					<GuestRoute
+					<PrivateRoute
 						exact
 						path="/create-user"
 						component={CreateUserComponent}
 					/>
-					<GuestRoute
+					<PrivateRoute
 						exact
 						path="/delete-user"
 						component={DeleteUserComponent}
 					/>
-					<GuestRoute
+					<PrivateRoute
 						exact
 						path="/update-user"
 						component={UpdateUserComponent}
 					/>
-					<GuestRoute
+					<PrivateRoute
 						exact
 						path="/user-list"
 						component={UserListComponent}
 					/>
+					<PrivateRoute
+						exact
+						path="/all-user"
+						component={UserListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/all-roles"
+						component={AllRolesComponent}
+					/>
+
 					<Redirect to="/dashboard" />
 				</Switch>
 				<ToastContainer />
