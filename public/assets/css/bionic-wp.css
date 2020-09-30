@@ -22,6 +22,7 @@
 .content-components > .container {
 	padding: 0;
 	/* max-width: 780px; */
+	max-width: 100%;
 }
 .content-components .container .container {
 	padding: 0;
