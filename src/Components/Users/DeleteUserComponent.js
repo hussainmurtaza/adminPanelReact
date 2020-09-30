@@ -18,7 +18,7 @@ class DeleteUserComponent extends Component {
 		return (
 			<React.Fragment>
 				<Headers />
-				<Sidebar active="create-user" />
+				<Sidebar active="delete-user" />
 
 				<div className="content content-components">
 					<div className="container">

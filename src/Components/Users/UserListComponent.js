@@ -1,103 +1,137 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
-import Select from "react-select";
+import { Table } from "react-bootstrap";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
 
-class CreateUserComponent extends Component {
+class UserListComponent extends Component {
 	render() {
-		const options = [
-			{ value: "purple", label: "Purple" },
-			{ value: "orange", label: "Orange" },
-			{ value: "yellow", label: "Yellow" },
-			{ value: "green", label: "Green" },
-			{ value: "forest", label: "Forest" },
-			{ value: "slate", label: "Slate" },
-			{ value: "silver", label: "Silver" },
-		];
 		return (
 			<React.Fragment>
 				<Headers />
-				<Sidebar active="create-user" />
+				<Sidebar active="user-list" />
 
 				<div className="content content-components">
 					<div className="container">
-						<h4 className="tx-color-01 mg-b-15">Create New User</h4>
-						<Row>
-							<Col sm={6} className="form-group">
-								<label>Firstname</label>
-								<input
-									type="text"
-									className="form-control"
-									placeholder="Enter your firstname"
-								/>
-							</Col>
-							<Col sm={6} className="form-group">
-								<label>Lastname</label>
-								<input
-									type="text"
-									className="form-control"
-									placeholder="Enter your lastname"
-								/>
-							</Col>
-							<Col sm={6} className="form-group">
-								<div className="d-flex justify-content-between mg-b-5">
-									<label className="mg-b-0-f">Password</label>
-								</div>
-								<input
-									type="password"
-									className="form-control"
-									placeholder="Enter your password"
-								/>
-							</Col>
-							<Col sm={6} className="form-group">
-								<div className="d-flex justify-content-between mg-b-5">
-									<label className="mg-b-0-f">
-										Confirm Password
-									</label>
-								</div>
-								<input
-									type="password"
-									className="form-control"
-									placeholder="Enter Confirm password"
-								/>
-							</Col>
-							<Col sm={12} className="form-group">
-								<label>Email address</label>
-								<input
-									type="email"
-									className="form-control"
-									placeholder="Enter your email address"
-								/>
-							</Col>
-							<Col sm={6} className="form-group">
-								<label>Assign Roles</label>
-								<Select
-									isMulti
-									name="colors"
-									options={options}
-									classNameName="basic-multi-select"
-									classNameNamePrefix="select"
-									placeholder="Select Roles"
-								/>
-							</Col>
-							<Col sm={6} className="form-group">
-								<label>Assign Permissions</label>
-								<Select
-									isMulti
-									name="colors"
-									options={options}
-									classNameName="basic-multi-select"
-									classNameNamePrefix="select"
-									placeholder="Select Permissions"
-								/>
-							</Col>
-							<Col sm={12}>
-								<button className="btn btn-brand-02 btn-block">
-									Create User
-								</button>
-							</Col>
-						</Row>
+						<h4 className="tx-color-01 mg-b-15">User List</h4>
+						<div className="user-list-page">
+							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Username</th>
+										<th>Roles</th>
+										<th>Permission</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>markotto</td>
+										<td>Manager</td>
+										<td>Server</td>
+										<td className="text-center">
+											<button className="btn btn-brand-02">
+												View
+											</button>
+										</td>
+										<td className="text-center">
+											<button className="btn btn-danger">
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>markotto</td>
+										<td>developer</td>
+										<td>backend</td>
+										<td className="text-center">
+											<button className="btn btn-brand-02">
+												View
+											</button>
+										</td>
+										<td className="text-center">
+											<button className="btn btn-danger">
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>markotto</td>
+										<td>developer</td>
+										<td>frontend</td>
+										<td className="text-center">
+											<button className="btn btn-brand-02">
+												View
+											</button>
+										</td>
+										<td className="text-center">
+											<button className="btn btn-danger">
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>markotto</td>
+										<td>developer</td>
+										<td>frontend</td>
+										<td className="text-center">
+											<button className="btn btn-brand-02">
+												View
+											</button>
+										</td>
+										<td className="text-center">
+											<button className="btn btn-danger">
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>markotto</td>
+										<td>developer</td>
+										<td>frontend</td>
+										<td className="text-center">
+											<button className="btn btn-brand-02">
+												View
+											</button>
+										</td>
+										<td className="text-center">
+											<button className="btn btn-danger">
+												Delete
+											</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>markotto</td>
+										<td>developer</td>
+										<td>frontend</td>
+										<td className="text-center">
+											<button className="btn btn-brand-02">
+												View
+											</button>
+										</td>
+										<td className="text-center">
+											<button className="btn btn-danger">
+												Delete
+											</button>
+										</td>
+									</tr>
+								</tbody>
+							</Table>
+						</div>
 					</div>
 				</div>
 			</React.Fragment>
@@ -105,4 +139,4 @@ class CreateUserComponent extends Component {
 	}
 }
 
-export default CreateUserComponent;
+export default UserListComponent;

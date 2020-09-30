@@ -4,12 +4,12 @@ class Header extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<header class="navbar navbar-header navbar-header-fixed">
-					<a href="/" id="sidebarMenuOpen" class="burger-menu">
+				<header className="navbar navbar-header navbar-header-fixed">
+					<a href="/" id="sidebarMenuOpen" className="burger-menu">
 						<i data-feather="arrow-left"></i>
 					</a>
-					<div class="navbar-brand">
-						<a href="/" class="logo">
+					<div className="navbar-brand">
+						<a href="/" className="logo">
 							<img
 								src="/assets/img/logo.gif"
 								alt="logo"
@@ -17,7 +17,7 @@ class Header extends Component {
 							/>
 						</a>
 					</div>
-					<div class="navbar-right">
+					<div className="navbar-right">
 						<button
 							className="btn btn-buy"
 							onClick={() => LogoutHelper.logout()}

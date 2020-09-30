@@ -16,7 +16,7 @@ class AllUserComoponent extends Component {
 					<div className="container">
 						<Container>
 							<h4 className="tx-color-01 mg-b-15">All Roles</h4>
-							<Table className="" striped>
+							<Table striped>
 								<thead>
 									<tr>
 										{/* <th>#</th> */}

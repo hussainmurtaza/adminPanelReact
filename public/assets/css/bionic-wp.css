@@ -16,12 +16,16 @@
 @media (min-width: 1200px) {
 	.content-components {
 		padding: 30px;
-		margin-right: 240px;
+		/* margin-right: 240px; */
 	}
 }
-.content-components .container {
+.content-components > .container {
 	padding: 0;
-	max-width: 780px;
+	/* max-width: 780px; */
+}
+.content-components .container .container {
+	padding: 0;
+	max-width: 780px !important;
 }
 .content-components pre[class*="language-"],
 .content-components code[class*="language-"] {
@@ -41,6 +45,10 @@
 .sidebar {
 	background-color: #ffffff !important;
 } */
-.user-list-page .table thead th {
+/* .user-list-page .table thead th {
 	text-align: center;
+} */
+.user-list-page .table th,
+.user-list-page .table td {
+	vertical-align: middle;
 }
