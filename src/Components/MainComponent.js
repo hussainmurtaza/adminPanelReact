@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
 import Dashboard from "Components/Dashboard/DashboardComponent";
-import CreateUserComponent from "Components/Users/CreateUserComponent";
-import UpdateUserComponent from "Components/Users/UpdateUserComponent";
-import DeleteUserComponent from "Components/Users/DeleteUserComponent";
+import CreateUserComponent from "Components/Users/UserCreateComponent";
+import UpdateUserComponent from "Components/Users/UserUpdateComponent";
+import DeleteUserComponent from "Components/Users/UserDeleteComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
 
