@@ -1,26 +1,46 @@
-aside {
-    width: 204px !important;
+/******General CSS***********/
+.content-components {
+	font-size: 16px;
+	padding: 20px;
+	position: relative;
+	color: #1b2e4b;
+	letter-spacing: -0.2px;
+}
+@media (min-width: 992px) {
+	.content-components {
+		padding: 25px;
+		margin-top: 60px;
+		margin-left: 240px;
+	}
+}
+@media (min-width: 1200px) {
+	.content-components {
+		padding: 30px;
+		margin-right: 240px;
+	}
+}
+.content-components .container {
+	padding: 0;
+	max-width: 780px;
+}
+.content-components pre[class*="language-"],
+.content-components code[class*="language-"] {
+	border-color: rgba(72, 94, 144, 0.16);
+	font-family: "Roboto Mono", monospace;
+	font-size: 12px;
+	letter-spacing: normal;
+	background-color: #f8f9fc;
 }
 
-.border-circle {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto;
-    margin-top: 15px;
-    text-align: center;
-    border: 2px solid #06123b;
-    border-radius: 50%;
+.logo {
+	max-width: 160px;
 }
-
-.border-circle h2 {
-    line-height: 5;
+/* #root {
+	background-color: #f7f9fa;
 }
-.dropdown-toggle::after {
-    display: none !important;
-}
-.cursor-pointer {
-    cursor: pointer;
-}
-aside .nav-link:active {
-    color: #06123b !important;
+.sidebar {
+	background-color: #ffffff !important;
+} */
+.user-list-page .table thead th {
+	text-align: center;
 }
