@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
+import UsersAction from "Redux/V1/Users/Get/UserGetAction";
 
 class UserListComponent extends Component {
+	componentDidMount() {
+		this.props.dispatch(UsersAction.getUsers());
+	}
 	render() {
 		return (
 			<React.Fragment>
@@ -27,108 +32,25 @@ class UserListComponent extends Component {
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>Mark</td>
-											<td>Otto</td>
-											<td>markotto</td>
-											<td>Manager</td>
-											<td>Server</td>
-											<td className="text-center">
-												<button className="btn btn-brand-02">
-													View
-												</button>
-											</td>
-											<td className="text-center">
-												<button className="btn btn-danger">
-													Delete
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>markotto</td>
-											<td>developer</td>
-											<td>backend</td>
-											<td className="text-center">
-												<button className="btn btn-brand-02">
-													View
-												</button>
-											</td>
-											<td className="text-center">
-												<button className="btn btn-danger">
-													Delete
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>markotto</td>
-											<td>developer</td>
-											<td>frontend</td>
-											<td className="text-center">
-												<button className="btn btn-brand-02">
-													View
-												</button>
-											</td>
-											<td className="text-center">
-												<button className="btn btn-danger">
-													Delete
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>markotto</td>
-											<td>developer</td>
-											<td>frontend</td>
-											<td className="text-center">
-												<button className="btn btn-brand-02">
-													View
-												</button>
-											</td>
-											<td className="text-center">
-												<button className="btn btn-danger">
-													Delete
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>markotto</td>
-											<td>developer</td>
-											<td>frontend</td>
-											<td className="text-center">
-												<button className="btn btn-brand-02">
-													View
-												</button>
-											</td>
-											<td className="text-center">
-												<button className="btn btn-danger">
-													Delete
-												</button>
-											</td>
-										</tr>
-										<tr>
-											<td>Jacob</td>
-											<td>Thornton</td>
-											<td>markotto</td>
-											<td>developer</td>
-											<td>frontend</td>
-											<td className="text-center">
-												<button className="btn btn-brand-02">
-													View
-												</button>
-											</td>
-											<td className="text-center">
-												<button className="btn btn-danger">
-													Delete
-												</button>
-											</td>
-										</tr>
+										{this.props.users.map((user) => (
+											<tr>
+												<td>{user.first_name}</td>
+												<td>{user.last_name}</td>
+												<td>{user.email}</td>
+												<td>{user.status}</td>
+												<td>Server</td>
+												<td className="text-center">
+													<button className="btn btn-brand-02">
+														View
+													</button>
+												</td>
+												<td className="text-center">
+													<button className="btn btn-danger">
+														Delete
+													</button>
+												</td>
+											</tr>
+										))}
 									</tbody>
 								</Table>
 							</div>
@@ -140,4 +62,10 @@ class UserListComponent extends Component {
 	}
 }
 
-export default UserListComponent;
+const mapStateToProps = (state) => {
+	return {
+		users: state.users.users,
+	};
+};
+
+export default connect(mapStateToProps)(UserListComponent);

@@ -1,15 +1,14 @@
 import USER from "Redux/V1/Users/Get/UserGetActionType";
 
-const UserDetailsAction = {
+const UsersAction = {
 	getUsers,
 	getUsersSuccess,
 	getUsersFailed,
 };
 
-function getUsers(data) {
+function getUsers() {
 	return {
-		type: USER.GET_DETAILS,
-		request: data,
+		type: USER.GET_USERS,
 	};
 }
 function getUsersSuccess(data) {
@@ -25,4 +24,4 @@ function getUsersFailed(data) {
 	};
 }
 
-export default UserDetailsAction;
+export default UsersAction;
