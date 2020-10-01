@@ -105,7 +105,8 @@ class Sidebar extends Component {
 								<a
 									href="all-roles"
 									className={
-										this.props.active === "all-roles"
+										this.props.active === "all-roles" ||
+										this.props.active === "create-roles"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
@@ -125,7 +126,16 @@ class Sidebar extends Component {
 										{" "}
 										All Roles
 									</a>
-									{/* <a href="upate-roles">Update Roles</a> */}
+									<a
+										href="create-roles"
+										className={
+											this.props.active === "create-roles"
+												? "active"
+												: ""
+										}
+									>
+										Create Roles
+									</a>
 								</nav>
 							</li>
 							{/* <li className="nav-item show">

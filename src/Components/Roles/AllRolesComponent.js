@@ -36,23 +36,23 @@ class AllUserComoponent extends Component {
 										<td>
 											<div className="actions">
 												<a
-													href="#"
+													href="/role-info"
 													data-toggle="tooltip"
-													title="Roll Info."
+													title="Role Info."
 												>
 													<i data-feather="eye"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
-													title="Update Roll"
+													title="Update Role"
 												>
 													<i data-feather="edit"></i>
 												</a>
 												<a
 													href="#"
 													data-toggle="tooltip"
-													title="Delete Roll"
+													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
 												</a>
@@ -74,23 +74,23 @@ class AllUserComoponent extends Component {
 										<td>
 											<div className="actions">
 												<a
-													href="#"
+													href="/role-info"
 													data-toggle="tooltip"
-													title="Roll Info."
+													title="Role Info."
 												>
 													<i data-feather="eye"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
-													title="Update Roll"
+													title="Update Role"
 												>
 													<i data-feather="edit"></i>
 												</a>
 												<a
 													href="#"
 													data-toggle="tooltip"
-													title="Delete Roll"
+													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
 												</a>
@@ -116,23 +116,23 @@ class AllUserComoponent extends Component {
 										<td>
 											<div className="actions">
 												<a
-													href="#"
+													href="/role-info"
 													data-toggle="tooltip"
-													title="Roll Info."
+													title="Role Info."
 												>
 													<i data-feather="eye"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
-													title="Update Roll"
+													title="Update Role"
 												>
 													<i data-feather="edit"></i>
 												</a>
 												<a
 													href="#"
 													data-toggle="tooltip"
-													title="Delete Roll"
+													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
 												</a>
@@ -145,23 +145,23 @@ class AllUserComoponent extends Component {
 										<td>
 											<div className="actions">
 												<a
-													href="#"
+													href="/role-info"
 													data-toggle="tooltip"
-													title="Roll Info."
+													title="Role Info."
 												>
 													<i data-feather="eye"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
-													title="Update Roll"
+													title="Update Role"
 												>
 													<i data-feather="edit"></i>
 												</a>
 												<a
 													href="#"
 													data-toggle="tooltip"
-													title="Delete Roll"
+													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
 												</a>
@@ -187,23 +187,23 @@ class AllUserComoponent extends Component {
 										<td>
 											<div className="actions">
 												<a
-													href="#"
+													href="/role-info"
 													data-toggle="tooltip"
-													title="Roll Info."
+													title="Role Info."
 												>
 													<i data-feather="eye"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
-													title="Update Roll"
+													title="Update Role"
 												>
 													<i data-feather="edit"></i>
 												</a>
 												<a
 													href="#"
 													data-toggle="tooltip"
-													title="Delete Roll"
+													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
 												</a>
@@ -215,23 +215,23 @@ class AllUserComoponent extends Component {
 										<td>
 											<div className="actions">
 												<a
-													href="#"
+													href="/role-info"
 													data-toggle="tooltip"
-													title="Roll Info."
+													title="Role Info."
 												>
 													<i data-feather="eye"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
-													title="Update Roll"
+													title="Update Role"
 												>
 													<i data-feather="edit"></i>
 												</a>
 												<a
 													href="#"
 													data-toggle="tooltip"
-													title="Delete Roll"
+													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
 												</a>
