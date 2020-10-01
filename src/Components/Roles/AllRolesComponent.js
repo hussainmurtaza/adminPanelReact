@@ -35,13 +35,25 @@ class AllUserComoponent extends Component {
 										</td>
 										<td>
 											<div className="actions">
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Roll Info."
+												>
 													<i data-feather="eye"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Update Roll"
+												>
 													<i data-feather="edit"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Delete Roll"
+												>
 													<i data-feather="trash"></i>
 												</a>
 											</div>
@@ -61,13 +73,25 @@ class AllUserComoponent extends Component {
 										</td>
 										<td>
 											<div className="actions">
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Roll Info."
+												>
 													<i data-feather="eye"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Update Roll"
+												>
 													<i data-feather="edit"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Delete Roll"
+												>
 													<i data-feather="trash"></i>
 												</a>
 											</div>
@@ -91,13 +115,25 @@ class AllUserComoponent extends Component {
 										</td>
 										<td>
 											<div className="actions">
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Roll Info."
+												>
 													<i data-feather="eye"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Update Roll"
+												>
 													<i data-feather="edit"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Delete Roll"
+												>
 													<i data-feather="trash"></i>
 												</a>
 											</div>
@@ -108,13 +144,25 @@ class AllUserComoponent extends Component {
 										<td></td>
 										<td>
 											<div className="actions">
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Roll Info."
+												>
 													<i data-feather="eye"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Update Roll"
+												>
 													<i data-feather="edit"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Delete Roll"
+												>
 													<i data-feather="trash"></i>
 												</a>
 											</div>
@@ -138,13 +186,25 @@ class AllUserComoponent extends Component {
 										</td>
 										<td>
 											<div className="actions">
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Roll Info."
+												>
 													<i data-feather="eye"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Update Roll"
+												>
 													<i data-feather="edit"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Delete Roll"
+												>
 													<i data-feather="trash"></i>
 												</a>
 											</div>
@@ -154,13 +214,25 @@ class AllUserComoponent extends Component {
 										<td colSpan="2">Passenger</td>
 										<td>
 											<div className="actions">
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Roll Info."
+												>
 													<i data-feather="eye"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Update Roll"
+												>
 													<i data-feather="edit"></i>
 												</a>
-												<a href="#">
+												<a
+													href="#"
+													data-toggle="tooltip"
+													title="Delete Roll"
+												>
 													<i data-feather="trash"></i>
 												</a>
 											</div>
