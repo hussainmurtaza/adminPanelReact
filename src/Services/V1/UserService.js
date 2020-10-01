@@ -6,14 +6,14 @@ const getAll = async (data) => {
 	return response;
 };
 
-// const userBody = (data) => {
-// 	let _data = {};
-// 	//_data. = data.email;
-// 	return JSON.stringify(_data);
-// };
+const post = async (data) => {
+	const response = await Gateway.authGateway("POST", V1.auth.users);
+	return response;
+};
 
 const UserService = {
 	getAll,
+	post,
 };
 
 export default UserService;

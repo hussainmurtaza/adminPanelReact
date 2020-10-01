@@ -32,7 +32,17 @@ class Sidebar extends Component {
 									<i data-feather="layout"></i> Dashboard
 								</a>
 							</li>
-							<li className="nav-item">
+							<li
+								className={
+									this.props.active === "create-user" ||
+									this.props.active === "delete-user" ||
+									this.props.active === "update-user" ||
+									this.props.active === "user-list" ||
+									this.props.active === "user-single"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
 								<a
 									href="/"
 									className={
