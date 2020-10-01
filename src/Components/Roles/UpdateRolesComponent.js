@@ -3,6 +3,8 @@ import { Row, Col, Container, Button } from "react-bootstrap";
 import Select from "react-select";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
+import InputSelectField from "Components/Forms/Fields/InputSelectField";
+import InputField from "Components/Forms/Fields/InputField";
 
 class UpdateRolesComponent extends Component {
 	render() {
@@ -26,22 +28,16 @@ class UpdateRolesComponent extends Component {
 							<Row>
 								<Col sm={12} className="form-group">
 									<label>Roll Name</label>
-									<input
-										required
-										type="text"
-										className="form-control"
-										placeholder="Enter your firstname"
+									<InputField
+										label="Enter your firstname"
+										name="first_name"
+										required="required"
 									/>
 								</Col>
 								<Col sm={12} className="form-group">
-									<label>Assign Permissions</label>
-									<Select
-										isMulti
-										name="colors"
-										options={options}
-										classNameName="basic-multi-select"
-										classNameNamePrefix="select"
-										placeholder="Select Permissions"
+									<InputSelectField
+										placeholder="Assign Permissions"
+										name="assign_permission"
 									/>
 								</Col>
 							</Row>
