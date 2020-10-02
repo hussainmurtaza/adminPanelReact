@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
-import Select from "react-select";
+// import Select from "react-select";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
 import InputSelectField from "Components/Forms/Fields/InputSelectField";
@@ -8,15 +8,15 @@ import InputField from "Components/Forms/Fields/InputField";
 
 class UpdateRolesComponent extends Component {
 	render() {
-		const options = [
-			{ value: "purple", label: "Purple" },
-			{ value: "orange", label: "Orange" },
-			{ value: "yellow", label: "Yellow" },
-			{ value: "green", label: "Green" },
-			{ value: "forest", label: "Forest" },
-			{ value: "slate", label: "Slate" },
-			{ value: "silver", label: "Silver" },
-		];
+		// const options = [
+		// 	{ value: "purple", label: "Purple" },
+		// 	{ value: "orange", label: "Orange" },
+		// 	{ value: "yellow", label: "Yellow" },
+		// 	{ value: "green", label: "Green" },
+		// 	{ value: "forest", label: "Forest" },
+		// 	{ value: "slate", label: "Slate" },
+		// 	{ value: "silver", label: "Silver" },
+		// ];
 		return (
 			<React.Fragment>
 				<Headers />

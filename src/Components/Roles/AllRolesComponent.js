@@ -50,7 +50,7 @@ class AllUserComoponent extends Component {
 													<i data-feather="edit"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
 													title="Delete Role"
 												>
@@ -88,7 +88,7 @@ class AllUserComoponent extends Component {
 													<i data-feather="edit"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
 													title="Delete Role"
 												>
@@ -130,7 +130,7 @@ class AllUserComoponent extends Component {
 													<i data-feather="edit"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
 													title="Delete Role"
 												>
@@ -159,7 +159,7 @@ class AllUserComoponent extends Component {
 													<i data-feather="edit"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
 													title="Delete Role"
 												>
@@ -201,7 +201,7 @@ class AllUserComoponent extends Component {
 													<i data-feather="edit"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
 													title="Delete Role"
 												>
@@ -229,7 +229,7 @@ class AllUserComoponent extends Component {
 													<i data-feather="edit"></i>
 												</a>
 												<a
-													href="#"
+													href="/update-role"
 													data-toggle="tooltip"
 													title="Delete Role"
 												>
