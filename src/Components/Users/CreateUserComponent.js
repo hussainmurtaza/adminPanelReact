@@ -81,8 +81,8 @@ class CreateUserComponent extends Component {
 										isMulti
 										name="colors"
 										options={options}
-										classNameName="basic-multi-select"
-										classNameNamePrefix="select"
+										className="basic-multi-select"
+										classNamePrefix="select"
 										placeholder="Select Roles"
 									/>
 								</Col>
@@ -92,8 +92,8 @@ class CreateUserComponent extends Component {
 										isMulti
 										name="colors"
 										options={options}
-										classNameName="basic-multi-select"
-										classNameNamePrefix="select"
+										className="basic-multi-select"
+										classNamePrefix="select"
 										placeholder="Select Permissions"
 									/>
 								</Col>
