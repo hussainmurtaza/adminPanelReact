@@ -29,9 +29,17 @@ const userPostData = (data) => {
 	return JSON.stringify(_data);
 };
 
+const userDelete = async (data) => {
+	const response = await Gateway.authGateway(
+		"DELETE",
+		V1.auth.users + "/" + data
+	);
+	return response;
+};
 const UserService = {
 	getAll,
 	post,
+	userDelete,
 };
 
 export default UserService;

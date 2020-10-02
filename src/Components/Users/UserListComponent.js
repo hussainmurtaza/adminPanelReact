@@ -4,12 +4,16 @@ import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import UsersAction from "Redux/V1/Users/Get/UserGetAction";
+import UserDeleteAction from "Redux/V1/Users/Delete/UserDeleteAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class UserListComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(UsersAction.getUsers());
 	}
+	userDelete = (id) => {
+		this.props.dispatch(UserDeleteAction.deleteUser(id));
+	};
 
 	render() {
 		return (
@@ -52,7 +56,14 @@ class UserListComponent extends Component {
 													<button className="btn btn-brand-02">
 														Update
 													</button>{" "}
-													<button className="btn btn-danger">
+													<button
+														className="btn btn-danger"
+														onClick={() =>
+															this.userDelete(
+																user.id
+															)
+														}
+													>
 														Delete
 													</button>
 												</td>
