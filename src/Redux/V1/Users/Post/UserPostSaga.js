@@ -4,17 +4,18 @@ import UsersAction from "Redux/V1/Users/Post/UserPostAction";
 import UserService from "Services/V1/UserService";
 
 function* userPOST(data) {
-	console.log(data, "from saga");
-	// try {
-	// 	const response = yield UserService.post();
-	// 	if (response.success) {
-	// 		yield put(UsersAction.postUsersSuccess(response.data));
-	// 	} else {
-	// 		yield put(UsersAction.postUsersFailed(response.error));
-	// 	}
-	// } catch (error) {
-	// 	console.log(error);
-	// }
+	try {
+		const response = yield UserService.post(data.request);
+		if (response.success) {
+			yield put(UsersAction.postUsersSuccess(response.data));
+			console.log("success postUsersSuccess saga");
+		} else {
+			yield put(UsersAction.postUsersFailed(response.error));
+			console.log("postUsersFailed saga");
+		}
+	} catch (error) {
+		console.log(error, "error saga");
+	}
 }
 
 export function* UserPostSaga() {

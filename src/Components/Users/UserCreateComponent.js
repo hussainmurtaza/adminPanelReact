@@ -4,8 +4,8 @@ import Select from "react-select";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
-import PostUsersAction from "Redux/V1/Users/Post/UserPostAction";
-import UsersAction from "Redux/V1/Users/Get/UserGetAction";
+//import PostUsersAction from "Redux/V1/Users/Post/UserPostAction";
+import UsersAction from "Redux/V1/Users/Post/UserPostAction";
 
 class CreateUserComponent extends Component {
 	state = {
@@ -16,12 +16,12 @@ class CreateUserComponent extends Component {
 			password_confirmation: null,
 			email: null,
 			phone: null,
-			role_id: [],
-			permission_id: [],
+			roles: ["admin"],
+			permissions: [],
 		},
 	};
 	componentDidMount() {
-		//this.props.dispatch(UsersAction.getUsers());
+		//this.props.dispatch(PostUsersAction.postUsers());
 		// console.log(PostUsersAction.postUsers(), "Create-api");
 	}
 	handleSubmit = (e) => {
@@ -39,13 +39,11 @@ class CreateUserComponent extends Component {
 	};
 	render() {
 		const options = [
-			{ value: "purple", label: "Purple" },
-			{ value: "orange", label: "Orange" },
-			{ value: "yellow", label: "Yellow" },
-			{ value: "green", label: "Green" },
-			{ value: "forest", label: "Forest" },
-			{ value: "slate", label: "Slate" },
-			{ value: "silver", label: "Silver" },
+			{ value: "1", label: "admin" },
+			{ value: "2", label: "admin" },
+			{ value: "3", label: "admin" },
+			{ value: "4", label: "admin" },
+			{ value: "5", label: "admin" },
 		];
 		return (
 			<React.Fragment>
@@ -135,22 +133,24 @@ class CreateUserComponent extends Component {
 											<label>Assign Roles</label>
 											<Select
 												isMulti
-												name="role_id"
+												name="roles"
 												options={options}
 												classNameName="basic-multi-select"
 												classNameNamePrefix="select"
 												placeholder="Select Roles"
+												onChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Permissions</label>
 											<Select
 												isMulti
-												name="permission_id"
+												name="permissions"
 												options={options}
 												classNameName="basic-multi-select"
 												classNameNamePrefix="select"
 												placeholder="Select Permissions"
+												onChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={12}>

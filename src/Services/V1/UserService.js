@@ -7,8 +7,26 @@ const getAll = async (data) => {
 };
 
 const post = async (data) => {
-	const response = await Gateway.authGateway("POST", V1.auth.users);
+	const response = await Gateway.authGateway(
+		"POST",
+		V1.auth.users,
+		userPostData(data)
+	);
 	return response;
+};
+
+const userPostData = (data) => {
+	let _data = {};
+	_data.first_name = data.first_name;
+	_data.last_name = data.last_name;
+	_data.email = data.email;
+	_data.password = data.password;
+	_data.password_confirmation = data.password_confirmation;
+	_data.roles = data.roles;
+	// _data.roles = ["admin", "user", "support"];
+	_data.permissions = data.permissions;
+
+	return JSON.stringify(_data);
 };
 
 const UserService = {
