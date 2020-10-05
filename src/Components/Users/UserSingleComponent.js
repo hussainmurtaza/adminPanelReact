@@ -1,20 +1,39 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import Select from "react-select";
+import { Row, Col, Container, Badge } from "react-bootstrap";
+import { connect } from "react-redux";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
+import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
 
 class UpdateUserComponent extends Component {
+	state = {
+		id: "",
+	};
+
+	componentDidMount() {
+		//console.log(this.props.match.params.id);
+		//console.log(this.props.user);
+		this.props.dispatch(
+			UserDetailsAction.userDetail(this.props.match.params.id)
+		);
+	}
+
 	render() {
-		const options = [
-			{ value: "purple", label: "Purple" },
-			{ value: "orange", label: "Orange" },
-			{ value: "yellow", label: "Yellow" },
-			{ value: "green", label: "Green" },
-			{ value: "forest", label: "Forest" },
-			{ value: "slate", label: "Slate" },
-			{ value: "silver", label: "Silver" },
-		];
+		//const user = this.props.userDetails;
+		//console.log(user, "Single user detail");
+		const userRole = this.props.user.roles;
+		const userPermission = this.props.user.permissions;
+		let roleData, permissionData;
+		if (userRole) {
+			roleData = userRole.map((role) => {
+				return <React.Fragment>{role.name}</React.Fragment>;
+			});
+		}
+		if (userPermission) {
+			permissionData = userPermission.map((permissions) => {
+				return <React.Fragment>{permissions.name}</React.Fragment>;
+			});
+		}
 		return (
 			<React.Fragment>
 				<Headers />
@@ -31,6 +50,7 @@ class UpdateUserComponent extends Component {
 										type="text"
 										className="form-control"
 										placeholder="Enter your firstname"
+										value={this.props.user.first_name}
 									/>
 								</Col>
 								<Col sm={6} className="form-group">
@@ -39,61 +59,42 @@ class UpdateUserComponent extends Component {
 										type="text"
 										className="form-control"
 										placeholder="Enter your lastname"
+										value={this.props.user.last_name}
 									/>
 								</Col>
 								<Col sm={6} className="form-group">
-									<div className="d-flex justify-content-between mg-b-5">
-										<label className="mg-b-0-f">
-											Password
-										</label>
-									</div>
-									<input
-										type="password"
-										className="form-control"
-										placeholder="Enter your password"
-									/>
-								</Col>
-								<Col sm={6} className="form-group">
-									<div className="d-flex justify-content-between mg-b-5">
-										<label className="mg-b-0-f">
-											Confirm Password
-										</label>
-									</div>
-									<input
-										type="password"
-										className="form-control"
-										placeholder="Enter Confirm password"
-									/>
-								</Col>
-								<Col sm={12} className="form-group">
 									<label>Email address</label>
 									<input
 										type="email"
 										className="form-control"
 										placeholder="Enter your email address"
+										value={this.props.user.email}
 									/>
 								</Col>
 								<Col sm={6} className="form-group">
-									<label>Assign Roles</label>
-									<Select
-										isMulti
-										name="colors"
-										options={options}
-										classNameName="basic-multi-select"
-										classNameNamePrefix="select"
-										placeholder="Select Roles"
+									<label>Status</label>
+									<input
+										type="status"
+										className="form-control"
+										placeholder="Status"
+										value={this.props.user.status}
 									/>
 								</Col>
 								<Col sm={6} className="form-group">
-									<label>Assign Permissions</label>
-									<Select
-										isMulti
-										name="colors"
-										options={options}
-										classNameName="basic-multi-select"
-										classNameNamePrefix="select"
-										placeholder="Select Permissions"
-									/>
+									<label>Roles</label>
+									<div>
+										<Badge variant="primary">
+											{roleData}
+										</Badge>{" "}
+									</div>
+								</Col>
+								<Col sm={6} className="form-group">
+									<label>Permissions</label>
+									<div>
+										<Badge variant="primary">
+											{permissionData}
+										</Badge>{" "}
+									</div>
 								</Col>
 							</Row>
 						</Container>
@@ -104,4 +105,10 @@ class UpdateUserComponent extends Component {
 	}
 }
 
-export default UpdateUserComponent;
+const mapStateToProps = (state) => {
+	return {
+		user: state.user_first.user,
+	};
+};
+
+export default connect(mapStateToProps)(UpdateUserComponent);

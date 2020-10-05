@@ -22,11 +22,12 @@
 .content-components > .container {
 	padding: 0;
 	/* max-width: 780px; */
+	max-width: 100%;
 }
-.content-components .container .container {
+/* .content-components .container .container {
 	padding: 0;
-	/* max-width: 780px !important; */
-}
+	max-width: 780px !important;
+} */
 .content-components pre[class*="language-"],
 .content-components code[class*="language-"] {
 	border-color: rgba(72, 94, 144, 0.16);

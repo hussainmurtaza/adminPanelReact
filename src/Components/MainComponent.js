@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
 import Dashboard from "Components/Dashboard/DashboardComponent";
-import CreateUserComponent from "Components/Users/CreateUserComponent";
-import UpdateUserComponent from "Components/Users/UpdateUserComponent";
-import DeleteUserComponent from "Components/Users/DeleteUserComponent";
+import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
 import AllRolesComponent from "Components/Roles/AllRolesComponent";
@@ -61,33 +59,18 @@ class Main extends Component {
 					/>
 					<PrivateRoute
 						exact
+						path="/users"
+						component={UserListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/user/:id"
+						component={UserSingleComponent}
+					/>
+					<PrivateRoute
+						exact
 						path="/create-user"
 						component={CreateUserComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/delete-user"
-						component={DeleteUserComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/update-user"
-						component={UpdateUserComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/user-list"
-						component={UserListComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/all-user"
-						component={UserListComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/user-single"
-						component={UserSingleComponent}
 					/>
 					<PrivateRoute
 						exact
