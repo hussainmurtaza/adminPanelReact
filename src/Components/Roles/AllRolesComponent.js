@@ -1,26 +1,23 @@
 import React, { Component } from "react";
-import { Container, Badge } from "react-bootstrap";
-// import Select from "react-select";
-import Headers from "Components/Header";
+import { Badge } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import Table from "react-bootstrap/Table";
-import "../../../src/Assets/css/roles.css";
+import "Assets/css/roles.css";
+import TemplateMain from "Templates/TemplateMain";
 
 class AllUserComoponent extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Headers />
-				<Sidebar active="all-roles" />
-				<div className="content content-components">
-					<div className="container">
-						<Container>
+				<TemplateMain>
+					<Sidebar active="all-roles" />
+					<div className="content content-components">
+						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">All Roles</h4>
-							<Table striped>
+							<Table striped bordered hover>
 								<thead>
 									<tr>
-										{/* <th>#</th> */}
-										<th> Name</th>
+										<th>Name</th>
 										<th>Permissions</th>
 										<th>Actions</th>
 									</tr>
@@ -240,9 +237,9 @@ class AllUserComoponent extends Component {
 									</tr>
 								</tbody>
 							</Table>
-						</Container>
+						</div>
 					</div>
-				</div>
+				</TemplateMain>
 			</React.Fragment>
 		);
 	}
