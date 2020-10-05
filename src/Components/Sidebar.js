@@ -73,9 +73,16 @@ class Sidebar extends Component {
 									</a>
 								</nav>
 							</li>
-							<li className="nav-item">
+							<li
+								className={
+									this.props.active === "all-roles" ||
+									this.props.active === "create-roles"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
 								<a
-									href="all-roles"
+									href="/"
 									className={
 										this.props.active === "all-roles" ||
 										this.props.active === "create-roles"
@@ -88,7 +95,7 @@ class Sidebar extends Component {
 								</a>
 								<nav className="nav">
 									<a
-										href="all-roles"
+										href="/all-roles"
 										className={
 											this.props.active === "all-roles"
 												? "active"
@@ -99,7 +106,7 @@ class Sidebar extends Component {
 										All Roles
 									</a>
 									<a
-										href="create-roles"
+										href="/create-roles"
 										className={
 											this.props.active === "create-roles"
 												? "active"

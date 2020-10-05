@@ -37,7 +37,7 @@ class UpdateUserComponent extends Component {
 		return (
 			<React.Fragment>
 				<Headers />
-				<Sidebar active="user-single" />
+				<Sidebar active="users" />
 
 				<div className="content content-components">
 					<div className="container">
