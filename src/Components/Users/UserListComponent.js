@@ -53,15 +53,15 @@ class UserListComponent extends Component {
 												<td className="text-center">
 													<Link
 														to={"/user/" + user.id}
-														className="btn btn-brand-02"
+														className="btn btn-brand-02 btn-sm"
 													>
 														View
 													</Link>{" "}
-													<button className="btn btn-brand-02">
+													<button className="btn btn-brand-02 btn-sm">
 														Update
 													</button>{" "}
 													<button
-														className="btn btn-danger"
+														className="btn btn-danger btn-sm"
 														onClick={() =>
 															this.userDelete(
 																user.id
