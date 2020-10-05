@@ -6,6 +6,7 @@ import TemplateMain from "Templates/TemplateMain";
 import UsersAction from "Redux/V1/Users/Get/UserGetAction";
 import UserDeleteAction from "Redux/V1/Users/Delete/UserDeleteAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import { Link } from "react-router-dom";
 
 class UserListComponent extends Component {
 	componentDidMount() {
@@ -19,7 +20,7 @@ class UserListComponent extends Component {
 		return (
 			<React.Fragment>
 				<TemplateMain>
-					<Sidebar active="user-list" />
+					<Sidebar active="users" />
 
 					<div className="content content-components">
 						<div className="container">
@@ -32,7 +33,7 @@ class UserListComponent extends Component {
 											<th>Last Name</th>
 											<th>Email</th>
 											<th>Status</th>
-											<th>created At</th>
+											<th>Created At</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -50,9 +51,12 @@ class UserListComponent extends Component {
 												</td>
 
 												<td className="text-center">
-													<button className="btn btn-brand-02">
+													<Link
+														to={"/user/" + user.id}
+														className="btn btn-brand-02"
+													>
 														View
-													</button>{" "}
+													</Link>{" "}
 													<button className="btn btn-brand-02">
 														Update
 													</button>{" "}

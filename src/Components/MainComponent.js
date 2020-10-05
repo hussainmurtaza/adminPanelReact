@@ -5,8 +5,6 @@ import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
 import Dashboard from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
-import UpdateUserComponent from "Components/Users/UserUpdateComponent";
-import DeleteUserComponent from "Components/Users/UserDeleteComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
 
@@ -58,28 +56,18 @@ class Main extends Component {
 					/>
 					<PrivateRoute
 						exact
-						path="/create-user"
-						component={CreateUserComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/delete-user"
-						component={DeleteUserComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/update-user"
-						component={UpdateUserComponent}
-					/>
-					<PrivateRoute
-						exact
-						path="/user-list"
+						path="/users"
 						component={UserListComponent}
 					/>
 					<PrivateRoute
 						exact
-						path="/user-single"
+						path="/user/:id"
 						component={UserSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/create-user"
+						component={CreateUserComponent}
 					/>
 					<Redirect to="/dashboard" />
 				</Switch>

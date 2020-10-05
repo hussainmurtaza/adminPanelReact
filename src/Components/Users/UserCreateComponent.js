@@ -4,7 +4,6 @@ import Select from "react-select";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
-//import PostUsersAction from "Redux/V1/Users/Post/UserPostAction";
 import UsersAction from "Redux/V1/Users/Post/UserPostAction";
 
 class CreateUserComponent extends Component {
@@ -17,7 +16,7 @@ class CreateUserComponent extends Component {
 			email: null,
 			phone: null,
 			roles: ["admin"],
-			permissions: [],
+			permissions: ["access_all"],
 		},
 	};
 	componentDidMount() {
@@ -38,13 +37,7 @@ class CreateUserComponent extends Component {
 		console.log(this.state);
 	};
 	render() {
-		const options = [
-			{ value: "1", label: "admin" },
-			{ value: "2", label: "admin" },
-			{ value: "3", label: "admin" },
-			{ value: "4", label: "admin" },
-			{ value: "5", label: "admin" },
-		];
+		const options = [{ value: "1", label: "admin" }];
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -138,7 +131,7 @@ class CreateUserComponent extends Component {
 												classNameName="basic-multi-select"
 												classNameNamePrefix="select"
 												placeholder="Select Roles"
-												onChange={this.handleChange}
+												//onChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
@@ -146,11 +139,11 @@ class CreateUserComponent extends Component {
 											<Select
 												isMulti
 												name="permissions"
-												options={options}
+												options=""
 												classNameName="basic-multi-select"
 												classNameNamePrefix="select"
 												placeholder="Select Permissions"
-												onChange={this.handleChange}
+												//onChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={12}>

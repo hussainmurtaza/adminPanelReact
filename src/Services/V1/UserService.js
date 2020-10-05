@@ -6,6 +6,14 @@ const getAll = async (data) => {
 	return response;
 };
 
+const get = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		V1.auth.users + "/" + data
+	);
+	return response;
+};
+
 const post = async (data) => {
 	const response = await Gateway.authGateway(
 		"POST",
@@ -38,6 +46,7 @@ const userDelete = async (data) => {
 };
 const UserService = {
 	getAll,
+	get,
 	post,
 	userDelete,
 };
