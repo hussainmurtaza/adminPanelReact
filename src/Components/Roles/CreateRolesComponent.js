@@ -1,20 +1,30 @@
 import React, { Component } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
-import Select from "react-select";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
+import InputField from "Components/Forms/Fields/InputField";
+import InputSelectField from "Components/Forms/Fields/InputSelectField";
 
 class CreateRolesComponent extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			form: {
+				first_name: "",
+			},
+			err: [],
+		};
+	}
 	render() {
-		const options = [
-			{ value: "purple", label: "Purple" },
-			{ value: "orange", label: "Orange" },
-			{ value: "yellow", label: "Yellow" },
-			{ value: "green", label: "Green" },
-			{ value: "forest", label: "Forest" },
-			{ value: "slate", label: "Slate" },
-			{ value: "silver", label: "Silver" },
-		];
+		// const options = [
+		// 	{ value: "purple", label: "Purple" },
+		// 	{ value: "orange", label: "Orange" },
+		// 	{ value: "yellow", label: "Yellow" },
+		// 	{ value: "green", label: "Green" },
+		// 	{ value: "forest", label: "Forest" },
+		// 	{ value: "slate", label: "Slate" },
+		// 	{ value: "silver", label: "Silver" },
+		// ];
 		return (
 			<React.Fragment>
 				<Headers />
@@ -25,29 +35,28 @@ class CreateRolesComponent extends Component {
 							<h4 className="tx-color-01 mg-b-15">
 								Create New Roles
 							</h4>
-							<Row>
-								<Col sm={12} className="form-group">
-									<label>Role Name</label>
-									<input
-										required
-										type="text"
-										className="form-control"
-										placeholder="Enter your firstname"
-									/>
-								</Col>
-								<Col sm={12} className="form-group">
-									<label>Assign Permissions</label>
-									<Select
-										isMulti
-										name="colors"
-										options={options}
-										classNameName="basic-multi-select"
-										classNameNamePrefix="select"
-										placeholder="Select Permissions"
-									/>
-								</Col>
-							</Row>
-							<Button variant="primary">Create</Button>{" "}
+							<form>
+								<Row>
+									<Col sm={12} className="form-group">
+										<InputField
+											label="Enter your firstname"
+											name="first_name"
+											required="required"
+										/>
+									</Col>
+									<Col sm={12} className="form-group">
+										<InputSelectField
+											placeholder="Assign Permissions"
+											name="assign_permission"
+										/>
+									</Col>
+									<Col sm={12}>
+										<Button type="submit" variant="primary">
+											Create
+										</Button>
+									</Col>
+								</Row>
+							</form>
 						</Container>
 					</div>
 				</div>
