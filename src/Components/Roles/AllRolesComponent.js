@@ -43,6 +43,7 @@ class AllRoleComponent extends Component {
 													title="Role Info."
 												>
 													<i data-feather="eye"></i>
+													View
 												</a>
 												<a
 													href="/update-role"
@@ -50,6 +51,7 @@ class AllRoleComponent extends Component {
 													title="Update Role"
 												>
 													<i data-feather="edit"></i>
+													Edit
 												</a>
 												<a
 													href="/update-role"
@@ -57,6 +59,7 @@ class AllRoleComponent extends Component {
 													title="Delete Role"
 												>
 													<i data-feather="trash"></i>
+													Delete
 												</a>
 											</td>
 										</tr>
