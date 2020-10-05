@@ -73,6 +73,50 @@ class Sidebar extends Component {
 									</a>
 								</nav>
 							</li>
+							<li
+								className={
+									this.props.active === "all-roles" ||
+									this.props.active === "create-roles"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "all-roles" ||
+										this.props.active === "create-roles"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="globe"></i>
+									Roles
+								</a>
+								<nav className="nav">
+									<a
+										href="all-roles"
+										className={
+											this.props.active === "all-roles"
+												? "active"
+												: ""
+										}
+									>
+										{" "}
+										All Roles
+									</a>
+									<a
+										href="create-roles"
+										className={
+											this.props.active === "create-roles"
+												? "active"
+												: ""
+										}
+									>
+										Create Roles
+									</a>
+								</nav>
+							</li>
 						</ul>
 					</div>
 				</div>

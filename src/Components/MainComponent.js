@@ -7,7 +7,10 @@ import Dashboard from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
-
+import AllRolesComponent from "Components/Roles/AllRolesComponent";
+import CreateRolesComponent from "Components/Roles/CreateRolesComponent";
+import RolesInfoComponent from "Components/Roles/RolesInfoComponent";
+import UpdateRolesComponent from "Components/Roles/UpdateRolesComponent";
 class Main extends Component {
 	render() {
 		const loggedIn = this.props.Auth.isAuthenticated;
@@ -69,6 +72,27 @@ class Main extends Component {
 						path="/create-user"
 						component={CreateUserComponent}
 					/>
+					<PrivateRoute
+						exact
+						path="/all-roles"
+						component={AllRolesComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/create-roles"
+						component={CreateRolesComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/role-info"
+						component={RolesInfoComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/update-role"
+						component={UpdateRolesComponent}
+					/>
+
 					<Redirect to="/dashboard" />
 				</Switch>
 				<ToastContainer />
