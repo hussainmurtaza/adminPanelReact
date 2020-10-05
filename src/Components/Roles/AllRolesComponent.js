@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import { Badge } from "react-bootstrap";
+// import { Badge } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import Table from "react-bootstrap/Table";
 import "Assets/css/roles.css";
 import TemplateMain from "Templates/TemplateMain";
+import { connect } from "react-redux";
+import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
 
-class AllUserComoponent extends Component {
+class AllRoleComponent extends Component {
+	componentDidMount() {
+		this.props.dispatch(RolesAction.getRoles());
+	}
 	render() {
 		return (
 			<React.Fragment>
@@ -18,12 +23,45 @@ class AllUserComoponent extends Component {
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th>Permissions</th>
+										{/* <th>Permissions</th> */}
 										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
+									{this.props.roles.map((role) => (
+										<tr>
+											<td>{role.name}</td>
+											{/* <td className="badge-group">
+												<Badge variant="danger">
+													{role.permissions}
+												</Badge>{" "}
+											</td> */}
+											<td className="actions">
+												<a
+													href="/role-info"
+													data-toggle="tooltip"
+													title="Role Info."
+												>
+													<i data-feather="eye"></i>
+												</a>
+												<a
+													href="/update-role"
+													data-toggle="tooltip"
+													title="Update Role"
+												>
+													<i data-feather="edit"></i>
+												</a>
+												<a
+													href="/update-role"
+													data-toggle="tooltip"
+													title="Delete Role"
+												>
+													<i data-feather="trash"></i>
+												</a>
+											</td>
+										</tr>
+									))}
+									{/* <tr>
 										<td>Admin</td>
 										<td className="badge-group">
 											<Badge variant="danger">
@@ -234,7 +272,7 @@ class AllUserComoponent extends Component {
 												</a>
 											</div>
 										</td>
-									</tr>
+									</tr> */}
 								</tbody>
 							</Table>
 						</div>
@@ -245,4 +283,10 @@ class AllUserComoponent extends Component {
 	}
 }
 
-export default AllUserComoponent;
+const mapStateToProps = (state) => {
+	return {
+		roles: state.roles.roles,
+	};
+};
+
+export default connect(mapStateToProps)(AllRoleComponent);

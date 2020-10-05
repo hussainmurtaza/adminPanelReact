@@ -10,15 +10,15 @@ function* userPOST(data) {
 		if (response.success) {
 			ToastHelper.success(response.message);
 			yield put(UsersAction.postUsersSuccess(response.data));
-			console.log("success postUsersSuccess saga");
+			setTimeout(function () {
+				window.location.href = "/users";
+			}, 1000);
 		} else {
 			ToastHelper.error(response.error.message);
 			yield put(UsersAction.postUsersFailed(response.error));
-			console.log("postUsersFailed saga");
 		}
 	} catch (error) {
 		ToastHelper.error();
-		console.log(error, "error saga");
 	}
 }
 
