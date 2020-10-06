@@ -10,7 +10,7 @@ import UserSingleComponent from "Components/Users/UserSingleComponent";
 import RoleListComponent from "Components/Roles/RoleListComponent";
 import RoleCreateComponent from "Components/Roles/RoleCreateComponent";
 import RoleSingleComponent from "Components/Roles/RolesSingleComponent";
-import UpdateRolesComponent from "Components/Roles/RoleUpdateComponent";
+import RoleUpdateComponent from "Components/Roles/RoleUpdateComponent";
 class Main extends Component {
 	render() {
 		const loggedIn = this.props.Auth.isAuthenticated;
@@ -89,8 +89,8 @@ class Main extends Component {
 					/>
 					<PrivateRoute
 						exact
-						path="/update-role"
-						component={UpdateRolesComponent}
+						path="/update-role/:id"
+						component={RoleUpdateComponent}
 					/>
 
 					<Redirect to="/dashboard" />

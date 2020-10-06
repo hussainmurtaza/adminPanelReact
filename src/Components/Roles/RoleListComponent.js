@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Badge } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import Table from "react-bootstrap/Table";
 import "Assets/css/roles.css";
@@ -29,7 +29,7 @@ class RoleListComponent extends Component {
 								<thead>
 									<tr>
 										<th>Name</th>
-										{/* <th>Permissions</th> */}
+										<th>Permissions</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
@@ -37,6 +37,18 @@ class RoleListComponent extends Component {
 									{this.props.roles.map((role) => (
 										<tr>
 											<td>{role.name}</td>
+											<td>
+												{role.permissions.map(
+													(permission) => (
+														<Badge
+															variant="danger"
+															className="mr-3"
+														>
+															{permission.name}
+														</Badge>
+													)
+												)}
+											</td>
 											<td className="actions">
 												<a
 													href={"/role/" + role.id}
@@ -48,7 +60,11 @@ class RoleListComponent extends Component {
 													/>
 												</a>
 												<a
-													href="/update-role"
+													href={
+														"/update-role/" +
+														role.id
+													}
+													className="btn btn-link"
 													title="Edit"
 												>
 													<FontAwesomeIcon

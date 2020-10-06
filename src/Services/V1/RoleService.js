@@ -26,7 +26,9 @@ const post = async (data) => {
 const rolePostData = (data) => {
 	let _data = {};
 	_data.name = data.name;
-	_data.permissions = data.permissions;
+	_data.permissions = data.permissions.map((permission) => {
+		return permission.label;
+	});
 
 	return JSON.stringify(_data);
 };
@@ -38,11 +40,17 @@ const roleDelete = async (data) => {
 	);
 	return response;
 };
+const put = async (data) => {
+	const response = await Gateway.authGateway("PUT", V1.auth.roles);
+	return response;
+};
+
 const RoleService = {
 	getAll,
 	get,
 	post,
 	roleDelete,
+	put,
 };
 
 export default RoleService;

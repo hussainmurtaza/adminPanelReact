@@ -8,6 +8,8 @@ import { RoleGetSaga } from "Redux/V1/Roles/Get/RoleGetSaga";
 import { RolePostSaga } from "Redux/V1/Roles/Post/RolePostSaga";
 import { roleDeleteSaga } from "Redux/V1/Roles/Delete/RoleDeleteSaga";
 import { roleFirstSaga } from "Redux/V1/Roles/First/RoleFirstSaga";
+import { rolePutSaga } from "Redux/V1/Roles/Put/RolePutSaga";
+import { PermissionGetSaga } from "Redux/V1/Permissions/Get/PermissionGetSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -20,5 +22,7 @@ export default function* rootSaga() {
 		RolePostSaga(),
 		roleDeleteSaga(),
 		roleFirstSaga(),
+		rolePutSaga(),
+		PermissionGetSaga(),
 	]);
 }

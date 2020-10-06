@@ -1,53 +1,69 @@
 import React, { Component } from "react";
 import { Row, Col, Container, Button } from "react-bootstrap";
 // import Select from "react-select";
-import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
 import InputSelectField from "Components/Forms/Fields/InputSelectField";
 import InputField from "Components/Forms/Fields/InputField";
+import TemplateMain from "Templates/TemplateMain";
+import { connect } from "react-redux";
+import PutRolesAction from "Redux/V1/Roles/Put/RolePutAction";
 
 class RoleUpdateComponent extends Component {
+	componentDidMount() {
+		console.log(this.props.match.params.id);
+	}
+	handleSubmit = (e) => {
+		e.preventDefault();
+		this.props.dispatch(PutRolesAction.putRoles(this.state.form));
+		console.log(this.state.form);
+	};
 	render() {
-		// const options = [
-		// 	{ value: "purple", label: "Purple" },
-		// 	{ value: "orange", label: "Orange" },
-		// 	{ value: "yellow", label: "Yellow" },
-		// 	{ value: "green", label: "Green" },
-		// 	{ value: "forest", label: "Forest" },
-		// 	{ value: "slate", label: "Slate" },
-		// 	{ value: "silver", label: "Silver" },
-		// ];
 		return (
 			<React.Fragment>
-				<Headers />
-				<Sidebar active="all-roles" />
-				<div className="content content-components">
-					<div className="container">
-						<Container>
-							<h4 className="tx-color-01 mg-b-15">Update Role</h4>
-							<Row>
-								<Col sm={12} className="form-group">
-									<label>Roll Name</label>
-									<InputField
-										label="Enter your firstname"
-										name="first_name"
-										required="required"
-									/>
-								</Col>
-								<Col sm={12} className="form-group">
-									<InputSelectField
-										placeholder="Assign Permissions"
-										name="assign_permission"
-									/>
-								</Col>
-							</Row>
-							<Button variant="primary">Update</Button>{" "}
-						</Container>
+				<TemplateMain>
+					<Sidebar active="roles" />
+					<div className="content content-components">
+						<div className="container">
+							<Container>
+								<h4 className="tx-color-01 mg-b-15">
+									Update Role
+								</h4>
+								<form
+									method="POST"
+									onSubmit={this.handleSubmit}
+								>
+									<Row>
+										<Col sm={12} className="form-group">
+											<InputField
+												label="Enter your firstname"
+												name="first_name"
+												required="required"
+											/>
+										</Col>
+										<Col sm={12} className="form-group">
+											<InputSelectField
+												placeholder="Assign Permissions"
+												name="assign_permission"
+											/>
+										</Col>
+									</Row>
+									<Button type="submit" variant="primary">
+										Update
+									</Button>{" "}
+								</form>
+							</Container>
+						</div>
 					</div>
-				</div>
+				</TemplateMain>
 			</React.Fragment>
 		);
 	}
 }
 
-export default RoleUpdateComponent;
+const mapStateToProps = (state) => {
+	return {
+		roles: state.roles.roles,
+	};
+};
+
+export default connect(mapStateToProps)(RoleUpdateComponent);

@@ -8,6 +8,8 @@ import RoleGetReducer from "Redux/V1/Roles/Get/RoleGetReducer";
 import RolePostReducer from "Redux/V1/Roles/Post/RolePostReducer";
 import RoleDeleteReducer from "Redux/V1/Roles/Delete/RoleDeleteReducer";
 import RoleFirstReducer from "Redux/V1/Roles/First/RoleFirstReducer";
+import RolePutReducer from "Redux/V1/Roles/Put/RolePutReducer";
+import PermissionGetReducer from "Redux/V1/Permissions/Get/PermissionGetReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -19,4 +21,6 @@ export default combineReducers({
 	roles_post: RolePostReducer,
 	role_delete: RoleDeleteReducer,
 	role_first: RoleFirstReducer,
+	roles_put: RolePutReducer,
+	permissions: PermissionGetReducer,
 });
