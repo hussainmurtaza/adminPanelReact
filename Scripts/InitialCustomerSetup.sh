@@ -1,2 +1,1 @@
-cd /var/www/admin-frontend
-chmod -R admin:admin .
+chown -R admin:admin /var/www/admin-frontend
