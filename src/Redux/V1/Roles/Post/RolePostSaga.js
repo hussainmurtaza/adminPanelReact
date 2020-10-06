@@ -11,7 +11,7 @@ function* rolePOST(data) {
 			ToastHelper.success(response.message);
 			yield put(PostRolesAction.postRolesSuccess(response.data));
 			setTimeout(function () {
-				window.location.href = "/all-roles";
+				window.location.href = "/roles";
 			}, 1000);
 		} else {
 			ToastHelper.error(response.error.message);

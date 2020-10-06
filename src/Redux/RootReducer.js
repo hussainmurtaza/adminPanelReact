@@ -6,6 +6,8 @@ import UserDeleteReducer from "Redux/V1/Users/Delete/UserDeleteReducer";
 import UserFirstReducer from "Redux/V1/Users/First/UserFirstReducer";
 import RoleGetReducer from "Redux/V1/Roles/Get/RoleGetReducer";
 import RolePostReducer from "Redux/V1/Roles/Post/RolePostReducer";
+import RoleDeleteReducer from "Redux/V1/Roles/Delete/RoleDeleteReducer";
+import RoleFirstReducer from "Redux/V1/Roles/First/RoleFirstReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -15,4 +17,6 @@ export default combineReducers({
 	user_first: UserFirstReducer,
 	roles: RoleGetReducer,
 	roles_post: RolePostReducer,
+	role_delete: RoleDeleteReducer,
+	role_first: RoleFirstReducer,
 });

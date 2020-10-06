@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { Row, Col, Container, Badge } from "react-bootstrap";
+import { Row, Col, Badge } from "react-bootstrap";
 import { connect } from "react-redux";
-import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
 import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
+import MainComponent from "Components/MainComponent";
 
 class UpdateUserComponent extends Component {
 	state = {
@@ -36,12 +36,11 @@ class UpdateUserComponent extends Component {
 		}
 		return (
 			<React.Fragment>
-				<Headers />
-				<Sidebar active="users" />
+				<MainComponent>
+					<Sidebar active="users" />
 
-				<div className="content content-components">
-					<div className="container">
-						<Container>
+					<div className="content content-components">
+						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">Update User</h4>
 							<Row>
 								<Col sm={6} className="form-group">
@@ -97,9 +96,9 @@ class UpdateUserComponent extends Component {
 									</div>
 								</Col>
 							</Row>
-						</Container>
+						</div>
 					</div>
-				</div>
+				</MainComponent>
 			</React.Fragment>
 		);
 	}

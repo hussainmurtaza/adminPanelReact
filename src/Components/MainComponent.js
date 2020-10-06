@@ -7,10 +7,10 @@ import Dashboard from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
-import AllRolesComponent from "Components/Roles/AllRolesComponent";
-import CreateRolesComponent from "Components/Roles/CreateRolesComponent";
-import RolesInfoComponent from "Components/Roles/RolesInfoComponent";
-import UpdateRolesComponent from "Components/Roles/UpdateRolesComponent";
+import RoleListComponent from "Components/Roles/RoleListComponent";
+import RoleCreateComponent from "Components/Roles/RoleCreateComponent";
+import RoleSingleComponent from "Components/Roles/RolesSingleComponent";
+import UpdateRolesComponent from "Components/Roles/RoleUpdateComponent";
 class Main extends Component {
 	render() {
 		const loggedIn = this.props.Auth.isAuthenticated;
@@ -74,18 +74,18 @@ class Main extends Component {
 					/>
 					<PrivateRoute
 						exact
-						path="/all-roles"
-						component={AllRolesComponent}
+						path="/roles"
+						component={RoleListComponent}
 					/>
 					<PrivateRoute
 						exact
 						path="/create-roles"
-						component={CreateRolesComponent}
+						component={RoleCreateComponent}
 					/>
 					<PrivateRoute
 						exact
-						path="/role-info"
-						component={RolesInfoComponent}
+						path="/role/:id"
+						component={RoleSingleComponent}
 					/>
 					<PrivateRoute
 						exact

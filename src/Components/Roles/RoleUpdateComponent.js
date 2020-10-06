@@ -6,7 +6,7 @@ import Sidebar from "Components/Sidebar";
 import InputSelectField from "Components/Forms/Fields/InputSelectField";
 import InputField from "Components/Forms/Fields/InputField";
 
-class UpdateRolesComponent extends Component {
+class RoleUpdateComponent extends Component {
 	render() {
 		// const options = [
 		// 	{ value: "purple", label: "Purple" },
@@ -50,4 +50,4 @@ class UpdateRolesComponent extends Component {
 	}
 }
 
-export default UpdateRolesComponent;
+export default RoleUpdateComponent;

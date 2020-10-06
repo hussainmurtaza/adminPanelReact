@@ -6,6 +6,14 @@ const getAll = async (data) => {
 	return response;
 };
 
+const get = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		V1.auth.roles + "/" + data
+	);
+	return response;
+};
+
 const post = async (data) => {
 	const response = await Gateway.authGateway(
 		"POST",
@@ -23,9 +31,18 @@ const rolePostData = (data) => {
 	return JSON.stringify(_data);
 };
 
+const roleDelete = async (data) => {
+	const response = await Gateway.authGateway(
+		"DELETE",
+		V1.auth.roles + "/" + data
+	);
+	return response;
+};
 const RoleService = {
 	getAll,
+	get,
 	post,
+	roleDelete,
 };
 
 export default RoleService;

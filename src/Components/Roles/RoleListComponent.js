@@ -6,16 +6,22 @@ import "Assets/css/roles.css";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
 import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
+import RoleDeleteAction from "Redux/V1/Roles/Delete/RoleDeleteAction";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-class AllRoleComponent extends Component {
+class RoleListComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(RolesAction.getRoles());
 	}
+	roleDelete = (id) => {
+		this.props.dispatch(RoleDeleteAction.deleteRole(id));
+	};
 	render() {
 		return (
 			<React.Fragment>
 				<TemplateMain>
-					<Sidebar active="all-roles" />
+					<Sidebar active="roles" />
 					<div className="content content-components">
 						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">All Roles</h4>
@@ -31,36 +37,35 @@ class AllRoleComponent extends Component {
 									{this.props.roles.map((role) => (
 										<tr>
 											<td>{role.name}</td>
-											{/* <td className="badge-group">
-												<Badge variant="danger">
-													{role.permissions}
-												</Badge>{" "}
-											</td> */}
 											<td className="actions">
 												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
+													href={"/role/" + role.id}
+													className="btn btn-link"
+													title="View"
 												>
-													<i data-feather="eye"></i>
-													View
+													<FontAwesomeIcon
+														icon={faEye}
+													/>
 												</a>
 												<a
 													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
+													title="Edit"
 												>
-													<i data-feather="edit"></i>
-													Edit
+													<FontAwesomeIcon
+														icon={faPencilAlt}
+													/>
 												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
+												<button
+													className="btn btn-link text-danger"
+													title="Delete"
+													onClick={() =>
+														this.roleDelete(role.id)
+													}
 												>
-													<i data-feather="trash"></i>
-													Delete
-												</a>
+													<FontAwesomeIcon
+														icon={faTrash}
+													/>
+												</button>
 											</td>
 										</tr>
 									))}
@@ -292,4 +297,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(AllRoleComponent);
+export default connect(mapStateToProps)(RoleListComponent);

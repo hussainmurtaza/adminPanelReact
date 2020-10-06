@@ -75,7 +75,7 @@ class Sidebar extends Component {
 							</li>
 							<li
 								className={
-									this.props.active === "all-roles" ||
+									this.props.active === "roles" ||
 									this.props.active === "create-roles"
 										? "nav-item show"
 										: "nav-item"
@@ -84,7 +84,7 @@ class Sidebar extends Component {
 								<a
 									href="/"
 									className={
-										this.props.active === "all-roles" ||
+										this.props.active === "roles" ||
 										this.props.active === "create-roles"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
@@ -95,9 +95,9 @@ class Sidebar extends Component {
 								</a>
 								<nav className="nav">
 									<a
-										href="all-roles"
+										href="/roles"
 										className={
-											this.props.active === "all-roles"
+											this.props.active === "roles"
 												? "active"
 												: ""
 										}
@@ -106,14 +106,59 @@ class Sidebar extends Component {
 										All Roles
 									</a>
 									<a
-										href="create-roles"
+										href="/create-roles"
 										className={
 											this.props.active === "create-roles"
 												? "active"
 												: ""
 										}
 									>
-										Create Roles
+										Create Role
+									</a>
+								</nav>
+							</li>
+							<li
+								className={
+									this.props.active === "customers" ||
+									this.props.active === "create-customer"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "customers" ||
+										this.props.active === "create-customer"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="users"></i>
+									Customers
+								</a>
+								<nav className="nav">
+									<a
+										href="/customers"
+										className={
+											this.props.active === "customers"
+												? "active"
+												: ""
+										}
+									>
+										{" "}
+										All Customers
+									</a>
+									<a
+										href="/create-customer"
+										className={
+											this.props.active ===
+											"create-customers"
+												? "active"
+												: ""
+										}
+									>
+										Create Customer
 									</a>
 								</nav>
 							</li>

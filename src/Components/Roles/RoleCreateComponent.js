@@ -7,7 +7,7 @@ import InputSelectField from "Components/Forms/Fields/InputSelectField";
 import { connect } from "react-redux";
 import PostRolesAction from "Redux/V1/Roles/Post/RolePostAction";
 
-class CreateRolesComponent extends Component {
+class RoleCreateComponent extends Component {
 	state = {
 		form: {
 			name: null,
@@ -51,7 +51,7 @@ class CreateRolesComponent extends Component {
 											type="text"
 											name="name"
 											className="form-control"
-											placeholder="Enter your Phone Number"
+											placeholder="Enter your Role Name"
 											onChange={this.handleChange}
 										/>
 									</Col>
@@ -82,4 +82,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-export default connect(mapStateToProps)(CreateRolesComponent);
+export default connect(mapStateToProps)(RoleCreateComponent);
