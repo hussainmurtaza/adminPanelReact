@@ -1,5 +1,9 @@
 version: 0.0
 os: linux
 files:
-    - source: /
-      destination: /var/www/admin-frontend
+  - source: /
+    destination: /var/www/admin-frontend
+hooks:
+  AfterInstall:
+    - location: Scripts/InitialCustomerSetup.sh
+      timeout: 180
