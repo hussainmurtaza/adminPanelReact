@@ -6,6 +6,8 @@ import TemplateMain from "Templates/TemplateMain";
 import UsersAction from "Redux/V1/Users/Get/UserGetAction";
 import UserDeleteAction from "Redux/V1/Users/Delete/UserDeleteAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 class UserListComponent extends Component {
 	componentDidMount() {
@@ -54,22 +56,37 @@ class UserListComponent extends Component {
 														href={
 															"/user/" + user.id
 														}
-														className="btn btn-brand-02 btn-sm"
+														className="btn btn-link"
+														title="View"
 													>
-														View
+														<FontAwesomeIcon
+															icon={faEye}
+														/>
 													</a>{" "}
-													<button className="btn btn-brand-02 btn-sm">
-														Update
-													</button>{" "}
+													<a
+														className="btn btn-link"
+														title="Edit"
+														href={
+															"/user-update/" +
+															user.id
+														}
+													>
+														<FontAwesomeIcon
+															icon={faPencilAlt}
+														/>
+													</a>{" "}
 													<button
-														className="btn btn-danger btn-sm"
+														className="btn btn-link text-danger"
+														title="Delete"
 														onClick={() =>
 															this.userDelete(
 																user.id
 															)
 														}
 													>
-														Delete
+														<FontAwesomeIcon
+															icon={faTrash}
+														/>
 													</button>
 												</td>
 											</tr>

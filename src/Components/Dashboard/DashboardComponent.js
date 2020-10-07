@@ -1,24 +1,25 @@
 import React, { Component } from "react";
-// import { Row, Col } from "react-bootstrap";
-// import Select from "react-select";
-import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
+import TemplateMain from "Templates/TemplateMain";
 
-class Dashboard extends Component {
+class DashboardComponent extends Component {
 	render() {
 		return (
 			<React.Fragment>
-				<Headers />
-				<Sidebar active="dashboard" />
+				<TemplateMain>
+					<Sidebar active="dashboard" />
 
-				<div className="content content-components">
-					<div className="container">
-						<h4 className="tx-color-01 mg-b-15">Dashboard Admin</h4>
+					<div className="content content-components">
+						<div className="container">
+							<h4 className="tx-color-01 mg-b-15">
+								Dashboard Admin
+							</h4>
+						</div>
 					</div>
-				</div>
+				</TemplateMain>
 			</React.Fragment>
 		);
 	}
 }
 
-export default Dashboard;
+export default DashboardComponent;

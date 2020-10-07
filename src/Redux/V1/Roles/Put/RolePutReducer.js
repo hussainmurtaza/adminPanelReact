@@ -1,33 +1,33 @@
-import USER from "Redux/V1/Users/Put/UserPutActionType";
+import ROLE from "Redux/V1/Roles/Put/RolePutActionType";
 
-const UserPutReducer = (
+const RolePutReducer = (
 	state = {
 		loading: false,
 		success: false,
-		users: {},
+		roles: {},
 		err_mess: "",
 	},
 	action
 ) => {
 	switch (action.type) {
-		case USER.USERS_PUT:
+		case ROLE.ROLE_PUT:
 			return {
 				...state,
 				loading: true,
 				err_mess: null,
 			};
-		case USER.USERS_PUT_SUCCESS:
+		case ROLE.ROLE_PUT_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				success: true,
-				users: action.response.users,
+				roles: action.response.roles,
 			};
-		case USER.USERS_PUT_FAILED:
+		case ROLE.ROLE_PUT_FAILED:
 			return { ...state, loading: false, err_mess: action.response };
 		default:
 			return state;
 	}
 };
 
-export default UserPutReducer;
+export default RolePutReducer;

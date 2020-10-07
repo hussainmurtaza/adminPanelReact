@@ -1,0 +1,7 @@
+const ROLE = {
+	ROLE_PUT: "ROLE_PUT",
+	ROLE_PUT_SUCCESS: "ROLE_PUT_SUCCESS",
+	ROLE_PUT_FAILED: "ROLE_PUT_FAILED",
+};
+
+export default ROLE;

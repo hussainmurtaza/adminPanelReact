@@ -3,14 +3,15 @@ import { Switch, Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
-import Dashboard from "Components/Dashboard/DashboardComponent";
+import DashboardComponent from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
-import AllRolesComponent from "Components/Roles/AllRolesComponent";
-import CreateRolesComponent from "Components/Roles/CreateRolesComponent";
-import RolesInfoComponent from "Components/Roles/RolesInfoComponent";
-import UpdateRolesComponent from "Components/Roles/UpdateRolesComponent";
+import UserUpdateComponent from "Components/Users/UserUpdateComponent";
+import RoleListComponent from "Components/Roles/RoleListComponent";
+import RoleCreateComponent from "Components/Roles/RoleCreateComponent";
+import RoleSingleComponent from "Components/Roles/RolesSingleComponent";
+import RoleUpdateComponent from "Components/Roles/RoleUpdateComponent";
 class Main extends Component {
 	render() {
 		const loggedIn = this.props.Auth.isAuthenticated;
@@ -55,7 +56,7 @@ class Main extends Component {
 					<PrivateRoute
 						exact
 						path="/dashboard"
-						component={Dashboard}
+						component={DashboardComponent}
 					/>
 					<PrivateRoute
 						exact
@@ -69,28 +70,33 @@ class Main extends Component {
 					/>
 					<PrivateRoute
 						exact
+						path="/user-update/:id"
+						component={UserUpdateComponent}
+					/>
+					<PrivateRoute
+						exact
 						path="/create-user"
 						component={CreateUserComponent}
 					/>
 					<PrivateRoute
 						exact
-						path="/all-roles"
-						component={AllRolesComponent}
+						path="/roles"
+						component={RoleListComponent}
 					/>
 					<PrivateRoute
 						exact
 						path="/create-roles"
-						component={CreateRolesComponent}
+						component={RoleCreateComponent}
 					/>
 					<PrivateRoute
 						exact
-						path="/role-info"
-						component={RolesInfoComponent}
+						path="/role/:id"
+						component={RoleSingleComponent}
 					/>
 					<PrivateRoute
 						exact
-						path="/update-role"
-						component={UpdateRolesComponent}
+						path="/update-role/:id"
+						component={RoleUpdateComponent}
 					/>
 
 					<Redirect to="/dashboard" />

@@ -31,7 +31,6 @@ const userPostData = (data) => {
 	_data.password = data.password;
 	_data.password_confirmation = data.password_confirmation;
 	_data.roles = data.roles;
-	// _data.roles = ["admin", "user", "support"];
 	_data.permissions = data.permissions;
 
 	return JSON.stringify(_data);
@@ -44,11 +43,21 @@ const userDelete = async (data) => {
 	);
 	return response;
 };
+
+const put = async (data, id) => {
+	const response = await Gateway.authGateway(
+		"PUT",
+		`${V1.auth.users}/${id}`,
+		userPostData(data)
+	);
+	return response;
+};
 const UserService = {
 	getAll,
 	get,
 	post,
 	userDelete,
+	put,
 };
 
 export default UserService;
