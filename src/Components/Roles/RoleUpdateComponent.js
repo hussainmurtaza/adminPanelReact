@@ -6,7 +6,7 @@ import Sidebar from "Components/Sidebar";
 //import InputField from "Components/Forms/Fields/InputField";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
-import PutRolesAction from "Redux/V1/Roles/Put/RolePutAction";
+import RolesPutAction from "Redux/V1/Roles/Put/RolePutAction";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
 import RoleDetailsAction from "Redux/V1/Roles/First/RoleFirstAction";
 
@@ -27,12 +27,20 @@ class RoleUpdateComponent extends Component {
 	handleSubmit = (e) => {
 		e.preventDefault();
 		this.props.dispatch(
-			PutRolesAction.putRoles({
+			RolesPutAction.rolePut({
 				form: this.state.form,
 				id: this.props.match.params.id,
 			})
 		);
 		console.log(this.state.form);
+	};
+	handleChange = (e) => {
+		let { form } = this.state;
+		form[e.target.name] = e.target.value;
+
+		this.setState({
+			form,
+		});
 	};
 	handleMultiSelect = (e, options) => {
 		let { form } = this.state;
@@ -87,8 +95,10 @@ class RoleUpdateComponent extends Component {
 											<label>Enter Role</label>
 											<input
 												type="text"
+												name="name"
 												className="form-control"
 												placeholder="Enter Role"
+												onChange={this.handleChange}
 												defaultValue={
 													this.state.form.name
 												}

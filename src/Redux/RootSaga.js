@@ -4,6 +4,7 @@ import { UserGetSaga } from "Redux/V1/Users/Get/UserGetSaga";
 import { UserPostSaga } from "Redux/V1/Users/Post/UserPostSaga";
 import { UserDeleteSaga } from "Redux/V1/Users/Delete/UserDeleteSaga";
 import { userFirstSaga } from "Redux/V1/Users/First/UserFirstSaga";
+import { userPutSaga } from "Redux/V1/Users/Put/UserPutSaga";
 import { RoleGetSaga } from "Redux/V1/Roles/Get/RoleGetSaga";
 import { RolePostSaga } from "Redux/V1/Roles/Post/RolePostSaga";
 import { roleDeleteSaga } from "Redux/V1/Roles/Delete/RoleDeleteSaga";
@@ -18,6 +19,7 @@ export default function* rootSaga() {
 		UserPostSaga(),
 		UserDeleteSaga(),
 		userFirstSaga(),
+		userPutSaga(),
 		RoleGetSaga(),
 		RolePostSaga(),
 		roleDeleteSaga(),

@@ -3,10 +3,11 @@ import { Switch, Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
-import Dashboard from "Components/Dashboard/DashboardComponent";
+import DashboardComponent from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
+import UserUpdateComponent from "Components/Users/UserUpdateComponent";
 import RoleListComponent from "Components/Roles/RoleListComponent";
 import RoleCreateComponent from "Components/Roles/RoleCreateComponent";
 import RoleSingleComponent from "Components/Roles/RolesSingleComponent";
@@ -55,7 +56,7 @@ class Main extends Component {
 					<PrivateRoute
 						exact
 						path="/dashboard"
-						component={Dashboard}
+						component={DashboardComponent}
 					/>
 					<PrivateRoute
 						exact
@@ -66,6 +67,11 @@ class Main extends Component {
 						exact
 						path="/user/:id"
 						component={UserSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/user-update/:id"
+						component={UserUpdateComponent}
 					/>
 					<PrivateRoute
 						exact
