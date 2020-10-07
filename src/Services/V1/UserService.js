@@ -31,9 +31,7 @@ const userPostData = (data) => {
 	_data.password = data.password;
 	_data.password_confirmation = data.password_confirmation;
 	_data.roles = data.roles;
-	_data.permissions = data.permissions.map((permission) => {
-		return permission.label;
-	});
+	_data.permissions = data.permissions;
 
 	return JSON.stringify(_data);
 };
