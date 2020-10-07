@@ -5,6 +5,8 @@ import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
 import UsersAction from "Redux/V1/Users/Post/UserPostAction";
+import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
+import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
 
 class CreateUserComponent extends Component {
 	state = {
@@ -15,13 +17,15 @@ class CreateUserComponent extends Component {
 			password_confirmation: null,
 			email: null,
 			phone: null,
-			roles: ["admin"],
-			permissions: ["access_all"],
+			roles: [],
+			permissions: [],
 		},
 	};
 	componentDidMount() {
 		//this.props.dispatch(PostUsersAction.postUsers());
 		// console.log(PostUsersAction.postUsers(), "Create-api");
+		this.props.dispatch(PermissionAction.getPermission());
+		this.props.dispatch(RolesAction.getRoles());
 	}
 	handleSubmit = (e) => {
 		e.preventDefault();
@@ -36,8 +40,22 @@ class CreateUserComponent extends Component {
 		});
 		console.log(this.state);
 	};
+	handleMultiSelect = (e, options) => {
+		let { form } = this.state;
+		form[e.name] = options;
+		this.setState({
+			form,
+		});
+	};
 	render() {
-		const options = [{ value: "1", label: "admin" }];
+		//const options = [{ value: "1", label: "admin" }];
+		const options = this.props.permissions.map(function (permission) {
+			return { value: permission.id, label: permission.name };
+		});
+		const rolesOptions = this.props.roles.map(function (role) {
+			return { value: role.id, label: role.name };
+		});
+
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -127,11 +145,14 @@ class CreateUserComponent extends Component {
 											<Select
 												isMulti
 												name="roles"
-												options={options}
-												classNameName="basic-multi-select"
-												classNameNamePrefix="select"
-												placeholder="Select Roles"
-												//onChange={this.handleChange}
+												options={rolesOptions}
+												onChange={(options, e) =>
+													this.handleMultiSelect(
+														e,
+														options
+													)
+												}
+												value={this.state.form.roles}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
@@ -139,11 +160,17 @@ class CreateUserComponent extends Component {
 											<Select
 												isMulti
 												name="permissions"
-												options=""
-												classNameName="basic-multi-select"
-												classNameNamePrefix="select"
-												placeholder="Select Permissions"
-												//onChange={this.handleChange}
+												options={options}
+												onChange={(options, e) =>
+													this.handleMultiSelect(
+														e,
+														options
+													)
+												}
+												placeholder="Assign Permission"
+												value={
+													this.state.form.permissions
+												}
 											/>
 										</Col>
 										<Col sm={12}>
@@ -168,6 +195,9 @@ class CreateUserComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		users: state.users.users,
+		role_fetched: state.role_first.fetched,
+		permissions: state.permissions.permissions,
+		roles: state.roles.roles,
 	};
 };
 
