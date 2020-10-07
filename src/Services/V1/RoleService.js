@@ -40,8 +40,12 @@ const roleDelete = async (data) => {
 	);
 	return response;
 };
-const put = async (data) => {
-	const response = await Gateway.authGateway("PUT", V1.auth.roles);
+const put = async (data, id) => {
+	const response = await Gateway.authGateway(
+		"PUT",
+		`${V1.auth.roles}/${id}`,
+		rolePostData(data)
+	);
 	return response;
 };
 

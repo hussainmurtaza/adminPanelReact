@@ -3,9 +3,12 @@ import ROLE from "Redux/V1/Roles/Put/RolePutActionType";
 import RolesAction from "Redux/V1/Roles/Put/RolePutAction";
 import RoleService from "Services/V1/RoleService";
 
-function* rolePut() {
+function* rolePut(data) {
 	try {
-		const response = yield RoleService.put();
+		const response = yield RoleService.put(
+			data.request.form,
+			data.request.id
+		);
 		if (response.success) {
 			yield put(RolesAction.rolePutSuccess(response.data));
 		} else {

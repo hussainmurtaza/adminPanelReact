@@ -42,7 +42,7 @@ class RoleListComponent extends Component {
 													(permission) => (
 														<Badge
 															variant="danger"
-															className="mr-3"
+															className="mr-2"
 														>
 															{permission.name}
 														</Badge>
