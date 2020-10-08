@@ -11,6 +11,10 @@ import { roleDeleteSaga } from "Redux/V1/Roles/Delete/RoleDeleteSaga";
 import { roleFirstSaga } from "Redux/V1/Roles/First/RoleFirstSaga";
 import { rolePutSaga } from "Redux/V1/Roles/Put/RolePutSaga";
 import { PermissionGetSaga } from "Redux/V1/Permissions/Get/PermissionGetSaga";
+import { CustomerGetSaga } from "Redux/V1/Customers/Get/CustomerGetSaga";
+import { CustomerFirstSaga } from "Redux/V1/Customers/First/CustomerFirstSaga";
+import { SiteGetSaga } from "Redux/V1/Sites/Get/SiteGetSaga";
+import { SiteFirstSaga } from "Redux/V1/Sites/First/SiteFirstSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -26,5 +30,9 @@ export default function* rootSaga() {
 		roleFirstSaga(),
 		rolePutSaga(),
 		PermissionGetSaga(),
+		CustomerGetSaga(),
+		CustomerFirstSaga(),
+		SiteGetSaga(),
+		SiteFirstSaga(),
 	]);
 }

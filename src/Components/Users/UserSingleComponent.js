@@ -3,7 +3,7 @@ import { Row, Col, Badge } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
 import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
-import MainComponent from "Components/MainComponent";
+import TemplateMain from "Templates/TemplateMain";
 
 class UpdateUserComponent extends Component {
 	state = {
@@ -36,7 +36,7 @@ class UpdateUserComponent extends Component {
 		}
 		return (
 			<React.Fragment>
-				<MainComponent>
+				<TemplateMain>
 					<Sidebar active="users" />
 
 					<div className="content content-components">
@@ -98,7 +98,7 @@ class UpdateUserComponent extends Component {
 							</Row>
 						</div>
 					</div>
-				</MainComponent>
+				</TemplateMain>
 			</React.Fragment>
 		);
 	}
