@@ -14,6 +14,7 @@ import PermissionGetReducer from "Redux/V1/Permissions/Get/PermissionGetReducer"
 import CustomerGetReducer from "Redux/V1/Customers/Get/CustomerGetReducer";
 import CustomerFirstReducer from "Redux/V1/Customers/First/CustomerFirstReducer";
 import SiteGetReducer from "Redux/V1/Sites/Get/SiteGetReducer";
+import SiteFirstReducer from "Redux/V1/Sites/First/SiteFirstReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -31,4 +32,5 @@ export default combineReducers({
 	customers: CustomerGetReducer,
 	customer_first: CustomerFirstReducer,
 	sites: SiteGetReducer,
+	site_first: SiteFirstReducer,
 });

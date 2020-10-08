@@ -1,78 +1,96 @@
 import React, { Component } from "react";
-import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import CustomerDetailsAction from "Redux/V1/Customers/First/CustomerFirstAction";
-import MainComponent from "Components/MainComponent";
+import SiteDetailsAction from "Redux/V1/Sites/First/SiteFirstAction";
+import TemplateMain from "Templates/TemplateMain";
+import { Table } from "react-bootstrap";
+import TimeStampHelper from "Helpers/TimeStampHelper";
 
-class CustomerSingleComponent extends Component {
-	state = {
-		id: "",
-	};
-
+class SiteSingleComponent extends Component {
 	componentDidMount() {
+		//console.log(this.props.match.params.host);
 		this.props.dispatch(
-			CustomerDetailsAction.customerDetail(this.props.match.params.id)
+			SiteDetailsAction.siteDetail(this.props.match.params.host)
 		);
 	}
 
 	render() {
+		// let userDetails;
+		// const userData = this.props.site.user;
+		// console.log(userData, "User Data");
+		// if (userData) {
+		// 	userDetails = userData.map((cc) => {
+		// 		return (
+		// 			<React.Fragment>
+		// 				<tr>
+		// 					<td>{cc.email}</td>
+		// 				</tr>
+		// 			</React.Fragment>
+		// 		);
+		// 	});
+		// }
+
 		return (
 			<React.Fragment>
-				<MainComponent>
-					<Sidebar active="users" />
+				<TemplateMain>
+					<Sidebar active="sites" />
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Update User</h4>
-							<Row>
-								<Col sm={6} className="form-group">
-									<label>Firstname</label>
-									<input
-										type="text"
-										className="form-control"
-										placeholder="Enter your firstname"
-										value={this.props.customer.first_name}
-									/>
-								</Col>
-								<Col sm={6} className="form-group">
-									<label>Lastname</label>
-									<input
-										type="text"
-										className="form-control"
-										placeholder="Enter your lastname"
-										value={this.props.customer.last_name}
-									/>
-								</Col>
-								<Col sm={6} className="form-group">
-									<label>Status</label>
-									<input
-										type="status"
-										className="form-control"
-										placeholder="Status"
-										value={this.props.customer.status}
-									/>
-								</Col>
-								{/* <Col sm={6} className="form-group">
-									<label>Roles</label>
-									<div>
-										<Badge variant="primary">
-											{roleData}
-										</Badge>{" "}
-									</div>
-								</Col>
-								<Col sm={6} className="form-group">
-									<label>Permissions</label>
-									<div>
-										<Badge variant="primary">
-											{permissionData}
-										</Badge>{" "}
-									</div>
-								</Col> */}
-							</Row>
+							<h4 className="tx-color-01 mg-b-15">
+								Site Details
+							</h4>
+							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Field</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Site Name</td>
+										<td>{this.props.site.name}</td>
+									</tr>
+									<tr>
+										<td>Host</td>
+										<td>{this.props.site.host}</td>
+									</tr>
+									<tr>
+										<td>Site Type</td>
+										<td>{this.props.site.site_type}</td>
+									</tr>
+									<tr>
+										<td>Create At</td>
+										<td>
+											{TimeStampHelper.standardDateFormat(
+												this.props.site.created_at
+											)}
+										</td>
+									</tr>
+									<tr>
+										<td>Screen Shot</td>
+										<td>{this.props.site.screen_shot}</td>
+									</tr>
+									<tr>
+										<td>Flag</td>
+										<td>{this.props.site.flag}</td>
+									</tr>
+								</tbody>
+							</Table>
+
+							<h2>User Details</h2>
+							<Table striped bordered hover>
+								<tbody></tbody>
+							</Table>
+
+							<h2>Containers</h2>
+							<Table striped bordered hover>
+								<tbody></tbody>
+							</Table>
 						</div>
 					</div>
-				</MainComponent>
+				</TemplateMain>
 			</React.Fragment>
 		);
 	}
@@ -80,8 +98,8 @@ class CustomerSingleComponent extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		customer: state.customer_first.customer,
+		site: state.site_first.site,
 	};
 };
 
-export default connect(mapStateToProps)(CustomerSingleComponent);
+export default connect(mapStateToProps)(SiteSingleComponent);

@@ -7,9 +7,9 @@ function* siteGet() {
 	try {
 		const response = yield SiteService.getAll();
 		if (response.success) {
-			yield put(SitesAction.getCustomersSuccess(response.data));
+			yield put(SitesAction.getSitesSuccess(response.data));
 		} else {
-			yield put(SitesAction.getCustomersFailed(response.error));
+			yield put(SitesAction.getSitesFailed(response.error));
 		}
 	} catch (error) {
 		console.log(error);

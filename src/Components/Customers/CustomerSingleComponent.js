@@ -18,11 +18,15 @@ class CustomerSingleComponent extends Component {
 	}
 
 	render() {
-		let customerEmail, customerPhone, customerInvoice, customerBilling;
+		let customerEmail,
+			customerPhone,
+			customerInvoice,
+			customerBilling,
+			customerSites;
 		const customerData = this.props.customer.contact;
 		const customerInvoicesData = this.props.customer.invoices;
 		const customerBilingsData = this.props.customer.billing_information;
-		//const customerSitesData = this.props.customer.sites;
+		const customerSitesData = this.props.customer.sites;
 		if (customerData) {
 			customerEmail = customerData.map((contact) => {
 				return <React.Fragment>{contact.email}</React.Fragment>;
@@ -30,9 +34,18 @@ class CustomerSingleComponent extends Component {
 			customerPhone = customerData.map((contact) => {
 				return <React.Fragment>{contact.phone}</React.Fragment>;
 			});
-			// customerSites = customerSitesData.map((site) => {
-			// 	return <React.Fragment>{site.status}</React.Fragment>;
-			// });
+			customerSites = customerSitesData.map((site) => {
+				return (
+					<React.Fragment>
+						<tr>
+							<td>{site.name}</td>
+							<td>{site.host}</td>
+							<td>{site.site_type}</td>
+							<td>{site.screen_shot}</td>
+						</tr>
+					</React.Fragment>
+				);
+			});
 			customerBilling = customerBilingsData.map((billing) => {
 				return (
 					<React.Fragment>
@@ -109,28 +122,22 @@ class CustomerSingleComponent extends Component {
 										<td>Persona</td>
 										<td>{this.props.customer.persona}</td>
 									</tr>
-									<tr>
-										<td>Sites</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>Billing Information</td>
-										<td>{customerBilling}</td>
-									</tr>
-									<tr>
-										<td>Invoices</td>
-										<td>
-											<thead>
-												<tr>
-													<th>Reference no</th>
-													<th>Amount</th>
-													<th>status</th>
-												</tr>
-											</thead>
-											{customerInvoice}
-										</td>
-									</tr>
 								</tbody>
+							</Table>
+
+							<h2>Sites</h2>
+							<Table striped bordered hover>
+								<tbody>{customerSites}</tbody>
+							</Table>
+
+							<h2>Invoices</h2>
+							<Table striped bordered hover>
+								<tbody>{customerInvoice}</tbody>
+							</Table>
+
+							<h2>Billing Information</h2>
+							<Table striped bordered hover>
+								{customerBilling}
 							</Table>
 						</div>
 					</div>

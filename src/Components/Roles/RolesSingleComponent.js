@@ -6,9 +6,6 @@ import RoleDetailsAction from "Redux/V1/Roles/First/RoleFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 
 class RoleSingleComponent extends Component {
-	state = {
-		id: "",
-	};
 	componentDidMount() {
 		//console.log(this.props.match.params.id);
 		//console.log(this.props.user);

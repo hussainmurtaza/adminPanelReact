@@ -15,6 +15,7 @@ import RoleUpdateComponent from "Components/Roles/RoleUpdateComponent";
 import CustomerListComponent from "./Customers/CustomerListComponent";
 import CustomerSingleComponent from "./Customers/CustomerSingleComponent";
 import SiteListComponent from "./Sites/SiteListComponent";
+import SiteSingleComponent from "./Sites/SiteSingleComponent";
 
 class Main extends Component {
 	render() {
@@ -116,6 +117,11 @@ class Main extends Component {
 						exact
 						path="/sites"
 						component={SiteListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/site/:host"
+						component={SiteSingleComponent}
 					/>
 
 					<Redirect to="/dashboard" />
