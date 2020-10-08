@@ -119,8 +119,7 @@ class Sidebar extends Component {
 							</li>
 							<li
 								className={
-									this.props.active === "customers" ||
-									this.props.active === "create-customer"
+									this.props.active === "customers"
 										? "nav-item show"
 										: "nav-item"
 								}
@@ -128,8 +127,7 @@ class Sidebar extends Component {
 								<a
 									href="/"
 									className={
-										this.props.active === "customers" ||
-										this.props.active === "create-customer"
+										this.props.active === "customers"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
@@ -146,19 +144,38 @@ class Sidebar extends Component {
 												: ""
 										}
 									>
-										{" "}
 										All Customers
 									</a>
+								</nav>
+							</li>
+							<li
+								className={
+									this.props.active === "sites"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "sites"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="globe"></i>
+									SItes
+								</a>
+								<nav className="nav">
 									<a
-										href="/create-customer"
+										href="/sites"
 										className={
-											this.props.active ===
-											"create-customers"
+											this.props.active === "sites"
 												? "active"
 												: ""
 										}
 									>
-										Create Customer
+										All Sites
 									</a>
 								</nav>
 							</li>

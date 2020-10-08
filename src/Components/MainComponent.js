@@ -12,6 +12,10 @@ import RoleListComponent from "Components/Roles/RoleListComponent";
 import RoleCreateComponent from "Components/Roles/RoleCreateComponent";
 import RoleSingleComponent from "Components/Roles/RolesSingleComponent";
 import RoleUpdateComponent from "Components/Roles/RoleUpdateComponent";
+import CustomerListComponent from "./Customers/CustomerListComponent";
+import CustomerSingleComponent from "./Customers/CustomerSingleComponent";
+import SiteListComponent from "./Sites/SiteListComponent";
+
 class Main extends Component {
 	render() {
 		const loggedIn = this.props.Auth.isAuthenticated;
@@ -97,6 +101,21 @@ class Main extends Component {
 						exact
 						path="/update-role/:id"
 						component={RoleUpdateComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/customers"
+						component={CustomerListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/customer/:id"
+						component={CustomerSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/sites"
+						component={SiteListComponent}
 					/>
 
 					<Redirect to="/dashboard" />

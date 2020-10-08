@@ -11,6 +11,9 @@ import RoleDeleteReducer from "Redux/V1/Roles/Delete/RoleDeleteReducer";
 import RoleFirstReducer from "Redux/V1/Roles/First/RoleFirstReducer";
 import RolePutReducer from "Redux/V1/Roles/Put/RolePutReducer";
 import PermissionGetReducer from "Redux/V1/Permissions/Get/PermissionGetReducer";
+import CustomerGetReducer from "Redux/V1/Customers/Get/CustomerGetReducer";
+import CustomerFirstReducer from "Redux/V1/Customers/First/CustomerFirstReducer";
+import SiteGetReducer from "Redux/V1/Sites/Get/SiteGetReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -25,4 +28,7 @@ export default combineReducers({
 	role_first: RoleFirstReducer,
 	roles_put: RolePutReducer,
 	permissions: PermissionGetReducer,
+	customers: CustomerGetReducer,
+	customer_first: CustomerFirstReducer,
+	sites: SiteGetReducer,
 });

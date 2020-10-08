@@ -1,42 +1,25 @@
 import React, { Component } from "react";
-import { Row, Col, Badge } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
-import TemplateMain from "Templates/TemplateMain";
+import CustomerDetailsAction from "Redux/V1/Customers/First/CustomerFirstAction";
+import MainComponent from "Components/MainComponent";
 
-class UpdateUserComponent extends Component {
+class CustomerSingleComponent extends Component {
 	state = {
 		id: "",
 	};
 
 	componentDidMount() {
-		//console.log(this.props.match.params.id);
-		//console.log(this.props.user);
 		this.props.dispatch(
-			UserDetailsAction.userDetail(this.props.match.params.id)
+			CustomerDetailsAction.customerDetail(this.props.match.params.id)
 		);
 	}
 
 	render() {
-		//const user = this.props.userDetails;
-		//console.log(user, "Single user detail");
-		const userRole = this.props.user.roles;
-		const userPermission = this.props.user.permissions;
-		let roleData, permissionData;
-		if (userRole) {
-			roleData = userRole.map((role) => {
-				return <React.Fragment>{role.name}</React.Fragment>;
-			});
-		}
-		if (userPermission) {
-			permissionData = userPermission.map((permissions) => {
-				return <React.Fragment>{permissions.name}</React.Fragment>;
-			});
-		}
 		return (
 			<React.Fragment>
-				<TemplateMain>
+				<MainComponent>
 					<Sidebar active="users" />
 
 					<div className="content content-components">
@@ -49,7 +32,7 @@ class UpdateUserComponent extends Component {
 										type="text"
 										className="form-control"
 										placeholder="Enter your firstname"
-										value={this.props.user.first_name}
+										value={this.props.customer.first_name}
 									/>
 								</Col>
 								<Col sm={6} className="form-group">
@@ -58,16 +41,7 @@ class UpdateUserComponent extends Component {
 										type="text"
 										className="form-control"
 										placeholder="Enter your lastname"
-										value={this.props.user.last_name}
-									/>
-								</Col>
-								<Col sm={6} className="form-group">
-									<label>Email address</label>
-									<input
-										type="email"
-										className="form-control"
-										placeholder="Enter your email address"
-										value={this.props.user.email}
+										value={this.props.customer.last_name}
 									/>
 								</Col>
 								<Col sm={6} className="form-group">
@@ -76,10 +50,10 @@ class UpdateUserComponent extends Component {
 										type="status"
 										className="form-control"
 										placeholder="Status"
-										value={this.props.user.status}
+										value={this.props.customer.status}
 									/>
 								</Col>
-								<Col sm={6} className="form-group">
+								{/* <Col sm={6} className="form-group">
 									<label>Roles</label>
 									<div>
 										<Badge variant="primary">
@@ -94,11 +68,11 @@ class UpdateUserComponent extends Component {
 											{permissionData}
 										</Badge>{" "}
 									</div>
-								</Col>
+								</Col> */}
 							</Row>
 						</div>
 					</div>
-				</TemplateMain>
+				</MainComponent>
 			</React.Fragment>
 		);
 	}
@@ -106,8 +80,8 @@ class UpdateUserComponent extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		user: state.user_first.user,
+		customer: state.customer_first.customer,
 	};
 };
 
-export default connect(mapStateToProps)(UpdateUserComponent);
+export default connect(mapStateToProps)(CustomerSingleComponent);
