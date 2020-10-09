@@ -19,7 +19,7 @@ class Sidebar extends Component {
 					</div>
 					<div className="sidebar-body">
 						<ul className="sidebar-nav">
-							<li className="nav-item">
+							{/* <li className="nav-item">
 								<a
 									href="/dashboard"
 									className={
@@ -30,7 +30,7 @@ class Sidebar extends Component {
 								>
 									<i data-feather="layout"></i> Dashboard
 								</a>
-							</li>
+							</li> */}
 							<li
 								className={
 									this.props.active === "create-user" ||

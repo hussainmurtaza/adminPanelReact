@@ -27,7 +27,7 @@ class CustomerListComponent extends Component {
 							<div className="user-list-page">
 								<Table striped bordered hover>
 									<thead>
-										<tr className="text-center">
+										<tr>
 											<th>First Name</th>
 											<th>Last Name</th>
 											<th>Email</th>
@@ -35,7 +35,6 @@ class CustomerListComponent extends Component {
 											<th>Total Sites</th>
 											<th>Phone</th>
 											<th>Created At</th>
-											{/* <th>Invoices</th> */}
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -70,13 +69,6 @@ class CustomerListComponent extends Component {
 															`${customer.created_at}`
 														)}
 													</td>
-													{/* {customer.invoices.map(
-														(invoice) => (
-															<td>
-																{invoice.status}
-															</td>
-														)
-													)} */}
 
 													<td className="text-center">
 														<a

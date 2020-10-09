@@ -18,7 +18,11 @@ class RoleSingleComponent extends Component {
 		const rolePermission = this.props.role.permissions;
 		if (rolePermission) {
 			permissionData = rolePermission.map((permissions) => {
-				return <React.Fragment>{permissions.name}</React.Fragment>;
+				return (
+					<React.Fragment>
+						<Badge variant="primary">{permissions.name}</Badge>{" "}
+					</React.Fragment>
+				);
 			});
 		}
 		return (
@@ -27,7 +31,7 @@ class RoleSingleComponent extends Component {
 					<Sidebar active="roles" />
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Role Info</h4>
+							<h4 className="tx-color-01 mg-b-15">Role Update</h4>
 							<Row>
 								<Col sm={12} className="form-group">
 									<label>Roll Name</label>
@@ -41,11 +45,17 @@ class RoleSingleComponent extends Component {
 								</Col>
 								<Col sm={12} className="form-group">
 									<label>Assign Permissions</label>
-									<div>
-										<Badge variant="primary">
-											{permissionData}
-										</Badge>{" "}
-									</div>
+									<div>{permissionData}</div>
+								</Col>
+								<Col sm={12}>
+									<a
+										href={
+											"/update-role/" + this.props.role.id
+										}
+										className="btn btn-primary"
+									>
+										Edit Role
+									</a>
 								</Col>
 							</Row>
 						</div>
