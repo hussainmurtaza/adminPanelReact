@@ -53,30 +53,41 @@ class UserUpdateComponent extends Component {
 			form,
 		});
 	};
-	// setDefaultData = () => {
-	// 	const { form, default_data } = this.state;
-	// 	if (default_data === false) {
-	// 		setTimeout(() => {
-	// 			form.name = this.props.role.name;
-	// 			form.permissions = this.props.role.permissions.map(
-	// 				(permission) => {
-	// 					return { value: permission.id, label: permission.name };
-	// 				}
-	// 			);
+	setDefaultData = () => {
+		const { form, default_data } = this.state;
 
-	// 			this.setState({ form, default_data: this.props.role_fetched });
-	// 		}, 100);
-	// 	}
-	// };
+		if (default_data === false) {
+			setTimeout(() => {
+				form.first_name = this.props.user.first_name;
+				form.last_name = this.props.user.last_name;
+				form.email = this.props.user.email;
+				form.phone = this.props.user.last_name;
+				// form.phone = this.props.user.contacts.map((contact) => {
+				// 	return { label: contact.phone };
+				// });
+				form.permissions = this.props.user.permissions.map(
+					(permission) => {
+						return { value: permission.id, label: permission.name };
+					}
+				);
+				form.roles = this.props.user.roles.map((role) => {
+					return { value: role.id, label: role.name };
+				});
+
+				this.setState({ form, default_data: this.props.user_fetched });
+			}, 100);
+		}
+	};
 	render() {
-		const options = this.props.permissions.map(function (permission) {
+		const permissionOptions = this.props.permissions.map(function (
+			permission
+		) {
 			return { value: permission.id, label: permission.name };
 		});
 		const rolesOptions = this.props.roles.map(function (role) {
 			return { value: role.id, label: role.name };
 		});
-		console.log(rolesOptions, "role options");
-		//this.setDefaultData();
+		this.setDefaultData();
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -99,7 +110,7 @@ class UserUpdateComponent extends Component {
 												placeholder="Enter your firstname"
 												onChange={this.handleChange}
 												defaultValue={
-													this.props.user.first_name
+													this.state.form.first_name
 												}
 											/>
 										</Col>
@@ -112,7 +123,7 @@ class UserUpdateComponent extends Component {
 												placeholder="Enter your lastname"
 												onChange={this.handleChange}
 												defaultValue={
-													this.props.user.last_name
+													this.state.form.last_name
 												}
 											/>
 										</Col>
@@ -125,7 +136,7 @@ class UserUpdateComponent extends Component {
 												placeholder="Enter your email address"
 												onChange={this.handleChange}
 												defaultValue={
-													this.props.user.email
+													this.state.form.email
 												}
 											/>
 										</Col>
@@ -138,7 +149,7 @@ class UserUpdateComponent extends Component {
 												placeholder="Enter your Phone Number"
 												onChange={this.handleChange}
 												defaultValue={
-													this.props.user.phone
+													this.state.form.phone
 												}
 											/>
 										</Col>
@@ -162,7 +173,7 @@ class UserUpdateComponent extends Component {
 											<Select
 												isMulti
 												name="permissions"
-												options={options}
+												options={permissionOptions}
 												onChange={(options, e) =>
 													this.handleMultiSelect(
 														e,
@@ -197,7 +208,8 @@ class UserUpdateComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		user: state.user_first.user,
-		role_fetched: state.role_first.fetched,
+		//role_fetched: state.role_first.fetched,
+		user_fetched: state.user_first.fetched,
 		permissions: state.permissions.permissions,
 		roles: state.roles.roles,
 	};

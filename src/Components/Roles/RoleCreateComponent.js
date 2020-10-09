@@ -114,7 +114,7 @@ class RoleCreateComponent extends Component {
 											Create
 										</Button>
 									</Col>
-									<Col sm={12}>
+									{/* <Col sm={12}>
 										{this.props.roles.map((role) => (
 											<tr>
 												{role.name}
@@ -127,7 +127,7 @@ class RoleCreateComponent extends Component {
 												)}
 											</tr>
 										))}
-									</Col>
+									</Col> */}
 								</Row>
 							</form>
 						</Container>
