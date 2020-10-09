@@ -61,7 +61,7 @@ class UserUpdateComponent extends Component {
 				form.first_name = this.props.user.first_name;
 				form.last_name = this.props.user.last_name;
 				form.email = this.props.user.email;
-				form.phone = this.props.user.last_name;
+				form.phone = this.props.user.contacts;
 				// form.phone = this.props.user.contacts.map((contact) => {
 				// 	return { label: contact.phone };
 				// });

@@ -9,6 +9,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 class CustomerListComponent extends Component {
+	state = {
+		switch1: false,
+	};
+	handleSwitchChange = (nr) => () => {
+		let switchNumber = `switch${nr}`;
+		this.setState({
+			[switchNumber]: !this.state[switchNumber],
+		});
+		console.log(switchNumber, "switch");
+	};
 	componentDidMount() {
 		this.props.dispatch(CustomersAction.getCustomers());
 	}
@@ -35,6 +45,7 @@ class CustomerListComponent extends Component {
 											<th>Total Sites</th>
 											<th>Phone</th>
 											<th>Created At</th>
+											<th>Action</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -68,6 +79,33 @@ class CustomerListComponent extends Component {
 														{TimeStampHelper.standardDateFormat(
 															`${customer.created_at}`
 														)}
+													</td>
+													<td>
+														<div className="custom-control custom-switch">
+															<input
+																type="checkbox"
+																className="custom-control-input"
+																id={
+																	"customSwitches-" +
+																	customer.id
+																}
+																checked={
+																	this.state
+																		.switch1
+																}
+																onChange={this.handleSwitchChange(
+																	1
+																)}
+																readOnly
+															/>
+															<label
+																className="custom-control-label"
+																htmlFor={
+																	"customSwitches-" +
+																	customer.id
+																}
+															></label>
+														</div>
 													</td>
 
 													<td className="text-center">
