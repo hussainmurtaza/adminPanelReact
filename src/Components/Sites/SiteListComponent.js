@@ -14,13 +14,15 @@ class SiteListComponent extends Component {
 	}
 
 	render() {
-		// let siteUser;
-		// const siteData = this.props.sites.user;
-		// if (siteUser) {
-		// 	siteUser = siteData.map((site) => {
-		// 		return <React.Fragment>{site.first_name}</React.Fragment>;
+		// let siteData;
+		// const siteData1 = this.props.sites;
+		// console.log(siteData1, "fdsdsdsd");
+		// if (siteData1) {
+		// 	siteData = siteData1.map((contact) => {
+		// 		return <React.Fragment>{contact.created_at}</React.Fragment>;
 		// 	});
 		// }
+
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -34,8 +36,9 @@ class SiteListComponent extends Component {
 									<thead>
 										<tr>
 											{/* <th>User</th> */}
-											<th>Name</th>
-											<th>Host</th>
+											<th>WP Title</th>
+											<th>Identity</th>
+											<th>Domain</th>
 											<th>Type</th>
 											<th>Created At</th>
 											<th>Action</th>
@@ -44,12 +47,17 @@ class SiteListComponent extends Component {
 									<tbody>
 										{this.props.sites.map((site) => (
 											<tr>
-												{/* {site.user.map((usr) => (
-													<td>{usr.last_name}</td>
-												))} */}
-
 												<td>{site.name}</td>
-												<td>{site.host}</td>
+												<td>
+													{site.container.identity}
+												</td>
+
+												<td>
+													{
+														site.container
+															.primary_domain_name
+													}
+												</td>
 												<td>{site.site_type}</td>
 												<td>
 													{TimeStampHelper.standardDateFormat(
