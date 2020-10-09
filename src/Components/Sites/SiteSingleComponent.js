@@ -15,21 +15,7 @@ class SiteSingleComponent extends Component {
 	}
 
 	render() {
-		// let userDetails;
-		// const userData = this.props.site.user;
-		// console.log(userData, "User Data");
-		// if (userData) {
-		// 	userDetails = userData.map((cc) => {
-		// 		return (
-		// 			<React.Fragment>
-		// 				<tr>
-		// 					<td>{cc.email}</td>
-		// 				</tr>
-		// 			</React.Fragment>
-		// 		);
-		// 	});
-		// }
-
+		const userData = this.props.site.user;
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -69,24 +55,36 @@ class SiteSingleComponent extends Component {
 										</td>
 									</tr>
 									<tr>
-										<td>Screen Shot</td>
-										<td>{this.props.site.screen_shot}</td>
-									</tr>
-									<tr>
 										<td>Flag</td>
 										<td>{this.props.site.flag}</td>
 									</tr>
 								</tbody>
 							</Table>
 
-							<h2>User Details</h2>
+							<h2>Customer Details</h2>
 							<Table striped bordered hover>
-								<tbody></tbody>
-							</Table>
-
-							<h2>Containers</h2>
-							<Table striped bordered hover>
-								<tbody></tbody>
+								<thead>
+									<tr>
+										<th>First Name</th>
+										<th>Last Name</th>
+										<th>Email</th>
+										<th>Status</th>
+										<th>Created At</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>{userData.first_name}</td>
+										<td>{userData.last_name}</td>
+										<td>{userData.email}</td>
+										<td>{userData.status}</td>
+										<td>
+											{TimeStampHelper.standardDateFormat(
+												userData.created_at
+											)}
+										</td>
+									</tr>
+								</tbody>
 							</Table>
 						</div>
 					</div>

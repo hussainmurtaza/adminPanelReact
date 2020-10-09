@@ -29,7 +29,7 @@ function loginPostSuccess(data) {
 		JSON.stringify(data.response.authentication.user)
 	);
 	setTimeout(() => {
-		window.location.href = "/dashboard";
+		window.location.href = "/users";
 	}, 1000);
 }
 

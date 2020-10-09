@@ -41,7 +41,12 @@ class CustomerSingleComponent extends Component {
 							<td>{site.name}</td>
 							<td>{site.host}</td>
 							<td>{site.site_type}</td>
-							<td>{site.screen_shot}</td>
+							<td>{site.flag}</td>
+							<td>
+								{TimeStampHelper.standardDateFormat(
+									site.created_at
+								)}
+							</td>
 						</tr>
 					</React.Fragment>
 				);
@@ -50,12 +55,26 @@ class CustomerSingleComponent extends Component {
 				return (
 					<React.Fragment>
 						<tr>
-							<td>{billing.billing_start_date}</td>
-							<td>{billing.billing_last_date}</td>
-							<td>{billing.billing_next_date}</td>
-							<td>{billing.payment_last_date}</td>
-							<td>{billing.payment_credit_limit}</td>
-							<td>{billing.payment_net_amount}</td>
+							<td>
+								{TimeStampHelper.standardDateFormat(
+									billing.billing_start_date
+								)}
+							</td>
+							<td>
+								{TimeStampHelper.standardDateFormat(
+									billing.billing_last_date
+								)}
+							</td>
+							<td>
+								{TimeStampHelper.standardDateFormat(
+									billing.billing_next_date
+								)}
+							</td>
+							<td>
+								{TimeStampHelper.standardDateFormat(
+									billing.payment_last_date
+								)}
+							</td>
 						</tr>
 					</React.Fragment>
 				);
@@ -67,6 +86,11 @@ class CustomerSingleComponent extends Component {
 							<td>{invoice.reference}</td>
 							<td>{invoice.amount_net}</td>
 							<td> {invoice.status}</td>
+							<td>
+								{TimeStampHelper.standardDateFormat(
+									invoice.created_at
+								)}
+							</td>
 						</tr>
 					</React.Fragment>
 				);
@@ -127,16 +151,41 @@ class CustomerSingleComponent extends Component {
 
 							<h2>Sites</h2>
 							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Name</th>
+										<th>Host</th>
+										<th>Type</th>
+										<th>Flag</th>
+										<th>Created At</th>
+									</tr>
+								</thead>
 								<tbody>{customerSites}</tbody>
 							</Table>
 
 							<h2>Invoices</h2>
 							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Reference</th>
+										<th>Amount</th>
+										<th>Status</th>
+										<th>created_at</th>
+									</tr>
+								</thead>
 								<tbody>{customerInvoice}</tbody>
 							</Table>
 
 							<h2>Billing Information</h2>
 							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Billing Start Date</th>
+										<th>Billing Last Date</th>
+										<th>Billing Next Date</th>
+										<th>Payment Last Date</th>
+									</tr>
+								</thead>
 								{customerBilling}
 							</Table>
 						</div>

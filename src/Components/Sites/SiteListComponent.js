@@ -32,7 +32,7 @@ class SiteListComponent extends Component {
 							<div className="user-list-page">
 								<Table striped bordered hover>
 									<thead>
-										<tr className="text-center">
+										<tr>
 											{/* <th>User</th> */}
 											<th>Name</th>
 											<th>Host</th>

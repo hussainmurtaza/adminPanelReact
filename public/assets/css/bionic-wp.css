@@ -40,16 +40,12 @@
 .logo {
 	max-width: 160px;
 }
-/* #root {
-	background-color: #f7f9fa;
-}
-.sidebar {
-	background-color: #ffffff !important;
-} */
-/* .user-list-page .table thead th {
-	text-align: center;
-} */
 .user-list-page .table th,
 .user-list-page .table td {
 	vertical-align: middle;
+}
+.badge {
+	font-size: 16px !important;
+	font-weight: normal !important;
+	padding: 8px !important;
 }

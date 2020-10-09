@@ -3,7 +3,15 @@ import SITE_DETAILS from "Redux/V1/Sites/First/SiteFirstActionType";
 const siteDetails = (
 	state = {
 		loading: false,
-		site: {},
+		site: {
+			user: {
+				email: null,
+				first_name: null,
+				last_name: null,
+				status: null,
+				created_at: null,
+			},
+		},
 		err_mess: null,
 	},
 	action

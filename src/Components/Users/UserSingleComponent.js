@@ -26,12 +26,20 @@ class UpdateUserComponent extends Component {
 		let roleData, permissionData;
 		if (userRole) {
 			roleData = userRole.map((role) => {
-				return <React.Fragment>{role.name}</React.Fragment>;
+				return (
+					<React.Fragment>
+						<Badge variant="primary">{role.name}</Badge>{" "}
+					</React.Fragment>
+				);
 			});
 		}
 		if (userPermission) {
 			permissionData = userPermission.map((permissions) => {
-				return <React.Fragment>{permissions.name}</React.Fragment>;
+				return (
+					<React.Fragment>
+						<Badge variant="primary">{permissions.name}</Badge>{" "}
+					</React.Fragment>
+				);
 			});
 		}
 		return (
@@ -81,19 +89,21 @@ class UpdateUserComponent extends Component {
 								</Col>
 								<Col sm={6} className="form-group">
 									<label>Roles</label>
-									<div>
-										<Badge variant="primary">
-											{roleData}
-										</Badge>{" "}
-									</div>
+									<div>{roleData}</div>
 								</Col>
 								<Col sm={6} className="form-group">
 									<label>Permissions</label>
-									<div>
-										<Badge variant="primary">
-											{permissionData}
-										</Badge>{" "}
-									</div>
+									<div>{permissionData}</div>
+								</Col>
+								<Col sm={12}>
+									<a
+										href={
+											"/user-update/" + this.props.user.id
+										}
+										className="btn btn-primary"
+									>
+										Edit User
+									</a>
 								</Col>
 							</Row>
 						</div>
