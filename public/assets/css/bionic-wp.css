@@ -49,3 +49,7 @@
 	font-weight: normal !important;
 	padding: 8px !important;
 }
+.table th,
+.table td {
+	vertical-align: middle;
+}

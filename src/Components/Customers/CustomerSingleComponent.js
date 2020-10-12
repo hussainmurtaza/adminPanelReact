@@ -170,7 +170,7 @@ class CustomerSingleComponent extends Component {
 										<th>Reference</th>
 										<th>Amount</th>
 										<th>Status</th>
-										<th>created_at</th>
+										<th>created At</th>
 									</tr>
 								</thead>
 								<tbody>{customerInvoice}</tbody>

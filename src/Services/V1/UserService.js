@@ -32,7 +32,7 @@ const userPostData = (data) => {
 	_data.password_confirmation = data.password_confirmation;
 	_data.roles = data.roles;
 	_data.permissions = data.permissions;
-	_data.phone = data.phone;
+	//_data.phone = data.phone;
 
 	return JSON.stringify(_data);
 };
