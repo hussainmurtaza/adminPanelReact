@@ -61,10 +61,7 @@ class UserUpdateComponent extends Component {
 				form.first_name = this.props.user.first_name;
 				form.last_name = this.props.user.last_name;
 				form.email = this.props.user.email;
-				//form.phone = this.props.user.contacts;
-				// form.phone = this.props.user.contacts.map((contact) => {
-				// 	return { label: contact.phone };
-				// });
+				form.phone = this.props.user.contacts[0]['phone'];
 				form.permissions = this.props.user.permissions.map(
 					(permission) => {
 						return { value: permission.id, label: permission.name };
@@ -148,9 +145,9 @@ class UserUpdateComponent extends Component {
 												className="form-control"
 												placeholder="Enter your Phone Number"
 												onChange={this.handleChange}
-												// defaultValue={
-												// 	this.state.form.phone
-												// }
+												defaultValue={
+													this.state.form.phone
+												}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
@@ -208,7 +205,6 @@ class UserUpdateComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		user: state.user_first.user,
-		//role_fetched: state.role_first.fetched,
 		user_fetched: state.user_first.fetched,
 		permissions: state.permissions.permissions,
 		roles: state.roles.roles,

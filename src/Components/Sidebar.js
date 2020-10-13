@@ -163,8 +163,8 @@ class Sidebar extends Component {
 											: "nav-link with-sub"
 									}
 								>
-									<i data-feather="globe"></i>
-									SItes
+									<i data-feather="layers"></i>
+									Sites
 								</a>
 								<nav className="nav">
 									<a
@@ -176,6 +176,37 @@ class Sidebar extends Component {
 										}
 									>
 										All Sites
+									</a>
+								</nav>
+							</li>
+							<li
+								className={
+									this.props.active === "invoices"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "invoices"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="inbox"></i>
+									Invoices
+								</a>
+								<nav className="nav">
+									<a
+										href="/invoices"
+										className={
+											this.props.active === "invoices"
+												? "active"
+												: ""
+										}
+									>
+										All Invoices
 									</a>
 								</nav>
 							</li>

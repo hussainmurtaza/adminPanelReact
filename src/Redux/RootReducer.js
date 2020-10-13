@@ -15,6 +15,8 @@ import CustomerGetReducer from "Redux/V1/Customers/Get/CustomerGetReducer";
 import CustomerFirstReducer from "Redux/V1/Customers/First/CustomerFirstReducer";
 import SiteGetReducer from "Redux/V1/Sites/Get/SiteGetReducer";
 import SiteFirstReducer from "Redux/V1/Sites/First/SiteFirstReducer";
+import InvoiceGetReducer from "Redux/V1/Invoices/Get/InvoiceGetReducer";
+import InvoiceFirstReducer from "Redux/V1/Invoices/First/InvoiceFirstReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -33,4 +35,6 @@ export default combineReducers({
 	customer_first: CustomerFirstReducer,
 	sites: SiteGetReducer,
 	site_first: SiteFirstReducer,
+	invoices: InvoiceGetReducer,
+	invoice_first: InvoiceFirstReducer,
 });

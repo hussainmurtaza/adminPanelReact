@@ -15,6 +15,8 @@ import { CustomerGetSaga } from "Redux/V1/Customers/Get/CustomerGetSaga";
 import { CustomerFirstSaga } from "Redux/V1/Customers/First/CustomerFirstSaga";
 import { SiteGetSaga } from "Redux/V1/Sites/Get/SiteGetSaga";
 import { SiteFirstSaga } from "Redux/V1/Sites/First/SiteFirstSaga";
+import { InvoiceGetSaga } from "Redux/V1/Invoices/Get/InvoiceGetSaga";
+import { InvoiceFirstSaga } from "Redux/V1/Invoices/First/InvoiceFirstSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -34,5 +36,7 @@ export default function* rootSaga() {
 		CustomerFirstSaga(),
 		SiteGetSaga(),
 		SiteFirstSaga(),
+		InvoiceGetSaga(),
+		InvoiceFirstSaga(),
 	]);
 }
