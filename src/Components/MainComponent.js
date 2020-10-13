@@ -12,10 +12,12 @@ import RoleListComponent from "Components/Roles/RoleListComponent";
 import RoleCreateComponent from "Components/Roles/RoleCreateComponent";
 import RoleSingleComponent from "Components/Roles/RolesSingleComponent";
 import RoleUpdateComponent from "Components/Roles/RoleUpdateComponent";
-import CustomerListComponent from "./Customers/CustomerListComponent";
-import CustomerSingleComponent from "./Customers/CustomerSingleComponent";
-import SiteListComponent from "./Sites/SiteListComponent";
-import SiteSingleComponent from "./Sites/SiteSingleComponent";
+import CustomerListComponent from "Components/Customers/CustomerListComponent";
+import CustomerSingleComponent from "Components/Customers/CustomerSingleComponent";
+import SiteListComponent from "Components/Sites/SiteListComponent";
+import SiteSingleComponent from "Components/Sites/SiteSingleComponent";
+import InvoiceListComponent from "Components/Invoices/InvoiceListComponent";
+import InvoiceSingleComponent from "Components/Invoices/InvoiceSingleComponent";
 
 class Main extends Component {
 	render() {
@@ -122,6 +124,16 @@ class Main extends Component {
 						exact
 						path="/site/:host"
 						component={SiteSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/invoices"
+						component={InvoiceListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/invoice/:id"
+						component={InvoiceSingleComponent}
 					/>
 
 					<Redirect to="/dashboard" />

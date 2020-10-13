@@ -7,9 +7,9 @@ const userDetails = (
 			first_name: null,
 			last_name: null,
 			email: null,
-			// contacts: {
-			// 	phone: null,
-			// },
+			contacts: [{
+				phone: null,
+			}],
 			roles: [],
 			permissions: [],
 		},

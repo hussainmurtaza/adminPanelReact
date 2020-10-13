@@ -6,6 +6,7 @@ const V1 = {
 		permissions: "v1/permissions",
 		customers: "v1/customers",
 		sites: "v1/sites",
+		invoices: "v1/invoices",
 	},
 };
 export default V1;
