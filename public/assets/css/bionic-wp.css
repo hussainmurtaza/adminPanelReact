@@ -53,3 +53,12 @@
 .table td {
 	vertical-align: middle;
 }
+.customer-list-page .badge {
+	font-size: 12px !important;
+	padding: 4px 7px !important;
+	margin-left: 7px;
+}
+.customer-list-page .table th,
+.customer-list-page .table td {
+	vertical-align: middle;
+}

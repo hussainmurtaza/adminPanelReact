@@ -3,9 +3,10 @@ import CUSTOMER from "Redux/V1/Customers/Get/CustomerGetActionType";
 import CustomersAction from "Redux/V1/Customers/Get/CustomerGetAction";
 import CustomerService from "Services/V1/CustomerService";
 
-function* customerGet() {
+function* customerGet(data) {
 	try {
-		const response = yield CustomerService.getAll();
+		
+		const response = yield CustomerService.getAll(data.request);
 		if (response.success) {
 			yield put(CustomersAction.getCustomersSuccess(response.data));
 		} else {

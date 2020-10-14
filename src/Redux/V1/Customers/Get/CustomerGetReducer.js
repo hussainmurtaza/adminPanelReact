@@ -3,6 +3,7 @@ import CUSTOMER from "Redux/V1/Customers/Get/CustomerGetActionType";
 const CustomersDetails = (
 	state = {
 		loading: false,
+		success: false,
 		customers: [],
 	},
 	action
