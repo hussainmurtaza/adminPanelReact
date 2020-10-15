@@ -1,4 +1,4 @@
-import CUSTOMER from "Redux/V1/Customers/Get/CustomerGetActionType";
+import CUSTOMER from "Redux/V1/Customers/Filter/CustomerFilterActionType";
 
 const CustomersDetails = (
 	state = {
@@ -9,19 +9,19 @@ const CustomersDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case CUSTOMER.GET_CUSTOMERS:
+		case CUSTOMER.FILTER_CUSTOMERS:
 			return {
 				...state,
 				loading: true,
 				error: null,
 			};
-		case CUSTOMER.GET_CUSTOMERS_SUCCESS:
+		case CUSTOMER.FILTER_CUSTOMERS_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				customers: action.response.customers,
 			};
-		case CUSTOMER.GET_CUSTOMERS_FAILED:
+		case CUSTOMER.FILTER_CUSTOMERS_FAILED:
 			return { ...state, loading: false, error: action.response };
 		default:
 			return state;

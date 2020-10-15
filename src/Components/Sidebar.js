@@ -132,7 +132,7 @@ class Sidebar extends Component {
 											: "nav-link with-sub"
 									}
 								>
-									<i data-feather="users"></i>
+									<i data-feather="user"></i>
 									Customers
 								</a>
 								<nav className="nav">

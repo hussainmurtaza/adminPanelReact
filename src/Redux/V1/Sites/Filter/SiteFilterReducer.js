@@ -1,30 +1,30 @@
-import CUSTOMER from "Redux/V1/Customers/Get/CustomerGetActionType";
+import SITES from "Redux/V1/Sites/Filter/SiteFilterActionType";
 
-const CustomersDetails = (
+const SitesDetails = (
 	state = {
 		loading: false,
 		success: false,
-		customers: [],
+		sites: [],
 	},
 	action
 ) => {
 	switch (action.type) {
-		case CUSTOMER.GET_CUSTOMERS:
+		case SITES.FILTER_SITES:
 			return {
 				...state,
 				loading: true,
 				error: null,
 			};
-		case CUSTOMER.GET_CUSTOMERS_SUCCESS:
+		case SITES.FILTER_SITES_SUCCESS:
 			return {
 				...state,
 				loading: false,
-				customers: action.response.customers,
+				sites: action.response.sites,
 			};
-		case CUSTOMER.GET_CUSTOMERS_FAILED:
+		case SITES.FILTER_SITES_FAILED:
 			return { ...state, loading: false, error: action.response };
 		default:
 			return state;
 	}
 };
-export default CustomersDetails;
+export default SitesDetails;
