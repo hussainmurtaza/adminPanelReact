@@ -5,8 +5,7 @@ import CustomerService from "Services/V1/CustomerService";
 
 function* customerGet(data) {
 	try {
-		
-		const response = yield CustomerService.getAll(data.request);
+		const response = yield CustomerService.getAll();
 		if (response.success) {
 			yield put(CustomersAction.getCustomersSuccess(response.data));
 		} else {

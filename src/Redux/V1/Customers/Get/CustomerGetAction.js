@@ -6,10 +6,9 @@ const CustomersAction = {
 	getCustomersFailed,
 };
 
-function getCustomers(data) {
+function getCustomers() {
 	return {
 		type: CUSTOMER.GET_CUSTOMERS,
-		request: data,
 	};
 }
 function getCustomersSuccess(data) {

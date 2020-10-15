@@ -1,27 +1,53 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Table, Col, Form, Button } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import SitesAction from "Redux/V1/Sites/Get/SiteGetAction";
+import SitesFilterAction from "Redux/V1/Sites/Filter/SiteFilterAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import Select from "react-select";
 
 class SiteListComponent extends Component {
+	state = {
+		form: {
+			site_name: null,
+			identity: null,
+			customer_email: null,
+		},
+	};
 	componentDidMount() {
 		this.props.dispatch(SitesAction.getSites());
+		this.props.dispatch(SitesFilterAction.filterSites());
 	}
+	handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.dispatch(SitesFilterAction.filterSites(this.state.form));
+		console.log(this.state.form,"submit filter");
+    };
+    handleMultiSelect = (e, options) => {
+		let { form } = this.state;
+		form[e.name] = options;
+		this.setState({
+			form,
+		});
+    };
 
 	render() {
-		// let siteData;
-		// const siteData1 = this.props.sites;
-		// console.log(siteData1, "fdsdsdsd");
-		// if (siteData1) {
-		// 	siteData = siteData1.map((contact) => {
-		// 		return <React.Fragment>{contact.created_at}</React.Fragment>;
-		// 	});
-		// }
+		let siteName;
+		const siteNameData = this.props.sites_filter;
+		if (siteName) {
+			siteName = siteNameData.map((site) => {
+				return { value: site.site_name, label: site.site_name };
+			});
+		}
+		const options = [
+            { value: 'active', label: 'Active' },
+            { value: 'pending', label: 'Pending' },
+            { value: 'blocked', label: 'Blocked' }
+          ]
 
 		return (
 			<React.Fragment>
@@ -30,6 +56,59 @@ class SiteListComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
+
+						<form name="sites">
+                            <Form.Row className="align-items-center mb-4">
+                                <Col md="3">
+                                    <Select
+                                        isMulti
+                                        name="site_name"
+                                        options={siteName}
+                                        placeholder="Search Site Name"
+                                        onChange={(options, e) =>
+                                            this.handleMultiSelect(
+                                                e,
+                                                options
+                                            )
+                                        }
+                                    />
+                                </Col>
+                                <Col md="3">
+                                <Select
+                                        isMulti
+                                        name="identity"
+                                        options={options}
+                                        placeholder="Search Identity"
+                                        onChange={(options, e) =>
+                                            this.handleMultiSelect(
+                                                e,
+                                                options
+                                            )
+                                        }
+                                    />
+                                </Col>
+                                <Col md="3">
+                                <Select
+                                        isMulti
+                                        name="customer_email"
+                                        options={options}
+                                        placeholder="Search Email"
+                                    />
+                                </Col>
+                                
+                                
+                                <Col md="3">
+                                <Button 
+                                    type="submit" 
+                                    className="btn btn-brand-02 btn-block" 
+                                >
+                                    Search
+                                </Button>
+                                </Col>
+                            </Form.Row>
+                        </form>
+
+
 							<h4 className="tx-color-01 mg-b-15">Sites List</h4>
 							<div className="user-list-page">
 								<Table striped bordered hover>
@@ -93,6 +172,7 @@ class SiteListComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		sites: state.sites.sites,
+		site_filter: state.site_filter.sites,
 	};
 };
 

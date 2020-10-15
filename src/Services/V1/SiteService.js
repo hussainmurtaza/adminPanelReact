@@ -14,9 +14,29 @@ const get = async (data) => {
 	return response;
 };
 
+const filter = async (data) => {
+	//console.log(data,"service form data");
+	const response = await Gateway.authGateway(
+		"GET", 
+		V1.auth.sites + queryBody(data) ,
+		);
+	return response;
+};
+
+const queryBody = (data) => {
+	let query = "?";
+
+	query += `site_name=${data.site_name}&`;
+	query += `identity=${data.identity}&`;
+	query += `customer_email=${data.customer_email}&`;
+
+	return query;
+};
+
 const SiteService = {
 	getAll,
 	get,
+	filter,
 };
 
 export default SiteService;

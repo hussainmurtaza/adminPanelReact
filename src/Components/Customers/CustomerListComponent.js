@@ -4,6 +4,7 @@ import { Table, Badge, Form, Button ,Col } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import CustomersAction from "Redux/V1/Customers/Get/CustomerGetAction";
+import CustomersFilterAction from "Redux/V1/Customers/Filter/CustomerFilterAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -16,7 +17,8 @@ class CustomerListComponent extends Component {
 			first_name: null,
 			last_name: null,
 			status: null,
-			email: null,
+            email: null,
+            created_at: null,
 		},
 	};
     // state = {
@@ -31,11 +33,12 @@ class CustomerListComponent extends Component {
     // };
     componentDidMount() {
         const value = queryString.parse(this.props.location.search);
-        this.props.dispatch(CustomersAction.getCustomers(value));
+        this.props.dispatch(CustomersAction.getCustomers());
+        this.props.dispatch(CustomersFilterAction.filterCustomers(value));        
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.dispatch(CustomersAction.getCustomers(this.state.form));
+        this.props.dispatch(CustomersFilterAction.filterCustomers(this.state.form));
 		console.log(this.state.form,"submit filter");
     };
     handleMultiSelect = (e, options) => {
@@ -47,23 +50,46 @@ class CustomerListComponent extends Component {
     };
 
     render() {
+        //console.log(this.props.customer_filter,"customer_filter");
         const first_name = this.props.customers.map(function (customer) {
 			return { value: customer.first_name, label: customer.first_name };
         });
         const last_name = this.props.customers.map(function (customer) {
 			return { value: customer.last_name, label: customer.last_name };
         });
-        const status = this.props.customers.map(function (customer) {
-			return { value: customer.status, label: customer.status };
-        });
-        const date = this.props.customers.map(function (customer) {
-			return { value: customer.created_at, label: customer.created_at };
-        });
-        
-       //console.log(customerEmail,"email");
         // const email = this.props.customers.map(function (customer) {
-		// 	return { value: customer.id, label: customer.email };
+		// 	return { 
+        //         customer.contact.map(function (cc) {
+        //             return { 
+                        
+        //             };
+        //         });
+        //     };
         // });
+        const prods = this.props.customers.map((item) => {
+           
+                const keywords =  item.contact.map(cur => {
+                    return { value: cur.email, label: cur.email };
+                })
+            
+            return{
+                keywords            
+            };
+        });
+        console.log(prods,"prodsprods");
+
+        const date = this.props.customers.map(function (customer) {
+			return { 
+                value: TimeStampHelper.standardDateFormat(`${customer.created_at}`), 
+                label:  TimeStampHelper.standardDateFormat(`${customer.created_at}`)
+            };
+        });
+        const status = [
+            { value: 'active', label: 'Active' },
+            { value: 'pending', label: 'Pending' },
+            { value: 'blocked', label: 'Blocked' }
+          ]
+        
        
         return (
             <React.Fragment>
@@ -121,7 +147,7 @@ class CustomerListComponent extends Component {
                                 <Select
                                         isMulti
                                         name="email"
-                                        
+                                        options={prods}
                                         placeholder="Search Email"
                                     />
                                 </Col>
@@ -135,14 +161,20 @@ class CustomerListComponent extends Component {
                                     />
                                 </Col>
                                 <Col md="3  mt-3">
-                                <Select
+                                {/* <Select
                                         isMulti
                                         name="date"
                                         options={date}
                                         placeholder="Search Date"
+                                    /> */}
+                                    <input
+                                        type="date"
+                                        name="created_at"
+                                        className="form-control"
+                                        placeholder="Enter your date"
+                                        options={date}
                                     />
-                                </Col>
-                                
+                                    </Col>
                                 <Col md="3 mt-3">
                                 <Button 
                                     type="submit" 
@@ -170,7 +202,7 @@ class CustomerListComponent extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.props.customers.map(
+                                        {this.props.customer_filter.map(
                                             (customer) => (
                                                 <tr>
                                                     <td>
@@ -178,11 +210,26 @@ class CustomerListComponent extends Component {
                                                         <Badge variant="primary">{customer.total_sites}</Badge>
                                                     </td>
 
-                                                    {customer.contact.map(
+                                                    {customer.contact ===
+													true ? (
+														<span>{"-"}</span>
+													) : (
+														<td>
+															 {customer.contact.map(
+                                                                (cc) => (
+                                                                    <span>{cc.email}</span>
+                                                                )
+                                                            )}
+                                                            
+														</td>
+													)}
+                                                    
+                                                    {/* {customer.contact.map(
                                                         (cc) => (
                                                             <td>{cc.email}</td>
                                                         )
-                                                    )}
+                                                    )} */}
+          
 
                                                     <td>{customer.status}</td>
                                                     
@@ -250,6 +297,7 @@ class CustomerListComponent extends Component {
 const mapStateToProps = (state) => {
     return {
         customers: state.customers.customers,
+        customer_filter: state.customer_filter.customers,
     };
 };
 
