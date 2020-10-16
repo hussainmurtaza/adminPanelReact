@@ -9,6 +9,7 @@ import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
+import queryString from 'query-string'
 
 class SiteListComponent extends Component {
 	state = {
@@ -19,8 +20,9 @@ class SiteListComponent extends Component {
 		},
 	};
 	componentDidMount() {
+		const value = queryString.parse(this.props.location.search);
 		this.props.dispatch(SitesAction.getSites());
-		this.props.dispatch(SitesFilterAction.filterSites());
+		this.props.dispatch(SitesFilterAction.filterSites(value));
 	}
 	handleSubmit = (e) => {
         e.preventDefault();
@@ -36,11 +38,12 @@ class SiteListComponent extends Component {
     };
 
 	render() {
-		let siteName;
-		const siteNameData = this.props.sites_filter;
-		if (siteName) {
-			siteName = siteNameData.map((site) => {
-				return { value: site.site_name, label: site.site_name };
+		let site_name;
+		const siteNameData = this.props.sites;
+		console.log(siteNameData,"sdsdsds")
+		if (site_name) {
+			site_name = siteNameData.map((site) => {
+				return { value: site.name, label: site.name };
 			});
 		}
 		const options = [
@@ -57,13 +60,13 @@ class SiteListComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 
-						<form name="sites">
+						<form>
                             <Form.Row className="align-items-center mb-4">
                                 <Col md="3">
                                     <Select
                                         isMulti
                                         name="site_name"
-                                        options={siteName}
+                                        options={site_name}
                                         placeholder="Search Site Name"
                                         onChange={(options, e) =>
                                             this.handleMultiSelect(
