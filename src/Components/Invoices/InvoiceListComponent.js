@@ -26,24 +26,24 @@ class InvoiceListComponent extends Component {
 								<Table striped bordered hover>
 									<thead>
 										<tr>
-											<th>Reference</th>
-											<th>Amount Net</th>
+											<th>Invoice Number</th>
+											<th>Amount</th>
+											<th>Invoice Month</th>
 											<th>Status</th>
-											<th>Created At</th>
 											<th className="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
 										{this.props.invoices.map((invoice) => (
 											<tr>
-												<td>{invoice.reference}</td>
-												<td>{invoice.amount_net}</td>
-												<td>{invoice.status}</td>
+												<td><a href={"/invoice/" + invoice.id}>{invoice.reference}</a></td>
+												<td>$ {invoice.amount_net}</td>
 												<td>
 													{TimeStampHelper.standardDateFormat(
 														`${invoice.created_at}`
 													)}
 												</td>
+												<td>{invoice.status}</td>
 												<td className="text-center">
 													<a
 														href={

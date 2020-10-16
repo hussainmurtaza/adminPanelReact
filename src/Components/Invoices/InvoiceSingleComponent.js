@@ -24,7 +24,7 @@ class InvoiceSingleComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">
-							Invoice Details
+								Invoice Details
 							</h4>
 							<Table striped bordered hover>
 								<thead>
@@ -35,23 +35,11 @@ class InvoiceSingleComponent extends Component {
 								</thead>
 								<tbody>
 									<tr>
-										<td>Reference</td>
+										<td>Invoice Number</td>
 										<td>{this.props.invoice.reference}</td>
 									</tr>
 									<tr>
-										<td>Amount Gross</td>
-										<td>{this.props.invoice.amount_gross}</td>
-									</tr>
-									<tr>
-										<td>Amount Discount</td>
-										<td>{this.props.invoice.amount_discount}</td>
-									</tr>
-									<tr>
-										<td>Amount Net</td>
-										<td>{this.props.invoice.amount_net}</td>
-									</tr>
-									<tr>
-										<td>Create At</td>
+										<td>Issue Date</td>
 										<td>
 											{TimeStampHelper.standardDateFormat(
 												this.props.invoice.created_date
@@ -61,6 +49,18 @@ class InvoiceSingleComponent extends Component {
 									<tr>
 										<td>Status</td>
 										<td>{this.props.invoice.status}</td>
+									</tr>
+									<tr>
+										<td>Sub Total</td>
+										<td>$ {this.props.invoice.amount_gross}</td>
+									</tr>
+									<tr>
+										<td>Discount</td>
+										<td>$ {this.props.invoice.amount_discount}</td>
+									</tr>
+									<tr>
+										<td>Total</td>
+										<td>$ {this.props.invoice.amount_net}</td>
 									</tr>
 								</tbody>
 							</Table>
@@ -81,7 +81,7 @@ class InvoiceSingleComponent extends Component {
 									<tr>
 										<td>{invoiceData.first_name}</td>
 										<td>{invoiceData.last_name}</td>
-											<td>{invoiceEmail[0]['email']}</td>
+										<td>{invoiceEmail[0]['email']}</td>
 										<td>{invoiceData.total_sites}</td>
 										<td>{invoiceData.status}</td>
 										<td>

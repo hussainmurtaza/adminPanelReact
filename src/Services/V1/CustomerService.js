@@ -3,9 +3,9 @@ import Gateway from "Gateways/Gateway";
 
 const getAll = async (data) => {
 	const response = await Gateway.authGateway(
-		"GET", 
+		"GET",
 		V1.auth.customers,
-		);
+	);
 	return response;
 };
 
@@ -20,9 +20,9 @@ const get = async (data) => {
 const filter = async (data) => {
 	//console.log(data,"service form data");
 	const response = await Gateway.authGateway(
-		"GET", 
+		"GET",
 		V1.auth.customers + queryBody(data) ,
-		);
+	);
 	return response;
 };
 
@@ -54,7 +54,7 @@ const queryBody = (data) => {
 
 	return query;
 
-	
+
 	//return query;
 };
 
