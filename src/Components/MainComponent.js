@@ -3,7 +3,7 @@ import { Switch, Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
-import DashboardComponent from "Components/Dashboard/DashboardComponent";
+// import DashboardComponent from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
