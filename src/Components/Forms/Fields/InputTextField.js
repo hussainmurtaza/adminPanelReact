@@ -1,21 +1,24 @@
 import React, { Component } from "react";
 
-class InputText extends Component {
+class InputTextField extends Component {
 	render() {
 		return (
-			<div className="form-group">
-				<input
-					type={this.props.type}
-					name={this.props.name}
-					className="form-control"
-					placeholder={this.props.placeholder}
-					onChange={this.props.handleChange}
-					onBlur={this.props.handleBlur}
-					value={this.props.value}
-				/>
-			</div>
+			<React.Fragment>
+				<div>
+					<label>{this.props.placeholder}</label>
+					<input
+						type="text"
+						id={this.props.name}
+						name={this.props.name}
+						className="form-control"
+						placeholder={this.props.placeholder}
+						required={this.props.required}
+						onChange={this.props.onChange}
+					/>
+				</div>
+			</React.Fragment>
 		);
 	}
 }
 
-export default InputText;
+export default InputTextField;

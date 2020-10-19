@@ -149,7 +149,20 @@ class CustomerSingleComponent extends Component {
 								</tbody>
 							</Table>
 
-							<h2>Sites</h2>
+							<h4 className="tx-color-01 mg-b-15 mt-4">Billing Information</h4>
+							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Billing Start Date</th>
+										<th>Billing Last Date</th>
+										<th>Billing Next Date</th>
+										<th>Payment Last Date</th>
+									</tr>
+								</thead>
+								{customerBilling}
+							</Table>
+
+							<h4 className="tx-color-01 mg-b-15 mt-4">Sites</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -163,7 +176,7 @@ class CustomerSingleComponent extends Component {
 								<tbody>{customerSites}</tbody>
 							</Table>
 
-							<h2>Invoices</h2>
+							<h4 className="tx-color-01 mg-b-15 mt-4">Invoices</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -176,18 +189,6 @@ class CustomerSingleComponent extends Component {
 								<tbody>{customerInvoice}</tbody>
 							</Table>
 
-							<h2>Billing Information</h2>
-							<Table striped bordered hover>
-								<thead>
-									<tr>
-										<th>Billing Start Date</th>
-										<th>Billing Last Date</th>
-										<th>Billing Next Date</th>
-										<th>Payment Last Date</th>
-									</tr>
-								</thead>
-								{customerBilling}
-							</Table>
 						</div>
 					</div>
 				</TemplateMain>

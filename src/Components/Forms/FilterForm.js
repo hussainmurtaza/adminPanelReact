@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Col } from "react-bootstrap";
+import InputDateField from "./Fields/InputDateField";
 import InputSelectField from "./Fields/InputSelectField";
 
 class FilterForm extends Component {
@@ -90,12 +91,17 @@ class FilterForm extends Component {
                             /> */}
                         </Col>
                         <Col md="3  mt-3">
-                            <input
+                            {/* <input
                                 type="date"
                                 name="created_at"
                                 className="form-control"
                                 placeholder="Enter your date"
                                 options={this.props.date}
+                            /> */}
+                            <InputDateField
+                                name="created_at"
+                                option={this.props.date}
+                                placeholder="Search By Date"
                             />
                         </Col>
                         <Col md="3 mt-3">

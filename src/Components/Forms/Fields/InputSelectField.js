@@ -12,6 +12,7 @@ class InputSelectField extends React.Component {
 						name={this.props.name}
 						options={this.props.option}
 						placeholder={this.props.placeholder}
+						onChange={this.props.onChange}
 						required={this.props.required}
 					/>
 				</div>

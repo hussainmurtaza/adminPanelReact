@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Col } from "react-bootstrap";
+import InputDateField from "./Fields/InputDateField";
 import InputSelectField from "./Fields/InputSelectField";
 
 class SiteFilterForm extends Component {
@@ -24,6 +25,13 @@ class SiteFilterForm extends Component {
                     <Form.Row className="align-items-center mb-4">
                         <Col md="3">
                             <InputSelectField
+                                name="customer"
+                                option={this.props.customer}
+                                placeholder="Search By Customer Name"
+                            />
+                        </Col>
+                        <Col md="3">
+                            <InputSelectField
                                 name="site_name"
                                 option={this.props.site_name}
                                 placeholder="Search By Site Name"
@@ -33,26 +41,30 @@ class SiteFilterForm extends Component {
                             <InputSelectField
                                 name="identity"
                                 option={this.props.identity}
-                                placeholder="Search By Identity"
+                                placeholder="Search By identity"
                             />
                         </Col>
                         <Col md="3">
+                            <InputSelectField
+                                name="primary_domain_name"
+                                option={this.props.primary_domain_name}
+                                placeholder="Search By Domain"
+                            />
+                        </Col>
 
-                            <input
-                                type="date"
+                        <Col md="3 mt-3">
+                            <InputDateField
                                 name="created_at"
-                                className="form-control"
-                                placeholder="Search By Identity"
-                                options={this.props.date}
+                                placeholder="Search By Date"
                             />
                         </Col>
-                        <Col md="3">
+                        <Col md="3 mt-3">
                             <Button
                                 type="submit"
                                 className="btn btn-brand-02 btn-block"
                             >
                                 Search
-                                </Button>
+                            </Button>
                         </Col>
                     </Form.Row>
                 </form>

@@ -25,6 +25,12 @@ class SiteListComponent extends Component {
 		const identity = this.props.sites.map(function (site) {
 			return { value: site.container.identity, label: site.container.identity };
 		});
+		const primary_domain_name = this.props.sites.map(function (site) {
+			return { value: site.container.primary_domain_name, label: site.container.primary_domain_name };
+		});
+		const customer = this.props.sites.map(function (site) {
+			return { value: site.user.first_name, label: site.user.first_name };
+		});
 		const date = this.props.sites.map(function (site) {
 			return { value: site.created_at, label: site.created_at };
 		});
@@ -41,6 +47,8 @@ class SiteListComponent extends Component {
 							<SiteFilterForm
 								site_name={site_name}
 								identity={identity}
+								primary_domain_name={primary_domain_name}
+								customer={customer}
 								date={date}
 							/>
 
@@ -49,7 +57,7 @@ class SiteListComponent extends Component {
 								<Table striped bordered hover>
 									<thead>
 										<tr>
-											{/* <th>User</th> */}
+											<th>Customer Name</th>
 											<th>WP Title</th>
 											<th>Identity</th>
 											<th>Domain</th>
@@ -61,9 +69,33 @@ class SiteListComponent extends Component {
 									<tbody>
 										{this.props.site_filter.map((site) => (
 											<tr>
-												<td>{site.name}</td>
 												<td>
-													{site.container.identity}
+													<a
+														href={
+															"/customer/" +
+															site.user.id
+														}
+														target="
+														_blank"
+													>
+														{site.user.first_name}{" "}{site.user.last_name}
+													</a>
+												</td>
+												<td>
+													<a
+														href={
+															"/site/" + site.host
+														}>
+														{site.name}
+													</a>
+												</td>
+												<td>
+													<a
+														href={
+															"/site/" + site.host
+														}>
+														{site.container.identity}
+													</a>
 												</td>
 
 												<td>
