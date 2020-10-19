@@ -65,7 +65,9 @@ class InvoiceSingleComponent extends Component {
 								</tbody>
 							</Table>
 
-							<h2>Customer Details</h2>
+							<h4 className="tx-color-01 mg-b-15">
+								Customer Details
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>

@@ -5,12 +5,13 @@ class InputField extends React.Component {
 		return (
 			<React.Fragment>
 				<div>
-					<label> {this.props.label}</label>
+					<label>{this.props.placeholder}</label>
 					<input
 						type="text"
 						id={this.props.name}
 						name={this.props.name}
-						placeholder={this.props.label}
+						placeholder={this.props.placeholder}
+						onChange={this.props.handleChange}
 						className="form-control"
 						required={this.props.required}
 					/>

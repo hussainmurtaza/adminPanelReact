@@ -20,6 +20,7 @@ class FilterForm extends Component {
             form,
         });
     };
+
     render() {
         return (
             <React.Fragment>
@@ -110,6 +111,15 @@ class FilterForm extends Component {
                                 className="btn btn-brand-02 btn-block"
                             >
                                 Search
+                                </Button>
+                        </Col>
+                        <Col md="3 mt-3">
+                            <Button
+                                type="reset"
+                                className="btn btn-secondary btn-block"
+                                onClick={this.handleClear}
+                            >
+                                Clear
                                 </Button>
                         </Col>
                     </Form.Row>

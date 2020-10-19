@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import Select from "react-select";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
 import UsersAction from "Redux/V1/Users/Post/UserPostAction";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
 import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
+import InputField from "Components/Forms/Fields/InputField";
+import InputPasswordField from "Components/Forms/Fields/InputPasswordField";
+import InputSelectField from "Components/Forms/Fields/InputSelectField";
 
 class CreateUserComponent extends Component {
 	state = {
@@ -73,79 +75,59 @@ class CreateUserComponent extends Component {
 								>
 									<Row>
 										<Col sm={6} className="form-group">
-											<label>Firstname</label>
-											<input
+											<InputField
 												type="text"
 												name="first_name"
-												className="form-control"
-												placeholder="Enter your firstname"
-												onChange={this.handleChange}
+												placeholder="Enter your Firstname"
+												handleChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Lastname</label>
-											<input
+
+											<InputField
 												type="text"
 												name="last_name"
-												className="form-control"
-												placeholder="Enter your lastname"
-												onChange={this.handleChange}
+												placeholder="Enter your Lastname"
+												handleChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Email address</label>
-											<input
+											<InputField
 												type="email"
 												name="email"
-												className="form-control"
-												placeholder="Enter your email address"
-												onChange={this.handleChange}
+												placeholder="Enter your Email address"
+												handleChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Phone Number</label>
-											<input
+											<InputField
 												type="text"
 												name="phone"
-												className="form-control"
 												placeholder="Enter your Phone Number"
-												onChange={this.handleChange}
+												handleChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
-											<div className="d-flex justify-content-between mg-b-5">
-												<label className="mg-b-0-f">
-													Password
-												</label>
-											</div>
-											<input
-												type="password"
+											<InputPasswordField
 												name="password"
-												className="form-control"
 												placeholder="Enter your password"
-												onChange={this.handleChange}
+												handleChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
-											<div className="d-flex justify-content-between mg-b-5">
-												<label className="mg-b-0-f">
-													Confirm Password
-												</label>
-											</div>
-											<input
-												type="password"
+											<InputPasswordField
 												name="password_confirmation"
-												className="form-control"
 												placeholder="Enter Confirm password"
-												onChange={this.handleChange}
+												handleChange={this.handleChange}
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
+
 											<label>Assign Roles</label>
-											<Select
-												isMulti
+											<InputSelectField
 												name="roles"
-												options={rolesOptions}
+												placeholder="Assign Roles"
+												option={rolesOptions}
 												onChange={(options, e) =>
 													this.handleMultiSelect(
 														e,
@@ -156,21 +138,19 @@ class CreateUserComponent extends Component {
 											/>
 										</Col>
 										<Col sm={6} className="form-group">
+
 											<label>Assign Permissions</label>
-											<Select
-												isMulti
+											<InputSelectField
 												name="permissions"
-												options={options}
+												placeholder="Assign Permission"
+												option={options}
 												onChange={(options, e) =>
 													this.handleMultiSelect(
 														e,
 														options
 													)
 												}
-												placeholder="Assign Permission"
-												value={
-													this.state.form.permissions
-												}
+												value={this.state.form.permissions}
 											/>
 										</Col>
 										<Col sm={12}>
