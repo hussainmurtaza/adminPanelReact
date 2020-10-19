@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table, Col, Form, Button } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import SitesAction from "Redux/V1/Sites/Get/SiteGetAction";
@@ -8,49 +8,27 @@ import SitesFilterAction from "Redux/V1/Sites/Filter/SiteFilterAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import Select from "react-select";
 import queryString from 'query-string'
+import SiteFilterForm from "Components/Forms/SiteFilterForm";
 
 class SiteListComponent extends Component {
-	state = {
-		form: {
-			site_name: null,
-			identity: null,
-			customer_email: null,
-		},
-	};
 	componentDidMount() {
 		const value = queryString.parse(this.props.location.search);
 		this.props.dispatch(SitesAction.getSites());
 		this.props.dispatch(SitesFilterAction.filterSites(value));
 	}
-	handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.dispatch(SitesFilterAction.filterSites(this.state.form));
-		console.log(this.state.form,"submit filter");
-    };
-    handleMultiSelect = (e, options) => {
-		let { form } = this.state;
-		form[e.name] = options;
-		this.setState({
-			form,
-		});
-    };
 
 	render() {
-		let site_name;
-		const siteNameData = this.props.sites;
-		console.log(siteNameData,"sdsdsds")
-		if (site_name) {
-			site_name = siteNameData.map((site) => {
-				return { value: site.name, label: site.name };
-			});
-		}
-		const options = [
-            { value: 'active', label: 'Active' },
-            { value: 'pending', label: 'Pending' },
-            { value: 'blocked', label: 'Blocked' }
-          ]
+		const site_name = this.props.sites.map(function (site) {
+			return { value: site.name, label: site.name };
+		});
+		const identity = this.props.sites.map(function (site) {
+			return { value: site.container.identity, label: site.container.identity };
+		});
+		const date = this.props.sites.map(function (site) {
+			return { value: site.created_at, label: site.created_at };
+		});
+
 
 		return (
 			<React.Fragment>
@@ -60,57 +38,11 @@ class SiteListComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 
-						<form>
-                            <Form.Row className="align-items-center mb-4">
-                                <Col md="3">
-                                    <Select
-                                        isMulti
-                                        name="site_name"
-                                        options={site_name}
-                                        placeholder="Search Site Name"
-                                        onChange={(options, e) =>
-                                            this.handleMultiSelect(
-                                                e,
-                                                options
-                                            )
-                                        }
-                                    />
-                                </Col>
-                                <Col md="3">
-                                <Select
-                                        isMulti
-                                        name="identity"
-                                        options={options}
-                                        placeholder="Search Identity"
-                                        onChange={(options, e) =>
-                                            this.handleMultiSelect(
-                                                e,
-                                                options
-                                            )
-                                        }
-                                    />
-                                </Col>
-                                <Col md="3">
-                                <Select
-                                        isMulti
-                                        name="customer_email"
-                                        options={options}
-                                        placeholder="Search Email"
-                                    />
-                                </Col>
-                                
-                                
-                                <Col md="3">
-                                <Button 
-                                    type="submit" 
-                                    className="btn btn-brand-02 btn-block" 
-                                >
-                                    Search
-                                </Button>
-                                </Col>
-                            </Form.Row>
-                        </form>
-
+							<SiteFilterForm
+								site_name={site_name}
+								identity={identity}
+								date={date}
+							/>
 
 							<h4 className="tx-color-01 mg-b-15">Sites List</h4>
 							<div className="user-list-page">
@@ -127,7 +59,7 @@ class SiteListComponent extends Component {
 										</tr>
 									</thead>
 									<tbody>
-										{this.props.sites.map((site) => (
+										{this.props.site_filter.map((site) => (
 											<tr>
 												<td>{site.name}</td>
 												<td>

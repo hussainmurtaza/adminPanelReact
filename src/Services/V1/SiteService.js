@@ -15,11 +15,10 @@ const get = async (data) => {
 };
 
 const filter = async (data) => {
-	//console.log(data,"service form data");
 	const response = await Gateway.authGateway(
-		"GET", 
+		"GET",
 		V1.auth.sites + queryBody(data) ,
-		);
+	);
 	return response;
 };
 
@@ -28,7 +27,18 @@ const queryBody = (data) => {
 
 	query += `site_name=${data.site_name}&`;
 	query += `identity=${data.identity}&`;
-	query += `customer_email=${data.customer_email}&`;
+	query += `created_at=${data.created_at}&`;
+
+	if (query === '?site_name=undefined&identity=undefined&created_at=undefined&') {
+		query += `site_name=&`;
+		query += `identity=&`;
+		query += `created_at=&`;
+	}
+	else {
+		query += `site_name=${data.site_name}&`;
+		query += `identity=${data.identity}&`;
+		query += `created_at=${data.created_at}&`;
+	}
 
 	return query;
 };

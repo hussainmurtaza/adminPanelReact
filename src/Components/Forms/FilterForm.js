@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Form, Button, Col } from "react-bootstrap";
-import Select from "react-select";
+import InputSelectField from "./Fields/InputSelectField";
 
 class FilterForm extends Component {
     state = {
@@ -25,7 +25,12 @@ class FilterForm extends Component {
                 <form>
                     <Form.Row className="align-items-center mb-4">
                         <Col md="3">
-                            <Select
+                            <InputSelectField
+                                name="first_name"
+                                option={this.props.first_name}
+                                placeholder="Search By First name"
+                            />
+                            {/* <Select
                                 isMulti
                                 name="first_name"
                                 options={this.props.first_name}
@@ -36,10 +41,15 @@ class FilterForm extends Component {
                                         options
                                     )
                                 }
-                            />
+                            /> */}
                         </Col>
                         <Col md="3">
-                            <Select
+                            <InputSelectField
+                                name="last_name"
+                                option={this.props.last_name}
+                                placeholder="Search By Last name"
+                            />
+                            {/* <Select
                                 isMulti
                                 name="last_name"
                                 options={this.props.last_name}
@@ -50,24 +60,34 @@ class FilterForm extends Component {
                                         options
                                     )
                                 }
-                            />
+                            /> */}
                         </Col>
                         <Col md="3">
-                            <Select
+                            <InputSelectField
+                                name="email"
+                                option={this.props.email}
+                                placeholder="Search By Email"
+                            />
+                            {/* <Select
                                 isMulti
                                 name="email"
                                 options={this.props.email}
                                 placeholder="Search Email"
-                            />
+                            /> */}
                         </Col>
 
                         <Col md="3">
-                            <Select
+                            <InputSelectField
+                                name="status"
+                                option={this.props.status}
+                                placeholder="Search By Status"
+                            />
+                            {/* <Select
                                 isMulti
                                 name="status"
                                 options={this.props.status}
                                 placeholder="Search Status"
-                            />
+                            /> */}
                         </Col>
                         <Col md="3  mt-3">
                             <input
