@@ -69,12 +69,12 @@ class CustomerListComponent extends Component {
         const email = this.props.customers.map(function (customer) {
             return { value: customer.email, label: customer.email };
         });
-        const date = this.props.customers.map(function (customer) {
-            return {
-                value: customer.created_at,
-                label: customer.created_at
-            };
-        });
+        // const date = this.props.customers.map(function (customer) {
+        //     return {
+        //         value: customer.created_at,
+        //         label: customer.created_at
+        //     };
+        // });
         const status = [
             { value: 'active', label: 'Active' },
             { value: 'pending', label: 'Pending' },
@@ -95,7 +95,6 @@ class CustomerListComponent extends Component {
                                 last_name={last_name}
                                 email={email}
                                 status={status}
-                                date={date}
                             />
                             {/* <form name="order">
                                 <Form.Row className="align-items-center mb-4">
@@ -183,8 +182,15 @@ class CustomerListComponent extends Component {
                                             (customer) => (
                                                 <tr>
                                                     <td>
-                                                        {customer.first_name}{" "}{customer.last_name}
-                                                        <Badge variant="primary">{customer.total_sites}</Badge>
+                                                        <a
+                                                            href={
+                                                                "/customer/" +
+                                                                customer.id
+                                                            }
+                                                        >
+                                                            {customer.first_name}{" "}{customer.last_name}
+                                                            <Badge variant="primary">{customer.total_sites}</Badge>
+                                                        </a>
                                                     </td>
 
                                                     {customer.contact ===

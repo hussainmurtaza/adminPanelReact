@@ -41,9 +41,32 @@ class UserListComponent extends Component {
 									<tbody>
 										{this.props.users.map((user) => (
 											<tr>
-												<td>{user.first_name}</td>
-												<td>{user.last_name}</td>
-												<td>{user.email}</td>
+												<td>
+													<a
+														href={
+															"/user-update/" +
+															user.id
+														}
+													>
+														{user.first_name}
+													</a>
+												</td>
+												<td><a
+													href={
+														"/user-update/" +
+														user.id
+													}
+												>
+													{user.last_name}
+												</a>
+												</td>
+												<td><a
+													href={
+														"/user-update/" +
+														user.id
+													}
+												>{user.email}</a>
+												</td>
 												<td>{user.status}</td>
 												<td>
 													{TimeStampHelper.standardDateFormat(

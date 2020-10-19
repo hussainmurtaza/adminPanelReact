@@ -28,7 +28,7 @@ class InvoiceListComponent extends Component {
 										<tr>
 											<th>Invoice Number</th>
 											<th>Amount</th>
-											<th>Invoice Month</th>
+											<th>Issue Date</th>
 											<th>Status</th>
 											<th className="text-center">Action</th>
 										</tr>

@@ -3,18 +3,16 @@ import Select from "react-select";
 
 class InputSelectField extends React.Component {
 	render() {
-		const options = [{ value: "1", label: "Access All" }];
 		return (
 			<React.Fragment>
 				<div>
-					<label>{this.props.placeholder}</label>
+					{/* <label>{this.props.placeholder}</label> */}
 					<Select
 						isMulti
 						name={this.props.name}
-						options={options}
-						className="basic-multi-select"
-						classNamePrefix="select"
+						options={this.props.option}
 						placeholder={this.props.placeholder}
+						onChange={this.props.onChange}
 						required={this.props.required}
 					/>
 				</div>

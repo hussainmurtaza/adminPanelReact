@@ -15,20 +15,36 @@ const get = async (data) => {
 };
 
 const filter = async (data) => {
-	//console.log(data,"service form data");
 	const response = await Gateway.authGateway(
-		"GET", 
+		"GET",
 		V1.auth.sites + queryBody(data) ,
-		);
+	);
 	return response;
 };
 
 const queryBody = (data) => {
 	let query = "?";
 
+	query += `customer=${data.customer}&`;
 	query += `site_name=${data.site_name}&`;
 	query += `identity=${data.identity}&`;
-	query += `customer_email=${data.customer_email}&`;
+	query += `primary_domain_name=${data.primary_domain_name}&`;
+	query += `created_at=${data.created_at}&`;
+
+	if (query === '?customer=undefined&site_name=undefined&identity=undefined&primary_domain_name=undefined&created_at=undefined&') {
+		query += `customer=&`;
+		query += `site_name=&`;
+		query += `identity=&`;
+		query += `primary_domain_name=&`;
+		query += `created_at=&`;
+	}
+	else {
+		query += `customer=${data.customer}&`;
+		query += `site_name=${data.site_name}&`;
+		query += `identity=${data.identity}&`;
+		query += `primary_domain_name=${data.primary_domain_name}&`;
+		query += `created_at=${data.created_at}&`;
+	}
 
 	return query;
 };
