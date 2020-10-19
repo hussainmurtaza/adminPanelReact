@@ -29,13 +29,13 @@ class Main extends Component {
 					loggedIn ? (
 						<Component {...props} />
 					) : (
-						<Redirect
-							to={{
-								pathname: "/login",
-								state: { from: props.location },
-							}}
-						/>
-					)
+							<Redirect
+								to={{
+									pathname: "/login",
+									state: { from: props.location },
+								}}
+							/>
+						)
 				}
 			/>
 		);
@@ -46,13 +46,13 @@ class Main extends Component {
 					!loggedIn ? (
 						<Component {...props} />
 					) : (
-						<Redirect
-							to={{
-								pathname: "/users",
-								state: { from: props.location },
-							}}
-						/>
-					)
+							<Redirect
+								to={{
+									pathname: "/users",
+									state: { from: props.location },
+								}}
+							/>
+						)
 				}
 			/>
 		);
@@ -60,11 +60,11 @@ class Main extends Component {
 			<React.Fragment>
 				<Switch>
 					<GuestRoute exact path="/login" component={Login} />
-					<PrivateRoute
+					{/* <PrivateRoute
 						exact
 						path="/dashboard"
 						component={DashboardComponent}
-					/>
+					/> */}
 					<PrivateRoute
 						exact
 						path="/users"
@@ -136,7 +136,7 @@ class Main extends Component {
 						component={InvoiceSingleComponent}
 					/>
 
-					<Redirect to="/dashboard" />
+					<Redirect to="/users" />
 				</Switch>
 				<ToastContainer />
 			</React.Fragment>
