@@ -11,11 +11,13 @@ function* customerPut(data) {
 		if (response.success) {
 			ToastHelper.success(response.message);
 			yield put(CustomerPutAction.PutCustomersSuccess(response.data));
-			console.log("PutCustomersSuccess saga");
+
+			setTimeout(() => {
+				window.location.href = "/customers";
+			}, 2000);
 		} else {
 			ToastHelper.error(response.error.message);
 			yield put(CustomerPutAction.PutCustomersFailed(response.error));
-			console.log("PutCustomersFailed saga");
 		}
 	} catch (error) {
 		ToastHelper.error();

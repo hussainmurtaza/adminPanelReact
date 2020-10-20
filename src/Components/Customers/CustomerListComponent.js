@@ -22,16 +22,17 @@ class CustomerListComponent extends Component {
 			email: null,
 			created_at: null,
 		},
+		switch1: null,
 	};
 	// state = {
-	//     switch1: false,
+	// 	switch1: false,
 	// };
 	// handleSwitchChange = (nr) => () => {
-	//     let switchNumber = `switch${nr}`;
-	//     this.setState({
-	//         [switchNumber]: !this.state[switchNumber],
-	//     });
-	//     console.log(switchNumber, "switch");
+	// 	let switchNumber = `switch${nr}`;
+	// 	this.setState({
+	// 		[switchNumber]: !this.state[switchNumber],
+	// 	});
+	// 	console.log(switchNumber, "switch");
 	// };
 	componentDidMount() {
 		const value = queryString.parse(this.props.location.search);
@@ -62,7 +63,6 @@ class CustomerListComponent extends Component {
 
 	onSwitch = (id) => {
 		this.props.dispatch(CustomerPutAction.PutCustomers(id));
-		console.log(CustomerPutAction, "submit filter");
 	};
 
 	render() {
@@ -236,7 +236,7 @@ class CustomerListComponent extends Component {
 														)}
 													</td>
 
-													<td className="text-center  custom-control custom-switch">
+													<td className="text-center custom-control custom-switch">
 														<input
 															type="checkbox"
 															className="custom-control-input"
@@ -261,6 +261,9 @@ class CustomerListComponent extends Component {
 																"customSwitches-" +
 																customer.id
 															}
+															data-toggle="tooltip"
+															data-placement="top"
+															title="Block/Unblock User"
 														></label>
 
 														<a
