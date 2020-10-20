@@ -53,12 +53,47 @@ const put = async (data, id) => {
 	);
 	return response;
 };
+
+const filter = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		V1.auth.users + queryBody(data) ,
+	);
+	return response;
+};
+
+const queryBody = (data) => {
+	let query = "?";
+
+	query += `fullname=${data.fullname}&`;
+	//query += `last_name=${data.last_name}&`;
+	query += `status=${data.status}&`;
+	query += `created_at=${data.created_at}&`;
+
+	if (query === '?fullname=undefined&status=undefined&created_at=undefined&') {
+		query += `fullname=&`;
+		//query += `last_name=&`;
+		query += `status=&`;
+		query += `created_at=&`;
+	}
+	// else {
+	// 	query += `fullname=${data.customer}&`;
+	// 	query += `reference=${data.reference}&`;
+	// 	query += `status=${data.status}&`;
+	// 	//query += `primary_domain_name=${data.primary_domain_name}&`;
+	// 	query += `created_at=${data.created_at}&`;
+	// }
+
+	return query;
+};
+
 const UserService = {
 	getAll,
 	get,
 	post,
 	userDelete,
 	put,
+	filter,
 };
 
 export default UserService;

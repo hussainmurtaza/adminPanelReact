@@ -4,15 +4,15 @@ import InputDateField from "./Fields/InputDateField";
 import InputSelectField from "./Fields/InputSelectField";
 
 class FilterForm extends Component {
-    state = {
-        form: {
-            first_name: null,
-            last_name: null,
-            status: null,
-            email: null,
-            created_at: null,
-        },
-    };
+    // state = {
+    //     form: {
+    //         first_name: null,
+    //         last_name: null,
+    //         status: null,
+    //         email: null,
+    //         created_at: null,
+    //     },
+    // };
     handleMultiSelect = (e, options) => {
         let { form } = this.state;
         form[e.name] = options;
@@ -26,83 +26,35 @@ class FilterForm extends Component {
             <React.Fragment>
                 <form>
                     <Form.Row className="align-items-center mb-4">
+                        {
+                            //condition if field name is available in array,display field
+                        }
                         <Col md="3">
                             <InputSelectField
-                                name="first_name"
-                                option={this.props.first_name}
-                                placeholder="Search By First name"
+                                name={this.props.name1}
+                                option={this.props.option1}
+                                placeholder={this.props.placeholder1}
                             />
-                            {/* <Select
-                                isMulti
-                                name="first_name"
-                                options={this.props.first_name}
-                                placeholder="Search First name"
-                                onChange={(options, e) =>
-                                    this.handleMultiSelect(
-                                        e,
-                                        options
-                                    )
-                                }
-                            /> */}
                         </Col>
                         <Col md="3">
                             <InputSelectField
-                                name="last_name"
-                                option={this.props.last_name}
-                                placeholder="Search By Last name"
+                                name={this.props.name2}
+                                option={this.props.option2}
+                                placeholder={this.props.placeholder2}
                             />
-                            {/* <Select
-                                isMulti
-                                name="last_name"
-                                options={this.props.last_name}
-                                placeholder="Search Last name"
-                                onChange={(options, e) =>
-                                    this.handleMultiSelect(
-                                        e,
-                                        options
-                                    )
-                                }
-                            /> */}
-                        </Col>
-                        <Col md="3">
-                            <InputSelectField
-                                name="email"
-                                option={this.props.email}
-                                placeholder="Search By Email"
-                            />
-                            {/* <Select
-                                isMulti
-                                name="email"
-                                options={this.props.email}
-                                placeholder="Search Email"
-                            /> */}
                         </Col>
 
                         <Col md="3">
                             <InputSelectField
-                                name="status"
-                                option={this.props.status}
-                                placeholder="Search By Status"
+                                name={this.props.name3}
+                                option={this.props.option3}
+                                placeholder={this.props.placeholder3}
                             />
-                            {/* <Select
-                                isMulti
-                                name="status"
-                                options={this.props.status}
-                                placeholder="Search Status"
-                            /> */}
                         </Col>
-                        <Col md="3  mt-3">
-                            {/* <input
-                                type="date"
-                                name="created_at"
-                                className="form-control"
-                                placeholder="Enter your date"
-                                options={this.props.date}
-                            /> */}
+                        <Col md="3">
                             <InputDateField
-                                name="created_at"
-                                option={this.props.date}
-                                placeholder="Search By Date"
+                                name={this.props.dateName}
+                                placeholder={this.props.datePlaceholder}
                             />
                         </Col>
                         <Col md="3 mt-3">
@@ -113,7 +65,7 @@ class FilterForm extends Component {
                                 Search
                                 </Button>
                         </Col>
-                        <Col md="3 mt-3">
+                        {/* <Col md="3 mt-3">
                             <Button
                                 type="reset"
                                 className="btn btn-secondary btn-block"
@@ -121,7 +73,7 @@ class FilterForm extends Component {
                             >
                                 Clear
                                 </Button>
-                        </Col>
+                        </Col> */}
                     </Form.Row>
                 </form>
             </React.Fragment>

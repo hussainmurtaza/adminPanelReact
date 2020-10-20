@@ -29,24 +29,24 @@ const filter = async (data) => {
 const queryBody = (data) => {
 	let query = "?";
 
-	query += `first_name=${data.first_name}&`;
-	query += `last_name=${data.last_name}&`;
+	query += `fullname=${data.fullname}&`;
+	//query += `last_name=${data.last_name}&`;
 	query += `email=${data.email}&`;
 	query += `status=${data.status}&`;
 	query += `created_at=${data.created_at}&`;
 
 	//console.log(query,"query");
 
-	if (query === '?first_name=undefined&last_name=undefined&email=undefined&status=undefined&created_at=undefined&') {
-		query += `first_name=&`;
-		query += `last_name=&`;
+	if (query === '?fullname=undefined&email=undefined&status=undefined&created_at=undefined&') {
+		query += `fullname=&`;
+		//query += `last_name=&`;
 		query += `email=&`;
 		query += `status=&`;
 		query += `created_at=&`;
 	}
 	else {
-		query += `first_name=${data.first_name}&`;
-		query += `last_name=${data.last_name}&`;
+		query += `fullname=${data.fullname}&`;
+		//query += `last_name=${data.last_name}&`;
 		query += `email=${data.email}&`;
 		query += `status=${data.status}&`;
 		query += `created_at=${data.created_at}&`;

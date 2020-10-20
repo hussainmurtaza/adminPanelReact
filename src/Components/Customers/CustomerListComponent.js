@@ -13,15 +13,15 @@ import queryString from 'query-string'
 import FilterForm from "Components/Forms/FilterForm";
 
 class CustomerListComponent extends Component {
-    state = {
-        form: {
-            first_name: null,
-            last_name: null,
-            status: null,
-            email: null,
-            created_at: null,
-        },
-    };
+    // state = {
+    //     form: {
+    //         first_name: null,
+    //         last_name: null,
+    //         status: null,
+    //         email: null,
+    //         created_at: null,
+    //     },
+    // };
     // state = {
     //     switch1: false,
     // };
@@ -60,12 +60,12 @@ class CustomerListComponent extends Component {
     // };
 
     render() {
-        const first_name = this.props.customers.map(function (customer) {
-            return { value: customer.first_name, label: customer.first_name };
+        const fullname = this.props.customers.map(function (customer) {
+            return { value: customer.fullname, label: customer.fullname };
         });
-        const last_name = this.props.customers.map(function (customer) {
-            return { value: customer.last_name, label: customer.last_name };
-        });
+        // const last_name = this.props.customers.map(function (customer) {
+        //     return { value: customer.last_name, label: customer.last_name };
+        // });
         const email = this.props.customers.map(function (customer) {
             return { value: customer.email, label: customer.email };
         });
@@ -91,10 +91,17 @@ class CustomerListComponent extends Component {
                         <div className="container">
 
                             <FilterForm
-                                first_name={first_name}
-                                last_name={last_name}
-                                email={email}
-                                status={status}
+                                option1={fullname}
+                                name1="fullname"
+                                placeholder1="Search By Name"
+                                option2={email}
+                                name2="email"
+                                placeholder2="Search By Email"
+                                option3={status}
+                                name3="status"
+                                placeholder3="Search By Status"
+                                dateName="created_at"
+                                datePlaceholder="Search By Date"
                             />
                             {/* <form name="order">
                                 <Form.Row className="align-items-center mb-4">
@@ -188,32 +195,24 @@ class CustomerListComponent extends Component {
                                                                 customer.id
                                                             }
                                                         >
-                                                            {customer.first_name}{" "}{customer.last_name}
+                                                            {customer.fullname}
                                                             <Badge variant="primary">{customer.total_sites}</Badge>
                                                         </a>
                                                     </td>
 
-                                                    {customer.contact ===
-                                                        true ? (
-                                                            <span>{"-"}</span>
+                                                    {/* {customer.email ===
+                                                        null ? (
+                                                            <td className="text-center">-</td>
                                                         ) : (
                                                             <td>
-                                                                {customer.contact.map(
-                                                                    (cc) => (
-                                                                        <span>{cc.email}</span>
-                                                                    )
-                                                                )}
-
+                                                                {customer.email}
                                                             </td>
-                                                        )}
-
-                                                    {/* {customer.contact.map(
-                                                        (cc) => (
-                                                            <td>{cc.email}</td>
-                                                        )
                                                     )} */}
 
 
+
+
+                                                    <td>{customer.email}</td>
                                                     <td>{customer.status}</td>
 
                                                     <td>

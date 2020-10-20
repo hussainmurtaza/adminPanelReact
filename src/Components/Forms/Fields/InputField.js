@@ -14,6 +14,7 @@ class InputField extends React.Component {
 						onChange={this.props.handleChange}
 						className="form-control"
 						required={this.props.required}
+						defaultValue={this.props.defaultValue}
 					/>
 				</div>
 			</React.Fragment>
