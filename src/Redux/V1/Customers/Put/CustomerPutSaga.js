@@ -12,9 +12,9 @@ function* customerPut(data) {
 			ToastHelper.success(response.message);
 			yield put(CustomerPutAction.PutCustomersSuccess(response.data));
 
-			setTimeout(() => {
-				window.location.href = "/customers";
-			}, 2000);
+			// setTimeout(() => {
+			// 	window.location.href = "/customers";
+			// }, 2000);
 		} else {
 			ToastHelper.error(response.error.message);
 			yield put(CustomerPutAction.PutCustomersFailed(response.error));

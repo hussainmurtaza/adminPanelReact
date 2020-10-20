@@ -22,7 +22,7 @@ class CustomerListComponent extends Component {
 			email: null,
 			created_at: null,
 		},
-		switch1: null,
+		checked: null,
 	};
 	// state = {
 	// 	switch1: false,
@@ -61,8 +61,11 @@ class CustomerListComponent extends Component {
 	//     });
 	// };
 
-	onSwitch = (id) => {
+	onSwitch = (id, e) => {
 		this.props.dispatch(CustomerPutAction.PutCustomers(id));
+		// this.setState({
+		// 	checked: e.target.checked,
+		// });
 	};
 
 	render() {
