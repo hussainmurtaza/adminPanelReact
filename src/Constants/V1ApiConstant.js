@@ -5,6 +5,7 @@ const V1 = {
 		roles: "v1/roles",
 		permissions: "v1/permissions",
 		customers: "v1/customers",
+		customers_lock: "v1/customers/status",
 		sites: "v1/sites",
 		invoices: "v1/invoices",
 	},

@@ -9,94 +9,98 @@ import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 // import Select from "react-select";
-import queryString from 'query-string'
+import queryString from "query-string";
 import FilterForm from "Components/Forms/FilterForm";
+import CustomerPutAction from "Redux/V1/Customers/Put/CustomerPutAction";
 
 class CustomerListComponent extends Component {
-    state = {
-        form: {
-            first_name: null,
-            last_name: null,
-            status: null,
-            email: null,
-            created_at: null,
-        },
-    };
-    // state = {
-    //     switch1: false,
-    // };
-    // handleSwitchChange = (nr) => () => {
-    //     let switchNumber = `switch${nr}`;
-    //     this.setState({
-    //         [switchNumber]: !this.state[switchNumber],
-    //     });
-    //     console.log(switchNumber, "switch");
-    // };
-    componentDidMount() {
-        const value = queryString.parse(this.props.location.search);
-        this.props.dispatch(CustomersAction.getCustomers());
-        this.props.dispatch(CustomersFilterAction.filterCustomers(value));
-    }
-    // handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     this.props.dispatch(CustomersFilterAction.filterCustomers(this.state.form));
-    //     console.log(this.state.form, "submit filter");
-    // };
-    // handleMultiSelect = (e, options) => {
-    //     let { form } = this.state;
-    //     form[e.name] = options;
-    //     this.setState({
-    //         form,
-    //     });
-    // };
-    // cardLists = () => {
-    //     return this.props.customers.map((customer) => {
-    //         return customer.contact.map((cc) => {
-    //             return (
-    //                 { value: cc.email, label: cc.email }
-    //             );
-    //         });
-    //     });
-    // };
+	state = {
+		form: {
+			first_name: null,
+			last_name: null,
+			status: null,
+			email: null,
+			created_at: null,
+		},
+	};
+	// state = {
+	//     switch1: false,
+	// };
+	// handleSwitchChange = (nr) => () => {
+	//     let switchNumber = `switch${nr}`;
+	//     this.setState({
+	//         [switchNumber]: !this.state[switchNumber],
+	//     });
+	//     console.log(switchNumber, "switch");
+	// };
+	componentDidMount() {
+		const value = queryString.parse(this.props.location.search);
+		this.props.dispatch(CustomersAction.getCustomers());
+		this.props.dispatch(CustomersFilterAction.filterCustomers(value));
+	}
+	// handleSubmit = (e) => {
+	//     e.preventDefault();
+	//     this.props.dispatch(CustomersFilterAction.filterCustomers(this.state.form));
+	//     console.log(this.state.form, "submit filter");
+	// };
+	// handleMultiSelect = (e, options) => {
+	//     let { form } = this.state;
+	//     form[e.name] = options;
+	//     this.setState({
+	//         form,
+	//     });
+	// };
+	// cardLists = () => {
+	//     return this.props.customers.map((customer) => {
+	//         return customer.contact.map((cc) => {
+	//             return (
+	//                 { value: cc.email, label: cc.email }
+	//             );
+	//         });
+	//     });
+	// };
 
-    render() {
-        const first_name = this.props.customers.map(function (customer) {
-            return { value: customer.first_name, label: customer.first_name };
-        });
-        const last_name = this.props.customers.map(function (customer) {
-            return { value: customer.last_name, label: customer.last_name };
-        });
-        const email = this.props.customers.map(function (customer) {
-            return { value: customer.email, label: customer.email };
-        });
-        // const date = this.props.customers.map(function (customer) {
-        //     return {
-        //         value: customer.created_at,
-        //         label: customer.created_at
-        //     };
-        // });
-        const status = [
-            { value: 'active', label: 'Active' },
-            { value: 'pending', label: 'Pending' },
-            { value: 'blocked', label: 'Blocked' }
-        ]
+	onSwitch = (id) => {
+		this.props.dispatch(CustomerPutAction.PutCustomers(id));
+		console.log(CustomerPutAction, "submit filter");
+	};
 
+	render() {
+		const first_name = this.props.customers.map(function (customer) {
+			return { value: customer.first_name, label: customer.first_name };
+		});
+		const last_name = this.props.customers.map(function (customer) {
+			return { value: customer.last_name, label: customer.last_name };
+		});
+		const email = this.props.customers.map(function (customer) {
+			return { value: customer.email, label: customer.email };
+		});
+		// const date = this.props.customers.map(function (customer) {
+		//     return {
+		//         value: customer.created_at,
+		//         label: customer.created_at
+		//     };
+		// });
+		const status = [
+			{ value: "active", label: "Active" },
+			{ value: "pending", label: "Pending" },
+			{ value: "blocked", label: "Blocked" },
+		];
 
-        return (
-            <React.Fragment>
-                <TemplateMain>
-                    <Sidebar active="customers" />
+		return (
+			<React.Fragment>
+				<TemplateMain>
+					<Sidebar active="customers" />
 
-                    <div className="content content-components">
-                        <div className="container">
-
-                            <FilterForm
-                                first_name={first_name}
-                                last_name={last_name}
-                                email={email}
-                                status={status}
-                            />
-                            {/* <form name="order">
+					<div className="content content-components">
+						<div className="container">
+							<FilterForm
+								first_name={first_name}
+								last_name={last_name}
+								email={email}
+								status={status}
+							/>
+							{/* <form name="order">
                                 <Form.Row className="align-items-center mb-4">
                                     <Col md="3">
                                         <Select
@@ -163,125 +167,135 @@ class CustomerListComponent extends Component {
                                 </Form.Row>
                             </form> */}
 
-                            <h4 className="tx-color-01 mg-b-15">
-                                Customer List
-                            </h4>
-                            <div className="customer-list-page">
-                                <Table striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Email</th>
-                                            <th>Status</th>
-                                            <th>Created At</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.props.customer_filter.map(
-                                            (customer) => (
-                                                <tr>
-                                                    <td>
-                                                        <a
-                                                            href={
-                                                                "/customer/" +
-                                                                customer.id
-                                                            }
-                                                        >
-                                                            {customer.first_name}{" "}{customer.last_name}
-                                                            <Badge variant="primary">{customer.total_sites}</Badge>
-                                                        </a>
-                                                    </td>
+							<h4 className="tx-color-01 mg-b-15">
+								Customer List
+							</h4>
+							<div className="customer-list-page">
+								<Table striped bordered hover>
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Status</th>
+											<th>Created At</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										{this.props.customer_filter.map(
+											(customer) => (
+												<tr>
+													<td>
+														<a
+															href={
+																"/customer/" +
+																customer.id
+															}
+														>
+															{
+																customer.first_name
+															}{" "}
+															{customer.last_name}
+															<Badge variant="primary">
+																{
+																	customer.total_sites
+																}
+															</Badge>
+														</a>
+													</td>
+													<td>{customer.email}</td>
 
-                                                    {customer.contact ===
-                                                        true ? (
-                                                            <span>{"-"}</span>
-                                                        ) : (
-                                                            <td>
-                                                                {customer.contact.map(
-                                                                    (cc) => (
-                                                                        <span>{cc.email}</span>
-                                                                    )
-                                                                )}
+													{/* {customer.contact ===
+													true ? (
+														<span>{"-"}</span>
+													) : (
+														<td>
+															{customer.contact.map(
+																(cc) => (
+																	<span>
+																		{
+																			cc.email
+																		}
+																	</span>
+																)
+															)}
+														</td>
+													)} */}
 
-                                                            </td>
-                                                        )}
-
-                                                    {/* {customer.contact.map(
+													{/* {customer.contact.map(
                                                         (cc) => (
                                                             <td>{cc.email}</td>
                                                         )
                                                     )} */}
 
+													<td>{customer.status}</td>
 
-                                                    <td>{customer.status}</td>
+													<td>
+														{TimeStampHelper.standardDateFormat(
+															`${customer.created_at}`
+														)}
+													</td>
 
-                                                    <td>
-                                                        {TimeStampHelper.standardDateFormat(
-                                                            `${customer.created_at}`
-                                                        )}
-                                                    </td>
-                                                    {/* <td>
-                                                        <div className="custom-control custom-switch">
-                                                            <input
-                                                                type="checkbox"
-                                                                className="custom-control-input"
-                                                                id={
-                                                                    "customSwitches-" +
-                                                                    customer.id
-                                                                }
-                                                                checked={
-                                                                    this.state
-                                                                        .switch1
-                                                                }
-                                                                onChange={this.handleSwitchChange(
-                                                                    1
-                                                                )}
-                                                                readOnly
-                                                            />
-                                                            <label
-                                                                className="custom-control-label"
-                                                                htmlFor={
-                                                                    "customSwitches-" +
-                                                                    customer.id
-                                                                }
-                                                            ></label>
-                                                        </div>
-                                                    </td> */}
+													<td className="text-center  custom-control custom-switch">
+														<input
+															type="checkbox"
+															className="custom-control-input"
+															id={
+																"customSwitches-" +
+																customer.id
+															}
+															checked={
+																this.state
+																	.switch1
+															}
+															onChange={() =>
+																this.onSwitch(
+																	customer.id
+																)
+															}
+															readOnly
+														/>
+														<label
+															className="custom-control-label"
+															htmlFor={
+																"customSwitches-" +
+																customer.id
+															}
+														></label>
 
-                                                    <td className="text-center">
-                                                        <a
-                                                            href={
-                                                                "/customer/" +
-                                                                customer.id
-                                                            }
-                                                            className="btn btn-link"
-                                                            title="View"
-                                                        >
-                                                            <FontAwesomeIcon
-                                                                icon={faEye}
-                                                            />
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            )
-                                        )}
-                                    </tbody>
-                                </Table>
-                            </div>
-                        </div>
-                    </div>
-                </TemplateMain>
-            </React.Fragment >
-        );
-    }
+														<a
+															href={
+																"/customer/" +
+																customer.id
+															}
+															className="btn btn-link"
+															title="View"
+														>
+															<FontAwesomeIcon
+																icon={faEye}
+															/>
+														</a>
+													</td>
+												</tr>
+											)
+										)}
+									</tbody>
+								</Table>
+							</div>
+						</div>
+					</div>
+				</TemplateMain>
+			</React.Fragment>
+		);
+	}
 }
 
 const mapStateToProps = (state) => {
-    return {
-        customers: state.customers.customers,
-        customer_filter: state.customer_filter.customers,
-    };
+	return {
+		customers: state.customers.customers,
+		customer_filter: state.customer_filter.customers,
+		customer_put: state.customer_put.customers,
+	};
 };
 
 export default connect(mapStateToProps)(CustomerListComponent);

@@ -19,6 +19,7 @@ import InvoiceGetReducer from "Redux/V1/Invoices/Get/InvoiceGetReducer";
 import InvoiceFirstReducer from "Redux/V1/Invoices/First/InvoiceFirstReducer";
 import CustomerFilterReducer from "Redux/V1/Customers/Filter/CustomerFilterReducer";
 import SiteFilterReducer from "Redux/V1/Sites/Filter/SiteFilterReducer";
+import CustomerPutReducer from "Redux/V1/Customers/Put/CustomerPutReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -41,4 +42,5 @@ export default combineReducers({
 	invoice_first: InvoiceFirstReducer,
 	customer_filter: CustomerFilterReducer,
 	site_filter: SiteFilterReducer,
+	customer_put: CustomerPutReducer,
 });
