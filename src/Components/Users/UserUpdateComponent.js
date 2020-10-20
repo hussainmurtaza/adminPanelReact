@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import Select from "react-select";
 import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
 import TemplateMain from "Templates/TemplateMain";
@@ -8,6 +7,8 @@ import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
 import UsersPutAction from "Redux/V1/Users/Put/UserPutAction";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
 import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
+import InputField from "Components/Forms/Fields/InputField";
+import InputSelectField from "Components/Forms/Fields/InputSelectField";
 
 class UserUpdateComponent extends Component {
 	state = {
@@ -99,7 +100,15 @@ class UserUpdateComponent extends Component {
 								<form method="PUT" onSubmit={this.handleSubmit}>
 									<Row>
 										<Col sm={6} className="form-group">
-											<label>Firstname</label>
+											<InputField
+												name="first_name"
+												placeholder="Enter your Firstname"
+												handleChange={this.handleChange}
+												defaultValue={
+													this.state.form.first_name
+												}
+											/>
+											{/* <label>Firstname</label>
 											<input
 												type="text"
 												name="first_name"
@@ -109,10 +118,18 @@ class UserUpdateComponent extends Component {
 												defaultValue={
 													this.state.form.first_name
 												}
-											/>
+											/> */}
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Lastname</label>
+											<InputField
+												name="last_name"
+												placeholder="Enter your Lastname"
+												handleChange={this.handleChange}
+												defaultValue={
+													this.state.form.last_name
+												}
+											/>
+											{/* <label>Lastname</label>
 											<input
 												type="text"
 												name="last_name"
@@ -122,10 +139,18 @@ class UserUpdateComponent extends Component {
 												defaultValue={
 													this.state.form.last_name
 												}
-											/>
+											/> */}
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Email address</label>
+											<InputField
+												name="email"
+												placeholder="Enter your Email address"
+												handleChange={this.handleChange}
+												defaultValue={
+													this.state.form.email
+												}
+											/>
+											{/* <label>Email address</label>
 											<input
 												type="email"
 												name="email"
@@ -135,10 +160,18 @@ class UserUpdateComponent extends Component {
 												defaultValue={
 													this.state.form.email
 												}
-											/>
+											/> */}
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Phone Number</label>
+											<InputField
+												name="phone"
+												placeholder="Enter your Phone Number"
+												handleChange={this.handleChange}
+												defaultValue={
+													this.state.form.phone
+												}
+											/>
+											{/* <label>Phone Number</label>
 											<input
 												type="number"
 												name="phone"
@@ -148,11 +181,23 @@ class UserUpdateComponent extends Component {
 												defaultValue={
 													this.state.form.phone
 												}
-											/>
+											/> */}
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Roles</label>
-											<Select
+											<InputSelectField
+												name="roles"
+												placeholder="Assign Roles"
+												option={rolesOptions}
+												onChange={(options, e) =>
+													this.handleMultiSelect(
+														e,
+														options
+													)
+												}
+												value={this.state.form.roles}
+											/>
+											{/* <Select
 												isMulti
 												name="roles"
 												options={rolesOptions}
@@ -163,11 +208,23 @@ class UserUpdateComponent extends Component {
 													)
 												}
 												value={this.state.form.roles}
-											/>
+											/> */}
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Permissions</label>
-											<Select
+											<InputSelectField
+												name="permissions"
+												placeholder="Assign Permission"
+												option={permissionOptions}
+												onChange={(options, e) =>
+													this.handleMultiSelect(
+														e,
+														options
+													)
+												}
+												value={this.state.form.permissions}
+											/>
+											{/* <Select
 												isMulti
 												name="permissions"
 												options={permissionOptions}
@@ -181,7 +238,7 @@ class UserUpdateComponent extends Component {
 												value={
 													this.state.form.permissions
 												}
-											/>
+											/> */}
 										</Col>
 										<Col sm={12}>
 											<button

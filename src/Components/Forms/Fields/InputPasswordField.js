@@ -14,7 +14,9 @@ class InputPasswordField extends React.Component {
 						name={this.props.name}
 						type="password"
 						id={this.props.name}
+						className="form-control"
 						placeholder={this.props.placeholder}
+						onChange={this.props.handleChange}
 						required={this.props.required}
 					/>
 				</div>

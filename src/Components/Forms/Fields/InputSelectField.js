@@ -14,6 +14,7 @@ class InputSelectField extends React.Component {
 						placeholder={this.props.placeholder}
 						onChange={this.props.onChange}
 						required={this.props.required}
+						value={this.props.value}
 					/>
 				</div>
 			</React.Fragment>
