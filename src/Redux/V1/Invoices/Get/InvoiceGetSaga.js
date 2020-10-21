@@ -17,5 +17,5 @@ function* invoiceGet() {
 }
 
 export function* InvoiceGetSaga() {
-	yield takeEvery(INVOICES.GET_INVOICES, invoiceGet);
+	yield takeEvery(INVOICES.INVOICES_GET, invoiceGet);
 }

@@ -1,6 +1,6 @@
-import INVOICE_DETAILS from "Redux/V1/Invoices/First/InvoiceFirstActionType";
+import INVOICE from "Redux/V1/Invoices/First/InvoiceFirstActionType";
 
-const siteDetails = (
+const invoiceDetails = (
 	state = {
 		loading: false,
 		invoice: {
@@ -10,7 +10,7 @@ const siteDetails = (
 				status: null,
 				created_at: null,
 				total_sites: null,
-				contact:[{
+				contact: [{
 					email: null,
 				}]
 			},
@@ -20,18 +20,18 @@ const siteDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case INVOICE_DETAILS.INVOICE_DETAILS_GET:
+		case INVOICE.INVOICE_FIRST:
 			return {
 				...state,
 				loading: true,
 			};
-		case INVOICE_DETAILS.INVOICE_DETAILS_GET_SUCCESS:
+		case INVOICE.INVOICE_FIRST_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				invoice: action.response.invoice,
 			};
-		case INVOICE_DETAILS.INVOICE_DETAILS_GET_FAILED:
+		case INVOICE.INVOICE_FIRST_FAILED:
 			return {
 				...state,
 				loading: false,
@@ -42,4 +42,4 @@ const siteDetails = (
 	}
 };
 
-export default siteDetails;
+export default invoiceDetails;

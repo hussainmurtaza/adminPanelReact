@@ -8,18 +8,18 @@ const UsersAction = {
 
 function getUsers() {
 	return {
-		type: USER.GET_USERS,
+		type: USER.USERS_GET,
 	};
 }
 function getUsersSuccess(data) {
 	return {
-		type: USER.GET_USERS_SUCCESS,
+		type: USER.USERS_GET_SUCCESS,
 		response: data,
 	};
 }
 function getUsersFailed(data) {
 	return {
-		type: USER.GET_USERS_FAILED,
+		type: USER.USERS_GET_FAILED,
 		response: data,
 	};
 }

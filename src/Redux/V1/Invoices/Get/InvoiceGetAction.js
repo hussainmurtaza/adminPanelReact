@@ -8,18 +8,18 @@ const InvoicesAction = {
 
 function getInvoices() {
 	return {
-		type: INVOICES.GET_INVOICES,
+		type: INVOICES.INVOICES_GET,
 	};
 }
 function getInvoicesSuccess(data) {
 	return {
-		type: INVOICES.GET_INVOICES_SUCCESS,
+		type: INVOICES.INVOICES_GET_SUCCESS,
 		response: data,
 	};
 }
 function getInvoicesFailed(data) {
 	return {
-		type: INVOICES.GET_INVOICES_FAILED,
+		type: INVOICES.INVOICES_GET_FAILED,
 		response: data,
 	};
 }

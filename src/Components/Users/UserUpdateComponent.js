@@ -3,7 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
 import TemplateMain from "Templates/TemplateMain";
-import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
+import UserFirstAction from "Redux/V1/Users/First/UserFirstAction";
 import UsersPutAction from "Redux/V1/Users/Put/UserPutAction";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
 import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
@@ -26,7 +26,7 @@ class UserUpdateComponent extends Component {
 		this.props.dispatch(PermissionAction.getPermission());
 		this.props.dispatch(RolesAction.getRoles());
 		this.props.dispatch(
-			UserDetailsAction.userDetail(this.props.match.params.id)
+			UserFirstAction.userFirst(this.props.match.params.id)
 		);
 	}
 	handleSubmit = (e) => {

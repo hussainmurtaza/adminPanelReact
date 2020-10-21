@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Badge } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
+import UserFirstAction from "Redux/V1/Users/First/UserFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 
 class UpdateUserComponent extends Component {
@@ -14,7 +14,7 @@ class UpdateUserComponent extends Component {
 		//console.log(this.props.match.params.id);
 		//console.log(this.props.user);
 		this.props.dispatch(
-			UserDetailsAction.userDetail(this.props.match.params.id)
+			UserFirstAction.userFirst(this.props.match.params.id)
 		);
 	}
 

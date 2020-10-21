@@ -1,28 +1,28 @@
-import ROLE_DETAILS from "Redux/V1/Roles/First/RoleFirstActionType";
+import ROLE from "Redux/V1/Roles/First/RoleFirstActionType";
 
-const RoleDetailAction = {
-	roleDetail,
-	roleDetailSuccess,
-	roleDetailFailed,
+const RoleFirstAction = {
+	roleFirst,
+	roleFirstSuccess,
+	roleFirstFailed,
 };
 
-function roleDetail(data) {
+function roleFirst(data) {
 	return {
-		type: ROLE_DETAILS.ROLE_DETAILS_GET,
+		type: ROLE.ROLE_FIRST,
 		request: data,
 	};
 }
-function roleDetailSuccess(data) {
+function roleFirstSuccess(data) {
 	return {
-		type: ROLE_DETAILS.ROLE_DETAILS_GET_SUCCESS,
+		type: ROLE.ROLE_FIRST_SUCCESS,
 		response: data,
 	};
 }
-function roleDetailFailed(data) {
+function roleFirstFailed(data) {
 	return {
-		type: ROLE_DETAILS.ROLE_DETAILS_GET_FAILED,
+		type: ROLE.ROLE_FIRST_FAILED,
 		response: data,
 	};
 }
 
-export default RoleDetailAction;
+export default RoleFirstAction;

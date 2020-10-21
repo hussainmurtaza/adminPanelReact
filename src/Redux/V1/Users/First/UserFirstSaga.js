@@ -1,16 +1,16 @@
 import { takeEvery, put } from "redux-saga/effects";
-import USER_DETAILS from "Redux/V1/Users/First/UserFirstActionType";
-import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
+import USER from "Redux/V1/Users/First/UserFirstActionType";
+import UserFirstAction from "Redux/V1/Users/First/UserFirstAction";
 import UserService from "Services/V1/UserService";
 
 function* userDetails(data) {
 	try {
 		const response = yield UserService.get(data.request);
 		if (response.success) {
-			yield put(UserDetailsAction.userDetailSuccess(response.data));
+			yield put(UserFirstAction.userFirstSuccess(response.data));
 		} else {
 			yield put(
-				UserDetailsAction.userDetailFailed(response.error.message)
+				UserFirstAction.userFirstFailed(response.error.message)
 			);
 		}
 	} catch (error) {
@@ -19,5 +19,5 @@ function* userDetails(data) {
 }
 
 export function* userFirstSaga() {
-	yield takeEvery(USER_DETAILS.USER_DETAILS_GET, userDetails);
+	yield takeEvery(USER.USER_FIRST, userDetails);
 }

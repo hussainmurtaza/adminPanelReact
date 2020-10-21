@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import CustomerDetailsAction from "Redux/V1/Customers/First/CustomerFirstAction";
+import CustomerFirstAction from "Redux/V1/Customers/First/CustomerFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 
@@ -13,7 +13,7 @@ class CustomerSingleComponent extends Component {
 
 	componentDidMount() {
 		this.props.dispatch(
-			CustomerDetailsAction.customerDetail(this.props.match.params.id)
+			CustomerFirstAction.customerFirst(this.props.match.params.id)
 		);
 	}
 

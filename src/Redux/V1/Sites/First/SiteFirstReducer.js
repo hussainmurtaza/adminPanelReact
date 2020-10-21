@@ -1,4 +1,4 @@
-import SITE_DETAILS from "Redux/V1/Sites/First/SiteFirstActionType";
+import SITE from "Redux/V1/Sites/First/SiteFirstActionType";
 
 const siteDetails = (
 	state = {
@@ -17,18 +17,18 @@ const siteDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case SITE_DETAILS.SITE_DETAILS_GET:
+		case SITE.SITE_FIRST:
 			return {
 				...state,
 				loading: true,
 			};
-		case SITE_DETAILS.SITE_DETAILS_GET_SUCCESS:
+		case SITE.SITE_FIRST_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				site: action.response.site,
 			};
-		case SITE_DETAILS.SITE_DETAILS_GET_FAILED:
+		case SITE.SITE_FIRST_FAILED:
 			return {
 				...state,
 				loading: false,

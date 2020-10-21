@@ -14,6 +14,9 @@ import FilterForm from "Components/Forms/FilterForm";
 
 class CustomerListComponent extends Component {
     // state = {
+    //     enabledCheckBox: false
+    // };
+    // state = {
     //     form: {
     //         first_name: null,
     //         last_name: null,
@@ -25,8 +28,8 @@ class CustomerListComponent extends Component {
     // state = {
     //     switch1: false,
     // };
-    // handleSwitchChange = (nr) => () => {
-    //     let switchNumber = `switch${nr}`;
+    // handleSwitchChange = (id) => () => {
+    //     let switchNumber = `switch${id}`;
     //     this.setState({
     //         [switchNumber]: !this.state[switchNumber],
     //     });
@@ -58,6 +61,9 @@ class CustomerListComponent extends Component {
     //         });
     //     });
     // };
+    // onClick = () => {
+    //     this.setState({ enabledCheckBox: !this.state.enabledCheckBox });
+    // };
 
     render() {
         const fullname = this.props.customers.map(function (customer) {
@@ -80,7 +86,6 @@ class CustomerListComponent extends Component {
             { value: 'pending', label: 'Pending' },
             { value: 'blocked', label: 'Blocked' }
         ]
-
 
         return (
             <React.Fragment>
@@ -233,9 +238,11 @@ class CustomerListComponent extends Component {
                                                                     this.state
                                                                         .switch1
                                                                 }
-                                                                onChange={this.handleSwitchChange(
-                                                                    1
-                                                                )}
+                                                                // onChange={this.handleSwitchChange(
+                                                                //     1
+                                                                // )}
+                                                                checked={this.state.enabledCheckBox}
+                                                                onChange={this.onClick}
                                                                 readOnly
                                                             />
                                                             <label
@@ -246,6 +253,7 @@ class CustomerListComponent extends Component {
                                                                 }
                                                             ></label>
                                                         </div>
+                                                        {this.state.enabledCheckBox ? <div>Blue</div> : <div>Red</div>}
                                                     </td> */}
 
                                                     <td className="text-center">

@@ -1,6 +1,6 @@
 import { takeEvery, put } from "redux-saga/effects";
-import CUSTOMER_DETAILS from "Redux/V1/Customers/First/CustomerFirstActionType";
-import CustomerDetailsAction from "Redux/V1//Customers/First/CustomerFirstAction";
+import CUSTOMER from "Redux/V1/Customers/First/CustomerFirstActionType";
+import CustomerFirstAction from "Redux/V1//Customers/First/CustomerFirstAction";
 import CustomerService from "Services/V1/CustomerService";
 
 function* customerDetails(data) {
@@ -8,11 +8,11 @@ function* customerDetails(data) {
 		const response = yield CustomerService.get(data.request);
 		if (response.success) {
 			yield put(
-				CustomerDetailsAction.customerDetailSuccess(response.data)
+				CustomerFirstAction.customerFirstSuccess(response.data)
 			);
 		} else {
 			yield put(
-				CustomerDetailsAction.customerDetailFailed(
+				CustomerFirstAction.customerFirstFailed(
 					response.error.message
 				)
 			);
@@ -23,5 +23,5 @@ function* customerDetails(data) {
 }
 
 export function* CustomerFirstSaga() {
-	yield takeEvery(CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET, customerDetails);
+	yield takeEvery(CUSTOMER.CUSTOMER_FIRST, customerDetails);
 }

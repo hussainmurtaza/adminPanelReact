@@ -1,28 +1,28 @@
-import SITE_DETAILS from "Redux/V1/Sites/First/SiteFirstActionType";
+import SITE from "Redux/V1/Sites/First/SiteFirstActionType";
 
-const SiteDetailAction = {
-	siteDetail,
-	siteDetailSuccess,
-	siteDetailFailed,
+const SiteFirstAction = {
+	siteFirst,
+	siteFirstSuccess,
+	siteFirstFailed,
 };
 
-function siteDetail(data) {
+function siteFirst(data) {
 	return {
-		type: SITE_DETAILS.SITE_DETAILS_GET,
+		type: SITE.SITE_FIRST,
 		request: data,
 	};
 }
-function siteDetailSuccess(data) {
+function siteFirstSuccess(data) {
 	return {
-		type: SITE_DETAILS.SITE_DETAILS_GET_SUCCESS,
+		type: SITE.SITE_FIRST_SUCCESS,
 		response: data,
 	};
 }
-function siteDetailFailed(data) {
+function siteFirstFailed(data) {
 	return {
-		type: SITE_DETAILS.SITE_DETAILS_GET_FAILED,
+		type: SITE.SITE_FIRST_FAILED,
 		response: data,
 	};
 }
 
-export default SiteDetailAction;
+export default SiteFirstAction;

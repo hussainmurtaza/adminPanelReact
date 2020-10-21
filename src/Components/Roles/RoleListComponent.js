@@ -41,7 +41,7 @@ class RoleListComponent extends Component {
 												{role.permissions.map(
 													(permission) => (
 														<Badge
-															variant="danger"
+															variant="primary"
 															className="mr-2"
 														>
 															{permission.name}

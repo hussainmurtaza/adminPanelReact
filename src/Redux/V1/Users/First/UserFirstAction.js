@@ -1,28 +1,28 @@
-import USER_DETAILS from "Redux/V1/Users/First/UserFirstActionType";
+import USER from "Redux/V1/Users/First/UserFirstActionType";
 
-const UserDetailAction = {
-	userDetail,
-	userDetailSuccess,
-	userDetailFailed,
+const UserFirstAction = {
+	userFirst,
+	userFirstSuccess,
+	userFirstFailed,
 };
 
-function userDetail(data) {
+function userFirst(data) {
 	return {
-		type: USER_DETAILS.USER_DETAILS_GET,
+		type: USER.USER_FIRST,
 		request: data,
 	};
 }
-function userDetailSuccess(data) {
+function userFirstSuccess(data) {
 	return {
-		type: USER_DETAILS.USER_DETAILS_GET_SUCCESS,
+		type: USER.USER_FIRST_SUCCESS,
 		response: data,
 	};
 }
-function userDetailFailed(data) {
+function userFirstFailed(data) {
 	return {
-		type: USER_DETAILS.USER_DETAILS_GET_FAILED,
+		type: USER.USER_FIRST_FAILED,
 		response: data,
 	};
 }
 
-export default UserDetailAction;
+export default UserFirstAction;

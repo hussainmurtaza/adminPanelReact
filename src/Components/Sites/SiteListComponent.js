@@ -69,7 +69,7 @@ class SiteListComponent extends Component {
 								placeholder1="Search By Name"
 								option2={site_name}
 								name2="site_name"
-								placeholder2="Search By Site Name"
+								placeholder2="Search By Site Title"
 								option3={domain}
 								name3="host"
 								placeholder3="Search By Domain"
