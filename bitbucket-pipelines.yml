@@ -51,3 +51,40 @@ pipelines:
                 IGNORE_APPLICATION_STOP_FAILURES: "true"
                 FILE_EXISTS_BEHAVIOR: "OVERWRITE"
                 WAIT: "true"
+    master:
+      - step:
+          caches:
+            - node
+          script:
+            - export NODE_OPTIONS=--max_old_space_size=4096
+            - apt-get update && apt-get install -y zip
+            - npm install
+            - cp .env.prod .env
+            - npm run build
+            - echo "Done!"
+            - zip -r admin-frontend.zip .
+            - pipe: atlassian/aws-code-deploy:0.5.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID # Optional if already defined in the context.
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY # Optional if already defined in the context.
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION # Optional if already defined in the context.
+                APPLICATION_NAME: admin-prod
+                COMMAND: "upload"
+                S3_BUCKET: $S3_BUCKET
+                ZIP_FILE: "/opt/atlassian/pipelines/agent/build/admin-frontend.zip"
+                VERSION_LABEL: ADMIN-FRONTEND_${BITBUCKET_COMMIT:0:8}
+      - step:
+          script:
+            - pipe: atlassian/aws-code-deploy:0.5.2
+              variables:
+                AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID # Optional if already defined in the context.
+                AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY # Optional if already defined in the context.
+                AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION # Optional if already defined in the context.
+                APPLICATION_NAME: admin-prod
+                DEPLOYMENT_GROUP: "admin-frontend"
+                COMMAND: "deploy"
+                S3_BUCKET: $S3_BUCKET
+                VERSION_LABEL: ADMIN-FRONTEND_${BITBUCKET_COMMIT:0:8}
+                IGNORE_APPLICATION_STOP_FAILURES: "true"
+                FILE_EXISTS_BEHAVIOR: "OVERWRITE"
+                WAIT: "true"
