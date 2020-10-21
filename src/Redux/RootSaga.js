@@ -21,6 +21,7 @@ import { CustomerFilterSaga } from "Redux/V1/Customers/Filter/CustomerFilterSaga
 import { SiteFilterSaga } from "Redux/V1/Sites/Filter/SiteFilterSaga";
 import { InvoiceFilterSaga } from "Redux/V1/Invoices/Filter/InvoiceFilterSaga";
 import { UserFilterSaga } from "Redux/V1/Users/Filter/UserFilterSaga";
+import { UserSearchSaga } from "Redux/V1/Users/Search/UserSearchSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -46,5 +47,6 @@ export default function* rootSaga() {
 		SiteFilterSaga(),
 		InvoiceFilterSaga(),
 		UserFilterSaga(),
+		UserSearchSaga(),
 	]);
 }

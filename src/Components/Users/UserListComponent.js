@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Table, Button, Col, Form } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import UsersAction from "Redux/V1/Users/Get/UserGetAction";
@@ -10,30 +10,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import queryString from 'query-string';
 import UserFilterAction from "Redux/V1/Users/Filter/UserFilterAction";
-import FilterForm from "Components/Forms/FilterForm";
+import UserSearchAction from "Redux/V1/Users/Search/UserSearchAction";
+//import FilterForm from "Components/Forms/FilterForm";
+//import InputSelectField from "../Forms/Fields/InputSelectField";
 
 class UserListComponent extends Component {
 	componentDidMount() {
 		const value = queryString.parse(this.props.location.search);
 		this.props.dispatch(UsersAction.getUsers());
 		this.props.dispatch(UserFilterAction.filterUsers(value));
+		this.props.dispatch(UserSearchAction.searchUsers(value));
 	}
 	userDelete = (id) => {
 		this.props.dispatch(UserDeleteAction.deleteUser(id));
 	};
 
 	render() {
-		const first_name = this.props.users.map(function (user) {
-			return { value: user.first_name, label: user.first_name };
-		});
-		const last_name = this.props.users.map(function (user) {
-			return { value: user.last_name, label: user.last_name };
-		});
-		const status = [
-			{ value: 'active', label: 'Active' },
-			{ value: 'pending', label: 'Pending' },
-			{ value: 'blocked', label: 'Blocked' }
-		]
+		// const first_name = this.props.users.map(function (user) {
+		// 	return { value: user.first_name, label: user.first_name };
+		// });
+		// const last_name = this.props.users.map(function (user) {
+		// 	return { value: user.last_name, label: user.last_name };
+		// });
+		// const status = [
+		// 	{ value: 'active', label: 'Active' },
+		// 	{ value: 'pending', label: 'Pending' },
+		// 	{ value: 'blocked', label: 'Blocked' }
+		// ]
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -42,7 +45,7 @@ class UserListComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 
-							<FilterForm
+							{/* <FilterForm
 								option1={first_name}
 								name1="first_name"
 								placeholder1="Search By First Name"
@@ -54,7 +57,35 @@ class UserListComponent extends Component {
 								placeholder3="Search By Status"
 								dateName="created_at"
 								datePlaceholder="Search By Created Date"
-							/>
+							/> */}
+
+							<form>
+								<Form.Row className="align-items-center mb-4">
+									<Col md="3">
+										<input
+											type="text"
+											name="name"
+											placeholder="Search"
+											className="form-control"
+										/>
+									</Col>
+									{/* <Col md="3">
+										<InputSelectField
+											name="status"
+											option={status}
+											placeholder="Search By Status"
+										/>
+									</Col> */}
+									<Col md="3">
+										<Button
+											type="submit"
+											className="btn btn-brand-02 btn-block"
+										>
+											Search
+											</Button>
+									</Col>
+								</Form.Row>
+							</form>
 
 							<h4 className="tx-color-01 mg-b-15">User List</h4>
 							<div className="user-list-page">
@@ -160,6 +191,7 @@ const mapStateToProps = (state) => {
 	return {
 		users: state.users.users,
 		user_filter: state.user_filter.users,
+		user_search: state.user_search.users,
 	};
 };
 

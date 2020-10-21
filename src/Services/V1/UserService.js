@@ -76,13 +76,26 @@ const queryBody = (data) => {
 		query += `status=&`;
 		query += `created_at=&`;
 	}
-	// else {
-	// 	query += `fullname=${data.customer}&`;
-	// 	query += `reference=${data.reference}&`;
-	// 	query += `status=${data.status}&`;
-	// 	//query += `primary_domain_name=${data.primary_domain_name}&`;
-	// 	query += `created_at=${data.created_at}&`;
-	// }
+
+	return query;
+};
+
+const search = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		V1.auth.users + queryBody1(data),
+	);
+	return response;
+};
+
+const queryBody1 = (data) => {
+	let query = "/search/?";
+
+	query += `name=${data.name}&`;
+
+	if (query === '?name=undefined&') {
+		query += `name=&`;
+	}
 
 	return query;
 };
@@ -94,6 +107,7 @@ const UserService = {
 	userDelete,
 	put,
 	filter,
+	search,
 };
 
 export default UserService;

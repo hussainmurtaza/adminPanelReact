@@ -21,6 +21,7 @@ import CustomerFilterReducer from "Redux/V1/Customers/Filter/CustomerFilterReduc
 import SiteFilterReducer from "Redux/V1/Sites/Filter/SiteFilterReducer";
 import InvoiceFilterReducer from "Redux/V1/Invoices/Filter/InvoiceFilterReducer";
 import UserFilterReducer from "Redux/V1/Users/Filter/UserFilterReducer";
+import UserSearchReducer from "Redux/V1/Users/Search/UserSearchReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -45,4 +46,5 @@ export default combineReducers({
 	site_filter: SiteFilterReducer,
 	invoice_filter: InvoiceFilterReducer,
 	user_filter: UserFilterReducer,
+	user_search: UserSearchReducer,
 });
