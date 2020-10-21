@@ -10,20 +10,20 @@ const CustomerPutReducer = (
 	action
 ) => {
 	switch (action.type) {
-		case CUSTOMER.PUT_CUSTOMERS:
+		case CUSTOMER.CUSTOMERS_PUT:
 			return {
 				...state,
 				loading: true,
 				err_mess: null,
 			};
-		case CUSTOMER.PUT_CUSTOMERS_SUCCESS:
+		case CUSTOMER.CUSTOMERS_PUT_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				success: true,
 				customer: action.response.customer,
 			};
-		case CUSTOMER.PUT_CUSTOMERS_FAILED:
+		case CUSTOMER.CUSTOMERS_PUT_FAILED:
 			return { ...state, loading: false, err_mess: action.response };
 		default:
 			return state;

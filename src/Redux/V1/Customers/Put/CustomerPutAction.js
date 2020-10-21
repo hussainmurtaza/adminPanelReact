@@ -8,19 +8,19 @@ const CustomerPutAction = {
 
 function PutCustomers(data) {
 	return {
-		type: CUSTOMER.PUT_CUSTOMERS,
+		type: CUSTOMER.CUSTOMERS_PUT,
 		request: data,
 	};
 }
 function PutCustomersSuccess(data) {
 	return {
-		type: CUSTOMER.PUT_CUSTOMERS_SUCCESS,
+		type: CUSTOMER.CUSTOMERS_PUT_SUCCESS,
 		response: data,
 	};
 }
 function PutCustomersFailed(data) {
 	return {
-		type: CUSTOMER.PUT_CUSTOMERS_FAILED,
+		type: CUSTOMER.PUT_CUSTOMERS_PUT_FAILED,
 		response: data,
 	};
 }

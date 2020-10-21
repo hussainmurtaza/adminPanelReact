@@ -3,6 +3,7 @@ import CUSTOMER from "Redux/V1/Customers/Put/CustomerPutActionType";
 import CustomerPutAction from "Redux/V1/Customers/Put/CustomerPutAction";
 import CustomerService from "Services/V1/CustomerService";
 import ToastHelper from "Helpers/ToastHelper";
+import CustomersAction from "Redux/V1/Customers/Filter/CustomerFilterAction";
 
 function* customerPut(data) {
 	//console.log(data, "saga delete");
@@ -11,20 +12,16 @@ function* customerPut(data) {
 		if (response.success) {
 			ToastHelper.success(response.message);
 			yield put(CustomerPutAction.PutCustomersSuccess(response.data));
-
-			// setTimeout(() => {
-			// 	window.location.href = "/customers";
-			// }, 2000);
+			yield put(CustomersAction.filterCustomers(response.data));
 		} else {
 			ToastHelper.error(response.error.message);
 			yield put(CustomerPutAction.PutCustomersFailed(response.error));
 		}
 	} catch (error) {
 		ToastHelper.error();
-		console.log(error, "error saga");
 	}
 }
 
 export function* CustomerPutSaga() {
-	yield takeEvery(CUSTOMER.PUT_CUSTOMERS, customerPut);
+	yield takeEvery(CUSTOMER.CUSTOMERS_PUT, customerPut);
 }

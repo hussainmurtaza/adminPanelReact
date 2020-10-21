@@ -22,7 +22,7 @@ class CustomerListComponent extends Component {
 			email: null,
 			created_at: null,
 		},
-		checked: null,
+		// checked: null,
 	};
 	// state = {
 	// 	switch1: false,
@@ -61,8 +61,14 @@ class CustomerListComponent extends Component {
 	//     });
 	// };
 
-	onSwitch = (id, e) => {
-		this.props.dispatch(CustomerPutAction.PutCustomers(id));
+	onSwitch = (customer) => {
+		this.props.dispatch(CustomerPutAction.PutCustomers(customer.id));
+
+		// console.log("ddsadasdsadsadas  ggfgsdf" + customer.status);
+
+		/* if ("customSwitches-" + customer.id) {
+			this.setState((checked: null));
+		} */
 		// this.setState({
 		// 	checked: e.target.checked,
 		// });
@@ -248,12 +254,14 @@ class CustomerListComponent extends Component {
 																customer.id
 															}
 															checked={
-																this.state
-																	.switch1
+																customer.status ===
+																"active"
+																	? true
+																	: false
 															}
 															onChange={() =>
 																this.onSwitch(
-																	customer.id
+																	customer
 																)
 															}
 															readOnly
