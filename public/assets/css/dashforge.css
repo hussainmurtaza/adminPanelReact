@@ -11672,6 +11672,9 @@ strong {
 .custom-radio .custom-control-label:empty,
 .custom-switch .custom-control-label:empty {
 	height: 20px;
+	margin-right: 6px;
+	margin-left: 13px;
+	margin-top: 12px;
 }
 .custom-checkbox .custom-control-label:empty::before,
 .custom-checkbox .custom-control-label:empty::after,
