@@ -1,7 +1,8 @@
 const config = {
-    base_url: "https://admin-devapi.bionicwp.dev/",
-    client_id: "2",
-    client_secret: "zQMkCSWq28vyM760aUwqxnRo5pMl1Z9yTjPmhBg7",
+    base_url: process.env.REACT_APP_BASE_URL,
+    client_id: process.env.REACT_APP_CLIENT_ID,
+    client_secret: process.env.REACT_APP_CLIENT_SECRET,
+    public_url: process.env.REACT_APP_PUBLIC_URL,
 };
 
 export default config;
