@@ -19,21 +19,21 @@ class SiteListComponent extends Component {
 	}
 
 	render() {
-		const site_name = this.props.sites.map(function (site) {
-			return { value: site.name, label: site.name };
-		});
+		// const site_name = this.props.sites.map(function (site) {
+		// 	return { value: site.name, label: site.name };
+		// });
 		// const identity = this.props.sites.map(function (site) {
 		// 	return { value: site.container.identity, label: site.container.identity };
 		// });
 		// const primary_domain_name = this.props.sites.map(function (site) {
 		// 	return { value: site.container.primary_domain_name, label: site.container.primary_domain_name };
 		// });
-		const customer = this.props.sites.map(function (site) {
-			return { value: site.user.first_name, label: site.user.first_name };
-		});
-		const domain = this.props.sites.map(function (site) {
-			return { value: site.host, label: site.host };
-		});
+		// const customer = this.props.sites.map(function (site) {
+		// 	return { value: site.user.first_name, label: site.user.first_name };
+		// });
+		// const domain = this.props.sites.map(function (site) {
+		// 	return { value: site.host, label: site.host };
+		// });
 		// const fullname = this.props.customers.map(function (customer) {
 		//     return { value: customer.fullname, label: customer.fullname };
 		// });

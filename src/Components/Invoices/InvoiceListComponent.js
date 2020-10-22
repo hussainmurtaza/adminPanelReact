@@ -19,17 +19,17 @@ class InvoiceListComponent extends Component {
 	}
 
 	render() {
-		const customer = this.props.invoices.map(function (invoice) {
-			return { value: invoice.customer.fullname, label: invoice.customer.fullname };
-		});
-		const invoiceNumber = this.props.invoices.map(function (invoice) {
-			return { value: invoice.reference, label: invoice.reference };
-		});
-		const status = [
-			{ value: 'paid', label: 'Paid' },
-			{ value: 'pending', label: 'Pending' },
-			{ value: 'overdue', label: 'Overdue' }
-		]
+		// const customer = this.props.invoices.map(function (invoice) {
+		// 	return { value: invoice.customer.fullname, label: invoice.customer.fullname };
+		// });
+		// const invoiceNumber = this.props.invoices.map(function (invoice) {
+		// 	return { value: invoice.reference, label: invoice.reference };
+		// });
+		// const status = [
+		// 	{ value: 'paid', label: 'Paid' },
+		// 	{ value: 'pending', label: 'Pending' },
+		// 	{ value: 'overdue', label: 'Overdue' }
+		// ]
 		return (
 			<React.Fragment>
 				<TemplateMain>

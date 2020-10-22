@@ -107,11 +107,11 @@ class FilterForm extends Component {
         });
         console.log(search, "firstname search");
 
-        const filterUser = (inputValue: string) => {
-            return search.filter(i =>
-                i.label.toLowerCase().includes(inputValue.toLowerCase())
-            );
-        };
+        // const filterUser = (inputValue: string) => {
+        //     return search.filter(i =>
+        //         i.label.toLowerCase().includes(inputValue.toLowerCase())
+        //     );
+        // };
 
 
         return (
@@ -309,7 +309,7 @@ class FilterForm extends Component {
                                 placeholder={this.props.datePlaceholder}
                             />
                         </Col> */}
-                        <Col md="3">
+                        <Col md="3 mb-3">
                             <Button
                                 type="submit"
                                 className="btn btn-brand-02 btn-block"
