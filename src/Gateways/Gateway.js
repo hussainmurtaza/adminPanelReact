@@ -20,7 +20,7 @@ async function authGateway(METHOD, API, BODY = null) {
 				if (response.error.code === "BIOWP-401") {
 					LogoutHelper.logout();
 				} else if (response.error.code === "BIOWP-404") {
-					window.location.href = "/404";
+					// window.location.href = "/404";
 				}
 			}
 			console.log(response);

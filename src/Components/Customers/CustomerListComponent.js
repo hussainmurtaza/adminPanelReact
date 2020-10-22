@@ -66,26 +66,26 @@ class CustomerListComponent extends Component {
     // };
 
     render() {
-        const fullname = this.props.customers.map(function (customer) {
-            return { value: customer.fullname, label: customer.fullname };
-        });
+        // const fullname = this.props.customers.map(function (customer) {
+        //     return { value: customer.fullname, label: customer.fullname };
+        // });
         // const last_name = this.props.customers.map(function (customer) {
         //     return { value: customer.last_name, label: customer.last_name };
         // });
-        const email = this.props.customers.map(function (customer) {
-            return { value: customer.email, label: customer.email };
-        });
+        // const email = this.props.customers.map(function (customer) {
+        //     return { value: customer.email, label: customer.email };
+        // });
         // const date = this.props.customers.map(function (customer) {
         //     return {
         //         value: customer.created_at,
         //         label: customer.created_at
         //     };
         // });
-        const status = [
-            { value: 'active', label: 'Active' },
-            { value: 'pending', label: 'Pending' },
-            { value: 'blocked', label: 'Blocked' }
-        ]
+        // const status = [
+        //     { value: 'active', label: 'Active' },
+        //     { value: 'pending', label: 'Pending' },
+        //     { value: 'blocked', label: 'Blocked' }
+        // ]
 
         return (
             <React.Fragment>
@@ -96,6 +96,18 @@ class CustomerListComponent extends Component {
                         <div className="container">
 
                             <FilterForm
+                                fields={
+                                    [
+                                        'customer_name',
+                                        'customer_email',
+                                        'customer_status',
+                                        'customer_date',
+                                    ]
+                                }
+                            />
+
+
+                            {/* <FilterForm
                                 option1={fullname}
                                 name1="fullname"
                                 placeholder1="Search By Name"
@@ -107,7 +119,7 @@ class CustomerListComponent extends Component {
                                 placeholder3="Search By Status"
                                 dateName="created_at"
                                 datePlaceholder="Search By Date"
-                            />
+                            /> */}
                             {/* <form name="order">
                                 <Form.Row className="align-items-center mb-4">
                                     <Col md="3">

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table, Button, Col, Form } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import UsersAction from "Redux/V1/Users/Get/UserGetAction";
@@ -8,24 +8,33 @@ import UserDeleteAction from "Redux/V1/Users/Delete/UserDeleteAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import queryString from 'query-string';
-import UserFilterAction from "Redux/V1/Users/Filter/UserFilterAction";
-import UserSearchAction from "Redux/V1/Users/Search/UserSearchAction";
-//import FilterForm from "Components/Forms/FilterForm";
+// import queryString from 'query-string';
+// import UserFilterAction from "Redux/V1/Users/Filter/UserFilterAction";
+// import UserSearchAction from "Redux/V1/Users/Search/UserSearchAction";
+import FilterForm from "Components/Forms/FilterForm";
 //import InputSelectField from "../Forms/Fields/InputSelectField";
 
 class UserListComponent extends Component {
 	componentDidMount() {
-		const value = queryString.parse(this.props.location.search);
+		//const value = queryString.parse(this.props.location.search);
 		this.props.dispatch(UsersAction.getUsers());
-		this.props.dispatch(UserFilterAction.filterUsers(value));
-		this.props.dispatch(UserSearchAction.searchUsers(value));
+		//this.props.dispatch(UserFilterAction.filterUsers(value));
 	}
 	userDelete = (id) => {
 		this.props.dispatch(UserDeleteAction.deleteUser(id));
 	};
 
+	// handleChange = (e) => {
+	// 	console.log("Value:", e.target.value);
+	// };
+
 	render() {
+		//const search = this.props.user_search;
+		// const search = this.props.user_search.map(function (user) {
+		// 	return { value: user.first_name };
+		// });
+
+		// console.log(search, "firstname search");
 		// const first_name = this.props.users.map(function (user) {
 		// 	return { value: user.first_name, label: user.first_name };
 		// });
@@ -45,6 +54,18 @@ class UserListComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 
+							<FilterForm
+								fields={
+									[
+										'async',
+										//'user_search',
+										'user_status',
+										'user_date'
+									]
+								}
+							/>
+
+
 							{/* <FilterForm
 								option1={first_name}
 								name1="first_name"
@@ -59,7 +80,7 @@ class UserListComponent extends Component {
 								datePlaceholder="Search By Created Date"
 							/> */}
 
-							<form>
+							{/* <form>
 								<Form.Row className="align-items-center mb-4">
 									<Col md="3">
 										<input
@@ -67,15 +88,9 @@ class UserListComponent extends Component {
 											name="name"
 											placeholder="Search"
 											className="form-control"
+										//onChange={this.handleChange}
 										/>
 									</Col>
-									{/* <Col md="3">
-										<InputSelectField
-											name="status"
-											option={status}
-											placeholder="Search By Status"
-										/>
-									</Col> */}
 									<Col md="3">
 										<Button
 											type="submit"
@@ -85,7 +100,13 @@ class UserListComponent extends Component {
 											</Button>
 									</Col>
 								</Form.Row>
-							</form>
+							</form> */}
+
+							<Table>
+								<tbody>
+
+								</tbody>
+							</Table>
 
 							<h4 className="tx-color-01 mg-b-15">User List</h4>
 							<div className="user-list-page">
@@ -97,11 +118,11 @@ class UserListComponent extends Component {
 											<th>Email</th>
 											<th>Status</th>
 											<th>Created At</th>
-											<th>Action</th>
+											<th className="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										{this.props.user_filter.map((user) => (
+										{this.props.users.map((user) => (
 											<tr>
 												<td>
 													<a
@@ -190,7 +211,7 @@ class UserListComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		users: state.users.users,
-		user_filter: state.user_filter.users,
+		//user_filter: state.user_filter.users,
 		user_search: state.user_search.users,
 	};
 };

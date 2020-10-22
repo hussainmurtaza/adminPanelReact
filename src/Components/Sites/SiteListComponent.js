@@ -50,20 +50,17 @@ class SiteListComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 
-							{/* <SiteFilterForm
-								site_name={site_name}
-								identity={identity}
-								primary_domain_name={primary_domain_name}
-								customer={customer}
-								date={date}
-							/> */}
 							<FilterForm
-								// fields=[
-								// 	'user',
-								// 	'invoice',
-								// 	'site',
-								// ];
-
+								fields={
+									[
+										'site_customer_name',
+										'site_name',
+										'site_domain',
+										'site_date',
+									]
+								}
+							/>
+							{/* <FilterForm
 								option1={customer}
 								name1="fullname"
 								placeholder1="Search By Name"
@@ -75,7 +72,7 @@ class SiteListComponent extends Component {
 								placeholder3="Search By Domain"
 								dateName="created_at"
 								datePlaceholder="Search By Date"
-							/>
+							/> */}
 
 							<h4 className="tx-color-01 mg-b-15">Sites List</h4>
 							<div className="user-list-page">

@@ -54,48 +54,45 @@ const put = async (data, id) => {
 	return response;
 };
 
-const filter = async (data) => {
-	const response = await Gateway.authGateway(
-		"GET",
-		V1.auth.users + queryBody(data) ,
-	);
-	return response;
-};
+// const filter = async (data) => {
+// 	const response = await Gateway.authGateway(
+// 		"GET",
+// 		V1.auth.users + queryBody(data) ,
+// 	);
+// 	return response;
+// };
 
-const queryBody = (data) => {
-	let query = "?";
+// const queryBody = (data) => {
+// 	let query = "?";
 
-	query += `first_name=${data.first_name}&`;
-	query += `last_name=${data.last_name}&`;
-	query += `status=${data.status}&`;
-	query += `created_at=${data.created_at}&`;
+// 	query += `first_name=${data.first_name}&`;
+// 	query += `last_name=${data.last_name}&`;
+// 	query += `status=${data.status}&`;
+// 	query += `created_at=${data.created_at}&`;
 
-	if (query === '?first_name=undefined&last_name=undefined&status=undefined&created_at=undefined&') {
-		query += `first_name=&`;
-		query += `last_name=&`;
-		query += `status=&`;
-		query += `created_at=&`;
-	}
+// 	if (query === '?first_name=undefined&last_name=undefined&status=undefined&created_at=undefined&') {
+// 		query += `first_name=&`;
+// 		query += `last_name=&`;
+// 		query += `status=&`;
+// 		query += `created_at=&`;
+// 	}
 
-	return query;
-};
+// 	return query;
+// };
 
 const search = async (data) => {
 	const response = await Gateway.authGateway(
 		"GET",
-		V1.auth.users + queryBody1(data),
+		`${V1.auth.users}/search${smartSearchBody(data)}`,
 	);
 	return response;
 };
 
-const queryBody1 = (data) => {
-	let query = "/search/?";
+const smartSearchBody = (data) => {
+	let query = "?";
 
-	query += `name=${data.name}&`;
-
-	if (query === '?name=undefined&') {
-		query += `name=&`;
-	}
+	query += `field=${data.field}&`;
+	query += `value=${data.value}`;
 
 	return query;
 };
@@ -106,7 +103,7 @@ const UserService = {
 	post,
 	userDelete,
 	put,
-	filter,
+	//filter,
 	search,
 };
 

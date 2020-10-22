@@ -39,6 +39,16 @@ class InvoiceListComponent extends Component {
 						<div className="container">
 
 							<FilterForm
+								fields={
+									[
+										'invoice_customer_name',
+										'invoice_number',
+										'invoice_status',
+										'invoice_date',
+									]
+								}
+							/>
+							{/* <FilterForm
 								option1={customer}
 								name1="full_name"
 								placeholder1="Search By Name"
@@ -50,7 +60,7 @@ class InvoiceListComponent extends Component {
 								placeholder3="Search By Status"
 								dateName="created_at"
 								datePlaceholder="Search By Issue Date"
-							/>
+							/> */}
 
 							<h4 className="tx-color-01 mg-b-15">Invoice List</h4>
 							<div className="user-list-page">

@@ -1,6 +1,6 @@
 import USER from "Redux/V1/Users/Search/UserSearchActionType";
 
-const UsersDetails = (
+const UserSearchReducer = (
 	state = {
 		loading: false,
 		success: false,
@@ -16,10 +16,11 @@ const UsersDetails = (
 				error: null,
 			};
 		case USER.USERS_SEARCH_SUCCESS:
+			//console.log(action.response, "reducer search");
 			return {
 				...state,
 				loading: false,
-				users: action.response.users,
+				users: action.response,
 			};
 		case USER.USERS_SEARCH_FAILED:
 			return { ...state, loading: false, error: action.response };
@@ -27,4 +28,4 @@ const UsersDetails = (
 			return state;
 	}
 };
-export default UsersDetails;
+export default UserSearchReducer;
