@@ -48,7 +48,7 @@ class Main extends Component {
 					) : (
 							<Redirect
 								to={{
-									pathname: "/users",
+									pathname: "/customers",
 									state: { from: props.location },
 								}}
 							/>
