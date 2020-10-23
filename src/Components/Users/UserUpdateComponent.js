@@ -108,17 +108,7 @@ class UserUpdateComponent extends Component {
 													this.state.form.first_name
 												}
 											/>
-											{/* <label>Firstname</label>
-											<input
-												type="text"
-												name="first_name"
-												className="form-control"
-												placeholder="Enter your firstname"
-												onChange={this.handleChange}
-												defaultValue={
-													this.state.form.first_name
-												}
-											/> */}
+
 										</Col>
 										<Col sm={6} className="form-group">
 											<InputField
@@ -129,17 +119,7 @@ class UserUpdateComponent extends Component {
 													this.state.form.last_name
 												}
 											/>
-											{/* <label>Lastname</label>
-											<input
-												type="text"
-												name="last_name"
-												className="form-control"
-												placeholder="Enter your lastname"
-												onChange={this.handleChange}
-												defaultValue={
-													this.state.form.last_name
-												}
-											/> */}
+
 										</Col>
 										<Col sm={6} className="form-group">
 											<InputField
@@ -150,17 +130,7 @@ class UserUpdateComponent extends Component {
 													this.state.form.email
 												}
 											/>
-											{/* <label>Email address</label>
-											<input
-												type="email"
-												name="email"
-												className="form-control"
-												placeholder="Enter your email address"
-												onChange={this.handleChange}
-												defaultValue={
-													this.state.form.email
-												}
-											/> */}
+
 										</Col>
 										<Col sm={6} className="form-group">
 											<InputField
@@ -171,17 +141,7 @@ class UserUpdateComponent extends Component {
 													this.state.form.phone
 												}
 											/>
-											{/* <label>Phone Number</label>
-											<input
-												type="number"
-												name="phone"
-												className="form-control"
-												placeholder="Enter your Phone Number"
-												onChange={this.handleChange}
-												defaultValue={
-													this.state.form.phone
-												}
-											/> */}
+
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Roles</label>
@@ -197,18 +157,6 @@ class UserUpdateComponent extends Component {
 												}
 												value={this.state.form.roles}
 											/>
-											{/* <Select
-												isMulti
-												name="roles"
-												options={rolesOptions}
-												onChange={(options, e) =>
-													this.handleMultiSelect(
-														e,
-														options
-													)
-												}
-												value={this.state.form.roles}
-											/> */}
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Permissions</label>
@@ -224,21 +172,6 @@ class UserUpdateComponent extends Component {
 												}
 												value={this.state.form.permissions}
 											/>
-											{/* <Select
-												isMulti
-												name="permissions"
-												options={permissionOptions}
-												onChange={(options, e) =>
-													this.handleMultiSelect(
-														e,
-														options
-													)
-												}
-												placeholder="Assign Permission"
-												value={
-													this.state.form.permissions
-												}
-											/> */}
 										</Col>
 										<Col sm={12}>
 											<button

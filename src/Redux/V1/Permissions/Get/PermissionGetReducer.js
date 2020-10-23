@@ -8,18 +8,18 @@ const PermissionDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case PERMISSION.GET_PERMISSION:
+		case PERMISSION.PERMISSION_GET:
 			return {
 				...state,
 				loading: true,
 			};
-		case PERMISSION.GET_PERMISSION_SUCCESS:
+		case PERMISSION.PERMISSION_GET_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				permissions: action.response.permissions,
 			};
-		case PERMISSION.GET_PERMISSION_FAILED:
+		case PERMISSION.PERMISSION_GET_FAILED:
 			return { ...state, loading: false, error: action.response };
 		default:
 			return state;

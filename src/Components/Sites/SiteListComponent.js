@@ -19,29 +19,6 @@ class SiteListComponent extends Component {
 	}
 
 	render() {
-		// const site_name = this.props.sites.map(function (site) {
-		// 	return { value: site.name, label: site.name };
-		// });
-		// const identity = this.props.sites.map(function (site) {
-		// 	return { value: site.container.identity, label: site.container.identity };
-		// });
-		// const primary_domain_name = this.props.sites.map(function (site) {
-		// 	return { value: site.container.primary_domain_name, label: site.container.primary_domain_name };
-		// });
-		// const customer = this.props.sites.map(function (site) {
-		// 	return { value: site.user.first_name, label: site.user.first_name };
-		// });
-		// const domain = this.props.sites.map(function (site) {
-		// 	return { value: site.host, label: site.host };
-		// });
-		// const fullname = this.props.customers.map(function (customer) {
-		//     return { value: customer.fullname, label: customer.fullname };
-		// });
-		// const date = this.props.sites.map(function (site) {
-		// 	return { value: site.created_at, label: site.created_at };
-		// });
-
-
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -60,19 +37,6 @@ class SiteListComponent extends Component {
 									]
 								}
 							/>
-							{/* <FilterForm
-								option1={customer}
-								name1="fullname"
-								placeholder1="Search By Name"
-								option2={site_name}
-								name2="site_name"
-								placeholder2="Search By Site Title"
-								option3={domain}
-								name3="host"
-								placeholder3="Search By Domain"
-								dateName="created_at"
-								datePlaceholder="Search By Date"
-							/> */}
 
 							<h4 className="tx-color-01 mg-b-15">Sites List</h4>
 							<div className="user-list-page">

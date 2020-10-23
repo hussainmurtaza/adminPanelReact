@@ -20,8 +20,11 @@ class CustomerSingleComponent extends Component {
 	render() {
 		let customerEmail,
 			customerPhone,
+			customerInvoice1,
 			customerInvoice,
+			customerBilling1,
 			customerBilling,
+			customerSites1,
 			customerSites;
 		const customerData = this.props.customer.contact;
 		const customerInvoicesData = this.props.customer.invoices;
@@ -34,7 +37,7 @@ class CustomerSingleComponent extends Component {
 			customerPhone = customerData.map((contact) => {
 				return <React.Fragment>{contact.phone}</React.Fragment>;
 			});
-			customerSites = customerSitesData.map((site) => {
+			customerSites1 = customerSitesData.map((site) => {
 				return (
 					<React.Fragment>
 						<tr>
@@ -51,7 +54,13 @@ class CustomerSingleComponent extends Component {
 					</React.Fragment>
 				);
 			});
-			customerBilling = customerBilingsData.map((billing) => {
+			if (customerSites1.length === 0) {
+				customerSites = <td colspan="100%">No Date Available</td>;
+			}
+			else {
+				customerSites = customerSites1;
+			}
+			customerBilling1 = customerBilingsData.map((billing) => {
 				return (
 					<React.Fragment>
 						<tr>
@@ -79,7 +88,13 @@ class CustomerSingleComponent extends Component {
 					</React.Fragment>
 				);
 			});
-			customerInvoice = customerInvoicesData.map((invoice) => {
+			if (customerBilling1.length === 0) {
+				customerBilling = <td colspan="100%">No Date Available</td>;
+			}
+			else {
+				customerBilling = customerBilling1;
+			}
+			customerInvoice1 = customerInvoicesData.map((invoice) => {
 				return (
 					<React.Fragment>
 						<tr>
@@ -95,6 +110,12 @@ class CustomerSingleComponent extends Component {
 					</React.Fragment>
 				);
 			});
+			if (customerInvoice1.length === 0) {
+				customerInvoice = <td colspan="100%">No Date Available</td>;
+			}
+			else {
+				customerInvoice = customerInvoice1;
+			}
 		}
 		return (
 			<React.Fragment>

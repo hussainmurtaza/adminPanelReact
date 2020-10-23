@@ -11,16 +11,12 @@ class UpdateUserComponent extends Component {
 	};
 
 	componentDidMount() {
-		//console.log(this.props.match.params.id);
-		//console.log(this.props.user);
 		this.props.dispatch(
 			UserFirstAction.userFirst(this.props.match.params.id)
 		);
 	}
 
 	render() {
-		//const user = this.props.userDetails;
-		//console.log(user, "Single user detail");
 		const userRole = this.props.user.roles;
 		const userPermission = this.props.user.permissions;
 		let roleData, permissionData;

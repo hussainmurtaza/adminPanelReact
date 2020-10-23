@@ -8,7 +8,6 @@ import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class SiteSingleComponent extends Component {
 	componentDidMount() {
-		//console.log(this.props.match.params.host);
 		this.props.dispatch(
 			SiteFirstAction.siteFirst(this.props.match.params.host)
 		);

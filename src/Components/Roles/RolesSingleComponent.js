@@ -7,8 +7,6 @@ import TemplateMain from "Templates/TemplateMain";
 
 class RoleSingleComponent extends Component {
 	componentDidMount() {
-		//console.log(this.props.match.params.id);
-		//console.log(this.props.user);
 		this.props.dispatch(
 			RoleFirstAction.roleFirst(this.props.match.params.id)
 		);
