@@ -3,7 +3,7 @@ import CUSTOMER from "Redux/V1/Customers/First/CustomerFirstActionType";
 const customerDetails = (
 	state = {
 		loading: false,
-		customer: {},
+		customer: [],
 		err_mess: null,
 		fetched: false,
 	},

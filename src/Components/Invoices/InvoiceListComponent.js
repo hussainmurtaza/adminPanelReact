@@ -19,17 +19,6 @@ class InvoiceListComponent extends Component {
 	}
 
 	render() {
-		// const customer = this.props.invoices.map(function (invoice) {
-		// 	return { value: invoice.customer.fullname, label: invoice.customer.fullname };
-		// });
-		// const invoiceNumber = this.props.invoices.map(function (invoice) {
-		// 	return { value: invoice.reference, label: invoice.reference };
-		// });
-		// const status = [
-		// 	{ value: 'paid', label: 'Paid' },
-		// 	{ value: 'pending', label: 'Pending' },
-		// 	{ value: 'overdue', label: 'Overdue' }
-		// ]
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -48,19 +37,6 @@ class InvoiceListComponent extends Component {
 									]
 								}
 							/>
-							{/* <FilterForm
-								option1={customer}
-								name1="full_name"
-								placeholder1="Search By Name"
-								option2={invoiceNumber}
-								name2="reference"
-								placeholder2="Search By Invoice Number"
-								option3={status}
-								name3="status"
-								placeholder3="Search By Status"
-								dateName="created_at"
-								datePlaceholder="Search By Issue Date"
-							/> */}
 
 							<h4 className="tx-color-01 mg-b-15">Invoice List</h4>
 							<div className="user-list-page">

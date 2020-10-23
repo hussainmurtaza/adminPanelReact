@@ -103,7 +103,7 @@ class CustomerSingleComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Update User</h4>
+							<h4 className="tx-color-01 mg-b-15">Customer Details</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>

@@ -22,22 +22,22 @@ class RoleListComponent extends Component {
 			<React.Fragment>
 				<TemplateMain>
 					<Sidebar active="roles" />
-					<div className="content content-components">
+					<div className="content content-components roleslist-page">
 						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">All Roles</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th>Permissions</th>
-										<th>Actions</th>
+										<th className="permissions">Permissions</th>
+										<th className="actions">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									{this.props.roles.map((role) => (
 										<tr>
 											<td>{role.name}</td>
-											<td>
+											<td className="permissions">
 												{role.permissions.map(
 													(permission) => (
 														<Badge

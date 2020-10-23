@@ -49,7 +49,7 @@ class UpdateUserComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Update User</h4>
+							<h4 className="tx-color-01 mg-b-15">User Details</h4>
 							<Row>
 								<Col sm={6} className="form-group">
 									<label>Firstname</label>

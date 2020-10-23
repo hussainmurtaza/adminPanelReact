@@ -8,13 +8,10 @@ import UserService from "Services/V1/UserService"
 import AsyncSelect from 'react-select/async';
 
 class FilterForm extends Component {
-    state = { inputValue: '' };
-    // handleInputChange = (newValue: string) => {
-    //     console.log(newValue)
-    //     const inputValue = newValue.replace(/\W/g, '');
-    //     this.setState({ inputValue });
-    //     return inputValue;
-    // };
+    state = {
+        inputValue: ''
+    };
+
     smartSearchFilter = async (value) => {
         if (value.length > 2) {
             // if (type === 'user') {
@@ -89,30 +86,10 @@ class FilterForm extends Component {
             { value: 'overdue', label: 'Overdue' }
         ]
 
-
-        // const colourOptions = [
-        //     { value: 'ocean', label: 'Ocean' },
-        //     { value: 'blue', label: 'Blue' },
-        //     { value: 'purple', label: 'Purple' },
-        //     { value: 'red', label: 'Red' },
-        //     { value: 'orange', label: 'Orange' },
-        //     { value: 'yellow', label: 'Yellow' },
-        //     { value: 'green', label: 'Green' },
-        //     { value: 'forest', label: 'Forest' },
-        //     { value: 'slate', label: 'Slate' },
-        //     { value: 'silver', label: 'Silver' },
-        // ];
         const search = this.props.users.map(function (user) {
             return { value: user.first_name, label: user.first_name };
         });
         console.log(search, "firstname search");
-
-        // const filterUser = (inputValue: string) => {
-        //     return search.filter(i =>
-        //         i.label.toLowerCase().includes(inputValue.toLowerCase())
-        //     );
-        // };
-
 
         return (
             <React.Fragment>
@@ -280,35 +257,6 @@ class FilterForm extends Component {
                             </Col>
                         ) : null}
 
-
-                        {/* <Col md="3">
-                            <InputSelectField
-                                name={this.props.name1}
-                                option={this.props.option1}
-                                placeholder={this.props.placeholder1}
-                            />
-                        </Col>
-                        <Col md="3">
-                            <InputSelectField
-                                name={this.props.name2}
-                                option={this.props.option2}
-                                placeholder={this.props.placeholder2}
-                            />
-                        </Col>
-
-                        <Col md="3">
-                            <InputSelectField
-                                name={this.props.name3}
-                                option={this.props.option3}
-                                placeholder={this.props.placeholder3}
-                            />
-                        </Col>
-                        <Col md="3">
-                            <InputDateField
-                                name={this.props.dateName}
-                                placeholder={this.props.datePlaceholder}
-                            />
-                        </Col> */}
                         <Col md="3 mb-3">
                             <Button
                                 type="submit"
