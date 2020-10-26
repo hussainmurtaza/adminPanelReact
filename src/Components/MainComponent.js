@@ -18,6 +18,8 @@ import SiteListComponent from "Components/Sites/SiteListComponent";
 import SiteSingleComponent from "Components/Sites/SiteSingleComponent";
 import InvoiceListComponent from "Components/Invoices/InvoiceListComponent";
 import InvoiceSingleComponent from "Components/Invoices/InvoiceSingleComponent";
+import MigrationListComponent from "Components/Migration/MigrationListComponent";
+import MigrationSingleComponent from "Components/Migration/MigrationSingleComponent";
 
 class Main extends Component {
 	render() {
@@ -134,6 +136,16 @@ class Main extends Component {
 						exact
 						path="/invoice/:id"
 						component={InvoiceSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/migrations"
+						component={MigrationListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/migration/:id"
+						component={MigrationSingleComponent}
 					/>
 
 					<Redirect to="/users" />
