@@ -55,7 +55,7 @@ class FilterForm extends Component {
             { value: 'blocked', label: 'Blocked' }
         ]
         const customer_fullname = this.props.customers.map(function (customer) {
-            return { value: customer.fullname, label: customer.fullname };
+            return { value: customer.first_name, label: customer.first_name };
         });
         const customer_email = this.props.customers.map(function (customer) {
             return { value: customer.email, label: customer.email };
@@ -143,7 +143,7 @@ class FilterForm extends Component {
                         {this.props.fields.indexOf("customer_name") !== -1 ? (
                             <Col md="3 mb-3">
                                 <InputSelectField
-                                    name="fullname"
+                                    name="first_name"
                                     option={customer_fullname}
                                     placeholder="Search By Name"
                                 />

@@ -29,7 +29,7 @@ const filter = async (data) => {
 const queryBody = (data) => {
 	let query = "?";
 
-	query += `fullname=${data.fullname}&`;
+	query += `first_name=${data.first_name}&`;
 	//query += `last_name=${data.last_name}&`;
 	query += `email=${data.email}&`;
 	query += `status=${data.status}&`;
@@ -37,15 +37,15 @@ const queryBody = (data) => {
 
 	//console.log(query,"query");
 
-	if (query === '?fullname=undefined&email=undefined&status=undefined&created_at=undefined&') {
-		query += `fullname=&`;
+	if (query === '?first_name=undefined&email=undefined&status=undefined&created_at=undefined&') {
+		query += `first_name=&`;
 		//query += `last_name=&`;
 		query += `email=&`;
 		query += `status=&`;
 		query += `created_at=&`;
 	}
 	else {
-		query += `fullname=${data.fullname}&`;
+		query += `first_name=${data.first_name}&`;
 		//query += `last_name=${data.last_name}&`;
 		query += `email=${data.email}&`;
 		query += `status=${data.status}&`;

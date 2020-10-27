@@ -57,6 +57,14 @@ class SiteSingleComponent extends Component {
 										<td>Flag</td>
 										<td>{this.props.site.flag}</td>
 									</tr>
+									<tr>
+										<td>location</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>IP Address</td>
+										<td></td>
+									</tr>
 								</tbody>
 							</Table>
 
