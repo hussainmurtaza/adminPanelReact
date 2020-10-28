@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import "Assets/css/dashboard.css";
-import { Row, Col, Card } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 
 class DashboardComponent extends Component {
 	render() {
@@ -15,49 +15,50 @@ class DashboardComponent extends Component {
 						<div className="container">
 							<h1 className="df-title">Dashboard</h1>
 							<Row>
-								<Col>
-									<Card className="dashboard-cards">
-										<Card.Header>Total Sites</Card.Header>
-										<Card.Body>
-
-											<Card.Text>
-												100
-											</Card.Text>
-										</Card.Body>
-									</Card>
+								<Col sm={3}>
+									<div className="dashboard-cards pd-20">
+										<div className="mg-r-10 float-left">
+											<i data-feather="globe" className="wd-50 ht-50"></i>
+										</div>
+										<div class="card-heading">Total Live Sites</div>
+										<span className="card-number">100</span>
+									</div>
 								</Col>
-								<Col>
-									<Card className="dashboard-cards">
-										<Card.Header>Total Revenue</Card.Header>
-										<Card.Body>
-
-											<Card.Text>
-												$ 1000
-											</Card.Text>
-										</Card.Body>
-									</Card>
+								<Col sm={3}>
+									<div className="dashboard-cards pd-20">
+										<div className="mg-r-10 float-left">
+											<i data-feather="globe" className="wd-50 ht-50"></i>
+										</div>
+										<div class="card-heading">Total Staging Sites</div>
+										<span className="card-number">50</span>
+									</div>
 								</Col>
-								<Col>
-									<Card className="dashboard-cards">
-										<Card.Header>Total Customers</Card.Header>
-										<Card.Body>
-
-											<Card.Text>
-												100
-											</Card.Text>
-										</Card.Body>
-									</Card>
+								<Col sm={3}>
+									<div className="dashboard-cards pd-20">
+										<div className="mg-r-10 float-left">
+											<i data-feather="globe" className="wd-50 ht-50"></i>
+										</div>
+										<div class="card-heading">Total Revenue</div>
+										<span className="card-number">$1000</span>
+									</div>
 								</Col>
-								<Col>
-									<Card className="dashboard-cards">
-										<Card.Header>Total Invoices</Card.Header>
-										<Card.Body>
-
-											<Card.Text>
-												100
-											</Card.Text>
-										</Card.Body>
-									</Card>
+								<Col sm={3}>
+									<div className="dashboard-cards pd-20">
+										<div className="mg-r-10 float-left">
+											<i data-feather="globe" className="wd-50 ht-50"></i>
+										</div>
+										<div class="card-heading">Total Customers</div>
+										<span className="card-number">100</span>
+									</div>
+								</Col>
+								<Col sm={3}>
+									<div className="dashboard-cards pd-20">
+										<div className="mg-r-10 float-left">
+											<i data-feather="globe" className="wd-50 ht-50"></i>
+										</div>
+										<div class="card-heading">Total Invoices</div>
+										<span className="card-number">100</span>
+									</div>
 								</Col>
 							</Row>
 							<div className="row">

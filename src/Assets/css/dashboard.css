@@ -11,12 +11,13 @@
     background-repeat: no-repeat;
     background-position: top right; */
 }
-.dashboard-cards .card-text {
-	font-size: 25px;
+.dashboard-cards .card-heading {
     font-weight: 600;
 }
-.dashboard-cards .card-header {
-	border: none;
-	padding-bottom: 0;
-	font-weight: 500;
+.dashboard-cards .card-number {
+	font-weight: 600;
+	font-size: 25px;
+}
+.dashboard-cards svg {
+	opacity: 0.8;
 }

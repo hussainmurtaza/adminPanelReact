@@ -40,6 +40,7 @@ class SiteListComponent extends Component {
 
 							<h4 className="tx-color-01 mg-b-15">Sites List</h4>
 							<div className="user-list-page">
+
 								<Table striped bordered hover>
 									<thead>
 										<tr>

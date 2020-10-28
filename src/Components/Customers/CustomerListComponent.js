@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import queryString from 'query-string'
 import FilterForm from "Components/Forms/FilterForm";
+import BootstrapTable from 'react-bootstrap-table-next';
+import '../../../node_modules/react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 class CustomerListComponent extends Component {
     componentDidMount() {
@@ -19,7 +21,40 @@ class CustomerListComponent extends Component {
     }
 
     render() {
-
+        const sites1 = this.props.customers;
+        //const sites1 = this.props.customers;
+        const products = sites1;
+        // const products = [
+        // 	{ id: 1, name: "fahim", price: "13" },
+        // 	{ id: 2, name: "owais", price: "14" },
+        // 	{ id: 3, name: "khizar", price: "15" },
+        // ];
+        const columns = [
+            {
+                dataField: 'fullname',
+                text: 'Name'
+            },
+            {
+                dataField: 'total_sites',
+                text: 'Total Sites',
+                sort: true
+            },
+            {
+                dataField: 'email',
+                text: 'Email'
+            },
+            {
+                dataField: 'status',
+                text: 'Status'
+            },
+            {
+                dataField: 'created_at',
+                text: 'Created At'
+            },
+            {
+                dataField: '',
+                text: 'Action'
+            }];
         return (
             <React.Fragment>
                 <TemplateMain>
@@ -38,6 +73,9 @@ class CustomerListComponent extends Component {
                                     ]
                                 }
                             />
+
+                            <h4 className="tx-color-01 mg-b-15">Customer Sort</h4>
+                            <BootstrapTable keyField='id' data={products} columns={columns} />
 
                             <h4 className="tx-color-01 mg-b-15">
                                 Customer List

@@ -57,7 +57,7 @@ body {
 }
 .table th,
 .table td {
-	vertical-align: middle;
+	vertical-align: middle !important;
 }
 .customer-list-page .badge {
 	font-size: 12px !important;
@@ -73,4 +73,18 @@ body {
 }
 .roleslist-page .actions {
 	text-align: center;
+}
+.page-header {
+	font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+}
+body {
+	font-family: "IBM Plex Sans", sans-serif !important;
+}
+.site-update-table th, .site-update-table td {
+    width: 200px;
+}
+.react-bootstrap-table {
+	height: 200px;
+	overflow: auto;
 }
