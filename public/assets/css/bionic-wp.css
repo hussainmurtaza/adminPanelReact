@@ -1,4 +1,9 @@
 /******General CSS***********/
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
+
 .content-components {
 	font-size: 16px;
 	padding: 20px;
