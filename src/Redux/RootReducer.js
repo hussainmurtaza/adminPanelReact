@@ -49,4 +49,5 @@ export default combineReducers({
 	invoice_filter: InvoiceFilterReducer,
 	user_filter: UserFilterReducer,
 	user_search: UserSearchReducer,
+	customer_put: CustomerPutReducer,
 });
