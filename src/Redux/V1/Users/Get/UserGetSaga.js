@@ -17,5 +17,5 @@ function* userGet() {
 }
 
 export function* UserGetSaga() {
-	yield takeEvery(USER.GET_USERS, userGet);
+	yield takeEvery(USER.USERS_GET, userGet);
 }

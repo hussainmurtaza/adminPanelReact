@@ -8,7 +8,6 @@ function* permissionGet() {
 		const response = yield PermissionService.getAll();
 		if (response.success) {
 			yield put(PermissionAction.getPermissionSuccess(response.data));
-			console.log("getPermissionSuccess saga");
 		} else {
 			yield put(PermissionAction.getPermissionFailed(response.error));
 		}
@@ -18,5 +17,5 @@ function* permissionGet() {
 }
 
 export function* PermissionGetSaga() {
-	yield takeEvery(PERMISSION.GET_PERMISSION, permissionGet);
+	yield takeEvery(PERMISSION.PERMISSION_GET, permissionGet);
 }

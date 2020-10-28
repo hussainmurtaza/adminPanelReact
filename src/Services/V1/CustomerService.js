@@ -27,7 +27,7 @@ const queryBody = (data) => {
 	let query = "?";
 
 	query += `first_name=${data.first_name}&`;
-	query += `last_name=${data.last_name}&`;
+	//query += `last_name=${data.last_name}&`;
 	query += `email=${data.email}&`;
 	query += `status=${data.status}&`;
 	query += `created_at=${data.created_at}&`;
@@ -36,16 +36,16 @@ const queryBody = (data) => {
 
 	if (
 		query ===
-		"?first_name=undefined&last_name=undefined&email=undefined&status=undefined&created_at=undefined&"
+		"?first_name=undefined&email=undefined&status=undefined&created_at=undefined&"
 	) {
 		query += `first_name=&`;
-		query += `last_name=&`;
+		//query += `last_name=&`;
 		query += `email=&`;
 		query += `status=&`;
 		query += `created_at=&`;
 	} else {
 		query += `first_name=${data.first_name}&`;
-		query += `last_name=${data.last_name}&`;
+		//query += `last_name=${data.last_name}&`;
 		query += `email=${data.email}&`;
 		query += `status=${data.status}&`;
 		query += `created_at=${data.created_at}&`;

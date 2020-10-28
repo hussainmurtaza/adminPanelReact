@@ -8,19 +8,19 @@ const UserDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case USER.GET_USERS:
+		case USER.USERS_GET:
 			return {
 				...state,
 				loading: true,
 				error: null,
 			};
-		case USER.GET_USERS_SUCCESS:
+		case USER.USERS_GET_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				users: action.response.users,
 			};
-		case USER.GET_USERS_FAILED:
+		case USER.USERS_GET_FAILED:
 			return { ...state, loading: false, error: action.response };
 		default:
 			return state;

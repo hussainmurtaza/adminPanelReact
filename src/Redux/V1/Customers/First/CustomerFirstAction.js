@@ -1,28 +1,28 @@
-import CUSTOMER_DETAILS from "Redux/V1/Customers/First/CustomerFirstActionType";
+import CUSTOMER from "Redux/V1/Customers/First/CustomerFirstActionType";
 
-const CustomerDetailAction = {
-	customerDetail,
-	customerDetailSuccess,
-	customerDetailFailed,
+const CustomerFirstAction = {
+	customerFirst,
+	customerFirstSuccess,
+	customerFirstFailed,
 };
 
-function customerDetail(data) {
+function customerFirst(data) {
 	return {
-		type: CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET,
+		type: CUSTOMER.CUSTOMER_FIRST,
 		request: data,
 	};
 }
-function customerDetailSuccess(data) {
+function customerFirstSuccess(data) {
 	return {
-		type: CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET_SUCCESS,
+		type: CUSTOMER.CUSTOMER_FIRST_SUCCESS,
 		response: data,
 	};
 }
-function customerDetailFailed(data) {
+function customerFirstFailed(data) {
 	return {
-		type: CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET_FAILED,
+		type: CUSTOMER.CUSTOMER_FIRST_FAILED,
 		response: data,
 	};
 }
 
-export default CustomerDetailAction;
+export default CustomerFirstAction;

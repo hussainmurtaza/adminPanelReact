@@ -1,27 +1,27 @@
-import CUSTOMER_DETAILS from "Redux/V1/Customers/First/CustomerFirstActionType";
+import CUSTOMER from "Redux/V1/Customers/First/CustomerFirstActionType";
 
 const customerDetails = (
 	state = {
 		loading: false,
-		customer: {},
+		customer: [],
 		err_mess: null,
 		fetched: false,
 	},
 	action
 ) => {
 	switch (action.type) {
-		case CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET:
+		case CUSTOMER.CUSTOMER_FIRST:
 			return {
 				...state,
 				loading: true,
 			};
-		case CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET_SUCCESS:
+		case CUSTOMER.CUSTOMER_FIRST_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				customer: action.response.customer,
 			};
-		case CUSTOMER_DETAILS.CUSTOMER_DETAILS_GET_FAILED:
+		case CUSTOMER.CUSTOMER_FIRST_FAILED:
 			return { ...state, loading: false, err_mess: action.response };
 		default:
 			return state;

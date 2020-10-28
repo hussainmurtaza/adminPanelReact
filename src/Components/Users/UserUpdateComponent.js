@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import Select from "react-select";
 import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
 import TemplateMain from "Templates/TemplateMain";
-import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
+import UserFirstAction from "Redux/V1/Users/First/UserFirstAction";
 import UsersPutAction from "Redux/V1/Users/Put/UserPutAction";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
 import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
+import InputField from "Components/Forms/Fields/InputField";
+import InputSelectField from "Components/Forms/Fields/InputSelectField";
 
 class UserUpdateComponent extends Component {
 	state = {
@@ -25,7 +26,7 @@ class UserUpdateComponent extends Component {
 		this.props.dispatch(PermissionAction.getPermission());
 		this.props.dispatch(RolesAction.getRoles());
 		this.props.dispatch(
-			UserDetailsAction.userDetail(this.props.match.params.id)
+			UserFirstAction.userFirst(this.props.match.params.id)
 		);
 	}
 	handleSubmit = (e) => {
@@ -99,63 +100,55 @@ class UserUpdateComponent extends Component {
 								<form method="PUT" onSubmit={this.handleSubmit}>
 									<Row>
 										<Col sm={6} className="form-group">
-											<label>Firstname</label>
-											<input
-												type="text"
+											<InputField
 												name="first_name"
-												className="form-control"
-												placeholder="Enter your firstname"
-												onChange={this.handleChange}
+												placeholder="Enter your Firstname"
+												handleChange={this.handleChange}
 												defaultValue={
 													this.state.form.first_name
 												}
 											/>
+
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Lastname</label>
-											<input
-												type="text"
+											<InputField
 												name="last_name"
-												className="form-control"
-												placeholder="Enter your lastname"
-												onChange={this.handleChange}
+												placeholder="Enter your Lastname"
+												handleChange={this.handleChange}
 												defaultValue={
 													this.state.form.last_name
 												}
 											/>
+
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Email address</label>
-											<input
-												type="email"
+											<InputField
 												name="email"
-												className="form-control"
-												placeholder="Enter your email address"
-												onChange={this.handleChange}
+												placeholder="Enter your Email address"
+												handleChange={this.handleChange}
 												defaultValue={
 													this.state.form.email
 												}
 											/>
+
 										</Col>
 										<Col sm={6} className="form-group">
-											<label>Phone Number</label>
-											<input
-												type="number"
+											<InputField
 												name="phone"
-												className="form-control"
 												placeholder="Enter your Phone Number"
-												onChange={this.handleChange}
+												handleChange={this.handleChange}
 												defaultValue={
 													this.state.form.phone
 												}
 											/>
+
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Roles</label>
-											<Select
-												isMulti
+											<InputSelectField
 												name="roles"
-												options={rolesOptions}
+												placeholder="Assign Roles"
+												option={rolesOptions}
 												onChange={(options, e) =>
 													this.handleMultiSelect(
 														e,
@@ -167,20 +160,17 @@ class UserUpdateComponent extends Component {
 										</Col>
 										<Col sm={6} className="form-group">
 											<label>Assign Permissions</label>
-											<Select
-												isMulti
+											<InputSelectField
 												name="permissions"
-												options={permissionOptions}
+												placeholder="Assign Permission"
+												option={permissionOptions}
 												onChange={(options, e) =>
 													this.handleMultiSelect(
 														e,
 														options
 													)
 												}
-												placeholder="Assign Permission"
-												value={
-													this.state.form.permissions
-												}
+												value={this.state.form.permissions}
 											/>
 										</Col>
 										<Col sm={12}>

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import CustomerDetailsAction from "Redux/V1/Customers/First/CustomerFirstAction";
+import CustomerFirstAction from "Redux/V1/Customers/First/CustomerFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 
@@ -13,15 +13,18 @@ class CustomerSingleComponent extends Component {
 
 	componentDidMount() {
 		this.props.dispatch(
-			CustomerDetailsAction.customerDetail(this.props.match.params.id)
+			CustomerFirstAction.customerFirst(this.props.match.params.id)
 		);
 	}
 
 	render() {
 		let customerEmail,
 			customerPhone,
+			customerInvoice1,
 			customerInvoice,
+			customerBilling1,
 			customerBilling,
+			customerSites1,
 			customerSites;
 		const customerData = this.props.customer.contact;
 		const customerInvoicesData = this.props.customer.invoices;
@@ -34,7 +37,7 @@ class CustomerSingleComponent extends Component {
 			customerPhone = customerData.map((contact) => {
 				return <React.Fragment>{contact.phone}</React.Fragment>;
 			});
-			customerSites = customerSitesData.map((site) => {
+			customerSites1 = customerSitesData.map((site) => {
 				return (
 					<React.Fragment>
 						<tr>
@@ -51,7 +54,13 @@ class CustomerSingleComponent extends Component {
 					</React.Fragment>
 				);
 			});
-			customerBilling = customerBilingsData.map((billing) => {
+			if (customerSites1.length === 0) {
+				customerSites = <td colspan="100%">No Date Available</td>;
+			}
+			else {
+				customerSites = customerSites1;
+			}
+			customerBilling1 = customerBilingsData.map((billing) => {
 				return (
 					<React.Fragment>
 						<tr>
@@ -79,7 +88,13 @@ class CustomerSingleComponent extends Component {
 					</React.Fragment>
 				);
 			});
-			customerInvoice = customerInvoicesData.map((invoice) => {
+			if (customerBilling1.length === 0) {
+				customerBilling = <td colspan="100%">No Date Available</td>;
+			}
+			else {
+				customerBilling = customerBilling1;
+			}
+			customerInvoice1 = customerInvoicesData.map((invoice) => {
 				return (
 					<React.Fragment>
 						<tr>
@@ -95,6 +110,12 @@ class CustomerSingleComponent extends Component {
 					</React.Fragment>
 				);
 			});
+			if (customerInvoice1.length === 0) {
+				customerInvoice = <td colspan="100%">No Date Available</td>;
+			}
+			else {
+				customerInvoice = customerInvoice1;
+			}
 		}
 		return (
 			<React.Fragment>
@@ -103,7 +124,7 @@ class CustomerSingleComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Update User</h4>
+							<h4 className="tx-color-01 mg-b-15">Customer Details</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>

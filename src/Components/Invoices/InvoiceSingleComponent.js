@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import InvoiceDetailsAction from "Redux/V1/Invoices/First/InvoiceFirstAction";
+import InvoiceFirstAction from "Redux/V1/Invoices/First/InvoiceFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import { Table } from "react-bootstrap";
 import TimeStampHelper from "Helpers/TimeStampHelper";
@@ -9,13 +9,13 @@ import TimeStampHelper from "Helpers/TimeStampHelper";
 class InvoiceSingleComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(
-			InvoiceDetailsAction.invoiceDetail(this.props.match.params.id)
+			InvoiceFirstAction.invoiceFirst(this.props.match.params.id)
 		);
 	}
 
 	render() {
 		const invoiceData = this.props.invoice.customer;
-		const invoiceEmail = this.props.invoice.customer.contact;
+		//const invoiceEmail = this.props.invoice.customer;
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -65,7 +65,9 @@ class InvoiceSingleComponent extends Component {
 								</tbody>
 							</Table>
 
-							<h2>Customer Details</h2>
+							<h4 className="tx-color-01 mg-b-15">
+								Customer Details
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -81,7 +83,7 @@ class InvoiceSingleComponent extends Component {
 									<tr>
 										<td>{invoiceData.first_name}</td>
 										<td>{invoiceData.last_name}</td>
-										<td>{invoiceEmail[0]['email']}</td>
+										<td>{invoiceData.email}</td>
 										<td>{invoiceData.total_sites}</td>
 										<td>{invoiceData.status}</td>
 										<td>

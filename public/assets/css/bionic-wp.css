@@ -45,9 +45,10 @@
 	vertical-align: middle;
 }
 .badge {
-	font-size: 16px !important;
+	font-size: 13px !important;
 	font-weight: normal !important;
 	padding: 8px !important;
+	margin-top: 8px;
 }
 .table th,
 .table td {
@@ -61,4 +62,10 @@
 .customer-list-page .table th,
 .customer-list-page .table td {
 	vertical-align: middle;
+}
+.roleslist-page .permissions {
+	width: 60%;
+}
+.roleslist-page .actions {
+	text-align: center;
 }

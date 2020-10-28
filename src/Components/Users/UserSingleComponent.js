@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Row, Col, Badge } from "react-bootstrap";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import UserDetailsAction from "Redux/V1/Users/First/UserFirstAction";
+import UserFirstAction from "Redux/V1/Users/First/UserFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 
 class UpdateUserComponent extends Component {
@@ -11,16 +11,12 @@ class UpdateUserComponent extends Component {
 	};
 
 	componentDidMount() {
-		//console.log(this.props.match.params.id);
-		//console.log(this.props.user);
 		this.props.dispatch(
-			UserDetailsAction.userDetail(this.props.match.params.id)
+			UserFirstAction.userFirst(this.props.match.params.id)
 		);
 	}
 
 	render() {
-		//const user = this.props.userDetails;
-		//console.log(user, "Single user detail");
 		const userRole = this.props.user.roles;
 		const userPermission = this.props.user.permissions;
 		let roleData, permissionData;
@@ -49,7 +45,7 @@ class UpdateUserComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Update User</h4>
+							<h4 className="tx-color-01 mg-b-15">User Details</h4>
 							<Row>
 								<Col sm={6} className="form-group">
 									<label>Firstname</label>

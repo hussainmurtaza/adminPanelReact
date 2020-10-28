@@ -7,10 +7,15 @@ import InvoicesAction from "Redux/V1/Invoices/Get/InvoiceGetAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import FilterForm from "Components/Forms/FilterForm";
+import queryString from 'query-string';
+import InvoiceFilterAction from "Redux/V1/Invoices/Filter/InvoiceFilterAction";
 
 class InvoiceListComponent extends Component {
 	componentDidMount() {
+		const value = queryString.parse(this.props.location.search);
 		this.props.dispatch(InvoicesAction.getInvoices());
+		this.props.dispatch(InvoiceFilterAction.filterInvoices(value));
 	}
 
 	render() {
@@ -21,11 +26,24 @@ class InvoiceListComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
+
+							<FilterForm
+								fields={
+									[
+										'invoice_customer_name',
+										'invoice_number',
+										'invoice_status',
+										'invoice_date',
+									]
+								}
+							/>
+
 							<h4 className="tx-color-01 mg-b-15">Invoice List</h4>
 							<div className="user-list-page">
 								<Table striped bordered hover>
 									<thead>
 										<tr>
+											<th>Customer</th>
 											<th>Invoice Number</th>
 											<th>Amount</th>
 											<th>Issue Date</th>
@@ -34,8 +52,20 @@ class InvoiceListComponent extends Component {
 										</tr>
 									</thead>
 									<tbody>
-										{this.props.invoices.map((invoice) => (
+										{this.props.invoice_filter.map((invoice) => (
 											<tr>
+												<td>
+													<a
+														href={
+															"/customer/" +
+															invoice.customer.id
+														}
+														target="
+															_blank"
+													>
+														{invoice.customer.fullname}
+													</a>
+												</td>
 												<td><a href={"/invoice/" + invoice.id}>{invoice.reference}</a></td>
 												<td>$ {invoice.amount_net}</td>
 												<td>
@@ -73,6 +103,7 @@ class InvoiceListComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		invoices: state.invoices.invoices,
+		invoice_filter: state.invoice_filter.invoices,
 	};
 };
 

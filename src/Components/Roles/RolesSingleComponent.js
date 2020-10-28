@@ -2,15 +2,13 @@ import React, { Component } from "react";
 import { Row, Col, Badge } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
-import RoleDetailsAction from "Redux/V1/Roles/First/RoleFirstAction";
+import RoleFirstAction from "Redux/V1/Roles/First/RoleFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 
 class RoleSingleComponent extends Component {
 	componentDidMount() {
-		//console.log(this.props.match.params.id);
-		//console.log(this.props.user);
 		this.props.dispatch(
-			RoleDetailsAction.roleDetail(this.props.match.params.id)
+			RoleFirstAction.roleFirst(this.props.match.params.id)
 		);
 	}
 	render() {

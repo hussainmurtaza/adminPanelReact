@@ -1,4 +1,4 @@
-import ROLE_DETAILS from "Redux/V1/Roles/First/RoleFirstActionType";
+import ROLE from "Redux/V1/Roles/First/RoleFirstActionType";
 
 const roleDetails = (
 	state = {
@@ -13,20 +13,20 @@ const roleDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case ROLE_DETAILS.ROLE_DETAILS_GET:
+		case ROLE.ROLE_FIRST:
 			return {
 				...state,
 				loading: true,
 				fetched: false,
 			};
-		case ROLE_DETAILS.ROLE_DETAILS_GET_SUCCESS:
+		case ROLE.ROLE_FIRST_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				role: action.response.role,
 				fetched: true,
 			};
-		case ROLE_DETAILS.ROLE_DETAILS_GET_FAILED:
+		case ROLE.ROLE_FIRST_FAILED:
 			return {
 				...state,
 				loading: false,

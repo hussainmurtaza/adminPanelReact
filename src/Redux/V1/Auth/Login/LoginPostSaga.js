@@ -29,7 +29,7 @@ function loginPostSuccess(data) {
 		JSON.stringify(data.response.authentication.user)
 	);
 	setTimeout(() => {
-		window.location.href = "/users";
+		window.location.href = "/customers";
 	}, 1000);
 }
 

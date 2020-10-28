@@ -22,26 +22,26 @@ class RoleListComponent extends Component {
 			<React.Fragment>
 				<TemplateMain>
 					<Sidebar active="roles" />
-					<div className="content content-components">
+					<div className="content content-components roleslist-page">
 						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">All Roles</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th>Permissions</th>
-										<th>Actions</th>
+										<th className="permissions">Permissions</th>
+										<th className="actions">Actions</th>
 									</tr>
 								</thead>
 								<tbody>
 									{this.props.roles.map((role) => (
 										<tr>
 											<td>{role.name}</td>
-											<td>
+											<td className="permissions">
 												{role.permissions.map(
 													(permission) => (
 														<Badge
-															variant="danger"
+															variant="primary"
 															className="mr-2"
 														>
 															{permission.name}
@@ -85,218 +85,6 @@ class RoleListComponent extends Component {
 											</td>
 										</tr>
 									))}
-									{/* <tr>
-										<td>Admin</td>
-										<td className="badge-group">
-											<Badge variant="danger">
-												access All
-											</Badge>
-										</td>
-										<td>
-											<div className="actions">
-												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
-												>
-													<i data-feather="eye"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
-												>
-													<i data-feather="edit"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
-												>
-													<i data-feather="trash"></i>
-												</a>
-											</div>
-										</td>
-									</tr>
-
-									<tr>
-										<td>Assistant</td>
-										<td className="badge-group">
-											{" "}
-											<Badge variant="danger">
-												vehicle All
-											</Badge>{" "}
-											<Badge variant="danger">
-												passenger All
-											</Badge>
-										</td>
-										<td>
-											<div className="actions">
-												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
-												>
-													<i data-feather="eye"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
-												>
-													<i data-feather="edit"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
-												>
-													<i data-feather="trash"></i>
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>Bibi</td>
-										<td className="badge-group">
-											<Badge variant="danger">
-												access All
-											</Badge>
-											<Badge variant="danger">
-												passenger add
-											</Badge>
-											<Badge variant="danger">
-												merchant delete
-											</Badge>
-											<Badge variant="danger">
-												both add
-											</Badge>
-										</td>
-										<td>
-											<div className="actions">
-												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
-												>
-													<i data-feather="eye"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
-												>
-													<i data-feather="edit"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
-												>
-													<i data-feather="trash"></i>
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>Employee</td>
-										<td></td>
-										<td>
-											<div className="actions">
-												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
-												>
-													<i data-feather="eye"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
-												>
-													<i data-feather="edit"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
-												>
-													<i data-feather="trash"></i>
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td>Merchant</td>
-										<td className="badge-group">
-											<Badge variant="danger">
-												access All
-											</Badge>
-											<Badge variant="danger">
-												passenger add
-											</Badge>
-											<Badge variant="danger">
-												merchant delete
-											</Badge>
-											<Badge variant="danger">
-												both add
-											</Badge>
-										</td>
-										<td>
-											<div className="actions">
-												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
-												>
-													<i data-feather="eye"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
-												>
-													<i data-feather="edit"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
-												>
-													<i data-feather="trash"></i>
-												</a>
-											</div>
-										</td>
-									</tr>
-									<tr>
-										<td colSpan="2">Passenger</td>
-										<td>
-											<div className="actions">
-												<a
-													href="/role-info"
-													data-toggle="tooltip"
-													title="Role Info."
-												>
-													<i data-feather="eye"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Update Role"
-												>
-													<i data-feather="edit"></i>
-												</a>
-												<a
-													href="/update-role"
-													data-toggle="tooltip"
-													title="Delete Role"
-												>
-													<i data-feather="trash"></i>
-												</a>
-											</div>
-										</td>
-									</tr> */}
 								</tbody>
 							</Table>
 						</div>

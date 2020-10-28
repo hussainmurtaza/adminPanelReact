@@ -8,7 +8,7 @@ import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
 import RolesPutAction from "Redux/V1/Roles/Put/RolePutAction";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
-import RoleDetailsAction from "Redux/V1/Roles/First/RoleFirstAction";
+import RoleFirstAction from "Redux/V1/Roles/First/RoleFirstAction";
 
 class RoleUpdateComponent extends Component {
 	state = {
@@ -21,7 +21,7 @@ class RoleUpdateComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(PermissionAction.getPermission());
 		this.props.dispatch(
-			RoleDetailsAction.roleDetail(this.props.match.params.id)
+			RoleFirstAction.roleFirst(this.props.match.params.id)
 		);
 	}
 	handleSubmit = (e) => {
@@ -123,7 +123,7 @@ class RoleUpdateComponent extends Component {
 												value={
 													this.state.form.permissions
 												}
-												// defaultValue={permissionData}
+											// defaultValue={permissionData}
 											/>
 										</Col>
 									</Row>

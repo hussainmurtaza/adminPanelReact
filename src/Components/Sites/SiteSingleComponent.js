@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import SiteDetailsAction from "Redux/V1/Sites/First/SiteFirstAction";
+import SiteFirstAction from "Redux/V1/Sites/First/SiteFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import { Table } from "react-bootstrap";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class SiteSingleComponent extends Component {
 	componentDidMount() {
-		//console.log(this.props.match.params.host);
 		this.props.dispatch(
-			SiteDetailsAction.siteDetail(this.props.match.params.host)
+			SiteFirstAction.siteFirst(this.props.match.params.host)
 		);
 	}
 
@@ -57,6 +56,14 @@ class SiteSingleComponent extends Component {
 									<tr>
 										<td>Flag</td>
 										<td>{this.props.site.flag}</td>
+									</tr>
+									<tr>
+										<td>location</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>IP Address</td>
+										<td></td>
 									</tr>
 								</tbody>
 							</Table>

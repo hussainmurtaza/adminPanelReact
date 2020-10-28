@@ -8,18 +8,18 @@ const PermissionAction = {
 
 function getPermission() {
 	return {
-		type: PERMISSION.GET_PERMISSION,
+		type: PERMISSION.PERMISSION_GET,
 	};
 }
 function getPermissionSuccess(data) {
 	return {
-		type: PERMISSION.GET_PERMISSION_SUCCESS,
+		type: PERMISSION.PERMISSION_GET_SUCCESS,
 		response: data,
 	};
 }
 function getPermissionFailed(data) {
 	return {
-		type: PERMISSION.GET_PERMISSION_FAILED,
+		type: PERMISSION.PERMISSION_GET_FAILED,
 		response: data,
 	};
 }

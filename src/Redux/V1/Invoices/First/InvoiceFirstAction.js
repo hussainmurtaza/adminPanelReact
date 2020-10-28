@@ -1,28 +1,28 @@
-import INVOICE_DETAILS from "Redux/V1/Invoices/First/InvoiceFirstActionType";
+import INVOICE from "Redux/V1/Invoices/First/InvoiceFirstActionType";
 
-const InvoiceDetailAction = {
-	invoiceDetail,
-	invoiceDetailSuccess,
-	invoiceDetailFailed,
+const InvoiceFirstAction = {
+	invoiceFirst,
+	invoiceFirstSuccess,
+	invoiceFirstFailed,
 };
 
-function invoiceDetail(data) {
+function invoiceFirst(data) {
 	return {
-		type: INVOICE_DETAILS.INVOICE_DETAILS_GET,
+		type: INVOICE.INVOICE_FIRST,
 		request: data,
 	};
 }
-function invoiceDetailSuccess(data) {
+function invoiceFirstSuccess(data) {
 	return {
-		type: INVOICE_DETAILS.INVOICE_DETAILS_GET_SUCCESS,
+		type: INVOICE.INVOICE_FIRST_SUCCESS,
 		response: data,
 	};
 }
-function invoiceDetailFailed(data) {
+function invoiceFirstFailed(data) {
 	return {
-		type: INVOICE_DETAILS.INVOICE_DETAILS_GET_FAILED,
+		type: INVOICE.INVOICE_FIRST_FAILED,
 		response: data,
 	};
 }
 
-export default InvoiceDetailAction;
+export default InvoiceFirstAction;

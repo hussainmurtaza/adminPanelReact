@@ -1,4 +1,4 @@
-import USER_DETAILS from "Redux/V1/Users/First/UserFirstActionType";
+import USER from "Redux/V1/Users/First/UserFirstActionType";
 
 const userDetails = (
 	state = {
@@ -19,20 +19,20 @@ const userDetails = (
 	action
 ) => {
 	switch (action.type) {
-		case USER_DETAILS.USER_DETAILS_GET:
+		case USER.USER_FIRST:
 			return {
 				...state,
 				loading: true,
 				fetched: false,
 			};
-		case USER_DETAILS.USER_DETAILS_GET_SUCCESS:
+		case USER.USER_FIRST_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				user: action.response.user,
 				fetched: true,
 			};
-		case USER_DETAILS.USER_DETAILS_GET_FAILED:
+		case USER.USER_FIRST_FAILED:
 			return {
 				...state,
 				loading: false,

@@ -53,12 +53,58 @@ const put = async (data, id) => {
 	);
 	return response;
 };
+
+// const filter = async (data) => {
+// 	const response = await Gateway.authGateway(
+// 		"GET",
+// 		V1.auth.users + queryBody(data) ,
+// 	);
+// 	return response;
+// };
+
+// const queryBody = (data) => {
+// 	let query = "?";
+
+// 	query += `first_name=${data.first_name}&`;
+// 	query += `last_name=${data.last_name}&`;
+// 	query += `status=${data.status}&`;
+// 	query += `created_at=${data.created_at}&`;
+
+// 	if (query === '?first_name=undefined&last_name=undefined&status=undefined&created_at=undefined&') {
+// 		query += `first_name=&`;
+// 		query += `last_name=&`;
+// 		query += `status=&`;
+// 		query += `created_at=&`;
+// 	}
+
+// 	return query;
+// };
+
+const search = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		`${V1.auth.users}/search${smartSearchBody(data)}`,
+	);
+	return response;
+};
+
+const smartSearchBody = (data) => {
+	let query = "?";
+
+	query += `field=${data.field}&`;
+	query += `value=${data.value}`;
+
+	return query;
+};
+
 const UserService = {
 	getAll,
 	get,
 	post,
 	userDelete,
 	put,
+	//filter,
+	search,
 };
 
 export default UserService;

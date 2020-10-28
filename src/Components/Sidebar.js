@@ -34,7 +34,7 @@ class Sidebar extends Component {
 							<li
 								className={
 									this.props.active === "create-user" ||
-									this.props.active === "users"
+										this.props.active === "users"
 										? "nav-item show"
 										: "nav-item"
 								}
@@ -43,7 +43,7 @@ class Sidebar extends Component {
 									href="/"
 									className={
 										this.props.active === "create-user" ||
-										this.props.active === "users"
+											this.props.active === "users"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
@@ -76,7 +76,7 @@ class Sidebar extends Component {
 							<li
 								className={
 									this.props.active === "roles" ||
-									this.props.active === "create-roles"
+										this.props.active === "create-roles"
 										? "nav-item show"
 										: "nav-item"
 								}
@@ -85,7 +85,7 @@ class Sidebar extends Component {
 									href="/"
 									className={
 										this.props.active === "roles" ||
-										this.props.active === "create-roles"
+											this.props.active === "create-roles"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
@@ -207,6 +207,37 @@ class Sidebar extends Component {
 										}
 									>
 										All Invoices
+									</a>
+								</nav>
+							</li>
+							<li
+								className={
+									this.props.active === "migrations"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "migrations"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="inbox"></i>
+									Migration
+								</a>
+								<nav className="nav">
+									<a
+										href="/migrations"
+										className={
+											this.props.active === "migrations"
+												? "active"
+												: ""
+										}
+									>
+										All Migration
 									</a>
 								</nav>
 							</li>

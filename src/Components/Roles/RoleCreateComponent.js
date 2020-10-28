@@ -6,8 +6,9 @@ import InputSelectField from "Components/Forms/Fields/InputSelectField";
 import { connect } from "react-redux";
 import PostRolesAction from "Redux/V1/Roles/Post/RolePostAction";
 import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
+// import Select from "react-select";
 import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
-import InputTextField from "Components/Forms/Fields/InputTextField";
+import InputField from "Components/Forms/Fields/InputTextField";
 
 class RoleCreateComponent extends Component {
 	state = {
@@ -57,11 +58,13 @@ class RoleCreateComponent extends Component {
 							</h4>
 							<form method="POST" onSubmit={this.handleSubmit}>
 								<Row>
-									<Col sm={12} className="form-group">
-										<InputTextField
+									<Col sm={12}>
+										<InputField
+											label="Enter your Role Name"
+											type="text"
 											name="name"
-											placeholder="Search By Role Name"
-											onChange={this.handleChange}
+											placeholder="Enter your Role Name"
+											handleChange={this.handleChange}
 										/>
 									</Col>
 									<Col sm={12} className="form-group">
@@ -77,26 +80,14 @@ class RoleCreateComponent extends Component {
 												)
 											}
 										/>
+
 									</Col>
 									<Col sm={12}>
 										<Button type="submit" variant="primary">
 											Create
 										</Button>
 									</Col>
-									{/* <Col sm={12}>
-										{this.props.roles.map((role) => (
-											<tr>
-												{role.name}
-												{role.permissions.map(
-													(permission) => (
-														<td>
-															{permission.name}
-														</td>
-													)
-												)}
-											</tr>
-										))}
-									</Col> */}
+
 								</Row>
 							</form>
 						</Container>
