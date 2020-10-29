@@ -7,7 +7,7 @@ import SitesAction from "Redux/V1/Sites/Get/SiteGetAction";
 import SitesFilterAction from "Redux/V1/Sites/Filter/SiteFilterAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import queryString from 'query-string'
 import FilterForm from "Components/Forms/FilterForm";
 
@@ -38,15 +38,15 @@ class SiteListComponent extends Component {
 								}
 							/>
 
-							<h4 className="tx-color-01 mg-b-15">Sites List</h4>
+							<h4 className="page-header mg-b-15">Sites List</h4>
 							<div className="user-list-page">
 								<Table striped bordered hover>
 									<thead>
 										<tr>
 											<th>Customer Name</th>
-											<th>WP Title</th>
 											<th>Identity</th>
 											<th>Domain</th>
+											<th>Ip Address</th>
 											<th>Type</th>
 											<th>Created At</th>
 											<th>Action</th>
@@ -57,26 +57,21 @@ class SiteListComponent extends Component {
 											<tr>
 												<td>
 													<a
+														target="_blank"
+														rel="noopener noreferrer"
 														href={
 															"/customer/" +
 															site.user.id
 														}
-														target="
-														_blank"
 													>
 														{site.user.first_name}{" "}{site.user.last_name}
 													</a>
 												</td>
+
 												<td>
 													<a
-														href={
-															"/site/" + site.host
-														}>
-														{site.name}
-													</a>
-												</td>
-												<td>
-													<a
+														target="_blank"
+														rel="noopener noreferrer"
 														href={
 															"/site/" + site.host
 														}>
@@ -85,11 +80,25 @@ class SiteListComponent extends Component {
 												</td>
 
 												<td>
-													{
-														site.container
-															.primary_domain_name
-													}
+													<a
+														target="_blank"
+														rel="noopener noreferrer"
+														href={
+															"https://" + site.container
+																.primary_domain_name
+														}>
+														{
+															site.container
+																.primary_domain_name
+														}
+														<FontAwesomeIcon
+															icon={faExternalLinkAlt}
+															className="ml-2"
+														/>
+													</a>
 												</td>
+												<td>{site.container
+													.public_ip}</td>
 												<td>{site.site_type}</td>
 												<td>
 													{TimeStampHelper.standardDateFormat(

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table, Badge } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import CustomersAction from "Redux/V1/Customers/Get/CustomerGetAction";
@@ -19,7 +19,6 @@ class CustomerListComponent extends Component {
     }
 
     render() {
-
         return (
             <React.Fragment>
                 <TemplateMain>
@@ -39,7 +38,7 @@ class CustomerListComponent extends Component {
                                 }
                             />
 
-                            <h4 className="tx-color-01 mg-b-15">
+                            <h4 className="page-header mg-b-15">
                                 Customer List
                             </h4>
                             <div className="customer-list-page">
@@ -47,6 +46,8 @@ class CustomerListComponent extends Component {
                                     <thead>
                                         <tr>
                                             <th>Name</th>
+                                            <th>
+                                                Total Sites</th>
                                             <th>Email</th>
                                             <th>Status</th>
                                             <th>Created At</th>
@@ -59,16 +60,19 @@ class CustomerListComponent extends Component {
                                                 <tr>
                                                     <td>
                                                         <a
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
                                                             href={
                                                                 "/customer/" +
                                                                 customer.id
                                                             }
                                                         >
                                                             {customer.fullname}
-                                                            <Badge variant="primary">{customer.total_sites}</Badge>
+                                                            {/* <Badge variant="primary">{customer.total_sites}</Badge> */}
                                                         </a>
                                                     </td>
 
+                                                    <td>{customer.total_sites}</td>
                                                     <td>{customer.email}</td>
                                                     <td>{customer.status}</td>
 

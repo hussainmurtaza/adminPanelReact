@@ -15,6 +15,7 @@ class SiteSingleComponent extends Component {
 
 	render() {
 		const userData = this.props.site.user;
+		const basicDetail = this.props.site.basic_details;
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -22,7 +23,7 @@ class SiteSingleComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">
+							<h4 className="page-header mg-b-15">
 								Site Details
 							</h4>
 							<Table striped bordered hover>
@@ -58,21 +59,21 @@ class SiteSingleComponent extends Component {
 										<td>{this.props.site.flag}</td>
 									</tr>
 									<tr>
-										<td>location</td>
-										<td></td>
+										<td>Location</td>
+										<td>{basicDetail.location}</td>
 									</tr>
 									<tr>
 										<td>IP Address</td>
-										<td></td>
+										<td>{basicDetail.ip_address}</td>
 									</tr>
 								</tbody>
 							</Table>
 
 
-							<h4 className="tx-color-01 mg-b-15 mt-4">
+							<h4 className="page-header mg-b-15 mt-4">
 								Customer Details
 							</h4>
-							<Table striped bordered hover>
+							<Table striped bordered hover className="site-update-table">
 								<thead>
 									<tr>
 										<th>First Name</th>
@@ -96,6 +97,96 @@ class SiteSingleComponent extends Component {
 									</tr>
 								</tbody>
 							</Table>
+
+							<h4 className="page-header mg-b-15 mt-4">
+								WordPress Core
+							</h4>
+							<Table striped bordered hover className="site-update-table">
+								<thead>
+									<tr>
+										<th>Wordpress</th>
+										<th>Version</th>
+										<th>Latest Version</th>
+										<th className="site-update-table"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>core</td>
+										<td>5.4.2</td>
+										<td>5.5.1</td>
+										<td className="text-center">
+											<button type="submit" class="btn btn-brand-02">Update</button>
+										</td>
+									</tr>
+								</tbody>
+							</Table>
+
+							<h4 className="page-header mg-b-15 mt-4">
+								WordPress Themes
+							</h4>
+							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Theme Name</th>
+										<th>Version</th>
+										<th>Latest Version</th>
+										<th className="site-update-table"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Twenty Nineteen</td>
+										<td>1.5</td>
+										<td>1.7</td>
+										<td className="text-center">
+											<button type="submit" class="btn btn-brand-02">Update</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Twenty Seventeen</td>
+										<td>1.7</td>
+										<td>Updated</td>
+										<td className="text-center">
+											<button type="submit" class="btn btn-brand-02">Update</button>
+										</td>
+									</tr>
+								</tbody>
+							</Table>
+
+							<h4 className="page-header mg-b-15 mt-4">
+								WordPress Plugins
+							</h4>
+							<Table striped bordered hover className="site-update-table">
+								<thead>
+									<tr>
+										<th>Plug-in Name</th>
+										<th>Version</th>
+										<th>Latest Version</th>
+										<th className="site-update-table"></th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Hello Dolly</td>
+										<td>1.5</td>
+										<td>1.7</td>
+										<td className="text-center">
+											<button type="submit" class="btn btn-brand-02">Update</button>
+										</td>
+									</tr>
+									<tr>
+										<td>Akismet Anti-Spam</td>
+										<td>4.1.7</td>
+										<td>Updated</td>
+										<td className="text-center">
+											<button type="submit" class="btn btn-brand-02">Update</button>
+										</td>
+									</tr>
+								</tbody>
+							</Table>
+
+
 						</div>
 					</div>
 				</TemplateMain>
