@@ -11,6 +11,10 @@ const siteDetails = (
 				status: null,
 				created_at: null,
 			},
+			basic_details: {
+				ip_address: null,
+				location: null,
+			}
 		},
 		err_mess: null,
 	},

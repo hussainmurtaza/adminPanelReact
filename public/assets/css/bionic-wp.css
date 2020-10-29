@@ -52,7 +52,7 @@
 }
 .table th,
 .table td {
-	vertical-align: middle;
+	vertical-align: middle !important;
 }
 .customer-list-page .badge {
 	font-size: 12px !important;
@@ -68,4 +68,11 @@
 }
 .roleslist-page .actions {
 	text-align: center;
+}
+.page-header {
+	font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+}
+body {
+	font-family: "IBM Plex Sans", sans-serif !important;
 }

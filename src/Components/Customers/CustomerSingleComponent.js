@@ -124,7 +124,7 @@ class CustomerSingleComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Customer Details</h4>
+							<h4 className="page-header mg-b-15">Customer Details</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -170,7 +170,7 @@ class CustomerSingleComponent extends Component {
 								</tbody>
 							</Table>
 
-							<h4 className="tx-color-01 mg-b-15 mt-4">Billing Information</h4>
+							<h4 className="page-header mg-b-15 mt-4">Billing Information</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -183,7 +183,7 @@ class CustomerSingleComponent extends Component {
 								{customerBilling}
 							</Table>
 
-							<h4 className="tx-color-01 mg-b-15 mt-4">Sites</h4>
+							<h4 className="page-header mg-b-15 mt-4">Sites</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -197,7 +197,7 @@ class CustomerSingleComponent extends Component {
 								<tbody>{customerSites}</tbody>
 							</Table>
 
-							<h4 className="tx-color-01 mg-b-15 mt-4">Invoices</h4>
+							<h4 className="page-header mg-b-15 mt-4">Invoices</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
