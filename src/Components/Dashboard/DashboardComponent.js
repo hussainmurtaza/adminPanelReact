@@ -18,7 +18,7 @@ class DashboardComponent extends Component {
 								<Col sm={3}>
 									<div className="dashboard-cards pd-20">
 										<div className="mg-r-10 float-left">
-											<i data-feather="globe" className="wd-50 ht-50"></i>
+											<i data-feather="filter" className="wd-50 ht-50"></i>
 										</div>
 										<div class="card-heading">Total Live Sites</div>
 										<span className="card-number">100</span>
@@ -27,7 +27,7 @@ class DashboardComponent extends Component {
 								<Col sm={3}>
 									<div className="dashboard-cards pd-20">
 										<div className="mg-r-10 float-left">
-											<i data-feather="globe" className="wd-50 ht-50"></i>
+											<i data-feather="filter" className="wd-50 ht-50"></i>
 										</div>
 										<div class="card-heading">Total Staging Sites</div>
 										<span className="card-number">50</span>
@@ -36,7 +36,7 @@ class DashboardComponent extends Component {
 								<Col sm={3}>
 									<div className="dashboard-cards pd-20">
 										<div className="mg-r-10 float-left">
-											<i data-feather="globe" className="wd-50 ht-50"></i>
+											<i data-feather="dollar-sign" className="wd-50 ht-50"></i>
 										</div>
 										<div class="card-heading">Total Revenue</div>
 										<span className="card-number">$1000</span>
@@ -45,7 +45,7 @@ class DashboardComponent extends Component {
 								<Col sm={3}>
 									<div className="dashboard-cards pd-20">
 										<div className="mg-r-10 float-left">
-											<i data-feather="globe" className="wd-50 ht-50"></i>
+											<i data-feather="users" className="wd-50 ht-50"></i>
 										</div>
 										<div class="card-heading">Total Customers</div>
 										<span className="card-number">100</span>
@@ -54,7 +54,7 @@ class DashboardComponent extends Component {
 								<Col sm={3}>
 									<div className="dashboard-cards pd-20">
 										<div className="mg-r-10 float-left">
-											<i data-feather="globe" className="wd-50 ht-50"></i>
+											<i data-feather="file-text" className="wd-50 ht-50"></i>
 										</div>
 										<div class="card-heading">Total Invoices</div>
 										<span className="card-number">100</span>
