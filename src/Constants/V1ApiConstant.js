@@ -8,6 +8,7 @@ const V1 = {
 		customers_lock: "v1/customers/status",
 		sites: "v1/sites",
 		invoices: "v1/invoices",
+		dashboards: "v1/dashboards",
 	},
 };
 export default V1;

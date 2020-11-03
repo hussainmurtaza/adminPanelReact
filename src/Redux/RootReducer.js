@@ -23,6 +23,7 @@ import InvoiceFilterReducer from "Redux/V1/Invoices/Filter/InvoiceFilterReducer"
 import UserFilterReducer from "Redux/V1/Users/Filter/UserFilterReducer";
 import UserSearchReducer from "Redux/V1/Users/Search/UserSearchReducer";
 import CustomerPutReducer from "Redux/V1/Customers/Put/CustomerPutReducer";
+import DashboardGetReducer from "Redux/V1/Dashboard/Get/DashboardGetReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -49,5 +50,5 @@ export default combineReducers({
 	invoice_filter: InvoiceFilterReducer,
 	user_filter: UserFilterReducer,
 	user_search: UserSearchReducer,
-	customer_put: CustomerPutReducer,
+	dashboards: DashboardGetReducer,
 });
