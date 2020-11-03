@@ -1,4 +1,9 @@
 /******General CSS***********/
+body {
+    margin: 0;
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
+
 .content-components {
 	font-size: 16px;
 	padding: 20px;
@@ -75,4 +80,11 @@
 }
 body {
 	font-family: "IBM Plex Sans", sans-serif !important;
+}
+.site-update-table th, .site-update-table td {
+    width: 200px;
+}
+.react-bootstrap-table {
+	height: 200px;
+	overflow: auto;
 }

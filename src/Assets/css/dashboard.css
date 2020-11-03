@@ -1,0 +1,23 @@
+/* Dashboard CSS */
+.dashboard-page {
+
+}
+.dashboard-cards {
+	color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+	margin-bottom: 25px;
+	/* background-image: url(../img/image.png);
+    background-repeat: no-repeat;
+    background-position: top right; */
+}
+.dashboard-cards .card-heading {
+    font-weight: 600;
+}
+.dashboard-cards .card-number {
+	font-weight: 600;
+	font-size: 25px;
+}
+.dashboard-cards svg {
+	opacity: 0.8;
+}

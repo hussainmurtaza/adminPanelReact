@@ -3,7 +3,7 @@ import { Switch, Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import Login from "Components/Auth/LoginComponent";
-// import DashboardComponent from "Components/Dashboard/DashboardComponent";
+import DashboardComponent from "Components/Dashboard/DashboardComponent";
 import CreateUserComponent from "Components/Users/UserCreateComponent";
 import UserListComponent from "Components/Users/UserListComponent";
 import UserSingleComponent from "Components/Users/UserSingleComponent";
@@ -50,7 +50,7 @@ class Main extends Component {
 					) : (
 							<Redirect
 								to={{
-									pathname: "/customers",
+									pathname: "/dashboard",
 									state: { from: props.location },
 								}}
 							/>
@@ -62,11 +62,11 @@ class Main extends Component {
 			<React.Fragment>
 				<Switch>
 					<GuestRoute exact path="/login" component={Login} />
-					{/* <PrivateRoute
+					<PrivateRoute
 						exact
 						path="/dashboard"
 						component={DashboardComponent}
-					/> */}
+					/>
 					<PrivateRoute
 						exact
 						path="/users"
