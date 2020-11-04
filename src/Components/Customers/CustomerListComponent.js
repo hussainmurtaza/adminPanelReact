@@ -8,19 +8,62 @@ import CustomersFilterAction from "Redux/V1/Customers/Filter/CustomerFilterActio
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+// import Select from "react-select";
 import queryString from "query-string";
 import FilterForm from "Components/Forms/FilterForm";
 import CustomerPutAction from "Redux/V1/Customers/Put/CustomerPutAction";
 
 class CustomerListComponent extends Component {
-    componentDidMount() {
-        const value = queryString.parse(this.props.location.search);
-        this.props.dispatch(CustomersAction.getCustomers());
-        this.props.dispatch(CustomersFilterAction.filterCustomers(value));
-    }
-    onSwitch = (customer) => {
-        this.props.dispatch(CustomerPutAction.PutCustomers(customer.id));
-    };
+	state = {
+		form: {
+			first_name: null,
+			last_name: null,
+			status: null,
+			email: null,
+			created_at: null,
+		},
+		// checked: null,
+	};
+	// state = {
+	// 	switch1: false,
+	// };
+	// handleSwitchChange = (nr) => () => {
+	// 	let switchNumber = `switch${nr}`;
+	// 	this.setState({
+	// 		[switchNumber]: !this.state[switchNumber],
+	// 	});
+	// 	console.log(switchNumber, "switch");
+	// };
+	componentDidMount() {
+		const value = queryString.parse(this.props.location.search);
+		this.props.dispatch(CustomersAction.getCustomers());
+		this.props.dispatch(CustomersFilterAction.filterCustomers(value));
+	}
+	// handleSubmit = (e) => {
+	//     e.preventDefault();
+	//     this.props.dispatch(CustomersFilterAction.filterCustomers(this.state.form));
+	//     console.log(this.state.form, "submit filter");
+	// };
+	// handleMultiSelect = (e, options) => {
+	//     let { form } = this.state;
+	//     form[e.name] = options;
+	//     this.setState({
+	//         form,
+	//     });
+	// };
+	// cardLists = () => {
+	//     return this.props.customers.map((customer) => {
+	//         return customer.contact.map((cc) => {
+	//             return (
+	//                 { value: cc.email, label: cc.email }
+	//             );
+	//         });
+	//     });
+	// };
+
+	onSwitch = (customer) => {
+		this.props.dispatch(CustomerPutAction.PutCustomers(customer.id));
+	};
 
     render() {
         return (
@@ -76,76 +119,102 @@ class CustomerListComponent extends Component {
                                                     <td>{customer.email}</td>
                                                     <td>{customer.status}</td>
 
-                                                    <td>
-                                                        {TimeStampHelper.standardDateFormat(
-                                                            `${customer.created_at}`
-                                                        )}
-                                                    </td>
+													{/* {customer.contact ===
+													true ? (
+														<span>{"-"}</span>
+													) : (
+														<td>
+															{customer.contact.map(
+																(cc) => (
+																	<span>
+																		{
+																			cc.email
+																		}
+																	</span>
+																)
+															)}
+														</td>
+													)} */}
 
-                                                    <td className="text-center custom-control custom-switch">
-                                                        <input
-                                                            type="checkbox"
-                                                            className="custom-control-input"
-                                                            id={
-                                                                "customSwitches-" +
-                                                                customer.id
-                                                            }
-                                                            checked={
-                                                                customer.status ===
-                                                                "active"
-                                                                    ? true
-                                                                    : false
-                                                            }
-                                                            onChange={() =>
-                                                                this.onSwitch(
-                                                                    customer
-                                                                )
-                                                            }
-                                                            readOnly
-                                                        />
-                                                        <label
-                                                            className="custom-control-label"
-                                                            htmlFor={
-                                                                "customSwitches-" +
-                                                                customer.id
-                                                            }
-                                                            data-toggle="tooltip"
-                                                            data-placement="top"
-                                                            title="Block/Unblock User"
-                                                        ></label>
-                                                        <a
-                                                            href={
-                                                                "/customer/" +
-                                                                customer.id
-                                                            }
-                                                            className="btn btn-link"
-                                                            title="View"
-                                                        >
-                                                            <FontAwesomeIcon
-                                                                icon={faEye}
-                                                            />
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            )
-                                        )}
-                                    </tbody>
-                                </Table>
-                            </div>
-                        </div>
-                    </div>
-                </TemplateMain>
-            </React.Fragment>
-        );
-    }
+													{/* {customer.contact.map(
+                                                        (cc) => (
+                                                            <td>{cc.email}</td>
+                                                        )
+                                                    )} */}
+
+													<td>{customer.status}</td>
+
+													<td>
+														{TimeStampHelper.standardDateFormat(
+															`${customer.created_at}`
+														)}
+													</td>
+
+													<td className="text-center custom-control custom-switch">
+														<input
+															type="checkbox"
+															className="custom-control-input"
+															id={
+																"customSwitches-" +
+																customer.id
+															}
+															checked={
+																customer.status ===
+																"active"
+																	? true
+																	: false
+															}
+															onChange={() =>
+																this.onSwitch(
+																	customer
+																)
+															}
+															readOnly
+														/>
+														<label
+															className="custom-control-label"
+															htmlFor={
+																"customSwitches-" +
+																customer.id
+															}
+															data-toggle="tooltip"
+															data-placement="top"
+															title="Block/Unblock User"
+														></label>
+
+														<a
+															href={
+																"/customer/" +
+																customer.id
+															}
+															className="btn btn-link"
+															title="View"
+														>
+															<FontAwesomeIcon
+																icon={faEye}
+															/>
+														</a>
+													</td>
+												</tr>
+											)
+										)}
+									</tbody>
+								</Table>
+							</div>
+						</div>
+					</div>
+				</TemplateMain>
+			</React.Fragment>
+		);
+	}
 }
 
 const mapStateToProps = (state) => {
-    return {
-        customers: state.customers.customers,
-        customer_filter: state.customer_filter.customers,
-        customer_put: state.customer_put.customers,
-    };
+	return {
+		customers: state.customers.customers,
+		customer_filter: state.customer_filter.customers,
+		customer_put: state.customer_put.customers,
+	};
 };
 
 export default connect(mapStateToProps)(CustomerListComponent);
