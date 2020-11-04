@@ -112,7 +112,7 @@ class CustomerSingleComponent extends Component {
 					<React.Fragment>
 						<tr>
 							<td>{invoice.reference}</td>
-							<td>{invoice.amount_net}</td>
+							<td>$ {invoice.amount_net}</td>
 							<td> {invoice.status}</td>
 							<td>
 								{TimeStampHelper.standardDateFormat(

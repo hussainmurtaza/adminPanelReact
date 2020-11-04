@@ -4,10 +4,14 @@ import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import MigrationsAction from "Redux/V1/Migration/Get/MigrationGetAction";
+import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class MigrationListComponent extends Component {
-
+	componentDidMount() {
+		this.props.dispatch(MigrationsAction.getMigrations());
+	}
 	render() {
 		return (
 			<React.Fragment>
@@ -23,40 +27,69 @@ class MigrationListComponent extends Component {
 									<thead>
 										<tr>
 											<th>Customer</th>
-											<th>Migration ID</th>
+											<th>Agency Name</th>
+											<th>Domain</th>
 											<th>Date</th>
-											<th>Status</th>
 											<th className="text-center">Action</th>
 										</tr>
 									</thead>
 									<tbody>
-										<tr>
-											<td>
-												<a
-													href="/customer/175"
-													target="_blank"
-													rel="noopener noreferrer"
-												>
-													Khizar
-												</a>
-											</td>
-											<td>1211-1111</td>
-											<td>Oct 26, 2020</td>
-											<td>Pending</td>
-											<td className="text-center">
-												<a
-													href={
-														"/migration/1"
+										{this.props.migrations.map((migration) => (
+											<tr>
+												<td>
+													<a
+														href={
+															"/customer/" +
+															migration.customer.id
+														}
+														target="
+															_blank"
+													>
+														{migration.customer.fullname}
+													</a>
+												</td>
+												<td>{migration.agency_name}</td>
+												<td>
+													{migration.site === null ?
+														""
+														:
+														<a
+															target="
+															_blank"
+															href={
+																"https://" + migration.site.host
+															}
+														>
+															{migration.site.host}
+															<FontAwesomeIcon
+																icon={faExternalLinkAlt}
+																className="ml-2"
+															/>
+														</a>
 													}
-													className="btn btn-link"
-													title="View"
-												>
-													<FontAwesomeIcon
-														icon={faEye}
-													/>
-												</a>
-											</td>
-										</tr>
+
+												</td>
+
+												<td>
+													{TimeStampHelper.standardDateFormat(
+														`${migration.created_at}`
+													)}
+												</td>
+												<td className="text-center">
+													<a
+														href={
+															"/migration/" + migration.id
+														}
+														className="btn btn-link"
+														title="View"
+													>
+														<FontAwesomeIcon
+															icon={faEye}
+														/>
+													</a>
+												</td>
+											</tr>
+										))}
 									</tbody>
 								</Table>
 							</div>
@@ -70,8 +103,7 @@ class MigrationListComponent extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		invoices: state.invoices.invoices,
-		invoice_filter: state.invoice_filter.invoices,
+		migrations: state.migrations.migrations,
 	};
 };
 

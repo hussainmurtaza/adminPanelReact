@@ -23,6 +23,9 @@ import { InvoiceFilterSaga } from "Redux/V1/Invoices/Filter/InvoiceFilterSaga";
 import { UserFilterSaga } from "Redux/V1/Users/Filter/UserFilterSaga";
 import { UserSearchSaga } from "Redux/V1/Users/Search/UserSearchSaga";
 import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
+import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
+import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
+
 export default function* rootSaga() {
 	yield all([
 		LoginRootSaga(),
@@ -49,5 +52,7 @@ export default function* rootSaga() {
 		UserFilterSaga(),
 		UserSearchSaga(),
 		CustomerPutSaga(),
+		MigrationGetSaga(),
+		MigrationFirstSaga(),
 	]);
 }
