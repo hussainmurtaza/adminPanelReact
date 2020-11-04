@@ -66,6 +66,8 @@ class UserListComponent extends Component {
 											<tr>
 												<td>
 													<a
+														target="_blank"
+														rel="noopener noreferrer"
 														href={
 															"/user-update/" +
 															user.id
@@ -75,6 +77,8 @@ class UserListComponent extends Component {
 													</a>
 												</td>
 												<td><a
+													target="_blank"
+													rel="noopener noreferrer"
 													href={
 														"/user-update/" +
 														user.id
@@ -84,6 +88,8 @@ class UserListComponent extends Component {
 												</a>
 												</td>
 												<td><a
+													target="_blank"
+													rel="noopener noreferrer"
 													href={
 														"/user-update/" +
 														user.id

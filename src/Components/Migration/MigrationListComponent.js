@@ -31,7 +31,15 @@ class MigrationListComponent extends Component {
 									</thead>
 									<tbody>
 										<tr>
-											<td>Bionic</td>
+											<td>
+												<a
+													href="/customer/175"
+													target="_blank"
+													rel="noopener noreferrer"
+												>
+													Khizar
+												</a>
+											</td>
 											<td>1211-1111</td>
 											<td>Oct 26, 2020</td>
 											<td>Pending</td>

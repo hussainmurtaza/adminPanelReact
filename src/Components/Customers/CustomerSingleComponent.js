@@ -5,6 +5,8 @@ import Sidebar from "Components/Sidebar";
 import CustomerFirstAction from "Redux/V1/Customers/First/CustomerFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 class CustomerSingleComponent extends Component {
 	state = {
@@ -42,7 +44,18 @@ class CustomerSingleComponent extends Component {
 					<React.Fragment>
 						<tr>
 							<td>{site.name}</td>
-							<td>{site.host}</td>
+							<td><a
+								target="_blank"
+								rel="noopener noreferrer"
+								href={
+									"https://" + site.host
+								}>
+								{site.host}
+								<FontAwesomeIcon
+									icon={faExternalLinkAlt}
+									className="ml-2"
+								/>
+							</a></td>
 							<td>{site.site_type}</td>
 							<td>{site.flag}</td>
 							<td>

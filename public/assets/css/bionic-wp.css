@@ -1,28 +1,28 @@
 /******General CSS***********/
 .content-components {
-	font-size: 16px;
-	padding: 20px;
-	position: relative;
-	color: #1b2e4b;
-	letter-spacing: -0.2px;
+    font-size: 16px;
+    padding: 20px;
+    position: relative;
+    color: #1b2e4b;
+    letter-spacing: -0.2px;
 }
 @media (min-width: 992px) {
-	.content-components {
-		padding: 25px;
-		margin-top: 60px;
-		margin-left: 240px;
-	}
+    .content-components {
+        padding: 25px;
+        margin-top: 60px;
+        margin-left: 240px;
+    }
 }
 @media (min-width: 1200px) {
-	.content-components {
-		padding: 30px;
-		/* margin-right: 240px; */
-	}
+    .content-components {
+        padding: 30px;
+        /* margin-right: 240px; */
+    }
 }
 .content-components > .container {
-	padding: 0;
-	/* max-width: 780px; */
-	max-width: 100%;
+    padding: 0;
+    /* max-width: 780px; */
+    max-width: 100%;
 }
 /* .content-components .container .container {
 	padding: 0;
@@ -30,49 +30,53 @@
 } */
 .content-components pre[class*="language-"],
 .content-components code[class*="language-"] {
-	border-color: rgba(72, 94, 144, 0.16);
-	font-family: "Roboto Mono", monospace;
-	font-size: 12px;
-	letter-spacing: normal;
-	background-color: #f8f9fc;
+    border-color: rgba(72, 94, 144, 0.16);
+    font-family: "Roboto Mono", monospace;
+    font-size: 12px;
+    letter-spacing: normal;
+    background-color: #f8f9fc;
 }
 
 .logo {
-	max-width: 160px;
+    max-width: 160px;
 }
 .user-list-page .table th,
 .user-list-page .table td {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 .badge {
-	font-size: 13px !important;
-	font-weight: normal !important;
-	padding: 8px !important;
-	margin-top: 8px;
+    font-size: 13px !important;
+    font-weight: normal !important;
+    padding: 8px !important;
+    margin-top: 8px;
 }
 .table th,
 .table td {
-	vertical-align: middle !important;
+    vertical-align: middle !important;
 }
 .customer-list-page .badge {
-	font-size: 12px !important;
-	padding: 4px 7px !important;
-	margin-left: 7px;
+    font-size: 12px !important;
+    padding: 4px 7px !important;
+    margin-left: 7px;
 }
 .customer-list-page .table th,
 .customer-list-page .table td {
-	vertical-align: middle;
+    vertical-align: middle;
 }
 .roleslist-page .permissions {
-	width: 60%;
+    width: 60%;
 }
 .roleslist-page .actions {
-	text-align: center;
+    text-align: center;
 }
 .page-header {
-	font-family: "IBM Plex Sans", sans-serif;
+    font-family: "IBM Plex Sans", sans-serif;
     font-size: 18px;
 }
 body {
-	font-family: "IBM Plex Sans", sans-serif !important;
+    font-family: "IBM Plex Sans", sans-serif !important;
+}
+.site-update-table th,
+.site-update-table td {
+    width: 200px;
 }

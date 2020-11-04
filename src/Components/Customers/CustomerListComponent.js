@@ -39,7 +39,7 @@ class CustomerListComponent extends Component {
                                 ]}
                             />
 
-                            <h4 className="tx-color-01 mg-b-15">
+                            <h4 className="page-header mg-b-15">
                                 Customer List
                             </h4>
                             <div className="customer-list-page">
@@ -72,9 +72,7 @@ class CustomerListComponent extends Component {
                                                         </a>
                                                     </td>
 
-                                                    <td>
-                                                        {customer.total_sites}
-                                                    </td>
+                                                    <td>{customer.total_sites}</td>
                                                     <td>{customer.email}</td>
                                                     <td>{customer.status}</td>
 

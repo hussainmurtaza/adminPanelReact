@@ -60,13 +60,21 @@ class InvoiceListComponent extends Component {
 															"/customer/" +
 															invoice.customer.id
 														}
-														target="
-															_blank"
+														target="_blank"
+														rel="noopener noreferrer"
 													>
 														{invoice.customer.fullname}
 													</a>
 												</td>
-												<td><a href={"/invoice/" + invoice.id}>{invoice.reference}</a></td>
+												<td>
+													<a
+														href={"/invoice/" + invoice.id}
+														target="_blank"
+														rel="noopener noreferrer"
+													>
+														{invoice.reference}
+													</a>
+												</td>
 												<td>$ {invoice.amount_net}</td>
 												<td>
 													{TimeStampHelper.standardDateFormat(

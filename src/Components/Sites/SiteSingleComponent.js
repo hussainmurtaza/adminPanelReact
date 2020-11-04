@@ -125,7 +125,7 @@ class SiteSingleComponent extends Component {
 							<h4 className="page-header mg-b-15 mt-4">
 								WordPress Themes
 							</h4>
-							<Table striped bordered hover>
+							<Table striped bordered hover className="site-update-table">
 								<thead>
 									<tr>
 										<th>Theme Name</th>
