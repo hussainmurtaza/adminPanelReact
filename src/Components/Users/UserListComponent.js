@@ -12,6 +12,7 @@ import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 // import UserFilterAction from "Redux/V1/Users/Filter/UserFilterAction";
 // import UserSearchAction from "Redux/V1/Users/Search/UserSearchAction";
 import FilterForm from "Components/Forms/FilterForm";
+import UserStatusAction from "Redux/V1/Users/ToggleStatus/UserStatusAction";
 
 class UserListComponent extends Component {
 	componentDidMount() {
@@ -22,6 +23,10 @@ class UserListComponent extends Component {
 	userDelete = (id) => {
 		this.props.dispatch(UserDeleteAction.deleteUser(id));
 	};
+	onSwitch = (id) => {
+		this.props.dispatch(UserStatusAction.userStatus(id));
+	};
+
 	render() {
 		return (
 			<React.Fragment>
@@ -30,22 +35,17 @@ class UserListComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-
 							<FilterForm
-								fields={
-									[
-										'async',
-										//'user_search',
-										'user_status',
-										'user_date'
-									]
-								}
+								fields={[
+									"async",
+									//'user_search',
+									"user_status",
+									"user_date",
+								]}
 							/>
 
 							<Table>
-								<tbody>
-
-								</tbody>
+								<tbody></tbody>
 							</Table>
 
 							<h4 className="tx-color-01 mg-b-15">User List</h4>
@@ -58,7 +58,9 @@ class UserListComponent extends Component {
 											<th>Email</th>
 											<th>Status</th>
 											<th>Created At</th>
-											<th className="text-center">Action</th>
+											<th className="text-center">
+												Action
+											</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -103,7 +105,40 @@ class UserListComponent extends Component {
 													)}
 												</td>
 
-												<td className="text-center">
+												<td className="text-center custom-control custom-switch">
+													<span className="m-3">
+														<input
+															type="checkbox"
+															className="custom-control-input"
+															id={
+																"customSwitches" +
+																user.id
+															}
+															checked={
+																user.status ===
+																"blocked"
+																	? true
+																	: false
+															}
+															onChange={() =>
+																this.onSwitch(
+																	user.id
+																)
+															}
+															readOnly
+														/>
+
+														<label
+															className="custom-control-label"
+															htmlFor={
+																"customSwitches" +
+																user.id
+															}
+															data-toggle="tooltip"
+															data-placement="top"
+															title="Block/Unblock User"
+														></label>
+													</span>
 													<a
 														href={
 															"/user/" + user.id

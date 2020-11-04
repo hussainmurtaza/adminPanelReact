@@ -65,22 +65,22 @@ class CustomerListComponent extends Component {
 		this.props.dispatch(CustomerPutAction.PutCustomers(customer.id));
 	};
 
-    render() {
-        return (
-            <React.Fragment>
-                <TemplateMain>
-                    <Sidebar active="customers" />
+	render() {
+		return (
+			<React.Fragment>
+				<TemplateMain>
+					<Sidebar active="customers" />
 
-                    <div className="content content-components">
-                        <div className="container">
-                            <FilterForm
-                                fields={[
-                                    "customer_name",
-                                    "customer_email",
-                                    "customer_status",
-                                    "customer_date",
-                                ]}
-                            />
+					<div className="content content-components">
+						<div className="container">
+							<FilterForm
+								fields={[
+									"customer_name",
+									"customer_email",
+									"customer_status",
+									"customer_date",
+								]}
+							/>
 
                             <h4 className="page-header mg-b-15">
                                 Customer List
@@ -117,30 +117,6 @@ class CustomerListComponent extends Component {
 
                                                     <td>{customer.total_sites}</td>
                                                     <td>{customer.email}</td>
-                                                    <td>{customer.status}</td>
-
-													{/* {customer.contact ===
-													true ? (
-														<span>{"-"}</span>
-													) : (
-														<td>
-															{customer.contact.map(
-																(cc) => (
-																	<span>
-																		{
-																			cc.email
-																		}
-																	</span>
-																)
-															)}
-														</td>
-													)} */}
-
-													{/* {customer.contact.map(
-                                                        (cc) => (
-                                                            <td>{cc.email}</td>
-                                                        )
-                                                    )} */}
 
 													<td>{customer.status}</td>
 
@@ -160,7 +136,7 @@ class CustomerListComponent extends Component {
 															}
 															checked={
 																customer.status ===
-																"active"
+																"blocked"
 																	? true
 																	: false
 															}
@@ -181,7 +157,6 @@ class CustomerListComponent extends Component {
 															data-placement="top"
 															title="Block/Unblock User"
 														></label>
-
 														<a
 															href={
 																"/customer/" +

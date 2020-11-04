@@ -14,5 +14,8 @@ const V1 = {
 			update: "v1/sites/update-wp/",
 		},
 	},
+	user: {
+		user_status: "v1/users/status/",
+	},
 };
 export default V1;
