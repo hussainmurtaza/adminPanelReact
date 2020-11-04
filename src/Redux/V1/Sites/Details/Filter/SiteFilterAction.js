@@ -1,4 +1,4 @@
-import SITES from "Redux/V1/Sites/Filter/SiteFilterActionType";
+import SITES from "Redux/V1/Sites/Details/Filter/SiteFilterActionType";
 
 const SitesFilterAction = {
 	filterSites,

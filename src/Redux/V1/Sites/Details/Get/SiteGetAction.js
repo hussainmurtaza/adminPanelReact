@@ -1,4 +1,4 @@
-import SITES from "Redux/V1/Sites/Get/SiteGetActionType";
+import SITES from "Redux/V1/Sites/Details/Get/SiteGetActionType";
 
 const SitesAction = {
 	getSites,

@@ -9,6 +9,10 @@ const V1 = {
 		sites: "v1/sites",
 		invoices: "v1/invoices",
 		migrations: "v1/migrations",
+		wordpress: {
+			details: "v1/sites/wp/",
+			update: "v1/sites/update-wp/",
+		},
 	},
 };
 export default V1;

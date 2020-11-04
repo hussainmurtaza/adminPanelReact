@@ -1,6 +1,6 @@
 import { takeEvery, put } from "redux-saga/effects";
-import SITES from "Redux/V1/Sites/Get/SiteGetActionType";
-import SitesAction from "Redux/V1/Sites/Get/SiteGetAction";
+import SITES from "Redux/V1/Sites/Details/Get/SiteGetActionType";
+import SitesAction from "Redux/V1/Sites/Details/Get/SiteGetAction";
 import SiteService from "Services/V1/SiteService";
 
 function* siteGet() {

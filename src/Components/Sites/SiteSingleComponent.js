@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
-import SiteFirstAction from "Redux/V1/Sites/First/SiteFirstAction";
+import SiteFirstAction from "Redux/V1/Sites/Details/First/SiteFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import { Table } from "react-bootstrap";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import SiteUpdateComponent from "Components/Sites/SiteUpdateComponent";
 
 class SiteSingleComponent extends Component {
 	componentDidMount() {
-		this.props.dispatch(
-			SiteFirstAction.siteFirst(this.props.match.params.host)
-		);
+		this.props.dispatch(SiteFirstAction.siteFirst(this.props.match.params.host));
 	}
 
 	render() {
@@ -40,7 +41,23 @@ class SiteSingleComponent extends Component {
 									</tr>
 									<tr>
 										<td>Host</td>
-										<td>{this.props.site.host}</td>
+										<td>
+											<a
+												target="
+													_blank"
+
+												href={
+													"https://" + this.props.site.host
+												}>
+												{
+													this.props.site.host
+												}
+												<FontAwesomeIcon
+													icon={faExternalLinkAlt}
+													className="ml-2"
+												/>
+											</a>
+										</td>
 									</tr>
 									<tr>
 										<td>Site Type</td>
@@ -98,6 +115,7 @@ class SiteSingleComponent extends Component {
 								</tbody>
 							</Table>
 
+<<<<<<< HEAD
 							<h4 className="page-header mg-b-15 mt-4">
 								WordPress Core
 							</h4>
@@ -186,6 +204,9 @@ class SiteSingleComponent extends Component {
 								</tbody>
 							</Table>
 
+=======
+							<SiteUpdateComponent />
+>>>>>>> features/wordpressUpdateIntegrate_BIOWP-1455
 
 						</div>
 					</div>

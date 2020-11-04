@@ -1,26 +1,27 @@
-import SITES from "Redux/V1/Sites/Get/SiteGetActionType";
+import SITES from "Redux/V1/Sites/Details/Filter/SiteFilterActionType";
 
 const SitesDetails = (
 	state = {
 		loading: false,
+		success: false,
 		sites: [],
 	},
 	action
 ) => {
 	switch (action.type) {
-		case SITES.GET_SITES:
+		case SITES.FILTER_SITES:
 			return {
 				...state,
 				loading: true,
 				error: null,
 			};
-		case SITES.GET_SITES_SUCCESS:
+		case SITES.FILTER_SITES_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				sites: action.response.sites,
 			};
-		case SITES.GET_SITES_FAILED:
+		case SITES.FILTER_SITES_FAILED:
 			return { ...state, loading: false, error: action.response };
 		default:
 			return state;

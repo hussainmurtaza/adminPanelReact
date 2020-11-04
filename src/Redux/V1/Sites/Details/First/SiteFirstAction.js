@@ -1,4 +1,4 @@
-import SITE from "Redux/V1/Sites/First/SiteFirstActionType";
+import SITE from "Redux/V1/Sites/Details/First/SiteFirstActionType";
 
 const SiteFirstAction = {
 	siteFirst,

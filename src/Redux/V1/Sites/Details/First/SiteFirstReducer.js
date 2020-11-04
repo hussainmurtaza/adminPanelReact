@@ -1,4 +1,4 @@
-import SITE from "Redux/V1/Sites/First/SiteFirstActionType";
+import SITE from "Redux/V1/Sites/Details/First/SiteFirstActionType";
 
 const siteDetails = (
 	state = {
@@ -14,6 +14,9 @@ const siteDetails = (
 			basic_details: {
 				ip_address: null,
 				location: null,
+			},
+			container: {
+				identity: null,
 			}
 		},
 		err_mess: null,

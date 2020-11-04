@@ -13,15 +13,17 @@ import RolePutReducer from "Redux/V1/Roles/Put/RolePutReducer";
 import PermissionGetReducer from "Redux/V1/Permissions/Get/PermissionGetReducer";
 import CustomerGetReducer from "Redux/V1/Customers/Get/CustomerGetReducer";
 import CustomerFirstReducer from "Redux/V1/Customers/First/CustomerFirstReducer";
-import SiteGetReducer from "Redux/V1/Sites/Get/SiteGetReducer";
-import SiteFirstReducer from "Redux/V1/Sites/First/SiteFirstReducer";
+import SiteGetReducer from "Redux/V1/Sites/Details/Get/SiteGetReducer";
+import SiteFirstReducer from "Redux/V1/Sites/Details/First/SiteFirstReducer";
 import InvoiceGetReducer from "Redux/V1/Invoices/Get/InvoiceGetReducer";
 import InvoiceFirstReducer from "Redux/V1/Invoices/First/InvoiceFirstReducer";
 import CustomerFilterReducer from "Redux/V1/Customers/Filter/CustomerFilterReducer";
-import SiteFilterReducer from "Redux/V1/Sites/Filter/SiteFilterReducer";
+import SiteFilterReducer from "Redux/V1/Sites/Details/Filter/SiteFilterReducer";
 import InvoiceFilterReducer from "Redux/V1/Invoices/Filter/InvoiceFilterReducer";
 import UserFilterReducer from "Redux/V1/Users/Filter/UserFilterReducer";
 import UserSearchReducer from "Redux/V1/Users/Search/UserSearchReducer";
+import WordpressGetReducer from "Redux/V1/Sites/Wordpress/Get/WordpressGetReducer";
+import WordpressUpdateReducer from "Redux/V1/Sites/Wordpress/Put/WordpressPutReducer";
 import CustomerPutReducer from "Redux/V1/Customers/Put/CustomerPutReducer";
 import MigrationGetReducer from "Redux/V1/Migration/Get/MigrationGetReducer";
 import MigrationFirstReducer from "Redux/V1/Migration/First/MigrationFirstReducer";
@@ -53,4 +55,6 @@ export default combineReducers({
 	user_search: UserSearchReducer,
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
+	wordpress: WordpressGetReducer,
+	wordpress_updates: WordpressUpdateReducer,
 });
