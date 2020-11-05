@@ -13,6 +13,7 @@ const V1 = {
 			details: "v1/sites/wp/",
 			update: "v1/sites/update-wp/",
 		},
+		dashboards: "v1/dashboards",
 	},
 	user: {
 		user_status: "v1/users/status/",

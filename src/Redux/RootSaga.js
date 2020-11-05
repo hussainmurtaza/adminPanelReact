@@ -29,6 +29,7 @@ import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
 import { userStatusSaga } from "Redux/V1/Users/ToggleStatus/UserStatusSaga";
 import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
+import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -61,5 +62,6 @@ export default function* rootSaga() {
 		userStatusSaga(),
 		MigrationGetSaga(),
 		MigrationFirstSaga(),
+		DashboardGetSaga(),
 	]);
 }
