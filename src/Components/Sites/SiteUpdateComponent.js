@@ -22,6 +22,7 @@ class SiteUpdateComponent extends Component {
 	};
 
 	render() {
+		//console.log(this.props.wordpress, "222222222")
 		const wordpress = this.props.wordpress;
 		const themes = this.props.wordpress.theme;
 		const plugins = this.props.wordpress.plugin;
@@ -39,7 +40,11 @@ class SiteUpdateComponent extends Component {
 					<td className="text-center">
 						<button
 							type="submit"
-							className="btn btn-brand-02"
+							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
+								theme.slug
+								? "loading"
+								: ""
+								}`}
 							onClick={() => this.update("theme", theme.slug)}
 						>
 							Update
@@ -68,7 +73,11 @@ class SiteUpdateComponent extends Component {
 					<td className="text-center">
 						<button
 							type="submit"
-							className="btn btn-brand-02"
+							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
+								plugin.slug
+								? "loading"
+								: ""
+								}`}
 							onClick={() => this.update("plugin", plugin.slug)}
 						>
 							Update
@@ -114,7 +123,11 @@ class SiteUpdateComponent extends Component {
 									<td className="text-center">
 										<button
 											type="submit"
-											className="btn btn-brand-02"
+											className={`btn btn-brand-02 
+											${this.props.wordpress_updates.update_slug === "wp"
+													? "loading"
+													: ""
+												}`}
 											onClick={() =>
 												this.update("core", "wp")
 											}
@@ -169,7 +182,7 @@ class SiteUpdateComponent extends Component {
 const mapStateToProps = (state) => {
 	return {
 		wordpress: state.wordpress,
-		wordpress_updates: state.wordpressUpdate,
+		wordpress_updates: state.wordpress_updates,
 		site: state.site_first.site,
 	};
 };

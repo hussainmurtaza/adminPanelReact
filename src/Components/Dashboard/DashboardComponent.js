@@ -36,6 +36,18 @@ class DashboardComponent extends Component {
 								/>
 
 								<DashboardCardComponent
+									heading="Active Clients"
+									number={dashboard.liveSites}
+									icon="user"
+								/>
+
+								<DashboardCardComponent
+									heading="Pending Clients"
+									number={dashboard.liveSites}
+									icon="user"
+								/>
+
+								<DashboardCardComponent
 									heading="Total Revenue"
 									number={dashboard.invoicesPaid}
 									icon="dollar-sign"

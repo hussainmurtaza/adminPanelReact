@@ -82,41 +82,43 @@ class CustomerListComponent extends Component {
 								]}
 							/>
 
-                            <h4 className="page-header mg-b-15">
-                                Customer List
+							<h4 className="page-header mg-b-15">
+								Customer List
                             </h4>
-                            <div className="customer-list-page">
-                                <Table striped bordered hover>
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Total Sites</th>
-                                            <th>Email</th>
-                                            <th>Status</th>
-                                            <th>Created At</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {this.props.customer_filter.map(
-                                            (customer) => (
-                                                <tr>
-                                                    <td>
-                                                        <a
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
-                                                            href={
-                                                                "/customer/" +
-                                                                customer.id
-                                                            }
-                                                        >
-                                                            {customer.fullname}
-                                                            {/* <Badge variant="primary">{customer.total_sites}</Badge> */}
-                                                        </a>
-                                                    </td>
+							<div className="customer-list-page">
+								<Table striped bordered hover>
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Total Sites</th>
+											<th>Total Revenue</th>
+											<th>Email</th>
+											<th>Status</th>
+											<th>Created At</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										{this.props.customer_filter.map(
+											(customer) => (
+												<tr>
+													<td>
+														<a
+															target="_blank"
+															rel="noopener noreferrer"
+															href={
+																"/customer/" +
+																customer.id
+															}
+														>
+															{customer.fullname}
+															{/* <Badge variant="primary">{customer.total_sites}</Badge> */}
+														</a>
+													</td>
 
-                                                    <td>{customer.total_sites}</td>
-                                                    <td>{customer.email}</td>
+													<td>{customer.total_sites}</td>
+													<td>$ {customer.paid_revenue}</td>
+													<td>{customer.email}</td>
 
 													<td>{customer.status}</td>
 
@@ -136,7 +138,7 @@ class CustomerListComponent extends Component {
 															}
 															checked={
 																customer.status ===
-																"blocked"
+																	"blocked"
 																	? true
 																	: false
 															}
