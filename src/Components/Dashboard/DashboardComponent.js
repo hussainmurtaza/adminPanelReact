@@ -6,7 +6,7 @@ import DashboardCardComponent from "Components/Dashboard/Ui/DashboardCardCompone
 import { connect } from "react-redux";
 import DashboardAction from "Redux/V1/Dashboard/Get/DashboardGetAction";
 import DashboardViewComponent from "./Ui/DashboardViewComponent";
-import { Row, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 class DashboardComponent extends Component {
 	componentDidMount() {
