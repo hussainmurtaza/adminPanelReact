@@ -24,14 +24,11 @@ import { UserFilterSaga } from "Redux/V1/Users/Filter/UserFilterSaga";
 import { UserSearchSaga } from "Redux/V1/Users/Search/UserSearchSaga";
 import { WordpressGetSaga } from "Redux/V1/Sites/Wordpress/Get/WordpressGetSaga";
 import { wordpressUpdateSaga } from "Redux/V1/Sites/Wordpress/Put/WordpressPutSaga";
-
 import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
 import { userStatusSaga } from "Redux/V1/Users/ToggleStatus/UserStatusSaga";
 import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
 import { OneClickLoginGetSaga } from "Redux/V1/Sites/OneClickLogin/OneClickLoginSaga";
-
-import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
 import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
 
 export default function* rootSaga() {
