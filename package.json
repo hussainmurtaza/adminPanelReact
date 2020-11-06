@@ -1,6 +1,6 @@
 {
   "name": "admin-front",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "date": "2020/11/06",
   "private": true,
   "dependencies": {

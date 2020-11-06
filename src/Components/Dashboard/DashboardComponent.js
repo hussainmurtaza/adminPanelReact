@@ -2,10 +2,18 @@ import React, { Component } from "react";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import "Assets/css/dashboard.css";
+import DashboardCardComponent from "Components/Dashboard/Ui/DashboardCardComponent";
+import { connect } from "react-redux";
+import DashboardAction from "Redux/V1/Dashboard/Get/DashboardGetAction";
+import DashboardViewComponent from "./Ui/DashboardViewComponent";
 import { Row, Col } from "react-bootstrap";
 
 class DashboardComponent extends Component {
+	componentDidMount() {
+		this.props.dispatch(DashboardAction.getDashboard());
+	}
 	render() {
+		const dashboard = this.props.dashboards;
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -13,97 +21,76 @@ class DashboardComponent extends Component {
 
 					<div className="content content-components dashboard-page">
 						<div className="container">
-							<h1 className="df-title">Dashboard</h1>
+							<h4 className="tx-color-01 mg-b-15">Dashboard</h4>
 							<Row>
-								<Col sm={3}>
-									<div className="dashboard-cards pd-20">
-										<div className="mg-r-10 float-left">
-											<i data-feather="filter" className="wd-50 ht-50"></i>
-										</div>
-										<div class="card-heading">Total Live Sites</div>
-										<span className="card-number">100</span>
-									</div>
-								</Col>
-								<Col sm={3}>
-									<div className="dashboard-cards pd-20">
-										<div className="mg-r-10 float-left">
-											<i data-feather="filter" className="wd-50 ht-50"></i>
-										</div>
-										<div class="card-heading">Total Staging Sites</div>
-										<span className="card-number">50</span>
-									</div>
-								</Col>
-								<Col sm={3}>
-									<div className="dashboard-cards pd-20">
-										<div className="mg-r-10 float-left">
-											<i data-feather="dollar-sign" className="wd-50 ht-50"></i>
-										</div>
-										<div class="card-heading">Total Revenue</div>
-										<span className="card-number">$1000</span>
-									</div>
-								</Col>
-								<Col sm={3}>
-									<div className="dashboard-cards pd-20">
-										<div className="mg-r-10 float-left">
-											<i data-feather="users" className="wd-50 ht-50"></i>
-										</div>
-										<div class="card-heading">Total Customers</div>
-										<span className="card-number">100</span>
-									</div>
-								</Col>
-								<Col sm={3}>
-									<div className="dashboard-cards pd-20">
-										<div className="mg-r-10 float-left">
-											<i data-feather="file-text" className="wd-50 ht-50"></i>
-										</div>
-										<div class="card-heading">Total Invoices</div>
-										<span className="card-number">100</span>
-									</div>
-								</Col>
+								<DashboardCardComponent
+									heading="Total Live Sites"
+									number={dashboard.liveSites}
+									icon="globe"
+								/>
+
+								<DashboardCardComponent
+									heading="Total Staging Sites"
+									number={dashboard.staging}
+									icon="globe"
+								/>
+
+								<DashboardCardComponent
+									heading="Total Revenue"
+									number={dashboard.invoicesPaid}
+									icon="dollar-sign"
+								/>
+
+								<DashboardCardComponent
+									heading="Total Customers"
+									number={dashboard.customer}
+									icon="users"
+								/>
+
+								<DashboardCardComponent
+									heading="Total Invoices"
+									number={dashboard.invoices}
+									icon="file-text"
+								/>
 							</Row>
+
 							<div className="row">
-								<div className="col-sm-3">
-									<div className="bg-white bd pd-20">
-										<div className="mg-r-10 float-left"><i data-feather="users" className="wd-50 ht-50 tx-gray-500"></i></div>
-										<h5>Users</h5>
-										<a href="users" className="tx-medium">View Users <i className="icon ion-md-arrow-forward mg-l-5"></i></a>
-									</div>
-								</div>
-								<div className="col-sm-3 mg-t-20 mg-sm-t-0">
-									<div className="bg-white bd pd-20">
-										<div className="mg-r-10 float-left"><i data-feather="globe" className="wd-50 ht-50 tx-gray-500"></i></div>
-										<h5>Roles</h5>
-										<a href="roles" className="tx-medium">View Roles <i className="icon ion-md-arrow-forward mg-l-5"></i></a>
-									</div>
-								</div>
-								<div className="col-sm-3 mg-t-20 mg-sm-t-0">
-									<div className="bg-white bd pd-20">
-										<div className="mg-r-10 float-left"><i data-feather="user" className="wd-50 ht-50 tx-gray-500"></i></div>
-										<h5>Customers</h5>
-										<a href="customers" className="tx-medium">View Customers <i className="icon ion-md-arrow-forward mg-l-5"></i></a>
-									</div>
-								</div>
-								<div className="col-sm-3 mg-t-20 mg-sm-t-0">
-									<div className="bg-white bd pd-20">
-										<div className="mg-r-10 float-left"><i data-feather="layers" className="wd-50 ht-50 tx-gray-500"></i></div>
-										<h5>Sites</h5>
-										<a href="sites" className="tx-medium">View Sites <i className="icon ion-md-arrow-forward mg-l-5"></i></a>
-									</div>
-								</div>
-								<div className="col-sm-3 mg-t-20 mg-sm-t-25">
-									<div className="bg-white bd pd-20">
-										<div className="mg-r-10 float-left"><i data-feather="inbox" className="wd-50 ht-50 tx-gray-500"></i></div>
-										<h5>Invoices</h5>
-										<a href="invoices" className="tx-medium">View Invoices <i className="icon ion-md-arrow-forward mg-l-5"></i></a>
-									</div>
-								</div>
-								<div className="col-sm-3 mg-t-20 mg-sm-t-25">
-									<div className="bg-white bd pd-20">
-										<div className="mg-r-10 float-left"><i data-feather="grid" className="wd-50 ht-50 tx-gray-500"></i></div>
-										<h5>Migrations</h5>
-										<a href="migrations" className="tx-medium">View Migrations <i className="icon ion-md-arrow-forward mg-l-5"></i></a>
-									</div>
-								</div>
+								<DashboardViewComponent
+									heading="Users"
+									link="users"
+									linkText="View Users"
+									icon="users"
+								/>
+								<DashboardViewComponent
+									heading="Roles"
+									link="roles"
+									linkText="View Roles"
+									icon="globe"
+								/>
+								<DashboardViewComponent
+									heading="Customers"
+									link="customers"
+									linkText="View Customers"
+									icon="user"
+								/>
+								<DashboardViewComponent
+									heading="Sites"
+									link="sites"
+									linkText="View Sites"
+									icon="layers"
+								/>
+								<DashboardViewComponent
+									heading="Invoices"
+									link="invoices"
+									linkText="View Invoices"
+									icon="inbox"
+								/>
+								<DashboardViewComponent
+									heading="Migrations"
+									link="migrations"
+									linkText="View Migrations"
+									icon="grid"
+								/>
 							</div>
 						</div>
 					</div>
@@ -113,4 +100,10 @@ class DashboardComponent extends Component {
 	}
 }
 
-export default DashboardComponent;
+const mapStateToProps = (state) => {
+	return {
+		dashboards: state.dashboards.dashboard,
+	};
+};
+
+export default connect(mapStateToProps)(DashboardComponent);

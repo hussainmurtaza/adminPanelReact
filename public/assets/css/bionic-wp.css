@@ -84,6 +84,10 @@ body {
 .site-update-table th, .site-update-table td {
     width: 200px;
 }
+.react-bootstrap-table {
+	height: 200px;
+    overflow: auto;
+}
 .lock-img {
 	display: inline-block;
 	margin-right: 20px;

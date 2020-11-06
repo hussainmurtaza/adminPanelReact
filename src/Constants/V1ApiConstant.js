@@ -8,6 +8,7 @@ const V1 = {
 		customers_lock: "v1/customers/status",
 		sites: "v1/sites",
 		invoices: "v1/invoices",
+		dashboards: "v1/dashboards",
 		migrations: "v1/migrations",
 		site_operation: {
 			quick_login: "v1/sites/one-click-login/",

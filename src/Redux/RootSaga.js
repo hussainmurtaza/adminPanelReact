@@ -32,6 +32,8 @@ import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga"
 import { OneClickLoginGetSaga } from "Redux/V1/Sites/OneClickLogin/OneClickLoginSaga";
 
 import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
+import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
+
 export default function* rootSaga() {
 	yield all([
 		LoginRootSaga(),
@@ -60,6 +62,7 @@ export default function* rootSaga() {
 		WordpressGetSaga(),
 		wordpressUpdateSaga(),
 		CustomerPutSaga(),
+		DashboardGetSaga(),
 		userStatusSaga(),
 		MigrationGetSaga(),
 		MigrationFirstSaga(),
