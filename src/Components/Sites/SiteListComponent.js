@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import queryString from 'query-string'
 import FilterForm from "Components/Forms/FilterForm";
+import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginAction";
 
 class SiteListComponent extends Component {
 	componentDidMount() {
@@ -17,6 +18,10 @@ class SiteListComponent extends Component {
 		this.props.dispatch(SitesAction.getSites());
 		this.props.dispatch(SitesFilterAction.filterSites(value));
 	}
+	quickLogin = (e) => {
+		const identity = e.target.getAttribute("data-identity");
+		this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
+	};
 
 	render() {
 		return (
@@ -47,6 +52,7 @@ class SiteListComponent extends Component {
 											<th>Customer Name</th>
 											<th>Identity</th>
 											<th>Domain</th>
+											<th>Quick Login</th>
 											<th>Ip Address</th>
 											<th>Type</th>
 											<th>Created At</th>
@@ -97,6 +103,16 @@ class SiteListComponent extends Component {
 															className="ml-2"
 														/>
 													</a>
+												</td>
+												<td className="text-center">
+													<img
+														src="/assets/img/Wordpress.png"
+														alt="wordpresswhite"
+														className="site-wordpress"
+														data-identity={site.container.identity}
+														onClick={(e) => this.quickLogin(e)}
+													/>
+
 												</td>
 												<td>{site.container
 													.public_ip}</td>

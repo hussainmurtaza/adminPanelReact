@@ -9,6 +9,9 @@ const V1 = {
 		sites: "v1/sites",
 		invoices: "v1/invoices",
 		migrations: "v1/migrations",
+		site_operation: {
+			quick_login: "v1/sites/one-click-login/",
+		},
 		wordpress: {
 			details: "v1/sites/wp/",
 			update: "v1/sites/update-wp/",

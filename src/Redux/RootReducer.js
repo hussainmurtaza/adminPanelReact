@@ -28,6 +28,7 @@ import CustomerPutReducer from "Redux/V1/Customers/Put/CustomerPutReducer";
 import UserStatusReducer from "Redux/V1/Users/ToggleStatus/UserStatusReducer";
 import MigrationGetReducer from "Redux/V1/Migration/Get/MigrationGetReducer";
 import MigrationFirstReducer from "Redux/V1/Migration/First/MigrationFirstReducer";
+import OneClickLoginReducer from "Redux/V1/Sites/OneClickLogin/OneClickLoginReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -57,6 +58,7 @@ export default combineReducers({
 	user_status: UserStatusReducer,
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
+	one_click: OneClickLoginReducer,
 	wordpress: WordpressGetReducer,
 	wordpress_updates: WordpressUpdateReducer,
 });

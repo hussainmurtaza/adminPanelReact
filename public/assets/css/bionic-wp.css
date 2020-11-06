@@ -89,3 +89,11 @@ body {
     height: 200px;
     overflow: auto;
 }
+.site-wordpress:hover {
+    filter: unset;
+    cursor: pointer;
+}
+.site-wordpress {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
