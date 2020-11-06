@@ -72,6 +72,31 @@ body {
     width: 60%;
 }
 .roleslist-page .actions {
+	text-align: center;
+}
+.page-header {
+	font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+}
+body {
+	font-family: "IBM Plex Sans", sans-serif !important;
+}
+.site-update-table th, .site-update-table td {
+    width: 200px;
+}
+.lock-img {
+	display: inline-block;
+	margin-right: 20px;
+}
+.unlock-img {
+	display: inline-block;
+	margin-right: 12px;
+}
+.unlock-img path {
+    fill: #9ea0a5!important;
+}
+.lock-img path {
+    fill: #063cdd;
     text-align: center;
 }
 .page-header {

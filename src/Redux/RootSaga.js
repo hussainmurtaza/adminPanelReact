@@ -31,6 +31,7 @@ import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
 import { OneClickLoginGetSaga } from "Redux/V1/Sites/OneClickLogin/OneClickLoginSaga";
 
+import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
 export default function* rootSaga() {
 	yield all([
 		LoginRootSaga(),

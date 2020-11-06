@@ -54,11 +54,11 @@ export default combineReducers({
 	invoice_filter: InvoiceFilterReducer,
 	user_filter: UserFilterReducer,
 	user_search: UserSearchReducer,
+	wordpress: WordpressGetReducer,
+	wordpress_updates: WordpressUpdateReducer,
 	customer_put: CustomerPutReducer,
 	user_status: UserStatusReducer,
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
 	one_click: OneClickLoginReducer,
-	wordpress: WordpressGetReducer,
-	wordpress_updates: WordpressUpdateReducer,
 });
