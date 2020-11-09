@@ -98,7 +98,7 @@ class CustomerListComponent extends Component {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.props.customer_filter.map(
+                                        {this.props.customers.map(
                                             (customer) => (
                                                 <tr>
                                                     <td>
