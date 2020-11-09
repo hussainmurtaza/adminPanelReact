@@ -72,6 +72,35 @@ body {
     width: 60%;
 }
 .roleslist-page .actions {
+	text-align: center;
+}
+.page-header {
+	font-family: "IBM Plex Sans", sans-serif;
+    font-size: 18px;
+}
+body {
+	font-family: "IBM Plex Sans", sans-serif !important;
+}
+.site-update-table th, .site-update-table td {
+    width: 200px;
+}
+.react-bootstrap-table {
+	height: 200px;
+    overflow: auto;
+}
+.lock-img {
+	display: inline-block;
+	margin-right: 20px;
+}
+.unlock-img {
+	display: inline-block;
+	margin-right: 12px;
+}
+.unlock-img path {
+    fill: #9ea0a5!important;
+}
+.lock-img path {
+    fill: #063cdd;
     text-align: center;
 }
 .page-header {
@@ -89,6 +118,7 @@ body {
     height: 200px;
     overflow: auto;
 }
+<<<<<<< HEAD
 .site-update-table th, .site-update-table td {
     width: 200px;
 }
@@ -122,4 +152,13 @@ body {
     background-size: auto 70%;
     background-repeat: no-repeat;
     pointer-events: none;
+=======
+.site-wordpress:hover {
+    filter: unset;
+    cursor: pointer;
+}
+.site-wordpress {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+>>>>>>> df83dbe571726fe47ce1136a7c501f35e6dd08e8
 }

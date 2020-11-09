@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 import WordpressGetAction from "Redux/V1/Sites/Wordpress/Get/WordpressGetAction";
 import WordpressUpdateAction from "Redux/V1/Sites/Wordpress/Put/WordpressPutAction";
-// import SiteFirstAction from "Redux/V1/Sites/Details/First/SiteFirstAction";
+import { ReactSVG } from "react-svg";
 
 class SiteUpdateComponent extends Component {
 	componentDidMount() {
@@ -18,7 +18,6 @@ class SiteUpdateComponent extends Component {
 			slug
 		};
 		this.props.dispatch(WordpressUpdateAction.wordpressUpdate(updateDetails));
-		console.log(slug, "slug");
 	};
 
 	render() {
@@ -38,6 +37,19 @@ class SiteUpdateComponent extends Component {
 							: theme.update_version}
 					</td>
 					<td className="text-center">
+						{theme.lock ? (
+							<ReactSVG
+								src="/assets/img/lock.svg"
+								alt="lock"
+								className="ml-1 lock-img"
+							/>
+						) : (
+								<ReactSVG
+									src="/assets/img/unlock.svg"
+									alt="unlock"
+									className="unlock-img"
+								/>
+							)}
 						<button
 							type="submit"
 							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
@@ -71,6 +83,19 @@ class SiteUpdateComponent extends Component {
 							: plugin.update_version}
 					</td>
 					<td className="text-center">
+						{plugin.lock ? (
+							<ReactSVG
+								src="/assets/img/lock.svg"
+								alt="lock"
+								className="ml-1 lock-img"
+							/>
+						) : (
+								<ReactSVG
+									src="/assets/img/unlock.svg"
+									alt="unlock"
+									className="unlock-img"
+								/>
+							)}
 						<button
 							type="submit"
 							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
@@ -121,6 +146,19 @@ class SiteUpdateComponent extends Component {
 
 									</td>
 									<td className="text-center">
+										{wordpress.core.lock ? (
+											<ReactSVG
+												src="/assets/img/lock.svg"
+												alt="lock"
+												className="ml-1 lock-img"
+											/>
+										) : (
+												<ReactSVG
+													src="/assets/img/unlock.svg"
+													alt="unlock"
+													className="unlock-img"
+												/>
+											)}
 										<button
 											type="submit"
 											className={`btn btn-brand-02 

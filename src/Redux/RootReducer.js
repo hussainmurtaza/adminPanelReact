@@ -25,10 +25,11 @@ import UserSearchReducer from "Redux/V1/Users/Search/UserSearchReducer";
 import WordpressGetReducer from "Redux/V1/Sites/Wordpress/Get/WordpressGetReducer";
 import WordpressUpdateReducer from "Redux/V1/Sites/Wordpress/Put/WordpressPutReducer";
 import CustomerPutReducer from "Redux/V1/Customers/Put/CustomerPutReducer";
+import DashboardGetReducer from "Redux/V1/Dashboard/Get/DashboardGetReducer";
 import UserStatusReducer from "Redux/V1/Users/ToggleStatus/UserStatusReducer";
 import MigrationGetReducer from "Redux/V1/Migration/Get/MigrationGetReducer";
 import MigrationFirstReducer from "Redux/V1/Migration/First/MigrationFirstReducer";
-import DashboardGetReducer from "Redux/V1/Dashboard/Get/DashboardGetReducer";
+import OneClickLoginReducer from "Redux/V1/Sites/OneClickLogin/OneClickLoginReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -54,11 +55,12 @@ export default combineReducers({
 	invoice_filter: InvoiceFilterReducer,
 	user_filter: UserFilterReducer,
 	user_search: UserSearchReducer,
+	dashboards: DashboardGetReducer,
+	wordpress: WordpressGetReducer,
+	wordpress_updates: WordpressUpdateReducer,
 	customer_put: CustomerPutReducer,
 	user_status: UserStatusReducer,
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
-	wordpress: WordpressGetReducer,
-	wordpress_updates: WordpressUpdateReducer,
-	dashboards: DashboardGetReducer,
+	one_click: OneClickLoginReducer,
 });

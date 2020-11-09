@@ -49,10 +49,19 @@ const queryBody = (data) => {
 	return query;
 };
 
+const quickLogin = (identity) => {
+	const response = Gateway.authGateway(
+		"GET",
+		`${V1.auth.site_operation.quick_login}${identity}`
+	);
+	return response;
+};
+
 const SiteService = {
 	getAll,
 	get,
 	filter,
+	quickLogin,
 };
 
 export default SiteService;

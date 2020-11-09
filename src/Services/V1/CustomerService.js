@@ -36,7 +36,7 @@ const queryBody = (data) => {
 
 	if (
 		query ===
-		"?first_name=undefined&email=undefined&status=undefined&created_at=undefined&"
+		"?first_name=undefined&last_name=undefined&email=undefined&status=undefined&created_at=undefined&"
 	) {
 		query += `first_name=&`;
 		//query += `last_name=&`;
