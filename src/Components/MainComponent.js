@@ -21,6 +21,7 @@ import InvoiceSingleComponent from "Components/Invoices/InvoiceSingleComponent";
 import MigrationListComponent from "Components/Migration/MigrationListComponent";
 import MigrationSingleComponent from "Components/Migration/MigrationSingleComponent";
 import HostNodeListComponent from "Components/HostNodes/HostNodeListComponent";
+import HostNodeSingleComponent from "Components/HostNodes/HostNodeSingleComponent";
 
 class Main extends Component {
 	render() {
@@ -153,6 +154,12 @@ class Main extends Component {
 						exact
 						path="/hostnodes"
 						component={HostNodeListComponent}
+					/>
+
+					<PrivateRoute
+						exact
+						path="/hostnode/:id"
+						component={HostNodeSingleComponent}
 					/>
 
 					<Redirect to="/users" />

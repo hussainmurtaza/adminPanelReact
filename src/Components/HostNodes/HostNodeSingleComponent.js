@@ -1,61 +1,73 @@
 import React, { Component } from "react";
-import { Row, Col, Badge } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
-import RoleFirstAction from "Redux/V1/Roles/First/RoleFirstAction";
+import HostNodeFirstAction from "Redux/V1/HostNodes/First/HostNodeFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 
-class RoleSingleComponent extends Component {
+class HostNodeSingleComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(
-			RoleFirstAction.roleFirst(this.props.match.params.id)
+			HostNodeFirstAction.hostNodeFirst(this.props.match.params.id)
 		);
 	}
 	render() {
-		let permissionData;
-		const rolePermission = this.props.role.permissions;
-		if (rolePermission) {
-			permissionData = rolePermission.map((permissions) => {
-				return (
-					<React.Fragment>
-						<Badge variant="primary">{permissions.name}</Badge>{" "}
-					</React.Fragment>
-				);
-			});
-		}
+		const hostnode = this.props.hostnode;
 		return (
 			<React.Fragment>
 				<TemplateMain>
 					<Sidebar active="roles" />
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">Role Update</h4>
-							<Row>
-								<Col sm={12} className="form-group">
-									<label>Roll Name</label>
-									<input
-										required
-										type="text"
-										className="form-control"
-										placeholder="Enter your Roll Name"
-										value={this.props.role.name}
-									/>
-								</Col>
-								<Col sm={12} className="form-group">
-									<label>Assign Permissions</label>
-									<div>{permissionData}</div>
-								</Col>
-								<Col sm={12}>
-									<a
-										href={
-											"/update-role/" + this.props.role.id
-										}
-										className="btn btn-primary"
-									>
-										Edit Role
-									</a>
-								</Col>
-							</Row>
+							<h4 className="tx-color-01 mg-b-15">HostNode Details</h4>
+							<Table striped bordered hover>
+								<thead>
+									<tr>
+										<th>Field</th>
+										<th>Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Data Center Id</td>
+										<td>{hostnode.data_center_id}</td>
+									</tr>
+									<tr>
+										<td>Public IP</td>
+										<td>{hostnode.public_ip}</td>
+									</tr>
+									<tr>
+										<td>Private IP</td>
+										<td>{hostnode.private_ip}</td>
+									</tr>
+									<tr>
+										<td>Status</td>
+										<td>{hostnode.status}</td>
+									</tr>
+									<tr>
+										<td>Identity</td>
+										<td>{hostnode.identity}</td>
+									</tr>
+									<tr>
+										<td>Server</td>
+										<td>{hostnode.server}</td>
+									</tr>
+									<tr>
+										<td>Available Bandwith</td>
+										<td>{hostnode.available_bandwith}</td>
+									</tr>
+									<tr>
+										<td>Available CPU</td>
+										<td>{hostnode.available_cpu}</td>
+									</tr>
+									<tr>
+										<td>Ram</td>
+										<td>{hostnode.ram}</td>
+									</tr>
+									
+
+								</tbody>
+							</Table>
 						</div>
 					</div>
 				</TemplateMain>
@@ -66,8 +78,8 @@ class RoleSingleComponent extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		role: state.role_first.role,
+		hostnode: state.hostnode_first.host_node,
 	};
 };
 
-export default connect(mapStateToProps)(RoleSingleComponent);
+export default connect(mapStateToProps)(HostNodeSingleComponent);
