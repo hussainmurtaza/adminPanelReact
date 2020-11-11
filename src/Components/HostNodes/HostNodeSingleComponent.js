@@ -16,7 +16,7 @@ class HostNodeSingleComponent extends Component {
 		return (
 			<React.Fragment>
 				<TemplateMain>
-					<Sidebar active="roles" />
+					<Sidebar active="hostnodes" />
 					<div className="content content-components">
 						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">HostNode Details</h4>
@@ -64,10 +64,22 @@ class HostNodeSingleComponent extends Component {
 										<td>Ram</td>
 										<td>{hostnode.ram}</td>
 									</tr>
-									
-
+									<tr>
+										<td>Disk</td>
+										<td>{hostnode.disk}</td>
+									</tr>
 								</tbody>
 							</Table>
+							<div className="">
+									<a
+										href={
+											"/hostnode-update/" + hostnode.id
+										}
+										className="btn btn-primary"
+									>
+										Edit HostNode
+									</a>
+							</div>
 						</div>
 					</div>
 				</TemplateMain>
