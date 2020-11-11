@@ -3,10 +3,7 @@ import HOSTNODE from "Redux/V1/HostNodes/First/HostNodeFirstActionType";
 const hostNodeDetails = (
 	state = {
 		loading: false,
-		host_node: {
-			customer: {},
-			site: {},
-		},
+		host_node: {},
 		err_mess: null,
 	},
 	action
