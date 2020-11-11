@@ -25,43 +25,49 @@ class DashboardComponent extends Component {
 							<Row>
 								<DashboardCardComponent
 									heading="Total Live Sites"
-									number={dashboard.liveSites}
+									number={dashboard.active_sites}
+									icon="globe"
+								/>
+
+								<DashboardCardComponent
+									heading="Total Pending Sites"
+									number={dashboard.pending_sites}
 									icon="globe"
 								/>
 
 								<DashboardCardComponent
 									heading="Total Staging Sites"
-									number={dashboard.staging}
+									number={dashboard.staging_sites}
 									icon="globe"
 								/>
 
 								<DashboardCardComponent
 									heading="Active Clients"
-									number={dashboard.liveSites}
+									number={dashboard.active_clients}
 									icon="user"
 								/>
 
 								<DashboardCardComponent
 									heading="Pending Clients"
-									number={dashboard.liveSites}
+									number={dashboard.pending_clients}
 									icon="user"
 								/>
 
 								<DashboardCardComponent
 									heading="Total Revenue"
-									number={dashboard.invoicesPaid}
+									number={dashboard.total_revenue}
 									icon="dollar-sign"
 								/>
 
 								<DashboardCardComponent
 									heading="Total Customers"
-									number={dashboard.customer}
+									number={dashboard.total_clients}
 									icon="users"
 								/>
 
 								<DashboardCardComponent
 									heading="Total Invoices"
-									number={dashboard.invoices}
+									number={dashboard.total_paid_invoices}
 									icon="file-text"
 								/>
 							</Row>
