@@ -19,7 +19,9 @@ class HostNodeSingleComponent extends Component {
 					<Sidebar active="hostnodes" />
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">HostNode Details</h4>
+							<h4 className="tx-color-01 mg-b-15">
+								HostNode Details
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -68,17 +70,23 @@ class HostNodeSingleComponent extends Component {
 										<td>Disk</td>
 										<td>{hostnode.disk}</td>
 									</tr>
+									<tr>
+										<td>Available Ram</td>
+										<td>{hostnode.available_ram}</td>
+									</tr>
+									<tr>
+										<td>Available Disk</td>
+										<td>{hostnode.available_disk}</td>
+									</tr>
 								</tbody>
 							</Table>
 							<div className="">
-									<a
-										href={
-											"/hostnode-update/" + hostnode.id
-										}
-										className="btn btn-primary"
-									>
-										Edit HostNode
-									</a>
+								<a
+									href={"/hostnode-update/" + hostnode.id}
+									className="btn btn-primary"
+								>
+									Edit HostNode
+								</a>
 							</div>
 						</div>
 					</div>
