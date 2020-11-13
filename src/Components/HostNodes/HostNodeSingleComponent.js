@@ -47,6 +47,14 @@ class HostNodeSingleComponent extends Component {
 										<td>{hostnode.status}</td>
 									</tr>
 									<tr>
+										<td>CPU</td>
+										<td>{hostnode.cpu}</td>
+									</tr>
+									<tr>
+										<td>Bandwidth</td>
+										<td>{hostnode.bandwidth}</td>
+									</tr>
+									<tr>
 										<td>Identity</td>
 										<td>{hostnode.identity}</td>
 									</tr>
