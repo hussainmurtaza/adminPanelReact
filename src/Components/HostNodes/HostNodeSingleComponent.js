@@ -4,6 +4,7 @@ import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
 import HostNodeFirstAction from "Redux/V1/HostNodes/First/HostNodeFirstAction";
 import TemplateMain from "Templates/TemplateMain";
+import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class HostNodeSingleComponent extends Component {
 	componentDidMount() {
@@ -85,6 +86,14 @@ class HostNodeSingleComponent extends Component {
 									<tr>
 										<td>Available Disk</td>
 										<td>{hostnode.available_disk}</td>
+									</tr>
+									<tr>
+										<td>Created At</td>
+										<td>
+											{TimeStampHelper.standardDateFormat(
+												hostnode.created_at
+											)}
+										</td>
 									</tr>
 								</tbody>
 							</Table>
