@@ -23,11 +23,13 @@ class HostNodeListComponent extends Component {
 					<Sidebar active="hostnodes" />
 					<div className="content content-components hostnode-page">
 						<div className="container">
-							<h4 className="tx-color-01 mg-b-15">All HostNodes</h4>
+							<h4 className="tx-color-01 mg-b-15">
+								All Host Nodes
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
-										<th>Data Center ID</th>
+										<th>Data Center Name</th>
 										<th>Server</th>
 										<th>Identity</th>
 										<th>Public IP</th>
@@ -45,7 +47,10 @@ class HostNodeListComponent extends Component {
 											<td>{hostnode.status}</td>
 											<td className="actions">
 												<a
-													href={"/hostnode/" + hostnode.id}
+													href={
+														"/hostnode/" +
+														hostnode.id
+													}
 													className="btn btn-link"
 													title="View"
 												>
@@ -69,7 +74,9 @@ class HostNodeListComponent extends Component {
 													className="btn btn-link text-danger"
 													title="Delete"
 													onClick={() =>
-														this.hostNodeDelete(hostnode.id)
+														this.hostNodeDelete(
+															hostnode.id
+														)
 													}
 												>
 													<FontAwesomeIcon

@@ -34,7 +34,7 @@ class Sidebar extends Component {
 							<li
 								className={
 									this.props.active === "create-user" ||
-										this.props.active === "users"
+									this.props.active === "users"
 										? "nav-item show"
 										: "nav-item"
 								}
@@ -43,7 +43,7 @@ class Sidebar extends Component {
 									href="/"
 									className={
 										this.props.active === "create-user" ||
-											this.props.active === "users"
+										this.props.active === "users"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
@@ -76,7 +76,7 @@ class Sidebar extends Component {
 							<li
 								className={
 									this.props.active === "roles" ||
-										this.props.active === "create-roles"
+									this.props.active === "create-roles"
 										? "nav-item show"
 										: "nav-item"
 								}
@@ -85,7 +85,7 @@ class Sidebar extends Component {
 									href="/"
 									className={
 										this.props.active === "roles" ||
-											this.props.active === "create-roles"
+										this.props.active === "create-roles"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
@@ -257,7 +257,7 @@ class Sidebar extends Component {
 									}
 								>
 									<i data-feather="package"></i>
-									HostNodes
+									Host Nodes
 								</a>
 								<nav className="nav">
 									<a
@@ -268,7 +268,7 @@ class Sidebar extends Component {
 												: ""
 										}
 									>
-										All HostNodes
+										All Host Nodes
 									</a>
 								</nav>
 							</li>
