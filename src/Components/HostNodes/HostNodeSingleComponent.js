@@ -21,7 +21,7 @@ class HostNodeSingleComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 							<h4 className="tx-color-01 mg-b-15">
-								HostNode Details
+								Host Node Details
 							</h4>
 							<Table striped bordered hover>
 								<thead>
@@ -32,7 +32,7 @@ class HostNodeSingleComponent extends Component {
 								</thead>
 								<tbody>
 									<tr>
-										<td>Data Center Id</td>
+										<td>Data Center Name</td>
 										<td>{hostnode.data_center_id}</td>
 									</tr>
 									<tr>
@@ -102,7 +102,7 @@ class HostNodeSingleComponent extends Component {
 									href={"/hostnode-update/" + hostnode.id}
 									className="btn btn-primary"
 								>
-									Edit HostNode
+									Edit Host Node
 								</a>
 							</div>
 						</div>
