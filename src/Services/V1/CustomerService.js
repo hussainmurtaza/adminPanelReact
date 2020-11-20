@@ -24,34 +24,34 @@ const filter = async (data) => {
 };
 
 const queryBody = (data) => {
-	let query = "?";
+	// let query = "?";
 
-	query += `first_name=${data.first_name}&`;
-	//query += `last_name=${data.last_name}&`;
-	query += `email=${data.email}&`;
-	query += `status=${data.status}&`;
-	query += `created_at=${data.created_at}&`;
+	// query += `first_name=${data.first_name}&`;
+	// //query += `last_name=${data.last_name}&`;
+	// query += `email=${data.email}&`;
+	// query += `status=${data.status}&`;
+	// query += `created_at=${data.created_at}&`;
 
 	//console.log(query,"query");
 
-	if (
-		query ===
-		"?first_name=undefined&last_name=undefined&email=undefined&status=undefined&created_at=undefined&"
-	) {
-		query += `first_name=&`;
-		//query += `last_name=&`;
-		query += `email=&`;
-		query += `status=&`;
-		query += `created_at=&`;
-	} else {
-		query += `first_name=${data.first_name}&`;
-		//query += `last_name=${data.last_name}&`;
-		query += `email=${data.email}&`;
-		query += `status=${data.status}&`;
-		query += `created_at=${data.created_at}&`;
-	}
+	// if (
+	// 	query ===
+	// 	"?first_name=undefined&last_name=undefined&email=undefined&status=undefined&created_at=undefined&"
+	// ) {
+	// 	query += `first_name=&`;
+	// 	//query += `last_name=&`;
+	// 	query += `email=&`;
+	// 	query += `status=&`;
+	// 	query += `created_at=&`;
+	// } else {
+	// 	query += `first_name=${data.first_name}&`;
+	// 	//query += `last_name=${data.last_name}&`;
+	// 	query += `email=${data.email}&`;
+	// 	query += `status=${data.status}&`;
+	// 	query += `created_at=${data.created_at}&`;
+	// }
 
-	return query;
+	return data;
 
 	//return query;
 };
