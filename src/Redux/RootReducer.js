@@ -14,7 +14,7 @@ import PermissionGetReducer from "Redux/V1/Permissions/Get/PermissionGetReducer"
 import CustomerGetReducer from "Redux/V1/Customers/Get/CustomerGetReducer";
 import CustomerFirstReducer from "Redux/V1/Customers/First/CustomerFirstReducer";
 import SiteGetReducer from "Redux/V1/Sites/Details/Get/SiteGetReducer";
-import SiteFirstReducer from "Redux/V1/Sites/Details/First/SiteFirstReducer";
+import SiteFirstReducer from "Redux/V2/Sites/Details/First/SiteFirstReducer";
 import InvoiceGetReducer from "Redux/V1/Invoices/Get/InvoiceGetReducer";
 import InvoiceFirstReducer from "Redux/V1/Invoices/First/InvoiceFirstReducer";
 import CustomerFilterReducer from "Redux/V1/Customers/Filter/CustomerFilterReducer";

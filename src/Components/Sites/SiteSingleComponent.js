@@ -12,7 +12,9 @@ import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginActio
 
 class SiteSingleComponent extends Component {
 	componentDidMount() {
-		this.props.dispatch(SiteFirstAction.siteFirst(this.props.match.params.host));
+		this.props.dispatch(
+			SiteFirstAction.siteFirst(this.props.match.params.host)
+		);
 	}
 	quickLogin = (e) => {
 		const identity = e.target.getAttribute("data-identity");
@@ -20,8 +22,9 @@ class SiteSingleComponent extends Component {
 	};
 
 	render() {
+		const site = this.props.site;
 		const userData = this.props.site.user;
-		const basicDetail = this.props.site.basic_details;
+		const serverDetail = this.props.site.server_details;
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -34,6 +37,16 @@ class SiteSingleComponent extends Component {
 								<h4 className="page-header">
 									Site Details
 								</h4>
+								</Col>
+								<Col className="text-right mb-3 site-button">
+									<a
+										className="btn-brand-02 btn btn-primary"
+										href={serverDetail.monit}
+										target="
+											_blank"
+									>
+										<i data-feather="monitor"></i> Monit
+									</a>{" "}
 								</Col>
 								<Col className="text-right mb-3">
 									<Button
@@ -59,7 +72,7 @@ class SiteSingleComponent extends Component {
 								<tbody>
 									<tr>
 										<td>Site Name</td>
-										<td>{this.props.site.name}</td>
+										<td>{site.name}</td>
 									</tr>
 									<tr>
 										<td>Host</td>
@@ -67,13 +80,13 @@ class SiteSingleComponent extends Component {
 											<a
 												target="
 													_blank"
-
 												href={
-													"https://" + this.props.site.host
-												}>
-												{
-													this.props.site.host
+													"https://" +
+													this.props.site
+														.primary_domain
 												}
+											>
+												{this.props.site.primary_domain}
 												<FontAwesomeIcon
 													icon={faExternalLinkAlt}
 													className="ml-2"
@@ -99,20 +112,24 @@ class SiteSingleComponent extends Component {
 									</tr>
 									<tr>
 										<td>Location</td>
-										<td>{basicDetail.location}</td>
+										<td>{serverDetail.location}</td>
 									</tr>
 									<tr>
 										<td>IP Address</td>
-										<td>{basicDetail.ip_address}</td>
+										<td>{serverDetail.ip_address}</td>
 									</tr>
 								</tbody>
 							</Table>
 
-
 							<h4 className="page-header mg-b-15 mt-4">
 								Customer Details
 							</h4>
-							<Table striped bordered hover className="site-update-table">
+							<Table
+								striped
+								bordered
+								hover
+								className="site-update-table"
+							>
 								<thead>
 									<tr>
 										<th>First Name</th>
@@ -138,7 +155,6 @@ class SiteSingleComponent extends Component {
 							</Table>
 
 							<SiteUpdateComponent />
-
 						</div>
 					</div>
 				</TemplateMain>

@@ -14,7 +14,7 @@ import { PermissionGetSaga } from "Redux/V1/Permissions/Get/PermissionGetSaga";
 import { CustomerGetSaga } from "Redux/V1/Customers/Get/CustomerGetSaga";
 import { CustomerFirstSaga } from "Redux/V1/Customers/First/CustomerFirstSaga";
 import { SiteGetSaga } from "Redux/V1/Sites/Details/Get/SiteGetSaga";
-import { SiteFirstSaga } from "Redux/V1/Sites/Details/First/SiteFirstSaga";
+import { SiteFirstSaga } from "Redux/V2/Sites/Details/First/SiteFirstSaga";
 import { InvoiceGetSaga } from "Redux/V1/Invoices/Get/InvoiceGetSaga";
 import { InvoiceFirstSaga } from "Redux/V1/Invoices/First/InvoiceFirstSaga";
 import { CustomerFilterSaga } from "Redux/V1/Customers/Filter/CustomerFilterSaga";

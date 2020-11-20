@@ -8,7 +8,7 @@ import SitesFilterAction from "Redux/V1/Sites/Details/Filter/SiteFilterAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import queryString from 'query-string'
+import queryString from "query-string";
 import FilterForm from "Components/Forms/FilterForm";
 import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginAction";
 
@@ -31,21 +31,17 @@ class SiteListComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-
 							<FilterForm
-								fields={
-									[
-										'site_customer_name',
-										'site_name',
-										'site_domain',
-										'site_date',
-									]
-								}
+								fields={[
+									"site_customer_name",
+									"site_name",
+									"site_domain",
+									"site_date",
+								]}
 							/>
 
 							<h4 className="page-header mg-b-15">Sites List</h4>
 							<div className="user-list-page">
-
 								<Table striped bordered hover>
 									<thead>
 										<tr>
@@ -54,7 +50,7 @@ class SiteListComponent extends Component {
 											<th>Domain</th>
 											<th>Quick Login</th>
 											<th>Ip Address</th>
-											<th>Type</th>
+											<th>Location</th>
 											<th>Created At</th>
 											<th>Action</th>
 										</tr>
@@ -71,7 +67,8 @@ class SiteListComponent extends Component {
 															site.user.id
 														}
 													>
-														{site.user.first_name}{" "}{site.user.last_name}
+														{site.user.first_name}{" "}
+														{site.user.last_name}
 													</a>
 												</td>
 
@@ -81,8 +78,12 @@ class SiteListComponent extends Component {
 														rel="noopener noreferrer"
 														href={
 															"/site/" + site.host
-														}>
-														{site.container.identity}
+														}
+													>
+														{
+															site.container
+																.identity
+														}
 													</a>
 												</td>
 
@@ -91,15 +92,19 @@ class SiteListComponent extends Component {
 														target="_blank"
 														rel="noopener noreferrer"
 														href={
-															"https://" + site.container
+															"https://" +
+															site.container
 																.primary_domain_name
-														}>
+														}
+													>
 														{
 															site.container
 																.primary_domain_name
 														}
 														<FontAwesomeIcon
-															icon={faExternalLinkAlt}
+															icon={
+																faExternalLinkAlt
+															}
 															className="ml-2"
 														/>
 													</a>
@@ -109,14 +114,19 @@ class SiteListComponent extends Component {
 														src="/assets/img/Wordpress.png"
 														alt="wordpresswhite"
 														className="site-wordpress"
-														data-identity={site.container.identity}
-														onClick={(e) => this.quickLogin(e)}
+														data-identity={
+															site.container
+																.identity
+														}
+														onClick={(e) =>
+															this.quickLogin(e)
+														}
 													/>
-
 												</td>
-												<td>{site.container
-													.public_ip}</td>
-												<td>{site.site_type}</td>
+												<td>
+													{site.container.public_ip}
+												</td>
+												<td>{site.location}</td>
 												<td>
 													{TimeStampHelper.standardDateFormat(
 														`${site.created_at}`
