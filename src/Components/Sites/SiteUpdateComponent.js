@@ -52,6 +52,7 @@ class SiteUpdateComponent extends Component {
 							)}
 						<button
 							type="submit"
+							disabled={theme.lock || theme.update_version === null}
 							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
 								theme.slug
 								? "loading"
@@ -98,6 +99,7 @@ class SiteUpdateComponent extends Component {
 							)}
 						<button
 							type="submit"
+							disabled={plugin.lock || plugin.update_version === null}
 							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
 								plugin.slug
 								? "loading"
@@ -161,6 +163,7 @@ class SiteUpdateComponent extends Component {
 											)}
 										<button
 											type="submit"
+											disabled={wordpress.core.lock || wordpress.core.update_version === null}
 											className={`btn btn-brand-02 
 											${this.props.wordpress_updates.update_slug === "wp"
 													? "loading"

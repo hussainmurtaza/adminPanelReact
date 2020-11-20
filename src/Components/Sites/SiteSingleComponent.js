@@ -3,16 +3,21 @@ import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
 import SiteFirstAction from "Redux/V1/Sites/Details/First/SiteFirstAction";
 import TemplateMain from "Templates/TemplateMain";
-import { Table } from "react-bootstrap";
+import { Table, Row, Col, Button } from "react-bootstrap";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import SiteUpdateComponent from "Components/Sites/SiteUpdateComponent";
+import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginAction";
 
 class SiteSingleComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(SiteFirstAction.siteFirst(this.props.match.params.host));
 	}
+	quickLogin = (e) => {
+		const identity = e.target.getAttribute("data-identity");
+		this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
+	};
 
 	render() {
 		const userData = this.props.site.user;
@@ -24,9 +29,26 @@ class SiteSingleComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="page-header mg-b-15">
-								Site Details
-							</h4>
+							<Row className="align-items-center">
+								<Col>
+								<h4 className="page-header">
+									Site Details
+								</h4>
+								</Col>
+								<Col className="text-right mb-3">
+									<Button
+									className="btn-brand-02" 
+									data-identity={this.props.site.container.identity}
+									onClick={(e) => this.quickLogin(e)}
+									>
+									<img
+										src="/assets/img/Wordpress-white.png"
+										alt="wordpresswhite"
+									/>{" "}
+									WP Admin
+								</Button>
+							</Col>
+							</Row>
 							<Table striped bordered hover>
 								<thead>
 									<tr>

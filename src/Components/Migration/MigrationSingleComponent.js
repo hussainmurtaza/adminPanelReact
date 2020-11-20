@@ -37,8 +37,8 @@ class MigrationSingleComponent extends Component {
 							<Table striped bordered hover>
 								<thead>
 									<tr>
-										<th>Field</th>
-										<th>Value</th>
+										<th width="50%">Field</th>
+										<th width="50%">Value</th>
 									</tr>
 								</thead>
 								<tbody>

@@ -48,7 +48,17 @@ class MigrationListComponent extends Component {
 														{migration.customer.fullname}
 													</a>
 												</td>
-												<td>{migration.agency_name}</td>
+												<td>
+													<a
+														href={
+															"/migration/" + migration.id
+														}
+														target="
+															_blank"
+													>
+														{migration.agency_name}
+													</a>
+												</td>
 												<td>
 													{migration.site === null ?
 														""
