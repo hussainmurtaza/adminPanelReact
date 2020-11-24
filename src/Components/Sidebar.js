@@ -226,7 +226,7 @@ class Sidebar extends Component {
 									}
 								>
 									<i data-feather="grid"></i>
-									Migration
+									Migrations
 								</a>
 								<nav className="nav">
 									<a
@@ -238,6 +238,37 @@ class Sidebar extends Component {
 										}
 									>
 										All Migration
+									</a>
+								</nav>
+							</li>
+							<li
+								className={
+									this.props.active === "hostnodes"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "hostnodes"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="package"></i>
+									HostNodes
+								</a>
+								<nav className="nav">
+									<a
+										href="/hostnodes"
+										className={
+											this.props.active === "hostnodes"
+												? "active"
+												: ""
+										}
+									>
+										All HostNodes
 									</a>
 								</nav>
 							</li>

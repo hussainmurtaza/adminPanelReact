@@ -30,6 +30,8 @@ import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
 import { OneClickLoginGetSaga } from "Redux/V1/Sites/OneClickLogin/OneClickLoginSaga";
 import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
+import { HostNodeGetSaga } from "Redux/V1/HostNodes/Get/HostNodeGetSaga";
+import { hostNodeDeleteSaga } from "Redux/V1/HostNodes/Delete/HostNodeDeleteSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -65,5 +67,7 @@ export default function* rootSaga() {
 		MigrationFirstSaga(),
 		DashboardGetSaga(),
 		OneClickLoginGetSaga(),
+		HostNodeGetSaga(),
+		hostNodeDeleteSaga(),
 	]);
 }

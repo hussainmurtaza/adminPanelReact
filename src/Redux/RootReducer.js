@@ -30,6 +30,8 @@ import UserStatusReducer from "Redux/V1/Users/ToggleStatus/UserStatusReducer";
 import MigrationGetReducer from "Redux/V1/Migration/Get/MigrationGetReducer";
 import MigrationFirstReducer from "Redux/V1/Migration/First/MigrationFirstReducer";
 import OneClickLoginReducer from "Redux/V1/Sites/OneClickLogin/OneClickLoginReducer";
+import HostNodeGetReducer from "Redux/V1/HostNodes/Get/HostNodeGetReducer";
+import HostNodeDeleteReducer from "Redux/V1/HostNodes/Delete/HostNodeDeleteReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -63,4 +65,6 @@ export default combineReducers({
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
 	one_click: OneClickLoginReducer,
+	hostnodes: HostNodeGetReducer,
+	hostnode_delete: HostNodeDeleteReducer,
 });
