@@ -33,7 +33,6 @@ import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
 import { HostNodeGetSaga } from "Redux/V1/HostNodes/Get/HostNodeGetSaga";
 import { hostNodeDeleteSaga } from "Redux/V1/HostNodes/Delete/HostNodeDeleteSaga";
 import { HostNodeFirstSaga } from "Redux/V1/HostNodes/First/HostNodeFirstSaga";
-import { hostNodeDeleteSaga } from "Redux/V1/HostNodes/Delete/HostNodeDeleteSaga";
 
 export default function* rootSaga() {
 	yield all([
