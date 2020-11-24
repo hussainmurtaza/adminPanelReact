@@ -4,20 +4,29 @@ import { Table } from "react-bootstrap";
 import WordpressGetAction from "Redux/V1/Sites/Wordpress/Get/WordpressGetAction";
 import WordpressUpdateAction from "Redux/V1/Sites/Wordpress/Put/WordpressPutAction";
 import { ReactSVG } from "react-svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSync } from "@fortawesome/free-solid-svg-icons";
+import WordpressRefreshAction from "Redux/V1/Sites/Wordpress/Refresh/WordpressGetAction";
 
 class SiteUpdateComponent extends Component {
 	componentDidMount() {
 		setTimeout(() => {
-			this.props.dispatch(WordpressGetAction.getWordpress(this.props.site.container.identity));
+			this.props.dispatch(
+				WordpressGetAction.getWordpress(
+					this.props.site.container.identity
+				)
+			);
 		}, 1000);
 	}
 	update = (type, slug) => {
 		const updateDetails = {
 			identity: this.props.site.container.identity,
 			type,
-			slug
+			slug,
 		};
-		this.props.dispatch(WordpressUpdateAction.wordpressUpdate(updateDetails));
+		this.props.dispatch(
+			WordpressUpdateAction.wordpressUpdate(updateDetails)
+		);
 	};
 
 	render() {
@@ -44,20 +53,23 @@ class SiteUpdateComponent extends Component {
 								className="ml-1 lock-img"
 							/>
 						) : (
-								<ReactSVG
-									src="/assets/img/unlock.svg"
-									alt="unlock"
-									className="unlock-img"
-								/>
-							)}
+							<ReactSVG
+								src="/assets/img/unlock.svg"
+								alt="unlock"
+								className="unlock-img"
+							/>
+						)}
 						<button
 							type="submit"
-							disabled={theme.lock || theme.update_version === null}
-							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
+							disabled={
+								theme.lock || theme.update_version === null
+							}
+							className={`btn btn-brand-02 ${
+								this.props.wordpress_updates.update_slug ===
 								theme.slug
-								? "loading"
-								: ""
-								}`}
+									? "loading"
+									: ""
+							}`}
 							onClick={() => this.update("theme", theme.slug)}
 						>
 							Update
@@ -68,8 +80,7 @@ class SiteUpdateComponent extends Component {
 		});
 		if (allThemes1.length === 0) {
 			allThemes = <td colspan="100%">No Date Available</td>;
-		}
-		else {
+		} else {
 			allThemes = allThemes1;
 		}
 
@@ -91,20 +102,23 @@ class SiteUpdateComponent extends Component {
 								className="ml-1 lock-img"
 							/>
 						) : (
-								<ReactSVG
-									src="/assets/img/unlock.svg"
-									alt="unlock"
-									className="unlock-img"
-								/>
-							)}
+							<ReactSVG
+								src="/assets/img/unlock.svg"
+								alt="unlock"
+								className="unlock-img"
+							/>
+						)}
 						<button
 							type="submit"
-							disabled={plugin.lock || plugin.update_version === null}
-							className={`btn btn-brand-02 ${this.props.wordpress_updates.update_slug ===
+							disabled={
+								plugin.lock || plugin.update_version === null
+							}
+							className={`btn btn-brand-02 ${
+								this.props.wordpress_updates.update_slug ===
 								plugin.slug
-								? "loading"
-								: ""
-								}`}
+									? "loading"
+									: ""
+							}`}
 							onClick={() => this.update("plugin", plugin.slug)}
 						>
 							Update
@@ -115,8 +129,7 @@ class SiteUpdateComponent extends Component {
 		});
 		if (allPlugins1.length === 0) {
 			allPlugins = <td colspan="100%">No Date Available</td>;
-		}
-		else {
+		} else {
 			allPlugins = allPlugins1;
 		}
 
@@ -124,7 +137,19 @@ class SiteUpdateComponent extends Component {
 			<React.Fragment>
 				<h4 className="page-header mg-b-15 mt-4">
 					WordPress Core
-							</h4>
+					<button
+						className="btn btn-link"
+						onClick={() =>
+							this.props.dispatch(
+								WordpressRefreshAction.getWordpress(
+									this.props.site.container.identity
+								)
+							)
+						}
+					>
+						<FontAwesomeIcon icon={faSync} />
+					</button>
+				</h4>
 				<Table striped bordered hover className="site-update-table">
 					<thead>
 						<tr>
@@ -135,56 +160,53 @@ class SiteUpdateComponent extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{
-							Object.keys(wordpress.core).length
-								?
-								<tr>
-									<td>core</td>
-									<td>{wordpress.core.current_version}</td>
-									<td>
-										{wordpress.core.update_version === null
-											? "Updated"
-											: wordpress.core.update_version}
-
-									</td>
-									<td className="text-center">
-										{wordpress.core.lock ? (
-											<ReactSVG
-												src="/assets/img/lock.svg"
-												alt="lock"
-												className="ml-1 lock-img"
-											/>
-										) : (
-												<ReactSVG
-													src="/assets/img/unlock.svg"
-													alt="unlock"
-													className="unlock-img"
-												/>
-											)}
-										<button
-											type="submit"
-											disabled={wordpress.core.lock || wordpress.core.update_version === null}
-											className={`btn btn-brand-02 
-											${this.props.wordpress_updates.update_slug === "wp"
-													? "loading"
-													: ""
-												}`}
-											onClick={() =>
-												this.update("core", "wp")
-											}
-										>
-											Update
-											</button>
-									</td>
-								</tr>
-								: <td colspan="100%">No Date Available</td>
-						}
+						{Object.keys(wordpress.core).length ? (
+							<tr>
+								<td>core</td>
+								<td>{wordpress.core.current_version}</td>
+								<td>
+									{wordpress.core.update_version === null
+										? "Updated"
+										: wordpress.core.update_version}
+								</td>
+								<td className="text-center">
+									{wordpress.core.lock ? (
+										<ReactSVG
+											src="/assets/img/lock.svg"
+											alt="lock"
+											className="ml-1 lock-img"
+										/>
+									) : (
+										<ReactSVG
+											src="/assets/img/unlock.svg"
+											alt="unlock"
+											className="unlock-img"
+										/>
+									)}
+									<button
+										type="submit"
+										disabled={
+											wordpress.core.lock ||
+											wordpress.core.update_version ===
+												null
+										}
+										className={`btn btn-brand-02 
+											${this.props.wordpress_updates.update_slug === "wp" ? "loading" : ""}`}
+										onClick={() =>
+											this.update("core", "wp")
+										}
+									>
+										Update
+									</button>
+								</td>
+							</tr>
+						) : (
+							<td colspan="100%">No Date Available</td>
+						)}
 					</tbody>
 				</Table>
 
-				<h4 className="page-header mg-b-15 mt-4">
-					WordPress Themes
-							</h4>
+				<h4 className="page-header mg-b-15 mt-4">WordPress Themes</h4>
 				<Table striped bordered hover className="site-update-table">
 					<thead>
 						<tr>
@@ -194,14 +216,10 @@ class SiteUpdateComponent extends Component {
 							<th className="site-update-table"></th>
 						</tr>
 					</thead>
-					<tbody>
-						{allThemes}
-					</tbody>
+					<tbody>{allThemes}</tbody>
 				</Table>
 
-				<h4 className="page-header mg-b-15 mt-4">
-					WordPress Plugins
-							</h4>
+				<h4 className="page-header mg-b-15 mt-4">WordPress Plugins</h4>
 				<Table striped bordered hover className="site-update-table">
 					<thead>
 						<tr>
@@ -211,9 +229,7 @@ class SiteUpdateComponent extends Component {
 							<th className="site-update-table"></th>
 						</tr>
 					</thead>
-					<tbody>
-						{allPlugins}
-					</tbody>
+					<tbody>{allPlugins}</tbody>
 				</Table>
 			</React.Fragment>
 		);

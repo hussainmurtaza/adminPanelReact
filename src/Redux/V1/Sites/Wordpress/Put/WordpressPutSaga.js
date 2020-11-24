@@ -11,7 +11,9 @@ function* wordpressUpdate(data) {
 		const response = yield WorpdressService.put(data.request);
 		if (response.success) {
 			ToastHelper.success(response.message);
-			yield put(WordpressUpdateAction.wordpressUpdateSuccess(data.request));
+			yield put(
+				WordpressUpdateAction.wordpressUpdateSuccess(data.request)
+			);
 			//console.log(response)
 			//yield put(WordpressAction.getWordpressSuccess(response.data));
 			setTimeout(function () {
@@ -19,7 +21,9 @@ function* wordpressUpdate(data) {
 			}, 1000);
 		} else {
 			ToastHelper.error(response.error.message);
-			yield put(WordpressUpdateAction.wordpressUpdateFailed(response.error));
+			yield put(
+				WordpressUpdateAction.wordpressUpdateFailed(response.error)
+			);
 		}
 	} catch (error) {
 		ToastHelper.error();

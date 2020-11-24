@@ -1,5 +1,5 @@
 import { takeEvery, put } from "redux-saga/effects";
-import WORDPRESS from "Redux/V1/Sites/Wordpress/Get/WordpressFirstActionType";
+import WORDPRESS from "Redux/V1/Sites/Wordpress/Get/WordpressGetActionType";
 import WordpressAction from "Redux/V1/Sites/Wordpress/Get/WordpressGetAction";
 import WordpressService from "Services/V1/WordpressService";
 

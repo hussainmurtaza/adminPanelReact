@@ -25,9 +25,17 @@ const wordpressBody = (data) => {
 	return JSON.stringify(_data);
 };
 
+const refresh = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		`${V1.auth.wordpress.refresh}${data}`
+	);
+	return response;
+};
 const WordpressService = {
 	get,
 	put,
+	refresh,
 };
 
 export default WordpressService;

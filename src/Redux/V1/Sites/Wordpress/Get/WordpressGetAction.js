@@ -1,4 +1,4 @@
-import WORDPRESS from "Redux/V1/Sites/Wordpress/Get/WordpressFirstActionType";
+import WORDPRESS from "Redux/V1/Sites/Wordpress/Get/WordpressGetActionType";
 
 const WordpressAction = {
 	getWordpress,

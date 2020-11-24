@@ -30,6 +30,7 @@ import UserStatusReducer from "Redux/V1/Users/ToggleStatus/UserStatusReducer";
 import MigrationGetReducer from "Redux/V1/Migration/Get/MigrationGetReducer";
 import MigrationFirstReducer from "Redux/V1/Migration/First/MigrationFirstReducer";
 import OneClickLoginReducer from "Redux/V1/Sites/OneClickLogin/OneClickLoginReducer";
+import WordpressRefreshReducer from "Redux/V1/Sites/Wordpress/Refresh/WordpressGetReducer";
 import DataCenterGetReducer from "Redux/V1/DataCenters/Get/DataCenterGetReducer";
 import DataCenterDeleteReducer from "Redux/V1/DataCenters/Delete/DataCenterDeleteReducer";
 import DataCenterFirstReducer from "Redux/V1/DataCenters/First/DataCenterFirstReducer";
@@ -74,6 +75,7 @@ export default combineReducers({
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
 	one_click: OneClickLoginReducer,
+	wordpress_refresh: WordpressRefreshReducer,
 	data_centers: DataCenterGetReducer,
 	data_center_delete: DataCenterDeleteReducer,
 	data_center_first: DataCenterFirstReducer,

@@ -1,4 +1,4 @@
-import WORDPRESS from "Redux/V1/Sites/Wordpress/Get/WordpressFirstActionType";
+import WORDPRESS from "Redux/V1/Sites/Wordpress/Get/WordpressGetActionType";
 
 const WordpressDetails = (
 	state = {
@@ -18,7 +18,7 @@ const WordpressDetails = (
 				error: null,
 			};
 		case WORDPRESS.WORDPRESS_GET_SUCCESS:
-			console.log(action)
+			console.log(action);
 			return {
 				...state,
 				loading: false,

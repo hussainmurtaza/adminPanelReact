@@ -30,6 +30,7 @@ import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
 import { OneClickLoginGetSaga } from "Redux/V1/Sites/OneClickLogin/OneClickLoginSaga";
 import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
+import { WordpressRefreshSaga } from "Redux/V1/Sites/Wordpress/Refresh/WordpressGetSaga";
 import { DataCenterGetSaga } from "Redux/V1/DataCenters/Get/DataCenterGetSaga";
 import { DataCenterDeleteSaga } from "Redux/V1/DataCenters/Delete/DataCenterDeleteSaga";
 import { DataCenterFirstSaga } from "Redux/V1/DataCenters/First/DataCenterFirstSaga";
@@ -76,6 +77,7 @@ export default function* rootSaga() {
 		MigrationFirstSaga(),
 		DashboardGetSaga(),
 		OneClickLoginGetSaga(),
+		WordpressRefreshSaga(),
 		DataCenterGetSaga(),
 		DataCenterDeleteSaga(),
 		DataCenterFirstSaga(),
