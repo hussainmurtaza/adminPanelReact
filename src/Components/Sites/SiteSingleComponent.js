@@ -47,8 +47,6 @@ class SiteSingleComponent extends Component {
 									>
 										<i data-feather="monitor"></i> Monit
 									</a>{" "}
-								</Col>
-								<Col className="text-right mb-3">
 									<Button
 									className="btn-brand-02" 
 									data-identity={this.props.site.container.identity}
