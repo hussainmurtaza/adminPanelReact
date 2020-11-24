@@ -257,7 +257,7 @@ class Sidebar extends Component {
 									}
 								>
 									<i data-feather="package"></i>
-									Host Nodes
+									HostNodes
 								</a>
 								<nav className="nav">
 									<a
@@ -268,7 +268,7 @@ class Sidebar extends Component {
 												: ""
 										}
 									>
-										All Host Nodes
+										All HostNodes
 									</a>
 								</nav>
 							</li>

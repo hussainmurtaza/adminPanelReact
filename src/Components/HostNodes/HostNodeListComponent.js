@@ -47,10 +47,7 @@ class HostNodeListComponent extends Component {
 											<td>{hostnode.status}</td>
 											<td className="actions">
 												<a
-													href={
-														"/hostnode/" +
-														hostnode.id
-													}
+													href={"/hostnode/" + hostnode.id}
 													className="btn btn-link"
 													title="View"
 												>
@@ -74,9 +71,7 @@ class HostNodeListComponent extends Component {
 													className="btn btn-link text-danger"
 													title="Delete"
 													onClick={() =>
-														this.hostNodeDelete(
-															hostnode.id
-														)
+														this.hostNodeDelete(hostnode.id)
 													}
 												>
 													<FontAwesomeIcon
