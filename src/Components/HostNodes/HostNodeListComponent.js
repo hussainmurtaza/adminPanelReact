@@ -8,6 +8,7 @@ import HostNodesAction from "Redux/V1/HostNodes/Get/HostNodeGetAction";
 import HostNodeDeleteAction from "Redux/V1/HostNodes/Delete/HostNodeDeleteAction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import HostNodeStatusAction from "Redux/V1/HostNodes/ToggleStatus/HostNodeStatusAction";
 
 class HostNodeListComponent extends Component {
 	componentDidMount() {
@@ -15,6 +16,9 @@ class HostNodeListComponent extends Component {
 	}
 	hostNodeDelete = (id) => {
 		this.props.dispatch(HostNodeDeleteAction.deleteHostNode(id));
+	};
+	onSwitch = (id) => {
+		this.props.dispatch(HostNodeStatusAction.hostNodeStatus(id));
 	};
 	render() {
 		return (
@@ -33,21 +37,67 @@ class HostNodeListComponent extends Component {
 										<th>Server</th>
 										<th>Identity</th>
 										<th>Public IP</th>
-										<th>Status</th>
+										<th className="hostnode-toggle">
+											Status
+										</th>
 										<th className="actions">Action</th>
 									</tr>
 								</thead>
 								<tbody>
 									{this.props.hostnodes.map((hostnode) => (
 										<tr>
-											<td>{hostnode.data_center_id}</td>
+											<td>{hostnode.location}</td>
 											<td>{hostnode.server}</td>
 											<td>{hostnode.identity}</td>
 											<td>{hostnode.public_ip}</td>
-											<td>{hostnode.status}</td>
+											<td className="hostnode-toggle">
+												{hostnode.status}
+												<span className="custom-control custom-switch">
+													<input
+														type="checkbox"
+														className="custom-control-input"
+														id={
+															"customSwitches" +
+															hostnode.id
+														}
+														checked={
+															hostnode.status ===
+															"blocked"
+																? true
+																: false
+														}
+														onChange={() =>
+															this.onSwitch(
+																hostnode.id +
+																	`?status=${
+																		hostnode.status ===
+																		"active"
+																			? "blocked"
+																			: "active"
+																	}`
+															)
+														}
+														readOnly
+													/>
+
+													<label
+														className="custom-control-label"
+														htmlFor={
+															"customSwitches" +
+															hostnode.id
+														}
+														data-toggle="tooltip"
+														data-placement="top"
+														title="Block/Unblock HostNode"
+													></label>
+												</span>
+											</td>
 											<td className="actions">
 												<a
-													href={"/hostnode/" + hostnode.id}
+													href={
+														"/hostnode/" +
+														hostnode.id
+													}
 													className="btn btn-link"
 													title="View"
 												>
@@ -57,7 +107,7 @@ class HostNodeListComponent extends Component {
 												</a>
 												<a
 													href={
-														"/update-hostnode/" +
+														"/hostnode-update/" +
 														hostnode.id
 													}
 													className="btn btn-link"
@@ -71,7 +121,9 @@ class HostNodeListComponent extends Component {
 													className="btn btn-link text-danger"
 													title="Delete"
 													onClick={() =>
-														this.hostNodeDelete(hostnode.id)
+														this.hostNodeDelete(
+															hostnode.id
+														)
 													}
 												>
 													<FontAwesomeIcon

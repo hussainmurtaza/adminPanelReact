@@ -33,7 +33,7 @@ class HostNodeSingleComponent extends Component {
 								<tbody>
 									<tr>
 										<td>Data Center Name</td>
-										<td>{hostnode.data_center_id}</td>
+										<td>{hostnode.location}</td>
 									</tr>
 									<tr>
 										<td>Public IP</td>

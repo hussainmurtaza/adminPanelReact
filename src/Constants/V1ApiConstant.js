@@ -17,7 +17,11 @@ const V1 = {
 			details: "v1/sites/wp/",
 			update: "v1/sites/update-wp/",
 		},
+		data_centers: "v1/data-centers",
 		hostnodes: "v1/hostnodes",
+	},
+	hostnode: {
+		hostnode_status: "v1/hostnodes/toggle-status/",
 	},
 	user: {
 		user_status: "v1/users/status/",

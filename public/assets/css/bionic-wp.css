@@ -166,3 +166,19 @@ body {
     width: 25%;
     margin-left: 5px;
 }
+.hostnode-toggle {
+	width: 12%;
+	padding-right: 20px !important;
+}
+.hostnode-toggle .custom-switch {
+	display: inline-block;
+	float: right;
+}
+.hostnode-toggle .custom-switch .custom-control-label {
+	height: 24px !important;
+}
+.customer-list-page .customer-action {
+	width: 110px;
+	text-align: center;
+	display: table-cell;
+}

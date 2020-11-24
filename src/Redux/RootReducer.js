@@ -30,9 +30,17 @@ import UserStatusReducer from "Redux/V1/Users/ToggleStatus/UserStatusReducer";
 import MigrationGetReducer from "Redux/V1/Migration/Get/MigrationGetReducer";
 import MigrationFirstReducer from "Redux/V1/Migration/First/MigrationFirstReducer";
 import OneClickLoginReducer from "Redux/V1/Sites/OneClickLogin/OneClickLoginReducer";
+import DataCenterGetReducer from "Redux/V1/DataCenters/Get/DataCenterGetReducer";
+import DataCenterDeleteReducer from "Redux/V1/DataCenters/Delete/DataCenterDeleteReducer";
+import DataCenterFirstReducer from "Redux/V1/DataCenters/First/DataCenterFirstReducer";
+import DataCenterPostReducer from "Redux/V1/DataCenters/Post/DataCenterPostReducer";
+import DataCenterPutReducer from "Redux/V1/DataCenters/Put/DataCenterPutReducer";
 import HostNodeGetReducer from "Redux/V1/HostNodes/Get/HostNodeGetReducer";
 import HostNodeDeleteReducer from "Redux/V1/HostNodes/Delete/HostNodeDeleteReducer";
 import HostNodeFirstReducer from "Redux/V1/HostNodes/First/HostNodeFirstReducer";
+import HostNodePostReducer from "Redux/V1/HostNodes/Post/HostNodePostReducer";
+import HostNodePutReducer from "Redux/V1/HostNodes/Put/HostNodePutReducer";
+import HostNodeStatusReducer from "Redux/V1/HostNodes/ToggleStatus/HostNodeStatusReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -66,7 +74,15 @@ export default combineReducers({
 	migrations: MigrationGetReducer,
 	migration_first: MigrationFirstReducer,
 	one_click: OneClickLoginReducer,
+	data_centers: DataCenterGetReducer,
+	data_center_delete: DataCenterDeleteReducer,
+	data_center_first: DataCenterFirstReducer,
+	data_center_post: DataCenterPostReducer,
+	data_center_put: DataCenterPutReducer,
 	hostnodes: HostNodeGetReducer,
 	hostnode_delete: HostNodeDeleteReducer,
 	hostnode_first: HostNodeFirstReducer,
+	hostnode_post: HostNodePostReducer,
+	hostnode_put: HostNodePutReducer,
+	hostnode_status: HostNodeStatusReducer,
 });

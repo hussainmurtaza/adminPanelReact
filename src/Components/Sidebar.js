@@ -243,7 +243,8 @@ class Sidebar extends Component {
 							</li>
 							<li
 								className={
-									this.props.active === "hostnodes"
+									this.props.active === "hostnodes" ||
+									this.props.active === "create-hostnode"
 										? "nav-item show"
 										: "nav-item"
 								}
@@ -251,13 +252,14 @@ class Sidebar extends Component {
 								<a
 									href="/"
 									className={
-										this.props.active === "hostnodes"
+										this.props.active === "hostnodes" ||
+										this.props.active === "create-hostnode"
 											? "active nav-link with-sub"
 											: "nav-link with-sub"
 									}
 								>
 									<i data-feather="package"></i>
-									HostNodes
+									Host Nodes
 								</a>
 								<nav className="nav">
 									<a
@@ -268,7 +270,64 @@ class Sidebar extends Component {
 												: ""
 										}
 									>
-										All HostNodes
+										All Host Nodes
+									</a>
+									<a
+										href="/create-hostnode"
+										className={
+											this.props.active ===
+											"create-hostnode"
+												? "active"
+												: ""
+										}
+									>
+										Create Host Nodes
+									</a>
+								</nav>
+							</li>
+							<li
+								className={
+									this.props.active === "datacenters" ||
+									this.props.active === "create-datacenter"
+										? "nav-item show"
+										: "nav-item"
+								}
+							>
+								<a
+									href="/"
+									className={
+										this.props.active === "datacenters" ||
+										this.props.active ===
+											"create-datacenter"
+											? "active nav-link with-sub"
+											: "nav-link with-sub"
+									}
+								>
+									<i data-feather="database"></i>
+									Data Centers
+								</a>
+								<nav className="nav">
+									<a
+										href="/datacenters"
+										className={
+											this.props.active === "datacenters"
+												? "active"
+												: ""
+										}
+									>
+										{" "}
+										All Data Centers
+									</a>
+									<a
+										href="/create-datacenter"
+										className={
+											this.props.active ===
+											"create-datacenter"
+												? "active"
+												: ""
+										}
+									>
+										Create Data Center
 									</a>
 								</nav>
 							</li>

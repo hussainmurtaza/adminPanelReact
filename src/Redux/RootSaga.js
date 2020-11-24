@@ -30,9 +30,17 @@ import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
 import { OneClickLoginGetSaga } from "Redux/V1/Sites/OneClickLogin/OneClickLoginSaga";
 import { DashboardGetSaga } from "Redux/V1/Dashboard/Get/DashboardGetSaga";
+import { DataCenterGetSaga } from "Redux/V1/DataCenters/Get/DataCenterGetSaga";
+import { DataCenterDeleteSaga } from "Redux/V1/DataCenters/Delete/DataCenterDeleteSaga";
+import { DataCenterFirstSaga } from "Redux/V1/DataCenters/First/DataCenterFirstSaga";
+import { DataCenterPostSaga } from "Redux/V1/DataCenters/Post/DataCenterPostSaga";
+import { DataCenterPutSaga } from "Redux/V1/DataCenters/Put/DataCenterPutSaga";
 import { HostNodeGetSaga } from "Redux/V1/HostNodes/Get/HostNodeGetSaga";
 import { hostNodeDeleteSaga } from "Redux/V1/HostNodes/Delete/HostNodeDeleteSaga";
 import { HostNodeFirstSaga } from "Redux/V1/HostNodes/First/HostNodeFirstSaga";
+import { HostNodePostSaga } from "Redux/V1/HostNodes/Post/HostNodePostSaga";
+import { HostNodePutSaga } from "Redux/V1/HostNodes/Put/HostNodePutSaga";
+import { HostNodeStatusSaga } from "Redux/V1/HostNodes/ToggleStatus/HostNodeStatusSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -68,9 +76,16 @@ export default function* rootSaga() {
 		MigrationFirstSaga(),
 		DashboardGetSaga(),
 		OneClickLoginGetSaga(),
+		DataCenterGetSaga(),
+		DataCenterDeleteSaga(),
+		DataCenterFirstSaga(),
+		DataCenterPostSaga(),
+		DataCenterPutSaga(),
 		HostNodeGetSaga(),
 		hostNodeDeleteSaga(),
 		HostNodeFirstSaga(),
-		hostNodeDeleteSaga(),
+		HostNodePostSaga(),
+		HostNodePutSaga(),
+		HostNodeStatusSaga(),
 	]);
 }

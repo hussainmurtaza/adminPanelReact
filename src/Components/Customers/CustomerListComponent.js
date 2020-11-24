@@ -84,7 +84,7 @@ class CustomerListComponent extends Component {
 
 							<h4 className="page-header mg-b-15">
 								Customer List
-                            </h4>
+							</h4>
 							<div className="customer-list-page">
 								<Table striped bordered hover>
 									<thead>
@@ -95,7 +95,9 @@ class CustomerListComponent extends Component {
 											<th>Email</th>
 											<th>Status</th>
 											<th>Created At</th>
-											<th>Action</th>
+											<th className="customer-action">
+												Action
+											</th>
 										</tr>
 									</thead>
 									<tbody>
@@ -116,8 +118,13 @@ class CustomerListComponent extends Component {
 														</a>
 													</td>
 
-													<td>{customer.total_sites}</td>
-													<td>$ {customer.paid_revenue}</td>
+													<td>
+														{customer.total_sites}
+													</td>
+													<td>
+														${" "}
+														{customer.paid_revenue}
+													</td>
 													<td>{customer.email}</td>
 
 													<td>{customer.status}</td>
@@ -128,7 +135,7 @@ class CustomerListComponent extends Component {
 														)}
 													</td>
 
-													<td className="text-center custom-control custom-switch">
+													<td className="customer-action custom-control custom-switch">
 														<input
 															type="checkbox"
 															className="custom-control-input"
@@ -138,7 +145,7 @@ class CustomerListComponent extends Component {
 															}
 															checked={
 																customer.status ===
-																	"blocked"
+																"blocked"
 																	? true
 																	: false
 															}

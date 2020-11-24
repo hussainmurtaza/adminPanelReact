@@ -8,17 +8,12 @@ import UserDeleteAction from "Redux/V1/Users/Delete/UserDeleteAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-// import queryString from 'query-string';
-// import UserFilterAction from "Redux/V1/Users/Filter/UserFilterAction";
-// import UserSearchAction from "Redux/V1/Users/Search/UserSearchAction";
 import FilterForm from "Components/Forms/FilterForm";
 import UserStatusAction from "Redux/V1/Users/ToggleStatus/UserStatusAction";
 
 class UserListComponent extends Component {
 	componentDidMount() {
-		//const value = queryString.parse(this.props.location.search);
 		this.props.dispatch(UsersAction.getUsers());
-		//this.props.dispatch(UserFilterAction.filterUsers(value));
 	}
 	userDelete = (id) => {
 		this.props.dispatch(UserDeleteAction.deleteUser(id));
@@ -78,25 +73,29 @@ class UserListComponent extends Component {
 														{user.first_name}
 													</a>
 												</td>
-												<td><a
-													target="_blank"
-													rel="noopener noreferrer"
-													href={
-														"/user-update/" +
-														user.id
-													}
-												>
-													{user.last_name}
-												</a>
+												<td>
+													<a
+														target="_blank"
+														rel="noopener noreferrer"
+														href={
+															"/user-update/" +
+															user.id
+														}
+													>
+														{user.last_name}
+													</a>
 												</td>
-												<td><a
-													target="_blank"
-													rel="noopener noreferrer"
-													href={
-														"/user-update/" +
-														user.id
-													}
-												>{user.email}</a>
+												<td>
+													<a
+														target="_blank"
+														rel="noopener noreferrer"
+														href={
+															"/user-update/" +
+															user.id
+														}
+													>
+														{user.email}
+													</a>
 												</td>
 												<td>{user.status}</td>
 												<td>

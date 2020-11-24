@@ -109,11 +109,17 @@ class DashboardComponent extends Component {
 									linkText="View Migrations"
 									icon="grid"
 								/>
+								<DashboardViewComponent
+									heading="HostNodes"
+									link="hostnodes"
+									linkText="View HostHodes"
+									icon="package"
+								/>
 							</div>
 						</div>
 					</div>
 				</TemplateMain>
-			</React.Fragment >
+			</React.Fragment>
 		);
 	}
 }

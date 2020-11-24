@@ -20,8 +20,14 @@ import InvoiceListComponent from "Components/Invoices/InvoiceListComponent";
 import InvoiceSingleComponent from "Components/Invoices/InvoiceSingleComponent";
 import MigrationListComponent from "Components/Migration/MigrationListComponent";
 import MigrationSingleComponent from "Components/Migration/MigrationSingleComponent";
+import DataCenterListComponent from "Components/DataCenters/DataCenterListComponent";
+import DataCenterSingleComponent from "Components/DataCenters/DataCenterSingleComponent";
+import DataCenterUpdateComponent from "Components/DataCenters/DataCenterUpdateComponent";
+import DataCenterCreateComponent from "Components/DataCenters/DataCenterCreateComponent";
 import HostNodeListComponent from "Components/HostNodes/HostNodeListComponent";
+import HostNodeUpdateComponent from "Components/HostNodes/HostNodeUpdateComponent";
 import HostNodeSingleComponent from "Components/HostNodes/HostNodeSingleComponent";
+import HostNodeCreateComponent from "Components/HostNodes/HostNodeCreateComponent";
 
 class Main extends Component {
 	render() {
@@ -33,13 +39,13 @@ class Main extends Component {
 					loggedIn ? (
 						<Component {...props} />
 					) : (
-							<Redirect
-								to={{
-									pathname: "/login",
-									state: { from: props.location },
-								}}
-							/>
-						)
+						<Redirect
+							to={{
+								pathname: "/login",
+								state: { from: props.location },
+							}}
+						/>
+					)
 				}
 			/>
 		);
@@ -50,13 +56,13 @@ class Main extends Component {
 					!loggedIn ? (
 						<Component {...props} />
 					) : (
-							<Redirect
-								to={{
-									pathname: "/dashboard",
-									state: { from: props.location },
-								}}
-							/>
-						)
+						<Redirect
+							to={{
+								pathname: "/dashboard",
+								state: { from: props.location },
+							}}
+						/>
+					)
 				}
 			/>
 		);
@@ -148,6 +154,50 @@ class Main extends Component {
 						exact
 						path="/migration/:id"
 						component={MigrationSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/datacenters"
+						component={DataCenterListComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/create-datacenter"
+						component={DataCenterCreateComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/datacenter/:id"
+						component={DataCenterSingleComponent}
+					/>
+					<PrivateRoute
+						exact
+						path="/update-datacenter/:id"
+						component={DataCenterUpdateComponent}
+					/>
+
+					<PrivateRoute
+						exact
+						path="/hostnodes"
+						component={HostNodeListComponent}
+					/>
+
+					<PrivateRoute
+						exact
+						path="/hostnode/:id"
+						component={HostNodeSingleComponent}
+					/>
+
+					<PrivateRoute
+						exact
+						path="/hostnode-update/:id"
+						component={HostNodeUpdateComponent}
+					/>
+
+					<PrivateRoute
+						exact
+						path="/create-hostnode"
+						component={HostNodeCreateComponent}
 					/>
 
 					<PrivateRoute

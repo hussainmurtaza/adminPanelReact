@@ -3,6 +3,7 @@ import USER from "Redux/V1/Users/Delete/UserDeleteActionType";
 import UserDeleteAction from "Redux/V1/Users/Delete/UserDeleteAction";
 import UserService from "Services/V1/UserService";
 import ToastHelper from "Helpers/ToastHelper";
+import UserGetAction from "Redux/V1/Users/Get/UserGetAction";
 
 function* userDELETE(data) {
 	try {
@@ -10,9 +11,10 @@ function* userDELETE(data) {
 		if (response.success) {
 			ToastHelper.success(response.message);
 			yield put(UserDeleteAction.deleteUserSuccess(response.data));
-			setTimeout(function () {
-				window.location.href = "/users";
-			}, 1000);
+			yield put(UserGetAction.getUsers());
+			// setTimeout(function () {
+			// 	window.location.href = "/users";
+			// }, 1000);
 		} else {
 			ToastHelper.error(response.error.message);
 			yield put(UserDeleteAction.deleteUserFailed(response.error));

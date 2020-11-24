@@ -12,6 +12,7 @@ class InputText extends Component {
 					onChange={this.props.handleChange}
 					onBlur={this.props.handleBlur}
 					value={this.props.value}
+					required={this.props.required}
 				/>
 			</div>
 		);

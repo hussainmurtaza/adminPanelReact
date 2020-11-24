@@ -1,91 +1,11 @@
 import React, { Component } from "react";
-import { Row, Col, Container } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
-import { connect } from "react-redux";
 import TemplateMain from "Templates/TemplateMain";
-import UserFirstAction from "Redux/V1/Users/First/UserFirstAction";
-import UsersPutAction from "Redux/V1/Users/Put/UserPutAction";
-import PermissionAction from "Redux/V1/Permissions/Get/PermissionGetAction";
-import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
-import InputField from "Components/Forms/Fields/InputField";
-import InputSelectField from "Components/Forms/Fields/InputSelectField";
+import UserFormComponent from "Components/Users/Forms/UserFormComponent";
 
 class UserUpdateComponent extends Component {
-	state = {
-		form: {
-			first_name: null,
-			last_name: null,
-			email: null,
-			phone: null,
-			roles: [],
-			permissions: [],
-		},
-		default_data: false,
-	};
-	componentDidMount() {
-		this.props.dispatch(PermissionAction.getPermission());
-		this.props.dispatch(RolesAction.getRoles());
-		this.props.dispatch(
-			UserFirstAction.userFirst(this.props.match.params.id)
-		);
-	}
-	handleSubmit = (e) => {
-		e.preventDefault();
-		this.props.dispatch(
-			UsersPutAction.userPut({
-				form: this.state.form,
-				id: this.props.match.params.id,
-			})
-		);
-		console.log(this.state.form);
-	};
-	handleChange = (e) => {
-		let { form } = this.state;
-		form[e.target.name] = e.target.value;
-
-		this.setState({
-			form,
-		});
-	};
-	handleMultiSelect = (e, options) => {
-		let { form } = this.state;
-		form[e.name] = options;
-		this.setState({
-			form,
-		});
-	};
-	setDefaultData = () => {
-		const { form, default_data } = this.state;
-
-		if (default_data === false) {
-			setTimeout(() => {
-				form.first_name = this.props.user.first_name;
-				form.last_name = this.props.user.last_name;
-				form.email = this.props.user.email;
-				form.phone = this.props.user.contacts[0]['phone'];
-				form.permissions = this.props.user.permissions.map(
-					(permission) => {
-						return { value: permission.id, label: permission.name };
-					}
-				);
-				form.roles = this.props.user.roles.map((role) => {
-					return { value: role.id, label: role.name };
-				});
-
-				this.setState({ form, default_data: this.props.user_fetched });
-			}, 100);
-		}
-	};
 	render() {
-		const permissionOptions = this.props.permissions.map(function (
-			permission
-		) {
-			return { value: permission.id, label: permission.name };
-		});
-		const rolesOptions = this.props.roles.map(function (role) {
-			return { value: role.id, label: role.name };
-		});
-		this.setDefaultData();
 		return (
 			<React.Fragment>
 				<TemplateMain>
@@ -97,92 +17,11 @@ class UserUpdateComponent extends Component {
 								<h4 className="tx-color-01 mg-b-15">
 									Update User
 								</h4>
-								<form method="PUT" onSubmit={this.handleSubmit}>
-									<Row>
-										<Col sm={6} className="form-group">
-											<InputField
-												name="first_name"
-												placeholder="Enter your Firstname"
-												handleChange={this.handleChange}
-												defaultValue={
-													this.state.form.first_name
-												}
-											/>
-
-										</Col>
-										<Col sm={6} className="form-group">
-											<InputField
-												name="last_name"
-												placeholder="Enter your Lastname"
-												handleChange={this.handleChange}
-												defaultValue={
-													this.state.form.last_name
-												}
-											/>
-
-										</Col>
-										<Col sm={6} className="form-group">
-											<InputField
-												name="email"
-												placeholder="Enter your Email address"
-												handleChange={this.handleChange}
-												defaultValue={
-													this.state.form.email
-												}
-											/>
-
-										</Col>
-										<Col sm={6} className="form-group">
-											<InputField
-												name="phone"
-												placeholder="Enter your Phone Number"
-												handleChange={this.handleChange}
-												defaultValue={
-													this.state.form.phone
-												}
-											/>
-
-										</Col>
-										<Col sm={6} className="form-group">
-											<label>Assign Roles</label>
-											<InputSelectField
-												name="roles"
-												placeholder="Assign Roles"
-												option={rolesOptions}
-												onChange={(options, e) =>
-													this.handleMultiSelect(
-														e,
-														options
-													)
-												}
-												value={this.state.form.roles}
-											/>
-										</Col>
-										<Col sm={6} className="form-group">
-											<label>Assign Permissions</label>
-											<InputSelectField
-												name="permissions"
-												placeholder="Assign Permission"
-												option={permissionOptions}
-												onChange={(options, e) =>
-													this.handleMultiSelect(
-														e,
-														options
-													)
-												}
-												value={this.state.form.permissions}
-											/>
-										</Col>
-										<Col sm={12}>
-											<button
-												type="submit"
-												className="btn btn-brand-02 btn-block"
-											>
-												Update User
-											</button>
-										</Col>
-									</Row>
-								</form>
+								<UserFormComponent
+									method="PUT"
+									params={this.props.match.params.id}
+									submitText="Update"
+								/>
 							</Container>
 						</div>
 					</div>
@@ -192,13 +31,4 @@ class UserUpdateComponent extends Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {
-		user: state.user_first.user,
-		user_fetched: state.user_first.fetched,
-		permissions: state.permissions.permissions,
-		roles: state.roles.roles,
-	};
-};
-
-export default connect(mapStateToProps)(UserUpdateComponent);
+export default UserUpdateComponent;
