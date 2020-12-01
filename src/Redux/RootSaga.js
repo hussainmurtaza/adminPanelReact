@@ -42,6 +42,7 @@ import { HostNodeFirstSaga } from "Redux/V1/HostNodes/First/HostNodeFirstSaga";
 import { HostNodePostSaga } from "Redux/V1/HostNodes/Post/HostNodePostSaga";
 import { HostNodePutSaga } from "Redux/V1/HostNodes/Put/HostNodePutSaga";
 import { HostNodeStatusSaga } from "Redux/V1/HostNodes/ToggleStatus/HostNodeStatusSaga";
+import { MigrationPutSaga } from "Redux/V1/Migration/Put/MigrationPutSaga";
 
 export default function* rootSaga() {
 	yield all([
@@ -89,5 +90,6 @@ export default function* rootSaga() {
 		HostNodePostSaga(),
 		HostNodePutSaga(),
 		HostNodeStatusSaga(),
+		MigrationPutSaga(),
 	]);
 }

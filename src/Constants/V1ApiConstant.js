@@ -27,5 +27,8 @@ const V1 = {
 	user: {
 		user_status: "v1/users/status/",
 	},
+	migration: {
+		migration_status: "v1/migrations/status/",
+	},
 };
 export default V1;

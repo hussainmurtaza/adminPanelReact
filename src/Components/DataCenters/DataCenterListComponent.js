@@ -8,13 +8,18 @@ import DataCenterDeleteAction from "Redux/V1/DataCenters/Delete/DataCenterDelete
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import Confirm from "Helpers/ConfirmationHelper";
 
 class DataCenterListComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(DataCentersAction.getDataCenters());
 	}
 	dataCenterDelete = (id) => {
-		this.props.dispatch(DataCenterDeleteAction.deleteDataCenter(id));
+		Confirm(
+			this.props.dispatch,
+			DataCenterDeleteAction.deleteDataCenter(id)
+		);
+		//this.props.dispatch(DataCenterDeleteAction.deleteDataCenter(id));
 	};
 	render() {
 		return (

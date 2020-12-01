@@ -9,13 +9,15 @@ import RolesAction from "Redux/V1/Roles/Get/RoleGetAction";
 import RoleDeleteAction from "Redux/V1/Roles/Delete/RoleDeleteAction";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import Confirm from "Helpers/ConfirmationHelper";
 
 class RoleListComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(RolesAction.getRoles());
 	}
 	roleDelete = (id) => {
-		this.props.dispatch(RoleDeleteAction.deleteRole(id));
+		//this.props.dispatch(RoleDeleteAction.deleteRole(id));
+		Confirm(this.props.dispatch, RoleDeleteAction.deleteRole(id));
 	};
 	render() {
 		return (
@@ -29,7 +31,9 @@ class RoleListComponent extends Component {
 								<thead>
 									<tr>
 										<th>Name</th>
-										<th className="permissions">Permissions</th>
+										<th className="permissions">
+											Permissions
+										</th>
 										<th className="actions">Actions</th>
 									</tr>
 								</thead>

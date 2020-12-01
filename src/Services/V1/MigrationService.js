@@ -14,11 +14,19 @@ const get = async (data) => {
 	return response;
 };
 
-
-
-const UserService = {
-	getAll,
-	get
+const put = async (data) => {
+	//console.log(data, "datastatus");
+	const response = await Gateway.authGateway(
+		"PUT",
+		V1.migration.migration_status + data
+	);
+	return response;
 };
 
-export default UserService;
+const MigrationService = {
+	getAll,
+	get,
+	put,
+};
+
+export default MigrationService;

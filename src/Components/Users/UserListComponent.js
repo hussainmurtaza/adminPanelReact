@@ -10,13 +10,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import FilterForm from "Components/Forms/FilterForm";
 import UserStatusAction from "Redux/V1/Users/ToggleStatus/UserStatusAction";
+import Confirm from "Helpers/ConfirmationHelper";
 
 class UserListComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(UsersAction.getUsers());
 	}
 	userDelete = (id) => {
-		this.props.dispatch(UserDeleteAction.deleteUser(id));
+		//this.props.dispatch(UserDeleteAction.deleteUser(id));
+		Confirm(this.props.dispatch, UserDeleteAction.deleteUser(id));
 	};
 	onSwitch = (id) => {
 		this.props.dispatch(UserStatusAction.userStatus(id));

@@ -42,6 +42,7 @@ import HostNodeFirstReducer from "Redux/V1/HostNodes/First/HostNodeFirstReducer"
 import HostNodePostReducer from "Redux/V1/HostNodes/Post/HostNodePostReducer";
 import HostNodePutReducer from "Redux/V1/HostNodes/Put/HostNodePutReducer";
 import HostNodeStatusReducer from "Redux/V1/HostNodes/ToggleStatus/HostNodeStatusReducer";
+import MigrationPutReducer from "Redux/V1/Migration/Put/MigrationPutReducer";
 
 export default combineReducers({
 	login: LoginReducer,
@@ -87,4 +88,5 @@ export default combineReducers({
 	hostnode_post: HostNodePostReducer,
 	hostnode_put: HostNodePutReducer,
 	hostnode_status: HostNodeStatusReducer,
+	migration_put: MigrationPutReducer,
 });

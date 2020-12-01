@@ -200,18 +200,6 @@ class Main extends Component {
 						component={HostNodeCreateComponent}
 					/>
 
-					<PrivateRoute
-						exact
-						path="/hostnodes"
-						component={HostNodeListComponent}
-					/>
-
-					<PrivateRoute
-						exact
-						path="/hostnode/:id"
-						component={HostNodeSingleComponent}
-					/>
-
 					<Redirect to="/users" />
 				</Switch>
 				<ToastContainer />

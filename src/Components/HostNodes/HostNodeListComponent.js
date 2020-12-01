@@ -9,13 +9,15 @@ import HostNodeDeleteAction from "Redux/V1/HostNodes/Delete/HostNodeDeleteAction
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import HostNodeStatusAction from "Redux/V1/HostNodes/ToggleStatus/HostNodeStatusAction";
+import Confirm from "Helpers/ConfirmationHelper";
 
 class HostNodeListComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(HostNodesAction.getHostNodes());
 	}
 	hostNodeDelete = (id) => {
-		this.props.dispatch(HostNodeDeleteAction.deleteHostNode(id));
+		//this.props.dispatch(HostNodeDeleteAction.deleteHostNode(id));
+		Confirm(this.props.dispatch, HostNodeDeleteAction.deleteHostNode(id));
 	};
 	onSwitch = (id) => {
 		this.props.dispatch(HostNodeStatusAction.hostNodeStatus(id));
