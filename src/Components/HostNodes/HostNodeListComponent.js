@@ -37,7 +37,7 @@ class HostNodeListComponent extends Component {
 									<tr>
 										<th>Data Center Name</th>
 										<th>Server</th>
-										<th>Identity</th>
+										<th>Total Container</th>
 										<th>Public IP</th>
 										<th className="hostnode-toggle">
 											Status
@@ -50,7 +50,7 @@ class HostNodeListComponent extends Component {
 										<tr>
 											<td>{hostnode.location}</td>
 											<td>{hostnode.server}</td>
-											<td>{hostnode.identity}</td>
+											<td>{hostnode.total_containers}</td>
 											<td>{hostnode.public_ip}</td>
 											<td className="hostnode-toggle">
 												{hostnode.status}
