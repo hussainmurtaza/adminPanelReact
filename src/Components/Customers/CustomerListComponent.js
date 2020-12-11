@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table } from "react-bootstrap";
+import { Table, Row, Col } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import CustomersAction from "Redux/V1/Customers/Get/CustomerGetAction";
@@ -12,7 +12,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import queryString from "query-string";
 import FilterForm from "Components/Forms/FilterForm";
 import CustomerPutAction from "Redux/V1/Customers/Put/CustomerPutAction";
-
+import PaginationDropDown from "Components/Includes/DropDownComponent";
+import PaginationNumber from "Components/Includes/PaginationComponent";
 class CustomerListComponent extends Component {
 	state = {
 		form: {
@@ -184,6 +185,15 @@ class CustomerListComponent extends Component {
 										)}
 									</tbody>
 								</Table>
+								<Row>
+									<Col md={4}>
+										<PaginationDropDown title={"Sites"} />
+									</Col>
+									<Col md={4}>
+										<PaginationNumber />
+									</Col>
+									<Col md={4}></Col>
+								</Row>
 							</div>
 						</div>
 					</div>

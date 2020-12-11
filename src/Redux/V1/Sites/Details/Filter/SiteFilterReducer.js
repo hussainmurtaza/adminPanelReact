@@ -5,6 +5,7 @@ const SitesDetails = (
 		loading: false,
 		success: false,
 		sites: [],
+		pagination: "",
 	},
 	action
 ) => {
@@ -20,6 +21,7 @@ const SitesDetails = (
 				...state,
 				loading: false,
 				sites: action.response.sites,
+				pagination: action.response.pagination,
 			};
 		case SITES.FILTER_SITES_FAILED:
 			return { ...state, loading: false, error: action.response };

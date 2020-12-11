@@ -72,11 +72,30 @@ const put = async (id) => {
 	return response;
 };
 
+const search = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		`${V1.auth.customers}/search${smartSearchBody(data)}`
+	);
+	return response;
+};
+
+const smartSearchBody = (data) => {
+	//console.log(data, "smartSearchBody");
+	let query = "?";
+
+	query += `field=${data.field}&`;
+	query += `value=${data.value}`;
+
+	return query;
+};
+
 const CustomerService = {
 	getAll,
 	get,
 	filter,
 	put,
+	search,
 };
 
 export default CustomerService;

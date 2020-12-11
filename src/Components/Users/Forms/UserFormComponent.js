@@ -44,6 +44,7 @@ class UserFormComponent extends Component {
 		this.setState({
 			form,
 		});
+		console.log(this.state.form);
 	};
 	handleSubmit = (e) => {
 		if (this.props.method === "PUT") {

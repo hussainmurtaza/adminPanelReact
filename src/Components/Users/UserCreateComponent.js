@@ -3,7 +3,6 @@ import { Container } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import UserFormComponent from "Components/Users/Forms/UserFormComponent";
-
 class CreateUserComponent extends Component {
 	render() {
 		return (

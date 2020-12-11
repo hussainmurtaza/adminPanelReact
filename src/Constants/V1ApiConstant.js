@@ -20,6 +20,8 @@ const V1 = {
 		},
 		data_centers: "v1/data-centers",
 		hostnodes: "v1/hostnodes",
+		containers: "v1/containers",
+		domains: "v1/domains",
 	},
 	hostnode: {
 		hostnode_status: "v1/hostnodes/toggle-status/",

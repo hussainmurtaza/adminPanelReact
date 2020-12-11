@@ -49,12 +49,31 @@ const put = async (data, id) => {
 	return response;
 };
 
+const search = async (data) => {
+	const response = await Gateway.authGateway(
+		"GET",
+		`${V1.auth.data_centers}/search${smartSearchBody(data)}`
+	);
+	return response;
+};
+
+const smartSearchBody = (data) => {
+	//console.log(data, "smartSearchBody");
+	let query = "?";
+
+	query += `field=${data.field}&`;
+	query += `value=${data.value}`;
+
+	return query;
+};
+
 const DataCenterService = {
 	getAll,
 	get,
 	post,
 	dataCenterDelete,
 	put,
+	search,
 };
 
 export default DataCenterService;

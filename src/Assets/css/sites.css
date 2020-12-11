@@ -1,0 +1,7 @@
+.sort-btn {
+	cursor: pointer;
+}
+.page-item.active .page-link {
+	background-color: #0148ae !important;
+	box-shadow: none;
+}
