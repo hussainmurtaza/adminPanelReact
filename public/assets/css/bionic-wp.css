@@ -170,22 +170,7 @@ body {
 .migration-status {
 	width: 250px;
 }
-.hostnode-toggle {
-	width: 12%;
-	padding-right: 20px !important;
-}
-.hostnode-toggle .custom-switch {
-	display: inline-block;
-	float: right;
-}
-.hostnode-toggle .custom-switch .custom-control-label {
-	height: 24px !important;
-}
-.customer-list-page .customer-action {
-	width: 110px;
-	text-align: center;
-	display: table-cell;
-}
+
 .migration-status label {
 	display: none;
 }
@@ -204,4 +189,16 @@ body {
 	width: 110px;
 	text-align: center;
 	display: table-cell;
+}
+.page-404 {
+	height: 100vh;
+}
+.custom-switch .custom-control-label {
+	cursor: pointer;
+}
+.custom-switch .custom-control-label::before {
+	margin-left: -2px;
+}
+.swal2-styled:focus {
+	box-shadow: none !important;
 }

@@ -28,6 +28,10 @@ function loginPostSuccess(data) {
 		"admin_user",
 		JSON.stringify(data.response.authentication.user)
 	);
+	localStorage.setItem(
+		"permissions",
+		JSON.stringify(data.response.authentication.permissions)
+	);
 	setTimeout(() => {
 		window.location.href = "/dashboard";
 	}, 1000);

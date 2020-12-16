@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Table, Row, Col } from "react-bootstrap";
+import { Badge } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import UsersAction from "Redux/V1/Users/Get/UserGetAction";
@@ -19,11 +20,10 @@ class UserListComponent extends Component {
         this.props.dispatch(UsersAction.getUsers());
     }
     userDelete = (id) => {
-        //this.props.dispatch(UserDeleteAction.deleteUser(id));
         Confirm(this.props.dispatch, UserDeleteAction.deleteUser(id));
     };
     onSwitch = (id) => {
-        this.props.dispatch(UserStatusAction.userStatus(id));
+        Confirm(this.props.dispatch, UserStatusAction.userStatus(id));
     };
 
     render() {
@@ -56,6 +56,7 @@ class UserListComponent extends Component {
                                             <th>Last Name</th>
                                             <th>Email</th>
                                             <th>Status</th>
+                                            <th>Role</th>
                                             <th>Created At</th>
                                             <th className="text-center">
                                                 Action
@@ -102,6 +103,16 @@ class UserListComponent extends Component {
                                                     </a>
                                                 </td>
                                                 <td>{user.status}</td>
+                                                <td>
+                                                    {user.roles.map((role) => (
+                                                        <Badge
+                                                            variant="primary"
+                                                            className="mr-2"
+                                                        >
+                                                            {role.name}
+                                                        </Badge>
+                                                    ))}
+                                                </td>
                                                 <td>
                                                     {TimeStampHelper.standardDateFormat(
                                                         `${user.created_at}`

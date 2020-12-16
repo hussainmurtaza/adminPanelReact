@@ -5,8 +5,8 @@ const Confirm = (dis, operation, message = null) => {
 		text: message === null ? "Do you really want to do this?" : message,
 		icon: "warning",
 		showCancelButton: true,
-		confirmButtonColor: "#3085d6",
-		cancelButtonColor: "#d33",
+		confirmButtonColor: "#d33",
+		cancelButtonColor: "#3085d6",
 		confirmButtonText: "Yes",
 	}).then((result) => {
 		if (result.value) {

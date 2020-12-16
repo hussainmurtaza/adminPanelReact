@@ -3,7 +3,7 @@ import CUSTOMER from "Redux/V1/Customers/Put/CustomerPutActionType";
 import CustomerPutAction from "Redux/V1/Customers/Put/CustomerPutAction";
 import CustomerService from "Services/V1/CustomerService";
 import ToastHelper from "Helpers/ToastHelper";
-import CustomersAction from "Redux/V1/Customers/Filter/CustomerFilterAction";
+import CustomersAction from "Redux/V1/Customers/Get/CustomerGetAction";
 
 function* customerPut(data) {
 	//console.log(data, "saga delete");
@@ -12,7 +12,7 @@ function* customerPut(data) {
 		if (response.success) {
 			ToastHelper.success(response.message);
 			yield put(CustomerPutAction.PutCustomersSuccess(response.data));
-			yield put(CustomersAction.filterCustomers(response.data));
+			yield put(CustomersAction.getCustomers(response.data));
 		} else {
 			ToastHelper.error(response.error.message);
 			yield put(CustomerPutAction.PutCustomersFailed(response.error));

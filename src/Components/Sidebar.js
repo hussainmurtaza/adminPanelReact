@@ -1,3 +1,4 @@
+import PermissionHelper from "Helpers/PermissionHelper";
 import React, { Component } from "react";
 
 class Sidebar extends Component {
@@ -19,318 +20,443 @@ class Sidebar extends Component {
 					</div>
 					<div className="sidebar-body">
 						<ul className="sidebar-nav">
-							<li className="nav-item">
-								<a
-									href="/dashboard"
-									className={
-										this.props.active === "dashboard"
-											? "active nav-link"
-											: "nav-link"
-									}
-								>
-									<i data-feather="layout"></i> Dashboard
-								</a>
-							</li>
-							<li
-								className={
-									this.props.active === "create-user" ||
-									this.props.active === "users"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+							{PermissionHelper.validate([
+								"access_all",
+								"dashboard_all",
+							]) ? (
+								<li className="nav-item">
+									<a
+										href="/dashboard"
+										className={
+											this.props.active === "dashboard"
+												? "active nav-link"
+												: "nav-link"
+										}
+									>
+										<i data-feather="layout"></i> Dashboard
+									</a>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"users_all",
+								"users_create",
+								"users_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "create-user" ||
 										this.props.active === "users"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="users"></i> Users
-								</a>
-								<nav className="nav">
 									<a
-										href="/users"
+										href="/"
 										className={
+											this.props.active ===
+												"create-user" ||
 											this.props.active === "users"
-												? "active"
-												: ""
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										All Users
+										<i data-feather="users"></i> Users
 									</a>
-									<a
-										href="/create-user"
-										className={
-											this.props.active === "create-user"
-												? "active"
-												: ""
-										}
-									>
-										Create User
-									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "roles" ||
-									this.props.active === "create-roles"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+
+									<nav className="nav">
+										{PermissionHelper.validate([
+											"access_all",
+											"users_all",
+											"users_read",
+											"users_update",
+											"users_delete",
+										]) ? (
+											<a
+												href="/users"
+												className={
+													this.props.active ===
+													"users"
+														? "active"
+														: ""
+												}
+											>
+												All Users
+											</a>
+										) : null}
+										{PermissionHelper.validate([
+											"access_all",
+											"users_all",
+											"users_create",
+										]) ? (
+											<a
+												href="/create-user"
+												className={
+													this.props.active ===
+													"create-user"
+														? "active"
+														: ""
+												}
+											>
+												Create User
+											</a>
+										) : null}
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"roles_all",
+								"roles_create",
+								"roles_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "roles" ||
 										this.props.active === "create-roles"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="globe"></i>
-									Roles
-								</a>
-								<nav className="nav">
 									<a
-										href="/roles"
+										href="/"
 										className={
-											this.props.active === "roles"
-												? "active"
-												: ""
-										}
-									>
-										{" "}
-										All Roles
-									</a>
-									<a
-										href="/create-roles"
-										className={
+											this.props.active === "roles" ||
 											this.props.active === "create-roles"
-												? "active"
-												: ""
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										Create Role
+										<i data-feather="globe"></i>
+										Roles
 									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "customers"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+									<nav className="nav">
+										{PermissionHelper.validate([
+											"access_all",
+											"roles_all",
+											"roles_read",
+											"roles_update",
+											"roles_delete",
+										]) ? (
+											<a
+												href="/roles"
+												className={
+													this.props.active ===
+													"roles"
+														? "active"
+														: ""
+												}
+											>
+												{" "}
+												All Roles
+											</a>
+										) : null}
+										{PermissionHelper.validate([
+											"access_all",
+											"roles_all",
+											"roles_create",
+										]) ? (
+											<a
+												href="/create-roles"
+												className={
+													this.props.active ===
+													"create-roles"
+														? "active"
+														: ""
+												}
+											>
+												Create Role
+											</a>
+										) : null}
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"customers_all",
+								"customers_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "customers"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="user"></i>
-									Customers
-								</a>
-								<nav className="nav">
 									<a
-										href="/customers"
+										href="/"
 										className={
 											this.props.active === "customers"
-												? "active"
-												: ""
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										All Customers
+										<i data-feather="user"></i>
+										Customers
 									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "sites"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+									<nav className="nav">
+										<a
+											href="/customers"
+											className={
+												this.props.active ===
+												"customers"
+													? "active"
+													: ""
+											}
+										>
+											All Customers
+										</a>
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"sites_all",
+								"sites_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "sites"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="layers"></i>
-									Sites
-								</a>
-								<nav className="nav">
 									<a
-										href="/sites"
+										href="/"
 										className={
 											this.props.active === "sites"
-												? "active"
-												: ""
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										All Sites
+										<i data-feather="layers"></i>
+										Sites
 									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "invoices"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+									<nav className="nav">
+										<a
+											href="/sites"
+											className={
+												this.props.active === "sites"
+													? "active"
+													: ""
+											}
+										>
+											All Sites
+										</a>
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"invoices_all",
+								"invoices_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "invoices"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="inbox"></i>
-									Invoices
-								</a>
-								<nav className="nav">
 									<a
-										href="/invoices"
+										href="/"
 										className={
 											this.props.active === "invoices"
-												? "active"
-												: ""
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										All Invoices
+										<i data-feather="inbox"></i>
+										Invoices
 									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "migrations"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+									<nav className="nav">
+										<a
+											href="/invoices"
+											className={
+												this.props.active === "invoices"
+													? "active"
+													: ""
+											}
+										>
+											All Invoices
+										</a>
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"migrations_all",
+								"migrations_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "migrations"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="grid"></i>
-									Migrations
-								</a>
-								<nav className="nav">
 									<a
-										href="/migrations"
+										href="/"
 										className={
 											this.props.active === "migrations"
-												? "active"
-												: ""
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										All Migration
+										<i data-feather="grid"></i>
+										Migrations
 									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "hostnodes" ||
-									this.props.active === "create-hostnode"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+									<nav className="nav">
+										<a
+											href="/migrations"
+											className={
+												this.props.active ===
+												"migrations"
+													? "active"
+													: ""
+											}
+										>
+											All Migration
+										</a>
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"host_nodes_all",
+								"host_nodes_read",
+								"host_nodes_create",
+							]) ? (
+								<li
 									className={
 										this.props.active === "hostnodes" ||
 										this.props.active === "create-hostnode"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="package"></i>
-									Host Nodes
-								</a>
-								<nav className="nav">
 									<a
-										href="/hostnodes"
+										href="/"
 										className={
-											this.props.active === "hostnodes"
-												? "active"
-												: ""
-										}
-									>
-										All Host Nodes
-									</a>
-									<a
-										href="/create-hostnode"
-										className={
+											this.props.active === "hostnodes" ||
 											this.props.active ===
-											"create-hostnode"
-												? "active"
-												: ""
+												"create-hostnode"
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										Create Host Nodes
+										<i data-feather="package"></i>
+										Host Nodes
 									</a>
-								</nav>
-							</li>
-							<li
-								className={
-									this.props.active === "datacenters" ||
-									this.props.active === "create-datacenter"
-										? "nav-item show"
-										: "nav-item"
-								}
-							>
-								<a
-									href="/"
+									<nav className="nav">
+										{PermissionHelper.validate([
+											"access_all",
+											"host_nodes_all",
+											"host_nodes_read",
+											"host_nodes_update",
+											"host_nodes_delete",
+										]) ? (
+											<a
+												href="/hostnodes"
+												className={
+													this.props.active ===
+													"hostnodes"
+														? "active"
+														: ""
+												}
+											>
+												All Host Nodes
+											</a>
+										) : null}
+										{PermissionHelper.validate([
+											"access_all",
+											"host_nodes_all",
+											"host_nodes_create",
+										]) ? (
+											<a
+												href="/create-hostnode"
+												className={
+													this.props.active ===
+													"create-hostnode"
+														? "active"
+														: ""
+												}
+											>
+												Create Host Nodes
+											</a>
+										) : null}
+									</nav>
+								</li>
+							) : null}
+							{PermissionHelper.validate([
+								"access_all",
+								"data_centers_all",
+								"data_centers_read",
+							]) ? (
+								<li
 									className={
 										this.props.active === "datacenters" ||
 										this.props.active ===
 											"create-datacenter"
-											? "active nav-link with-sub"
-											: "nav-link with-sub"
+											? "nav-item show"
+											: "nav-item"
 									}
 								>
-									<i data-feather="database"></i>
-									Data Centers
-								</a>
-								<nav className="nav">
 									<a
-										href="/datacenters"
-										className={
-											this.props.active === "datacenters"
-												? "active"
-												: ""
-										}
-									>
-										{" "}
-										All Data Centers
-									</a>
-									<a
-										href="/create-datacenter"
+										href="/"
 										className={
 											this.props.active ===
-											"create-datacenter"
-												? "active"
-												: ""
+												"datacenters" ||
+											this.props.active ===
+												"create-datacenter"
+												? "active nav-link with-sub"
+												: "nav-link with-sub"
 										}
 									>
-										Create Data Center
+										<i data-feather="database"></i>
+										Data Centers
 									</a>
-								</nav>
-							</li>
+									<nav className="nav">
+										{PermissionHelper.validate([
+											"access_all",
+											"data_centers_all",
+											"data_centers_read",
+											"data_centers_update",
+											"data_centers_delete",
+										]) ? (
+											<a
+												href="/datacenters"
+												className={
+													this.props.active ===
+													"datacenters"
+														? "active"
+														: ""
+												}
+											>
+												{" "}
+												All Data Centers
+											</a>
+										) : null}
+										{PermissionHelper.validate([
+											"access_all",
+											"data_centers_all",
+											"data_centers_create",
+										]) ? (
+											<a
+												href="/create-datacenter"
+												className={
+													this.props.active ===
+													"create-datacenter"
+														? "active"
+														: ""
+												}
+											>
+												Create Data Center
+											</a>
+										) : null}
+									</nav>
+								</li>
+							) : null}
 						</ul>
 					</div>
 				</div>
