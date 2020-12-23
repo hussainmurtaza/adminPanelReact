@@ -13,9 +13,6 @@ function* migrationPut(data) {
         if (response.success) {
             ToastHelper.success(response.message);
             yield put(MigrationPutAction.migrationPutSuccess(response.data));
-            setTimeout(function () {
-                window.location.reload();
-            }, 500);
         } else {
             ToastHelper.error(response.error.message);
             yield put(MigrationPutAction.migrationPutFailed(response.error));
