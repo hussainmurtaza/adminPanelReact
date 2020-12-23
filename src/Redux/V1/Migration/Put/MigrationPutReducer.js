@@ -4,7 +4,7 @@ const MigrationPutReducer = (
 	state = {
 		loading: false,
 		success: false,
-		migration_status: {},
+		migration: {},
 		err_mess: "",
 	},
 	action
@@ -21,7 +21,7 @@ const MigrationPutReducer = (
 				...state,
 				loading: false,
 				success: true,
-				migration_status: action.response.migration_status,
+				migration: action.response.migration,
 			};
 		case MIGRATION.MIGRATION_PUT_FAILED:
 			return { ...state, loading: false, err_mess: action.response };

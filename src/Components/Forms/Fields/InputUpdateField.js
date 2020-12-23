@@ -11,11 +11,12 @@ class InputUpdateField extends React.Component {
 						id={this.props.name}
 						name={this.props.name}
 						placeholder={this.props.placeholder}
-						onChange={this.props.onChange}
+						onInput={this.props.onChange}
 						className="form-control"
 						required={this.props.required}
 						defaultValue={this.props.defaultValue}
 						pattern={this.props.pattern}
+						step={this.props.step}
 					/>
 				</div>
 			</React.Fragment>

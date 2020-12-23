@@ -202,3 +202,10 @@ body {
 .swal2-styled:focus {
 	box-shadow: none !important;
 }
+.custom-switch .custom-control-label {
+	cursor: pointer;
+	height: 46px !important;
+}
+.custom-switch .custom-control-label::before {
+	margin-left: -2px;
+}

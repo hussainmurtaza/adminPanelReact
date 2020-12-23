@@ -11,7 +11,7 @@ class InputField extends React.Component {
 						id={this.props.name}
 						name={this.props.name}
 						placeholder={this.props.placeholder}
-						onChange={this.props.handleChange}
+						onInput={this.props.handleChange}
 						className="form-control"
 						required={this.props.required}
 						defaultValue={this.props.defaultValue}
