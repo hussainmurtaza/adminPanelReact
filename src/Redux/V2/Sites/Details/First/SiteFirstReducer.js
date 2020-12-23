@@ -4,21 +4,10 @@ const siteDetails = (
 	state = {
 		loading: false,
 		site: {
-			user: {
-				email: null,
-				first_name: null,
-				last_name: null,
-				status: null,
-				created_at: null,
-			},
-			server_details: {
-				ip_address: null,
-				location: null,
-				monit: null,
-			},
-			container: {
-				identity: null,
-			},
+			user: {},
+			server_details: {},
+			container: {},
+			addons: [],
 		},
 		err_mess: null,
 	},

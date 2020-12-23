@@ -32,5 +32,9 @@ const V1 = {
 	migration: {
 		migration_status: "v1/migrations/status/",
 	},
+	operation: {
+		cache_clear: "v1/sites/cache/",
+		permissions_reset: "v1/sites/permission/",
+	},
 };
 export default V1;

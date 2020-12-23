@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import Sidebar from "Components/Sidebar";
 import SiteFirstAction from "Redux/V1/Sites/Details/First/SiteFirstAction";
 import TemplateMain from "Templates/TemplateMain";
-import { Table, Row, Col, Button } from "react-bootstrap";
-import TimeStampHelper from "Helpers/TimeStampHelper";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import SiteUpdateComponent from "Components/Sites/SiteUpdateComponent";
+import { Tabs, Tab, Row, Col, Button } from "react-bootstrap";
+import SiteUpdateComponent from "Components/Sites/SiteDashboard/SiteUpdateComponent";
 import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginAction";
-
+import SiteDetailComponent from "Components/Sites/SiteDashboard/SiteDetailComponent";
+import SiteCustomer from "Components/Sites/SiteDashboard/SiteCustomerComponent";
+import SiteOperation from "Components/Sites/SiteDashboard/SiteOperationComponent";
+import SiteAddonComponent from "Components/Sites/SiteDashboard/SiteAddonComponent";
 class SiteSingleComponent extends Component {
 	componentDidMount() {
 		this.props.dispatch(
@@ -22,8 +22,6 @@ class SiteSingleComponent extends Component {
 	};
 
 	render() {
-		const site = this.props.site;
-		const userData = this.props.site.user;
 		const serverDetail = this.props.site.server_details;
 		return (
 			<React.Fragment>
@@ -33,11 +31,7 @@ class SiteSingleComponent extends Component {
 					<div className="content content-components">
 						<div className="container">
 							<Row className="align-items-center">
-								<Col>
-								<h4 className="page-header">
-									Site Details
-								</h4>
-								</Col>
+								<Col></Col>
 								<Col className="text-right mb-3 site-button">
 									<a
 										className="btn-brand-02 btn btn-primary"
@@ -48,111 +42,62 @@ class SiteSingleComponent extends Component {
 										<i data-feather="monitor"></i> Monit
 									</a>{" "}
 									<Button
-									className="btn-brand-02" 
-									data-identity={this.props.site.container.identity}
-									onClick={(e) => this.quickLogin(e)}
+										className="btn-brand-02"
+										data-identity={
+											this.props.site.container.identity
+										}
+										onClick={(e) => this.quickLogin(e)}
 									>
-									<img
-										src="/assets/img/Wordpress-white.png"
-										alt="wordpresswhite"
-									/>{" "}
-									WP Admin
-								</Button>
-							</Col>
+										<img
+											src="/assets/img/Wordpress-white.png"
+											alt="wordpresswhite"
+										/>{" "}
+										WP Admin
+									</Button>
+								</Col>
 							</Row>
-							<Table striped bordered hover>
-								<thead>
-									<tr>
-										<th>Field</th>
-										<th>Value</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>Site Name</td>
-										<td>{site.name}</td>
-									</tr>
-									<tr>
-										<td>Host</td>
-										<td>
-											<a
-												target="
-													_blank"
-												href={
-													"https://" +
-													this.props.site
-														.primary_domain
-												}
-											>
-												{this.props.site.primary_domain}
-												<FontAwesomeIcon
-													icon={faExternalLinkAlt}
-													className="ml-2"
-												/>
-											</a>
-										</td>
-									</tr>
-									<tr>
-										<td>Site Type</td>
-										<td>{this.props.site.site_type}</td>
-									</tr>
-									<tr>
-										<td>Create At</td>
-										<td>
-											{TimeStampHelper.standardDateFormat(
-												this.props.site.created_at
-											)}
-										</td>
-									</tr>
-									<tr>
-										<td>Flag</td>
-										<td>{this.props.site.flag}</td>
-									</tr>
-									<tr>
-										<td>Location</td>
-										<td>{serverDetail.location}</td>
-									</tr>
-									<tr>
-										<td>IP Address</td>
-										<td>{serverDetail.ip_address}</td>
-									</tr>
-								</tbody>
-							</Table>
-
-							<h4 className="page-header mg-b-15 mt-4">
-								Customer Details
-							</h4>
-							<Table
-								striped
-								bordered
-								hover
-								className="site-update-table"
+							<Tabs
+								defaultActiveKey="site-detail"
+								id="uncontrolled-tab-example"
+								className="nav-fill"
 							>
-								<thead>
-									<tr>
-										<th>First Name</th>
-										<th>Last Name</th>
-										<th>Email</th>
-										<th>Status</th>
-										<th>Created At</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>{userData.first_name}</td>
-										<td>{userData.last_name}</td>
-										<td>{userData.email}</td>
-										<td>{userData.status}</td>
-										<td>
-											{TimeStampHelper.standardDateFormat(
-												userData.created_at
-											)}
-										</td>
-									</tr>
-								</tbody>
-							</Table>
-
-							<SiteUpdateComponent />
+								<Tab
+									eventKey="site-detail"
+									title="Site Details"
+								>
+									<SiteDetailComponent
+										site={this.props.site}
+									/>
+								</Tab>
+								<Tab
+									eventKey="site-customer"
+									title="Site Customers"
+								>
+									<SiteCustomer site={this.props.site} />
+								</Tab>
+								<Tab
+									eventKey="site-update"
+									title="Site Updates"
+								>
+									<SiteUpdateComponent />
+								</Tab>
+								<Tab
+									eventKey="site-operation"
+									title="Site Operations"
+								>
+									<SiteOperation
+										identity={
+											this.props.site.container.identity
+										}
+										dis={this.props.dispatch}
+									/>
+								</Tab>
+								<Tab eventKey="site-addon" title="Site Addons">
+									<SiteAddonComponent
+										site={this.props.site}
+									/>
+								</Tab>
+							</Tabs>
 						</div>
 					</div>
 				</TemplateMain>

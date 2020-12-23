@@ -20,7 +20,7 @@ class CustomerSingleComponent extends Component {
 	}
 
 	render() {
-		let customerEmail,
+		let //customerEmail,
 			customerPhone,
 			customerInvoice1,
 			customerInvoice,
@@ -33,9 +33,9 @@ class CustomerSingleComponent extends Component {
 		const customerBilingsData = this.props.customer.billing_information;
 		const customerSitesData = this.props.customer.sites;
 		if (customerData) {
-			customerEmail = customerData.map((contact) => {
-				return <React.Fragment>{contact.email}</React.Fragment>;
-			});
+			// customerEmail = customerData.map((contact) => {
+			// 	return <React.Fragment>{contact.email}</React.Fragment>;
+			// });
 			customerPhone = customerData.map((contact) => {
 				return <React.Fragment>{contact.phone}</React.Fragment>;
 			});
@@ -44,18 +44,19 @@ class CustomerSingleComponent extends Component {
 					<React.Fragment>
 						<tr>
 							<td>{site.name}</td>
-							<td><a
-								target="_blank"
-								rel="noopener noreferrer"
-								href={
-									"https://" + site.host
-								}>
-								{site.host}
-								<FontAwesomeIcon
-									icon={faExternalLinkAlt}
-									className="ml-2"
-								/>
-							</a></td>
+							<td>
+								<a
+									target="_blank"
+									rel="noopener noreferrer"
+									href={"https://" + site.host}
+								>
+									{site.host}
+									<FontAwesomeIcon
+										icon={faExternalLinkAlt}
+										className="ml-2"
+									/>
+								</a>
+							</td>
 							<td>{site.site_type}</td>
 							<td>{site.flag}</td>
 							<td>
@@ -69,8 +70,7 @@ class CustomerSingleComponent extends Component {
 			});
 			if (customerSites1.length === 0) {
 				customerSites = <td colspan="100%">No Date Available</td>;
-			}
-			else {
+			} else {
 				customerSites = customerSites1;
 			}
 			customerBilling1 = customerBilingsData.map((billing) => {
@@ -103,8 +103,7 @@ class CustomerSingleComponent extends Component {
 			});
 			if (customerBilling1.length === 0) {
 				customerBilling = <td colspan="100%">No Date Available</td>;
-			}
-			else {
+			} else {
 				customerBilling = customerBilling1;
 			}
 			customerInvoice1 = customerInvoicesData.map((invoice) => {
@@ -125,8 +124,7 @@ class CustomerSingleComponent extends Component {
 			});
 			if (customerInvoice1.length === 0) {
 				customerInvoice = <td colspan="100%">No Date Available</td>;
-			}
-			else {
+			} else {
 				customerInvoice = customerInvoice1;
 			}
 		}
@@ -137,7 +135,9 @@ class CustomerSingleComponent extends Component {
 
 					<div className="content content-components">
 						<div className="container">
-							<h4 className="page-header mg-b-15">Customer Details</h4>
+							<h4 className="page-header mg-b-15">
+								Customer Details
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -158,7 +158,7 @@ class CustomerSingleComponent extends Component {
 									</tr>
 									<tr>
 										<td>Email</td>
-										<td>{customerEmail}</td>
+										<td>{this.props.customer.username}</td>
 									</tr>
 									<tr>
 										<td>Status</td>
@@ -183,7 +183,9 @@ class CustomerSingleComponent extends Component {
 								</tbody>
 							</Table>
 
-							<h4 className="page-header mg-b-15 mt-4">Billing Information</h4>
+							<h4 className="page-header mg-b-15 mt-4">
+								Billing Information
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -210,7 +212,9 @@ class CustomerSingleComponent extends Component {
 								<tbody>{customerSites}</tbody>
 							</Table>
 
-							<h4 className="page-header mg-b-15 mt-4">Invoices</h4>
+							<h4 className="page-header mg-b-15 mt-4">
+								Invoices
+							</h4>
 							<Table striped bordered hover>
 								<thead>
 									<tr>
@@ -222,7 +226,6 @@ class CustomerSingleComponent extends Component {
 								</thead>
 								<tbody>{customerInvoice}</tbody>
 							</Table>
-
 						</div>
 					</div>
 				</TemplateMain>
