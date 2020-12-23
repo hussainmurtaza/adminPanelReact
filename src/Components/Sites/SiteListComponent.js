@@ -84,7 +84,7 @@ class SiteListComponent extends Component {
 															rel="noopener noreferrer"
 															href={
 																"/customer/" +
-																site.id
+																site.user_id
 															}
 														>
 															{site.first_name}{" "}

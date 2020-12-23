@@ -318,6 +318,39 @@ class Sidebar extends Component {
 										>
 											All Migration
 										</a>
+										<a href="/migrations?status=new_request">
+											New Request
+										</a>
+										<a href="/migrations?status=logins_verified">
+											Logins Verified
+										</a>
+										<a href="/migrations?status=migration_started">
+											Migration Started
+										</a>
+										<a href="/migrations?status=migration_completed">
+											Migration Completed
+										</a>
+										<a href="/migrations?status=optimization_started">
+											Optimization Started
+										</a>
+										<a href="/migrations?status=optimization_completed">
+											Optimization Completed
+										</a>
+										<a href="/migrations?status=staging_site_live">
+											Staging Site Live
+										</a>
+										<a href="/migrations?status=dns_changes_requested">
+											DNS Changes Requested
+										</a>
+										<a href="/migrations?status=dns_changes_completed">
+											DNS Changes Completed
+										</a>
+										<a href="/migrations?status=site_live">
+											Site Live
+										</a>
+										<a href="/migrations?status=migration_closed">
+											Migration Closed
+										</a>
 									</nav>
 								</li>
 							) : null}

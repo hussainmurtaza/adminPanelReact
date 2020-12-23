@@ -46,6 +46,7 @@ import ContainerGetReducer from "Redux/V1/Container/Get/ContainerGetReducer";
 import DomainGetReducer from "Redux/V1/Sites/Domain/Get/DomainGetReducer";
 import MigrationPutReducer from "Redux/V1/Migration/Put/MigrationPutReducer";
 import MigrationStatusReducer from "Redux/V1/Migration/ToggleStatus/MigrationStatusReducer";
+import MigrationFilterReducer from "Redux/V1/Migration/Filter/MigrationFilterReducer";
 import OperationRootReducer from "Redux/V1/Operations/OperationRootReducer";
 
 export default combineReducers({
@@ -96,5 +97,6 @@ export default combineReducers({
     domains: DomainGetReducer,
     migration_put: MigrationPutReducer,
     migration_status: MigrationStatusReducer,
+    migration_filter: MigrationFilterReducer,
     operation: OperationRootReducer,
 });

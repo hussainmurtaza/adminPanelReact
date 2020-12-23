@@ -46,6 +46,7 @@ import { ContainerGetSaga } from "Redux/V1/Container/Get/ContainerGetSaga";
 import { DomainGetSaga } from "Redux/V1/Sites/Domain/Get/DomainGetSaga";
 import { MigrationPutSaga } from "Redux/V1/Migration/Put/MigrationPutSaga";
 import { MigrationStatusSaga } from "Redux/V1/Migration/ToggleStatus/MigrationStatusSaga";
+import { MigrationFilterSaga } from "Redux/V1/Migration/Filter/MigrationFilterSaga";
 import OperationRootSaga from "Redux/V1/Operations/OperationRootSaga";
 
 export default function* rootSaga() {
@@ -98,6 +99,7 @@ export default function* rootSaga() {
         DomainGetSaga(),
         MigrationPutSaga(),
         MigrationStatusSaga(),
+        MigrationFilterSaga(),
         OperationRootSaga(),
     ]);
 }
