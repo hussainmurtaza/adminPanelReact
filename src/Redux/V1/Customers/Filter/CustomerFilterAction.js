@@ -1,26 +1,26 @@
-import CUSTOMER from "Redux/V1/Customers/Filter/CustomerFilterActionType";
+import CUSTOMERS from "Redux/V1/Customers/Filter/CustomerFilterActionType";
 
 const CustomersFilterAction = {
-	filterCustomers,
-	filterCustomersSuccess,
-	filterCustomersFailed,
+	customersFilter,
+	customersFilterSuccess,
+	customersFilterFailed,
 };
 
-function filterCustomers(data) {
+function customersFilter(data) {
 	return {
-		type: CUSTOMER.FILTER_CUSTOMERS,
+		type: CUSTOMERS.CUSTOMERS_FILTER,
 		request: data,
 	};
 }
-function filterCustomersSuccess(data) {
+function customersFilterSuccess(data) {
 	return {
-		type: CUSTOMER.FILTER_CUSTOMERS_SUCCESS,
+		type: CUSTOMERS.CUSTOMERS_FILTER_SUCCESS,
 		response: data,
 	};
 }
-function filterCustomersFailed(data) {
+function customersFilterFailed(data) {
 	return {
-		type: CUSTOMER.FILTER_CUSTOMERS_FAILED,
+		type: CUSTOMERS.CUSTOMERS_FILTER_FAILED,
 		response: data,
 	};
 }

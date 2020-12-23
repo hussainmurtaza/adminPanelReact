@@ -1,30 +1,32 @@
-import CUSTOMER from "Redux/V1/Customers/Filter/CustomerFilterActionType";
+import CUSTOMERS from "Redux/V1/Customers/Filter/CustomerFilterActionType";
 
-const CustomersDetails = (
+const CustomerFilterReducer = (
 	state = {
 		loading: false,
 		success: false,
 		customers: [],
+		pagination: "",
 	},
 	action
 ) => {
 	switch (action.type) {
-		case CUSTOMER.FILTER_CUSTOMERS:
+		case CUSTOMERS.CUSTOMERS_FILTER:
 			return {
 				...state,
 				loading: true,
 				error: null,
 			};
-		case CUSTOMER.FILTER_CUSTOMERS_SUCCESS:
+		case CUSTOMERS.CUSTOMERS_FILTER_SUCCESS:
 			return {
 				...state,
 				loading: false,
 				customers: action.response.customers,
+				pagination: action.response.pagination,
 			};
-		case CUSTOMER.FILTER_CUSTOMERS_FAILED:
+		case CUSTOMERS.CUSTOMERS_FILTER_FAILED:
 			return { ...state, loading: false, error: action.response };
 		default:
 			return state;
 	}
 };
-export default CustomersDetails;
+export default CustomerFilterReducer;

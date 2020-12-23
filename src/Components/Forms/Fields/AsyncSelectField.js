@@ -99,6 +99,7 @@ class AsyncSelectField extends React.Component {
 		this.setState({
 			form,
 		});
+		console.log(this.state.form);
 		if (e.name === "customers") {
 			localStorage.setItem(
 				"customers",

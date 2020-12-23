@@ -15,53 +15,17 @@ const get = async (data) => {
 };
 
 const filter = async (data) => {
-	//console.log(data,"service form data");
 	const response = await Gateway.authGateway(
 		"GET",
-		V1.auth.customers + queryBody(data)
+		V1.auth.customers + "?" + queryBody(data)
 	);
 	return response;
 };
 
 const queryBody = (data) => {
-	// let query = "?";
-
-	// query += `first_name=${data.first_name}&`;
-	// //query += `last_name=${data.last_name}&`;
-	// query += `email=${data.email}&`;
-	// query += `status=${data.status}&`;
-	// query += `created_at=${data.created_at}&`;
-
-	//console.log(query,"query");
-
-	// if (
-	// 	query ===
-	// 	"?first_name=undefined&last_name=undefined&email=undefined&status=undefined&created_at=undefined&"
-	// ) {
-	// 	query += `first_name=&`;
-	// 	//query += `last_name=&`;
-	// 	query += `email=&`;
-	// 	query += `status=&`;
-	// 	query += `created_at=&`;
-	// } else {
-	// 	query += `first_name=${data.first_name}&`;
-	// 	//query += `last_name=${data.last_name}&`;
-	// 	query += `email=${data.email}&`;
-	// 	query += `status=${data.status}&`;
-	// 	query += `created_at=${data.created_at}&`;
-	// }
-
-	return data;
-
-	//return query;
+	let query = data;
+	return query;
 };
-
-// const customerPostData = (data) => {
-// 	let _data = {};
-// 	_data.status = data.status;
-
-// 	return JSON.stringify(_data);
-// };
 
 const put = async (id) => {
 	const response = await Gateway.authGateway(
@@ -81,7 +45,6 @@ const search = async (data) => {
 };
 
 const smartSearchBody = (data) => {
-	//console.log(data, "smartSearchBody");
 	let query = "?";
 
 	query += `field=${data.field}&`;

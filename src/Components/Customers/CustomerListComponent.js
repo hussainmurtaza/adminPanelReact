@@ -3,40 +3,17 @@ import { connect } from "react-redux";
 import { Table, Row, Col } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
-import CustomersAction from "Redux/V1/Customers/Get/CustomerGetAction";
-import CustomersFilterAction from "Redux/V1/Customers/Filter/CustomerFilterAction";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import queryString from "query-string";
-import FilterForm from "Components/Forms/FilterForm";
 import CustomerPutAction from "Redux/V1/Customers/Put/CustomerPutAction";
 import PaginationDropDown from "Components/Includes/DropDownComponent";
 import PaginationNumber from "Components/Includes/PaginationComponent";
-import Confirm from "Helpers/ConfirmationHelper";
+import CustomerFilterForm from "Components/Forms/CustomerFilterForm";
 
 class CustomerListComponent extends Component {
-    state = {
-        form: {
-            first_name: null,
-            last_name: null,
-            status: null,
-            email: null,
-            created_at: null,
-        },
-    };
-
-    componentDidMount() {
-        const value = queryString.parse(this.props.location.search);
-        this.props.dispatch(CustomersAction.getCustomers());
-        this.props.dispatch(CustomersFilterAction.filterCustomers(value));
-    }
-
     onSwitch = (customer) => {
-        Confirm(
-            this.props.dispatch,
-            CustomerPutAction.PutCustomers(customer.id)
-        );
+        this.props.dispatch(CustomerPutAction.PutCustomers(customer.id));
     };
 
     render() {
@@ -47,16 +24,11 @@ class CustomerListComponent extends Component {
 
                     <div className="content content-components">
                         <div className="container">
-                            <FilterForm
-                                fields={[
-                                    "customer_name",
-                                    "customer_email",
-                                    "customer_status",
-                                    "customer_date",
-                                ]}
+                            <CustomerFilterForm
+                                location={this.props.location.search}
                             />
 
-                            <h4 className="page-header mg-b-15">
+                            <h4 className="page-header mg-b-15 mt-3">
                                 Customer List
                             </h4>
                             <div className="customer-list-page">
@@ -68,14 +40,14 @@ class CustomerListComponent extends Component {
                                             <th>Total Revenue</th>
                                             <th>Email</th>
                                             <th>Status</th>
-                                            <th>Created At</th>
+                                            <th>Registered At</th>
                                             <th className="customer-action">
                                                 Action
                                             </th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {this.props.customers.map(
+                                        {this.props.customer_filter.customers.map(
                                             (customer) => (
                                                 <tr>
                                                     <td>
@@ -159,10 +131,29 @@ class CustomerListComponent extends Component {
                                 </Table>
                                 <Row>
                                     <Col md={4}>
-                                        <PaginationDropDown title={"Sites"} />
+                                        <PaginationDropDown
+                                            title={"Customers"}
+                                            perPage={
+                                                this.props.customer_filter
+                                                    .pagination.per_page
+                                            }
+                                        />
                                     </Col>
                                     <Col md={4}>
-                                        <PaginationNumber />
+                                        <PaginationNumber
+                                            perPage={
+                                                this.props.customer_filter
+                                                    .pagination.per_page
+                                            }
+                                            totalPages={
+                                                this.props.customer_filter
+                                                    .pagination.total_pages
+                                            }
+                                            currentPage={
+                                                this.props.customer_filter
+                                                    .pagination.current_page
+                                            }
+                                        />
                                     </Col>
                                     <Col md={4}></Col>
                                 </Row>
@@ -177,8 +168,7 @@ class CustomerListComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        customers: state.customers.customers,
-        customer_filter: state.customer_filter.customers,
+        customer_filter: state.customer_filter,
         customer_put: state.customer_put.customers,
     };
 };
