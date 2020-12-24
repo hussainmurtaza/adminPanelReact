@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Table, Row, Col } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
-import TimeStampHelper from "Helpers/TimeStampHelper";
+// import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import SiteFilterForm from "Components/Forms/SiteFilterForm";
@@ -70,7 +70,7 @@ class SiteListComponent extends Component {
 											>
 												Location
 											</th>
-											<th>Created At</th>
+											<th>Total Updates</th>
 											<th>Action</th>
 										</tr>
 									</thead>
@@ -141,9 +141,7 @@ class SiteListComponent extends Component {
 													<td>{site.public_ip}</td>
 													<td>{site.location}</td>
 													<td>
-														{TimeStampHelper.standardDateFormat(
-															`${site.created_at}`
-														)}
+														{site.total_updates}
 													</td>
 													<td className="text-center">
 														<a

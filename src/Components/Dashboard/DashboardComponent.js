@@ -70,6 +70,21 @@ class DashboardComponent extends Component {
 									number={dashboard.total_paid_invoices}
 									icon="file-text"
 								/>
+								<DashboardCardComponent
+									heading="Core Updates"
+									number={dashboard.total_core_updates}
+									icon="layers"
+								/>
+								<DashboardCardComponent
+									heading="Plugins Updates"
+									number={dashboard.total_plugins_updates}
+									icon="layers"
+								/>
+								<DashboardCardComponent
+									heading="Themes Updates"
+									number={dashboard.total_theme_updates}
+									icon="layers"
+								/>
 							</Row>
 
 							<div className="row">
@@ -110,9 +125,9 @@ class DashboardComponent extends Component {
 									icon="grid"
 								/>
 								<DashboardViewComponent
-									heading="HostNodes"
+									heading="Host Nodes"
 									link="hostnodes"
-									linkText="View HostHodes"
+									linkText="View Host Hodes"
 									icon="package"
 								/>
 							</div>

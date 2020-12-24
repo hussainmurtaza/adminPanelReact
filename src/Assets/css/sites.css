@@ -5,3 +5,7 @@
 	background-color: #0148ae !important;
 	box-shadow: none;
 }
+.badge-sites {
+	padding: 6px !important;
+	font-size: 10px !important;
+}
