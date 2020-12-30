@@ -5,23 +5,19 @@ import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 // import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import SiteFilterForm from "Components/Forms/SiteFilterForm";
-// import FilterForm from "Components/Forms/FilterForm";
 import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginAction";
 import PaginationDropDown from "Components/Includes/DropDownComponent";
 import PaginationNumber from "Components/Includes/PaginationComponent";
 import "Assets/css/sites.css";
+import SortingComponent from "Components/Includes/SortingComponent";
+import TimeStampHelper from "Helpers/TimeStampHelper";
+
 class SiteListComponent extends Component {
     quickLogin = (e) => {
         const identity = e.target.getAttribute("data-identity");
         this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
-    };
-    handleSort = () => {
-        alert("sorting");
-        // this.props.dispatch(
-        // 	SitesFilterAction.filterSites("order_by=asc&column=domains")
-        // );
     };
 
     render() {
@@ -43,35 +39,29 @@ class SiteListComponent extends Component {
                                 <Table striped bordered hover>
                                     <thead>
                                         <tr>
-                                            <th
-                                                className="sort-btn"
-                                                onClick={this.handleSort}
-                                            >
-                                                Customer Name
-                                            </th>
-                                            <th
-                                                className="sort-btn"
-                                                onClick={this.handleSort}
-                                            >
-                                                Identity
-                                                <i class="icon-arrow-up"></i>
-                                            </th>
-                                            <th
-                                                className="sort-btn"
-                                                onClick={this.handleSort}
-                                            >
-                                                Domain
-                                            </th>
-                                            <th>Quick Login</th>
+                                            <SortingComponent
+                                                title="Customer Name"
+                                                name="customers"
+                                            />
+                                            <SortingComponent
+                                                title="Identity"
+                                                name="identity"
+                                            />
+                                            <th>Domain</th>
+                                            <th>Login</th>
                                             <th>Ip Address</th>
-                                            <th
-                                                className="sort-btn"
-                                                onClick={this.handleSort}
-                                            >
-                                                Location
-                                            </th>
-                                            <th>Total Updates</th>
-                                            <th>Action</th>
+                                            <SortingComponent
+                                                title="Location"
+                                                name="location"
+                                            />
+                                            <SortingComponent
+                                                title="Updates"
+                                                name="updates"
+                                            />
+                                            <SortingComponent
+                                                title="Created At"
+                                                name="created"
+                                            />
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -141,19 +131,10 @@ class SiteListComponent extends Component {
                                                     <td>{site.public_ip}</td>
                                                     <td>{site.location}</td>
                                                     <td>{site.updates}</td>
-                                                    <td className="text-center">
-                                                        <a
-                                                            href={
-                                                                "/site/" +
-                                                                site.host
-                                                            }
-                                                            className="btn btn-link"
-                                                            title="View"
-                                                        >
-                                                            <FontAwesomeIcon
-                                                                icon={faEye}
-                                                            />
-                                                        </a>
+                                                    <td>
+                                                        {TimeStampHelper.standardDateFormat(
+                                                            `${site.created_at}`
+                                                        )}
                                                     </td>
                                                 </tr>
                                             )

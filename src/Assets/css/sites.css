@@ -1,11 +1,15 @@
 .sort-btn {
-	cursor: pointer;
+    cursor: pointer;
+    width: 175px;
 }
 .page-item.active .page-link {
-	background-color: #0148ae !important;
-	box-shadow: none;
+    background-color: #0148ae !important;
+    box-shadow: none;
+}
+.sort-btn:hover {
+    color: #0168fa;
 }
 .badge-sites {
-	padding: 6px !important;
-	font-size: 10px !important;
+    padding: 6px !important;
+    font-size: 10px !important;
 }
