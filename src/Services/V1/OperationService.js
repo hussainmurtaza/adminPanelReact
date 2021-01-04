@@ -15,10 +15,24 @@ const permissionsGet = async (data) => {
     );
     return response;
 };
-
+const botPut = async (data) => {
+    const _data = botPutBody(data);
+    const response = await Gateway.authGateway(
+        "PUT",
+        V1.operation.bot_block + data.identity,
+        _data
+    );
+    return response;
+};
+const botPutBody = (data) => {
+    let _data = {};
+    _data.status = data.status;
+    return JSON.stringify(_data);
+};
 const OperationService = {
     cachePut,
     permissionsGet,
+    botPut,
 };
 
 export default OperationService;

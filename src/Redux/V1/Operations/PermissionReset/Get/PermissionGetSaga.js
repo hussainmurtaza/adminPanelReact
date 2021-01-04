@@ -27,5 +27,5 @@ function* permissionsGet(data) {
 }
 
 export function* permissionsGetSaga() {
-    yield takeEvery(OPERATION.PERMISSIONS_RESET, permissionsGet);
+    yield takeEvery(OPERATION.PERMISSIONS_GET, permissionsGet);
 }

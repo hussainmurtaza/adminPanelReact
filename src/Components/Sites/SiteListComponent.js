@@ -15,6 +15,11 @@ import SortingComponent from "Components/Includes/SortingComponent";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class SiteListComponent extends Component {
+    /* componentDidMount() {
+        const value = queryString.parse(this.props.location.search);
+        this.props.dispatch(SitesAction.getSites());
+        this.props.dispatch(SitesFilterAction.filterSites(value));
+    } */
     quickLogin = (e) => {
         const identity = e.target.getAttribute("data-identity");
         this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
