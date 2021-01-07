@@ -1,36 +1,22 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	// faSortDown,
-	// faSortUp,
+	faSortDown,
+	faSortUp,
 	faSort,
 } from "@fortawesome/free-solid-svg-icons";
 import UrlHelper from "Helpers/UrlHelper";
 
 class SortingComponent extends Component {
-	state = {
-		status: 0,
-	};
 	handleSort = (e) => {
 		e.preventDefault();
-		let orderBy = "desc";
-		// if (JSON.parse(localStorage.getItem("orderBy")) === null) {
-		// 	orderBy = "desc";
-		// 	localStorage.setItem("orderBy", JSON.stringify(orderBy));
-		// } else if (JSON.parse(localStorage.getItem("orderBy")) === "desc") {
-		// 	orderBy = "asc";
-		// 	localStorage.setItem("orderBy", JSON.stringify(orderBy));
-		// } else if (JSON.parse(localStorage.getItem("orderBy")) === "asc") {
-		// 	orderBy = null;
-		// 	localStorage.setItem("orderBy", JSON.stringify(orderBy));
-		// }
-
+		let orderBy = "asc";
 		const target = e.currentTarget.attributes["name"].value;
 		const params = UrlHelper.parseParams(window.location.search);
 
-		if (params.order_by === "desc" && params.column === target) {
-			orderBy = "asc";
-		} else if (params.order_by === "asc" && params.column === target) {
+		if (params.order_by === "asc" && params.column === target) {
+			orderBy = "desc";
+		} else if (params.order_by === "desc" && params.column === target) {
 			orderBy = "";
 		}
 		params.order_by = orderBy;
@@ -41,10 +27,7 @@ class SortingComponent extends Component {
 		)}`;
 	};
 	render() {
-		// if (!window.location.search) {
-		// 	localStorage.removeItem("orderBy");
-		// }
-
+		const getParams = UrlHelper.parseParams(window.location.search);
 		return (
 			<th
 				className="sort-btn"
@@ -52,19 +35,18 @@ class SortingComponent extends Component {
 				name={this.props.name}
 			>
 				<span>{this.props.title}</span>
-				<FontAwesomeIcon icon={faSort} className="float-right" />
-				{/* {JSON.parse(localStorage.getItem("orderBy")) === "asc" ? (
+				{this.props.name === getParams.column &&
+				getParams.order_by === "asc" ? (
+					<FontAwesomeIcon icon={faSortUp} className="float-right" />
+				) : this.props.name === getParams.column &&
+				  getParams.order_by === "desc" ? (
 					<FontAwesomeIcon
 						icon={faSortDown}
 						className="float-right"
 					/>
-				) : null}
-				{JSON.parse(localStorage.getItem("orderBy")) === "desc" ? (
-					<FontAwesomeIcon icon={faSortUp} className="float-right" />
-				) : null}
-				{JSON.parse(localStorage.getItem("orderBy")) === null ? (
+				) : (
 					<FontAwesomeIcon icon={faSort} className="float-right" />
-				) : null} */}
+				)}
 			</th>
 		);
 	}
