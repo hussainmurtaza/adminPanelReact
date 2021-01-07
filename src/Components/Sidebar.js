@@ -10,9 +10,9 @@ class Sidebar extends Component {
 					className="sidebar sidebar-fixed sidebar-components"
 				>
 					<div className="sidebar-header">
-						<a href="/" id="mainMenuOpen">
+						{/* <a href="/" id="mainMenuOpen">
 							<i data-feather="menu"></i>
-						</a>
+						</a> */}
 						<h5>Components</h5>
 						<a href="/" id="sidebarMenuClose">
 							<i data-feather="x"></i>

@@ -3,7 +3,6 @@ body {
     margin: 0;
     font-family: "IBM Plex Sans", sans-serif !important;
 }
-
 .content-components {
     font-size: 16px;
     padding: 20px;
@@ -168,7 +167,7 @@ body {
 }
 
 .migration-status {
-    width: 250px;
+    min-width: 250px;
 }
 
 .migration-status label {
@@ -222,7 +221,7 @@ body {
     margin: 0px !important;
 }
 .operation-component path {
-    fill: #042893;
+    fill: #1665d8;
 }
 
 .operation-component h6 {

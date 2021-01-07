@@ -4,8 +4,8 @@
 .page-item.active .page-link {
 	font-family: "system-ui";
 	z-index: 3 !important;
-	background-color: rgb(131, 129, 129) !important;
-	border: solid 1px #e2e5ed !important;
+	background-color: #1665d8 !important;
+	border: solid 1px #1665d8 !important;
 	color: white !important;
 	box-shadow: 0 0 0 0.2rem rgba(1, 104, 250, 0.25);
 }

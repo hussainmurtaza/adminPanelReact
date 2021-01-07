@@ -1,18 +1,17 @@
 /* Dashboard CSS */
 .dashboard-page {
-
 }
 .dashboard-cards {
-	color: #004085;
-    background-color: #cce5ff;
-    border-color: #b8daff;
+	color: #ffffff;
+	background-color: #1665d8;
+	border-color: #1665d8;
 	margin-bottom: 25px;
 	/* background-image: url(../img/image.png);
     background-repeat: no-repeat;
     background-position: top right; */
 }
 .dashboard-cards .card-heading {
-    font-weight: 600;
+	font-weight: 600;
 }
 .dashboard-cards .card-number {
 	font-weight: 600;
