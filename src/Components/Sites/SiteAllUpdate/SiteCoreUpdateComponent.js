@@ -48,7 +48,7 @@ class SiteCoreUpdateComponent extends Component {
                                                   {wordpressCore.update_version}
                                               </Col>
                                               <Col md={3}>
-                                                  {wordpressCore.sites.length}
+                                                  {wordpressCore.updates}
                                               </Col>
                                               <Col
                                                   md={3}
