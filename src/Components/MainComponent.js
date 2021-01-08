@@ -30,6 +30,7 @@ import HostNodeSingleComponent from "Components/HostNodes/HostNodeSingleComponen
 import HostNodeCreateComponent from "Components/HostNodes/HostNodeCreateComponent";
 import Error403Component from "Components/403/Error403Component";
 import Permission from "Businesses/PermissionBusiness";
+import SiteAllUpdateComponent from "Components/Sites/SiteAllUpdateComponent";
 
 class Main extends Component {
     render() {
@@ -186,6 +187,12 @@ class Main extends Component {
                         path="/site/:host"
                         component={SiteSingleComponent}
                         permissions={["access_all", "sites_all", "sites_read"]}
+                    />
+                    <PrivateRoute
+                        exact
+                        path="/update-sites"
+                        component={SiteAllUpdateComponent}
+                        permissions={["access_all", "sites_update"]}
                     />
                     <PrivateRoute
                         exact

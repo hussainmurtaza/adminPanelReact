@@ -1,7 +1,7 @@
 import V1 from "Constants/V1ApiConstant";
 import Gateway from "Gateways/Gateway";
 
-const getAll = async (data) => {
+const getAll = async () => {
 	const response = await Gateway.authGateway("GET", V1.auth.users);
 	return response;
 };
@@ -83,7 +83,7 @@ const put = async (data, id) => {
 const search = async (data) => {
 	const response = await Gateway.authGateway(
 		"GET",
-		`${V1.auth.users}/search${smartSearchBody(data)}`,
+		`${V1.auth.users}/search${smartSearchBody(data)}`
 	);
 	return response;
 };

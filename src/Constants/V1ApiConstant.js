@@ -37,5 +37,8 @@ const V1 = {
         permissions_reset: "v1/sites/permission/",
         bot_block: "v1/sites/bot-block/",
     },
+    wordpress: {
+        update_all: "v1/sites/wp/content",
+    },
 };
 export default V1;

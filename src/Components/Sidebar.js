@@ -216,7 +216,8 @@ class Sidebar extends Component {
 							]) ? (
 								<li
 									className={
-										this.props.active === "sites"
+										this.props.active === "sites" ||
+										this.props.active === "update-sites"
 											? "nav-item show"
 											: "nav-item"
 									}
@@ -224,7 +225,8 @@ class Sidebar extends Component {
 									<a
 										href="/"
 										className={
-											this.props.active === "sites"
+											this.props.active === "sites" ||
+											this.props.active === "update-sites"
 												? "active nav-link with-sub"
 												: "nav-link with-sub"
 										}
@@ -242,6 +244,17 @@ class Sidebar extends Component {
 											}
 										>
 											All Sites
+										</a>
+										<a
+											href="/update-sites"
+											className={
+												this.props.active ===
+												"update-sites"
+													? "active"
+													: ""
+											}
+										>
+											Update Sites
 										</a>
 									</nav>
 								</li>

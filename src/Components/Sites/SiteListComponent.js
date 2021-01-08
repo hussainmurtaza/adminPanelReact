@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Table, Row, Col } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
-// import TimeStampHelper from "Helpers/TimeStampHelper";
+import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import SiteFilterForm from "Components/Forms/SiteFilterForm";
@@ -12,14 +12,8 @@ import PaginationDropDown from "Components/Includes/DropDownComponent";
 import PaginationNumber from "Components/Includes/PaginationComponent";
 import "Assets/css/sites.css";
 import SortingComponent from "Components/Includes/SortingComponent";
-import TimeStampHelper from "Helpers/TimeStampHelper";
 
 class SiteListComponent extends Component {
-    /* componentDidMount() {
-        const value = queryString.parse(this.props.location.search);
-        this.props.dispatch(SitesAction.getSites());
-        this.props.dispatch(SitesFilterAction.filterSites(value));
-    } */
     quickLogin = (e) => {
         const identity = e.target.getAttribute("data-identity");
         this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));

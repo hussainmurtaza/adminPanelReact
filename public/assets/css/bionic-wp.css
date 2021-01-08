@@ -77,17 +77,7 @@ body {
     font-family: "IBM Plex Sans", sans-serif;
     font-size: 18px;
 }
-body {
-    font-family: "IBM Plex Sans", sans-serif !important;
-}
-.site-update-table th,
-.site-update-table td {
-    width: 200px;
-}
-.react-bootstrap-table {
-    height: 200px;
-    overflow: auto;
-}
+
 .lock-img {
     display: inline-block;
     margin-right: 20px;
@@ -103,25 +93,11 @@ body {
     fill: #063cdd;
     text-align: center;
 }
-.page-header {
-    font-family: "IBM Plex Sans", sans-serif;
-    font-size: 18px;
-}
-body {
-    font-family: "IBM Plex Sans", sans-serif !important;
-}
-.site-update-table th,
+
+/* .site-update-table th,
 .site-update-table td {
-    width: 200px;
-}
-.react-bootstrap-table {
-    height: 200px;
-    overflow: auto;
-}
-.site-update-table th,
-.site-update-table td {
-    width: 200px;
-}
+	width: 200px;
+} */
 .react-bootstrap-table {
     height: 200px;
     overflow: auto;
