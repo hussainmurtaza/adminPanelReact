@@ -37,7 +37,7 @@ class SitePluginUpdateComponent extends Component {
                 <Accordion className="site-core-accordion">
                     {this.props.wordpressPlugins === undefined
                         ? ""
-                        : this.props.wordpressPlugins.map((wpplugins) => {
+                        : this.props.wordpressPlugins.map((wpplugins, key) => {
                               return (
                                   <Card>
                                       <Card.Header>
@@ -79,7 +79,7 @@ class SitePluginUpdateComponent extends Component {
                                                   <Accordion.Toggle
                                                       as={Button}
                                                       variant="link"
-                                                      eventKey={wpplugins.id}
+                                                      eventKey={key}
                                                       className="float-right"
                                                   >
                                                       <FontAwesomeIcon
@@ -91,9 +91,7 @@ class SitePluginUpdateComponent extends Component {
                                               </Col>
                                           </Row>
                                       </Card.Header>
-                                      <Accordion.Collapse
-                                          eventKey={wpplugins.id}
-                                      >
+                                      <Accordion.Collapse eventKey={key}>
                                           <Card.Body>
                                               <Table
                                                   bordered

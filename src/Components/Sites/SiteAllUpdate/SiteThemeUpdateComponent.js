@@ -37,7 +37,7 @@ class SiteThemeUpdateComponent extends Component {
                 <Accordion className="site-core-accordion">
                     {this.props.wordpressThemes === undefined
                         ? ""
-                        : this.props.wordpressThemes.map((wpthemes) => {
+                        : this.props.wordpressThemes.map((wpthemes, key) => {
                               return (
                                   <Card>
                                       <Card.Header>
@@ -79,7 +79,7 @@ class SiteThemeUpdateComponent extends Component {
                                                   <Accordion.Toggle
                                                       as={Button}
                                                       variant="link"
-                                                      eventKey={wpthemes.id}
+                                                      eventKey={key}
                                                       className="float-right"
                                                   >
                                                       <FontAwesomeIcon
@@ -91,9 +91,7 @@ class SiteThemeUpdateComponent extends Component {
                                               </Col>
                                           </Row>
                                       </Card.Header>
-                                      <Accordion.Collapse
-                                          eventKey={wpthemes.id}
-                                      >
+                                      <Accordion.Collapse eventKey={key}>
                                           <Card.Body>
                                               <Table
                                                   bordered
