@@ -13,3 +13,7 @@
     padding: 6px !important;
     font-size: 10px !important;
 }
+.site-update-table th,
+.site-update-table td {
+    width: 200px;
+}

@@ -1,28 +1,26 @@
 import INVOICE from "Redux/V1/Invoices/Filter/InvoiceFilterActionType";
 
-const InvoiceFilterAction = {
-	filterInvoices,
-	filterInvoicesSuccess,
-	filterInvoicesFailed,
-};
-
-function filterInvoices(data) {
+const invoiceFilter = (data) => {
 	return {
-		type: INVOICE.INVOICES_FILTER,
+		type: INVOICE.INVOICE_FILTER,
 		request: data,
 	};
-}
-function filterInvoicesSuccess(data) {
+};
+const invoiceFilterSuccess = (data) => {
 	return {
-		type: INVOICE.INVOICES_FILTER_SUCCESS,
+		type: INVOICE.INVOICE_FILTER_SUCCESS,
 		response: data,
 	};
-}
-function filterInvoicesFailed(data) {
+};
+const invoiceFilterFailed = (data) => {
 	return {
-		type: INVOICE.INVOICES_FILTER_FAILED,
+		type: INVOICE.INVOICE_FILTER_FAILED,
 		response: data,
 	};
-}
-
+};
+const InvoiceFilterAction = {
+	invoiceFilter,
+	invoiceFilterSuccess,
+	invoiceFilterFailed,
+};
 export default InvoiceFilterAction;
