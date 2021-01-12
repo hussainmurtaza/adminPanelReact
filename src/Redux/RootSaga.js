@@ -11,20 +11,16 @@ import { roleDeleteSaga } from "Redux/V1/Roles/Delete/RoleDeleteSaga";
 import { roleFirstSaga } from "Redux/V1/Roles/First/RoleFirstSaga";
 import { rolePutSaga } from "Redux/V1/Roles/Put/RolePutSaga";
 import { PermissionGetSaga } from "Redux/V1/Permissions/Get/PermissionGetSaga";
-import { CustomerGetSaga } from "Redux/V1/Customers/Get/CustomerGetSaga";
-import { CustomerFirstSaga } from "Redux/V1/Customers/First/CustomerFirstSaga";
 import { SiteGetSaga } from "Redux/V1/Sites/Details/Get/SiteGetSaga";
 import { SiteFirstSaga } from "Redux/V2/Sites/Details/First/SiteFirstSaga";
 import { InvoiceGetSaga } from "Redux/V1/Invoices/Get/InvoiceGetSaga";
 import { InvoiceFirstSaga } from "Redux/V1/Invoices/First/InvoiceFirstSaga";
-import { CustomerFilterSaga } from "Redux/V1/Customers/Filter/CustomerFilterSaga";
 import { SiteFilterSaga } from "Redux/V1/Sites/Details/Filter/SiteFilterSaga";
 import { InvoiceFilterSaga } from "Redux/V1/Invoices/Filter/InvoiceFilterSaga";
 import { UserFilterSaga } from "Redux/V1/Users/Filter/UserFilterSaga";
 import { UserSearchSaga } from "Redux/V1/Users/Search/UserSearchSaga";
 import { WordpressGetSaga } from "Redux/V1/Sites/Wordpress/Get/WordpressGetSaga";
 import { wordpressUpdateSaga } from "Redux/V1/Sites/Wordpress/Put/WordpressPutSaga";
-import { CustomerPutSaga } from "Redux/V1/Customers/Put/CustomerPutSaga";
 import { userStatusSaga } from "Redux/V1/Users/ToggleStatus/UserStatusSaga";
 import { MigrationGetSaga } from "Redux/V1/Migration/Get/MigrationGetSaga";
 import { MigrationFirstSaga } from "Redux/V1/Migration/First/MigrationFirstSaga";
@@ -50,6 +46,7 @@ import { MigrationFilterSaga } from "Redux/V1/Migration/Filter/MigrationFilterSa
 import OperationRootSaga from "Redux/V1/Operations/OperationRootSaga";
 import WordpressUpdateAllRootSaga from "Redux/V1/WordpressUpdateAll/UpdateAllRootSaga";
 
+import CustomerRootSaga from "Redux/V1/Customers/CustomerRootSaga";
 export default function* rootSaga() {
     yield all([
         LoginRootSaga(),
@@ -64,20 +61,16 @@ export default function* rootSaga() {
         roleFirstSaga(),
         rolePutSaga(),
         PermissionGetSaga(),
-        CustomerGetSaga(),
-        CustomerFirstSaga(),
         SiteGetSaga(),
         SiteFirstSaga(),
         InvoiceGetSaga(),
         InvoiceFirstSaga(),
-        CustomerFilterSaga(),
         SiteFilterSaga(),
         InvoiceFilterSaga(),
         UserFilterSaga(),
         UserSearchSaga(),
         WordpressGetSaga(),
         wordpressUpdateSaga(),
-        CustomerPutSaga(),
         DashboardGetSaga(),
         userStatusSaga(),
         MigrationGetSaga(),
@@ -105,5 +98,6 @@ export default function* rootSaga() {
         //WordpressUpdateGetSaga(),
 
         WordpressUpdateAllRootSaga(),
+        CustomerRootSaga(),
     ]);
 }

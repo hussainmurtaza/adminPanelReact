@@ -40,5 +40,8 @@ const V1 = {
     wordpress: {
         update_all: "v1/sites/wp/content",
     },
+    customers: {
+        change_affiliate: "v1/affiliates/",
+    },
 };
 export default V1;

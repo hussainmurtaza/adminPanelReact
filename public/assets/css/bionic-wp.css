@@ -224,3 +224,6 @@ body {
 .custom-switch .custom-control-label::before {
     margin-left: -2px;
 }
+.affiliate-label-hide label {
+	display: none;
+}
