@@ -42,18 +42,6 @@ class DashboardComponent extends Component {
 								/>
 
 								<DashboardCardComponent
-									heading="Active Clients"
-									number={dashboard.active_clients}
-									icon="user"
-								/>
-
-								<DashboardCardComponent
-									heading="Pending Clients"
-									number={dashboard.pending_clients}
-									icon="user"
-								/>
-
-								<DashboardCardComponent
 									heading="Total Revenue"
 									number={dashboard.total_revenue}
 									icon="dollar-sign"
@@ -66,24 +54,44 @@ class DashboardComponent extends Component {
 								/>
 
 								<DashboardCardComponent
+									heading="Paying Customers"
+									number={dashboard.active_clients}
+									icon="user"
+								/>
+
+								<DashboardCardComponent
+									heading="Free Customers"
+									number={dashboard.pending_clients}
+									icon="user"
+								/>
+
+								<DashboardCardComponent
 									heading="Total Invoices"
 									number={dashboard.total_paid_invoices}
 									icon="file-text"
 								/>
+
 								<DashboardCardComponent
 									heading="Core Updates"
 									number={dashboard.total_core_updates}
 									icon="layers"
 								/>
+
+								<DashboardCardComponent
+									heading="Themes Updates"
+									number={dashboard.total_theme_updates}
+									icon="layers"
+								/>
+
 								<DashboardCardComponent
 									heading="Plugins Updates"
 									number={dashboard.total_plugins_updates}
 									icon="layers"
 								/>
 								<DashboardCardComponent
-									heading="Themes Updates"
-									number={dashboard.total_theme_updates}
-									icon="layers"
+									heading="Unpaid Amount"
+									number={dashboard.unpaid_amount}
+									icon="file-text"
 								/>
 							</Row>
 
@@ -127,8 +135,14 @@ class DashboardComponent extends Component {
 								<DashboardViewComponent
 									heading="Host Nodes"
 									link="hostnodes"
-									linkText="View Host Hodes"
+									linkText="View HostHodes"
 									icon="package"
+								/>
+								<DashboardViewComponent
+									heading="Data Centers"
+									link="datacenters"
+									linkText="View Data Centers"
+									icon="database"
 								/>
 							</div>
 						</div>

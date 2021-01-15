@@ -5,6 +5,7 @@ import InvoiceFirstAction from "Redux/V1/Invoices/First/InvoiceFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import { Table } from "react-bootstrap";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import Capitilize from "Helpers/CapitilizeHelper";
 
 class InvoiceSingleComponent extends Component {
 	componentDidMount() {
@@ -48,19 +49,30 @@ class InvoiceSingleComponent extends Component {
 									</tr>
 									<tr>
 										<td>Status</td>
-										<td>{this.props.invoice.status}</td>
+										<td>
+											{Capitilize.capital(
+												`${this.props.invoice.status}`
+											)}
+										</td>
 									</tr>
 									<tr>
 										<td>Sub Total</td>
-										<td>$ {this.props.invoice.amount_gross}</td>
+										<td>
+											$ {this.props.invoice.amount_gross}
+										</td>
 									</tr>
 									<tr>
 										<td>Discount</td>
-										<td>$ {this.props.invoice.amount_discount}</td>
+										<td>
+											${" "}
+											{this.props.invoice.amount_discount}
+										</td>
 									</tr>
 									<tr>
 										<td>Total</td>
-										<td>$ {this.props.invoice.amount_net}</td>
+										<td>
+											$ {this.props.invoice.amount_net}
+										</td>
 									</tr>
 								</tbody>
 							</Table>
@@ -85,7 +97,11 @@ class InvoiceSingleComponent extends Component {
 										<td>{invoiceData.last_name}</td>
 										<td>{invoiceData.email}</td>
 										<td>{invoiceData.total_sites}</td>
-										<td>{invoiceData.status}</td>
+										<td>
+											{Capitilize.capital(
+												`${invoiceData.status}`
+											)}
+										</td>
 										<td>
 											{TimeStampHelper.standardDateFormat(
 												invoiceData.created_at

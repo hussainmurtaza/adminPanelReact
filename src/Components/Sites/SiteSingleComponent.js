@@ -10,110 +10,127 @@ import SiteDetailComponent from "Components/Sites/SiteDashboard/SiteDetailCompon
 import SiteCustomer from "Components/Sites/SiteDashboard/SiteCustomerComponent";
 import SiteOperation from "Components/Sites/SiteDashboard/SiteOperationComponent";
 import SiteAddonComponent from "Components/Sites/SiteDashboard/SiteAddonComponent";
+import WordpressGetAction from "Redux/V1/Sites/Wordpress/Get/WordpressGetAction";
+
 class SiteSingleComponent extends Component {
-    componentDidMount() {
-        this.props.dispatch(
-            SiteFirstAction.siteFirst(this.props.match.params.host)
-        );
-    }
-    quickLogin = (e) => {
-        const identity = e.target.getAttribute("data-identity");
-        this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
-    };
+	componentDidMount() {
+		this.props.dispatch(
+			SiteFirstAction.siteFirst(this.props.match.params.host)
+		);
+	}
 
-    render() {
-        const serverDetail = this.props.site.server_details;
-        return (
-            <React.Fragment>
-                <TemplateMain>
-                    <Sidebar active="sites" />
+	quickLogin = (e) => {
+		const identity = e.target.getAttribute("data-identity");
+		this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
+	};
+	handleSelect = (key) => {
+		if (key === "site-update") {
+			this.props.dispatch(
+				WordpressGetAction.getWordpress(
+					this.props.site.container.identity
+				)
+			);
+		}
+	};
 
-                    <div className="content content-components">
-                        <div className="container">
-                            <Row className="align-items-center">
-                                <Col></Col>
-                                <Col className="text-right mb-3 site-button">
-                                    <a
-                                        className="btn-brand-02 btn btn-primary"
-                                        href={serverDetail.monit}
-                                        target="
+	render() {
+		const serverDetail = this.props.site.server_details;
+		return (
+			<React.Fragment>
+				<TemplateMain>
+					<Sidebar active="sites" />
+
+					<div className="content content-components">
+						<div className="container">
+							<Row className="align-items-center">
+								<Col></Col>
+								<Col className="text-right mb-3 site-button">
+									<a
+										className="btn-brand-02 btn btn-primary"
+										href={serverDetail.monit}
+										target="
 											_blank"
-                                    >
-                                        <i data-feather="monitor"></i> Monit
-                                    </a>{" "}
-                                    <Button
-                                        className="btn-brand-02"
-                                        data-identity={
-                                            this.props.site.container.identity
-                                        }
-                                        onClick={(e) => this.quickLogin(e)}
-                                    >
-                                        <img
-                                            src="/assets/img/Wordpress-white.png"
-                                            alt="wordpresswhite"
-                                        />{" "}
-                                        WP Admin
-                                    </Button>
-                                </Col>
-                            </Row>
-                            <Tabs
-                                defaultActiveKey="site-detail"
-                                id="uncontrolled-tab-example"
-                                className="nav-fill"
-                            >
-                                <Tab
-                                    eventKey="site-detail"
-                                    title="Site Details"
-                                >
-                                    <SiteDetailComponent
-                                        site={this.props.site}
-                                    />
-                                </Tab>
-                                <Tab
-                                    eventKey="site-customer"
-                                    title="Site Customers"
-                                >
-                                    <SiteCustomer site={this.props.site} />
-                                </Tab>
-                                <Tab
-                                    eventKey="site-update"
-                                    title="Site Updates"
-                                >
-                                    <SiteUpdateComponent />
-                                </Tab>
-                                <Tab
-                                    eventKey="site-operation"
-                                    title="Site Operations"
-                                >
-                                    <SiteOperation
-                                        identity={
-                                            this.props.site.container.identity
-                                        }
-                                        botStatus={
-                                            this.props.site.container.bot_block
-                                        }
-                                        host={this.props.match.params.host}
-                                        dis={this.props.dispatch}
-                                    />
-                                </Tab>
-                                <Tab eventKey="site-addon" title="Site Addons">
-                                    <SiteAddonComponent
-                                        site={this.props.site}
-                                    />
-                                </Tab>
-                            </Tabs>
-                        </div>
-                    </div>
-                </TemplateMain>
-            </React.Fragment>
-        );
-    }
+									>
+										<i data-feather="monitor"></i> Monit
+									</a>{" "}
+									<Button
+										className="btn-brand-02"
+										data-identity={
+											this.props.site.container.identity
+										}
+										onClick={(e) => this.quickLogin(e)}
+									>
+										<img
+											src="/assets/img/Wordpress-white.png"
+											alt="wordpresswhite"
+										/>{" "}
+										WP Admin
+									</Button>
+								</Col>
+							</Row>
+							<Tabs
+								defaultActiveKey="site-detail"
+								onSelect={this.handleSelect}
+								id="uncontrolled-tab-example"
+								className="nav-fill"
+							>
+								<Tab
+									eventKey="site-detail"
+									title="Site Details"
+								>
+									<SiteDetailComponent
+										site={this.props.site}
+									/>
+								</Tab>
+								<Tab
+									eventKey="site-customer"
+									title="Site Customers"
+								>
+									<SiteCustomer site={this.props.site} />
+								</Tab>
+								<Tab
+									eventKey="site-update"
+									title="Site Updates"
+								>
+									<SiteUpdateComponent
+										identity={
+											this.props.site.container.identity
+										}
+									/>
+								</Tab>
+								<Tab
+									eventKey="site-operation"
+									title="Site Operations"
+								>
+									<SiteOperation
+										identity={
+											this.props.site.container.identity
+										}
+										botStatus={
+											this.props.site.container.bot_block
+										}
+										host={this.props.match.params.host}
+										dis={this.props.dispatch}
+									/>
+								</Tab>
+								<Tab eventKey="site-addon" title="Site Addons">
+									<SiteAddonComponent
+										site={this.props.site}
+									/>
+								</Tab>
+							</Tabs>
+						</div>
+					</div>
+				</TemplateMain>
+			</React.Fragment>
+		);
+	}
 }
 
 const mapStateToProps = (state) => {
-    return {
-        site: state.site_first.site,
-    };
+	return {
+		site: state.site_first.site,
+	};
 };
 
 export default connect(mapStateToProps)(SiteSingleComponent);

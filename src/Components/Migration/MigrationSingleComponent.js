@@ -8,6 +8,7 @@ import TimeStampHelper from "Helpers/TimeStampHelper";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import MigrationFormComponent from "Components/Migration/Forms/MigrationFormComponent";
+import Capitilize from "Helpers/CapitilizeHelper";
 
 class MigrationSingleComponent extends Component {
 	componentDidMount() {
@@ -56,7 +57,11 @@ class MigrationSingleComponent extends Component {
 										<td>{customerData.fullname}</td>
 										<td>{customerData.email}</td>
 										<td>{customerData.total_sites}</td>
-										<td>{customerData.status}</td>
+										<td>
+											{Capitilize.capital(
+												`${customerData.status}`
+											)}
+										</td>
 										<td>
 											{TimeStampHelper.standardDateFormat(
 												customerData.created_at

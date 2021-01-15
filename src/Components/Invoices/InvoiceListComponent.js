@@ -11,6 +11,7 @@ import PaginationNumber from "Components/Includes/PaginationComponent";
 import InvoiceFilterForm from "Components/Forms/InvoiceFilterForm";
 import RoundUpHelper from "Helpers/RoundUpHelper";
 import SortingComponent from "Components/Includes/SortingComponent";
+import Capitilize from "Helpers/CapitilizeHelper";
 
 class InvoiceListComponent extends Component {
     render() {
@@ -108,7 +109,11 @@ class InvoiceListComponent extends Component {
                                                             `${invoice.created_at}`
                                                         )}
                                                     </td>
-                                                    <td>{invoice.status}</td>
+                                                    <td>
+                                                        {Capitilize.capital(
+                                                            invoice.status
+                                                        )}
+                                                    </td>
                                                     <td className="text-center">
                                                         <a
                                                             href={

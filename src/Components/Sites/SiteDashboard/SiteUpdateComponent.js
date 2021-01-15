@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
-import WordpressGetAction from "Redux/V1/Sites/Wordpress/Get/WordpressGetAction";
 import WordpressUpdateAction from "Redux/V1/Sites/Wordpress/Put/WordpressPutAction";
 import { ReactSVG } from "react-svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,18 +8,9 @@ import { faSync } from "@fortawesome/free-solid-svg-icons";
 import WordpressRefreshAction from "Redux/V1/Sites/Wordpress/Refresh/WordpressGetAction";
 
 class SiteUpdateComponent extends Component {
-	componentDidMount() {
-		setTimeout(() => {
-			this.props.dispatch(
-				WordpressGetAction.getWordpress(
-					this.props.site.container.identity
-				)
-			);
-		}, 1000);
-	}
 	update = (type, slug) => {
 		const updateDetails = {
-			identity: this.props.site.container.identity,
+			identity: this.props.identity,
 			type,
 			slug,
 		};
@@ -28,9 +18,13 @@ class SiteUpdateComponent extends Component {
 			WordpressUpdateAction.wordpressUpdate(updateDetails)
 		);
 	};
+	handleRefresh = () => {
+		this.props.dispatch(
+			WordpressRefreshAction.getWordpress(this.props.identity)
+		);
+	};
 
 	render() {
-		//console.log(this.props.wordpress, "222222222")
 		const wordpress = this.props.wordpress;
 		const themes = this.props.wordpress.theme;
 		const plugins = this.props.wordpress.plugin;
@@ -139,13 +133,14 @@ class SiteUpdateComponent extends Component {
 					WordPress Core
 					<button
 						className="btn btn-link"
-						onClick={() =>
-							this.props.dispatch(
-								WordpressRefreshAction.getWordpress(
-									this.props.site.container.identity
-								)
-							)
-						}
+						// onClick={() =>
+						// 	this.props.dispatch(
+						// 		WordpressRefreshAction.getWordpress(
+						// 			this.props.site.container.identity
+						// 		)
+						// 	)
+						// }
+						onClick={this.handleRefresh}
 					>
 						<FontAwesomeIcon icon={faSync} />
 					</button>
@@ -240,7 +235,7 @@ const mapStateToProps = (state) => {
 	return {
 		wordpress: state.wordpress,
 		wordpress_updates: state.wordpress_updates,
-		site: state.site_first.site,
+		//site: state.site_first.site,
 	};
 };
 

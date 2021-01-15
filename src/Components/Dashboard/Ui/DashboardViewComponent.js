@@ -6,9 +6,12 @@ class DashboardViewComponent extends Component {
 		return (
 			<React.Fragment>
 				<Col sm={3}>
-					<div className="bg-white bd pd-20 mg-b-25">
+					<div className="bg-white bd pd-20 mg-b-25 dashboard-view">
 						<div className="mg-r-10 float-left">
-							<i data-feather={this.props.icon} className="wd-50 ht-50 tx-gray-500"></i>
+							<i
+								data-feather={this.props.icon}
+								className="wd-50 ht-50 tx-gray-500"
+							></i>
 						</div>
 						<h5>{this.props.heading}</h5>
 						<a href={this.props.link} className="tx-medium">
@@ -17,7 +20,7 @@ class DashboardViewComponent extends Component {
 						</a>
 					</div>
 				</Col>
-			</React.Fragment >
+			</React.Fragment>
 		);
 	}
 }

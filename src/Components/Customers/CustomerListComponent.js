@@ -11,6 +11,7 @@ import PaginationDropDown from "Components/Includes/DropDownComponent";
 import PaginationNumber from "Components/Includes/PaginationComponent";
 import CustomerFilterForm from "Components/Forms/CustomerFilterForm";
 import SortingComponent from "Components/Includes/SortingComponent";
+import Capitilize from "Helpers/CapitilizeHelper";
 
 class CustomerListComponent extends Component {
 	onSwitch = (customer) => {
@@ -92,7 +93,11 @@ class CustomerListComponent extends Component {
 													</td>
 													<td>{customer.email}</td>
 
-													<td>{customer.status}</td>
+													<td>
+														{Capitilize.capital(
+															customer.status
+														)}
+													</td>
 
 													<td>
 														{TimeStampHelper.standardDateFormat(
