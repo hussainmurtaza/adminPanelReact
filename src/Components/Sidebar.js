@@ -438,6 +438,7 @@ class Sidebar extends Component {
 								"access_all",
 								"data_centers_all",
 								"data_centers_read",
+								"data_centers_create",
 							]) ? (
 								<li
 									className={
