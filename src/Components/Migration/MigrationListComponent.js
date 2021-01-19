@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Table, Row, Col } from "react-bootstrap";
+import { Table, Row, Col, Badge } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -36,7 +36,7 @@ class MigrationListComponent extends Component {
                 <TemplateMain>
                     <Sidebar active="migrations" />
 
-                    <div className="content content-components">
+                    <div className="content content-components migration-page">
                         <div className="container">
                             <MigrationFilterForm
                                 location={this.props.location.search}
@@ -50,7 +50,8 @@ class MigrationListComponent extends Component {
                                         <tr>
                                             <th>Customer</th>
                                             <th>Agency Name</th>
-                                            <th>Primary Domain</th>
+                                            <th>Domain</th>
+                                            {/* <th>Staging Domain</th> */}
                                             <th className="migration-status">
                                                 Status
                                             </th>
@@ -96,20 +97,55 @@ class MigrationListComponent extends Component {
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        {migration.primary_domain ===
-                                                        null ? (
-                                                            "-"
-                                                        ) : (
+                                                        {migration.custom_domain ===
+                                                        null ? null : (
                                                             <a
+                                                                className="domain-list"
                                                                 target="
 															_blank"
                                                                 href={
                                                                     "https://" +
-                                                                    migration.primary_domain
+                                                                    migration.custom_domain
                                                                 }
                                                             >
+                                                                <Badge
+                                                                    variant="primary"
+                                                                    className="mr-1"
+                                                                    title="Custom Domain"
+                                                                >
+                                                                    C
+                                                                </Badge>
                                                                 {
-                                                                    migration.primary_domain
+                                                                    migration.custom_domain
+                                                                }
+                                                                <FontAwesomeIcon
+                                                                    icon={
+                                                                        faExternalLinkAlt
+                                                                    }
+                                                                    className="ml-2"
+                                                                />
+                                                            </a>
+                                                        )}
+                                                        {migration.staging_domain ===
+                                                        null ? null : (
+                                                            <a
+                                                                className="domain-list"
+                                                                target="
+															_blank"
+                                                                href={
+                                                                    "https://" +
+                                                                    migration.staging_domain
+                                                                }
+                                                            >
+                                                                <Badge
+                                                                    variant="primary"
+                                                                    className="mr-1"
+                                                                    title="Staging Domain"
+                                                                >
+                                                                    S
+                                                                </Badge>
+                                                                {
+                                                                    migration.staging_domain
                                                                 }
                                                                 <FontAwesomeIcon
                                                                     icon={
@@ -120,6 +156,29 @@ class MigrationListComponent extends Component {
                                                             </a>
                                                         )}
                                                     </td>
+
+                                                    {/* <td className="text-center">
+                                                        {migration.staging_domain ===
+                                                        null ? (
+                                                            "-"
+                                                        ) : (
+                                                            <a
+                                                                target="
+															_blank"
+                                                                href={
+                                                                    "https://" +
+                                                                    migration.staging_domain
+                                                                }
+                                                            >
+                                                                <FontAwesomeIcon
+                                                                    icon={
+                                                                        faGlobe
+                                                                    }
+                                                                    className="ml-2"
+                                                                />
+                                                            </a>
+                                                        )}
+                                                    </td> */}
 
                                                     <td className="migration-status">
                                                         <SingleSelectField

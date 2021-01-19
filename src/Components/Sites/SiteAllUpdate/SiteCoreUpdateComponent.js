@@ -66,7 +66,7 @@ class SiteCoreUpdateComponent extends Component {
                                                       }`}
                                                       onClick={() =>
                                                           this.update(
-                                                              "plugin",
+                                                              "core",
                                                               wordpressCore.slug,
                                                               wordpressCore.sites.map(
                                                                   (site) =>
