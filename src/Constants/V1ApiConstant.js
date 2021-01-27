@@ -15,7 +15,7 @@ const V1 = {
         },
         wordpress: {
             details: "v1/sites/wp/",
-            update: "v1/sites/update-wp/",
+            update: "v1/sites/wp/",
             refresh: "v1/wordpress/refresh/",
         },
         data_centers: "v1/data-centers",
