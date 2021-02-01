@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import TemplateMain from "Templates/TemplateMain";
-import DataCenterFormComponent from "Components/DataCenters/Forms/DataCenterFormComponent";
+import PluginFormComponent from "Components/Premiums/Forms/PremiumFormComponent";
 
-class DataCenterUpdateComponent extends Component {
+class PluginUpdateComponent extends Component {
     render() {
         return (
             <React.Fragment>
                 <TemplateMain>
-                    <Sidebar active="datacenters" />
+                    <Sidebar active="plugins" />
                     <div className="content content-components">
                         <div className="container">
                             <Container>
                                 <h4 className="tx-color-01 mg-b-15">
-                                    Update Data Center
+                                    Update Premimum/Theme Plugin
                                 </h4>
-                                <DataCenterFormComponent
+                                <PluginFormComponent
                                     method="PUT"
                                     submitText="Update"
                                     params={this.props.match.params.id}
@@ -30,4 +30,4 @@ class DataCenterUpdateComponent extends Component {
     }
 }
 
-export default DataCenterUpdateComponent;
+export default PluginUpdateComponent;

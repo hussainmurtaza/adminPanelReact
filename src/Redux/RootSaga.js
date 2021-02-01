@@ -45,6 +45,7 @@ import { MigrationStatusSaga } from "Redux/V1/Migration/ToggleStatus/MigrationSt
 import { MigrationFilterSaga } from "Redux/V1/Migration/Filter/MigrationFilterSaga";
 import OperationRootSaga from "Redux/V1/Operations/OperationRootSaga";
 import WordpressUpdateAllRootSaga from "Redux/V1/WordpressUpdateAll/UpdateAllRootSaga";
+import PremiumRootSaga from "Redux/V1/Premiums/PremiumRootSaga";
 
 import CustomerRootSaga from "Redux/V1/Customers/CustomerRootSaga";
 export default function* rootSaga() {
@@ -97,5 +98,6 @@ export default function* rootSaga() {
         OperationRootSaga(),
         WordpressUpdateAllRootSaga(),
         CustomerRootSaga(),
+        PremiumRootSaga(),
     ]);
 }

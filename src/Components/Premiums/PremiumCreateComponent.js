@@ -2,21 +2,19 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Headers from "Components/Header";
 import Sidebar from "Components/Sidebar";
-import DataCenterFormComponent from "Components/DataCenters/Forms/DataCenterFormComponent";
+import PluginFormComponent from "Components/Premiums/Forms/PremiumFormComponent";
 
-class DataCenterCreateComponent extends Component {
+class PluginCreateComponent extends Component {
     render() {
         return (
             <React.Fragment>
                 <Headers />
-                <Sidebar active="create-datacenter" />
+                <Sidebar active="create-plugin" />
                 <div className="content content-components">
                     <div className="container">
                         <Container>
-                            <h4 className="tx-color-01 mg-b-15">
-                                Create Data Center
-                            </h4>
-                            <DataCenterFormComponent
+                            <h4 className="tx-color-01 mg-b-15">Create</h4>
+                            <PluginFormComponent
                                 method="POST"
                                 submitText="Create"
                                 params={this.props.match.params.id}
@@ -29,4 +27,4 @@ class DataCenterCreateComponent extends Component {
     }
 }
 
-export default DataCenterCreateComponent;
+export default PluginCreateComponent;

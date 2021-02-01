@@ -31,7 +31,10 @@ import HostNodeCreateComponent from "Components/HostNodes/HostNodeCreateComponen
 import Error403Component from "Components/403/Error403Component";
 import Permission from "Businesses/PermissionBusiness";
 import SiteAllUpdateComponent from "Components/Sites/SiteAllUpdateComponent";
-
+import PluginListComponent from "Components/Premiums/PremiumListComponent";
+import PluginUpdateComponent from "Components/Premiums/PremiumUpdateComponent";
+import PluginSingleComponent from "Components/Premiums/PremiumSingleComponent";
+import PluginCreateComponent from "Components/Premiums/PremiumCreateComponent";
 class Main extends Component {
     render() {
         const loggedIn = this.props.Auth.isAuthenticated;
@@ -320,6 +323,54 @@ class Main extends Component {
                             "host_nodes_create",
                         ]}
                     />
+                    {/* PremiumPlugins Routes */}
+
+                    <PrivateRoute
+                        exact
+                        path="/plugins"
+                        component={PluginListComponent}
+                        permissions={[
+                            "access_all",
+                            "premium_plugins_all",
+                            "premium_plugins_read",
+                            "premium_plugins_create	",
+                            "premium_plugins_delete",
+                        ]}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        path="/plugin/:id"
+                        component={PluginSingleComponent}
+                        permissions={[
+                            "access_all",
+                            "premium_plugins_all",
+                            "premium_plugins_update",
+                        ]}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        path="/create-plugin"
+                        component={PluginCreateComponent}
+                        permissions={[
+                            "access_all",
+                            "premium_plugins_all",
+                            "premium_plugins_create",
+                        ]}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        path="/update-plugin/:id"
+                        component={PluginUpdateComponent}
+                        permissions={[
+                            "access_all",
+                            "premium_plugins_all",
+                            "premium_plugins_update",
+                        ]}
+                    />
+
                     <PrivateRoute
                         exact
                         path="/403"

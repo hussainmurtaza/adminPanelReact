@@ -43,5 +43,8 @@ const V1 = {
     customers: {
         change_affiliate: "v1/affiliates/",
     },
+    premiumplugin: {
+        premium_plugins: "v1/premium/plugins",
+    },
 };
 export default V1;

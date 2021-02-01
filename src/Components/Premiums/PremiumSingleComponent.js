@@ -2,26 +2,27 @@ import React, { Component } from "react";
 import { Table } from "react-bootstrap";
 import Sidebar from "Components/Sidebar";
 import { connect } from "react-redux";
-import DataCenterFirstAction from "Redux/V1/DataCenters/First/DataCenterFirstAction";
+import PremiumDetailAction from "Redux/V1/Premiums/First/PremiumFirstAction";
 import TemplateMain from "Templates/TemplateMain";
 import TimeStampHelper from "Helpers/TimeStampHelper";
 
-class DataCenterSingleComponent extends Component {
+class PluginSingleComponent extends Component {
     componentDidMount() {
         this.props.dispatch(
-            DataCenterFirstAction.dataCenterFirst(this.props.match.params.id)
+            PremiumDetailAction.premiumFirst(this.props.match.params.id)
         );
     }
     render() {
-        const data_center = this.props.data_center;
+        const plugin = this.props.plugin;
+        console.log(this.props.plugin, "asdsadsadasd");
         return (
             <React.Fragment>
                 <TemplateMain>
-                    <Sidebar active="datacenters" />
+                    <Sidebar active="plugins" />
                     <div className="content content-components">
                         <div className="container">
                             <h4 className="tx-color-01 mg-b-15">
-                                DataCenter Details
+                                Premium Plugin/Theme Details
                             </h4>
                             <Table striped bordered hover>
                                 <thead>
@@ -32,49 +33,43 @@ class DataCenterSingleComponent extends Component {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Location</td>
-                                        <td>{data_center.location}</td>
+                                        <td>Name</td>
+                                        <td>{plugin.name}</td>
                                     </tr>
                                     <tr>
-                                        <td>Provider Name</td>
-                                        <td>{data_center.provider_name}</td>
+                                        <td>Slug</td>
+                                        <td>{plugin.slug}</td>
                                     </tr>
                                     <tr>
-                                        <td>Default</td>
-                                        <td>
-                                            {data_center.default === "true"
-                                                ? "True"
-                                                : "False"}
-                                        </td>
+                                        <td>Type</td>
+                                        <td>{plugin.type}</td>
                                     </tr>
                                     <tr>
-                                        <td>Identity</td>
-                                        <td>{data_center.identity}</td>
+                                        <td>Author</td>
+                                        <td>{plugin.author}</td>
                                     </tr>
                                     <tr>
-                                        <td>Status</td>
-                                        <td>{data_center.status}</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Created Date</td>
+                                        <td>Created At</td>
                                         <td>
                                             {TimeStampHelper.standardDateFormat(
-                                                data_center.created_at
+                                                plugin.created_at
                                             )}
                                         </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Current Version</td>
+                                        <td>{plugin.current_version}</td>
                                     </tr>
                                 </tbody>
                             </Table>
                             <div>
                                 <a
-                                    href="/update-plugin"
-                                    // href={
-                                    // 	"/update-datacenter/" +
-                                    // 	this.props.data_center.id
-                                    // }
+                                    href={
+                                        "/update-plugin/" + this.props.plugin.id
+                                    }
                                     className="btn btn-primary"
                                 >
-                                    Edit Data Center
+                                    Edit Plugin
                                 </a>
                             </div>
                         </div>
@@ -87,8 +82,8 @@ class DataCenterSingleComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        data_center: state.data_center_first.data_center,
+        plugin: state.premium.detail.premium_plugin,
     };
 };
 
-export default connect(mapStateToProps)(DataCenterSingleComponent);
+export default connect(mapStateToProps)(PluginSingleComponent);
