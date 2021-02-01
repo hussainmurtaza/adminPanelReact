@@ -46,5 +46,8 @@ const V1 = {
     premiumplugin: {
         premium_plugins: "v1/premium/plugins",
     },
+    voucher: {
+        vouchers: "v1/vouchers",
+    },
 };
 export default V1;

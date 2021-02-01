@@ -51,6 +51,7 @@ import OperationRootReducer from "Redux/V1/Operations/OperationRootReducer";
 import WordpressUpdateAllRootReducer from "Redux/V1/WordpressUpdateAll/UpdateAllRootReducer";
 import ChangeAffiliateReducer from "Redux/V1/Customers/AffiliateAssign/AffiliatePutReducer";
 import PremiumRootReducer from "Redux/V1/Premiums/PremiumRootReducer";
+import VoucherRootReducer from "Redux/V1/Vouchers/VoucherRootReducer";
 
 export default combineReducers({
     login: LoginReducer,
@@ -106,4 +107,5 @@ export default combineReducers({
     change_affiliate: ChangeAffiliateReducer,
     wpUpdateAll: WordpressUpdateAllRootReducer,
     premium: PremiumRootReducer,
+    vouchers: VoucherRootReducer,
 });

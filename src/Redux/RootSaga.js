@@ -48,6 +48,7 @@ import WordpressUpdateAllRootSaga from "Redux/V1/WordpressUpdateAll/UpdateAllRoo
 import PremiumRootSaga from "Redux/V1/Premiums/PremiumRootSaga";
 
 import CustomerRootSaga from "Redux/V1/Customers/CustomerRootSaga";
+import VoucherRootSaga from "Redux/V1/Vouchers/VoucherRootSaga";
 export default function* rootSaga() {
     yield all([
         LoginRootSaga(),
@@ -99,5 +100,6 @@ export default function* rootSaga() {
         WordpressUpdateAllRootSaga(),
         CustomerRootSaga(),
         PremiumRootSaga(),
+        VoucherRootSaga(),
     ]);
 }

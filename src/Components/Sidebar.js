@@ -576,6 +576,74 @@ class Sidebar extends Component {
                                     </nav>
                                 </li>
                             ) : null}
+                            {PermissionHelper.validate([
+                                "access_all",
+                                "vouchers_all",
+                                "vouchers_read",
+                                "vouchers_create",
+                            ]) ? (
+                                <li
+                                    className={
+                                        this.props.active === "vouchers" ||
+                                        this.props.active === "create-voucher"
+                                            ? "nav-item show"
+                                            : "nav-item"
+                                    }
+                                >
+                                    <a
+                                        href="/"
+                                        className={
+                                            this.props.active === "vouchers" ||
+                                            this.props.active ===
+                                                "create-voucher"
+                                                ? "active nav-link with-sub"
+                                                : "nav-link with-sub"
+                                        }
+                                    >
+                                        <i data-feather="credit-card"></i>
+                                        Vouchers
+                                    </a>
+                                    <nav className="nav">
+                                        {PermissionHelper.validate([
+                                            "access_all",
+                                            "vouchers_all",
+                                            "vouchers_read",
+                                            "vouchers_update",
+                                            "vouchers_delete",
+                                        ]) ? (
+                                            <a
+                                                href="/vouchers"
+                                                className={
+                                                    this.props.active ===
+                                                    "vouchers"
+                                                        ? "active"
+                                                        : ""
+                                                }
+                                            >
+                                                {" "}
+                                                All Voucher
+                                            </a>
+                                        ) : null}
+                                        {PermissionHelper.validate([
+                                            "access_all",
+                                            "vouchers_all",
+                                            "vouchers_create",
+                                        ]) ? (
+                                            <a
+                                                href="/create-voucher"
+                                                className={
+                                                    this.props.active ===
+                                                    "create-voucher"
+                                                        ? "active"
+                                                        : ""
+                                                }
+                                            >
+                                                Create Voucher
+                                            </a>
+                                        ) : null}
+                                    </nav>
+                                </li>
+                            ) : null}
                         </ul>
                     </div>
                 </div>

@@ -35,6 +35,11 @@ import PluginListComponent from "Components/Premiums/PremiumListComponent";
 import PluginUpdateComponent from "Components/Premiums/PremiumUpdateComponent";
 import PluginSingleComponent from "Components/Premiums/PremiumSingleComponent";
 import PluginCreateComponent from "Components/Premiums/PremiumCreateComponent";
+import VoucherListComponent from "Components/Vouchers/VoucherListComponent";
+import VoucherCreateComponent from "Components/Vouchers/VoucherCreateComponent";
+import VoucherSingleComponent from "Components/Vouchers/VoucherSingleComponent";
+import VoucherUpdateComponent from "Components/Vouchers/VoucherUpdateComponent";
+
 class Main extends Component {
     render() {
         const loggedIn = this.props.Auth.isAuthenticated;
@@ -376,6 +381,52 @@ class Main extends Component {
                         path="/403"
                         component={Error403Component}
                         permissions={["403"]}
+                    />
+
+                    {/* Voucher Routes================ */}
+                    <PrivateRoute
+                        exact
+                        path="/vouchers"
+                        component={VoucherListComponent}
+                        permissions={[
+                            "access_all",
+                            "data_centers_all",
+                            "data_centers_read",
+                            "data_centers_delete",
+                        ]}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        path="/voucher/:id"
+                        component={VoucherSingleComponent}
+                        permissions={[
+                            "access_all",
+                            "host_nodes_all",
+                            "host_nodes_read",
+                        ]}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        path="/update-voucher/:id"
+                        component={VoucherUpdateComponent}
+                        permissions={[
+                            "access_all",
+                            "host_nodes_all",
+                            "host_nodes_update",
+                        ]}
+                    />
+
+                    <PrivateRoute
+                        exact
+                        path="/create-voucher"
+                        component={VoucherCreateComponent}
+                        permissions={[
+                            "access_all",
+                            "host_nodes_all",
+                            "host_nodes_create",
+                        ]}
                     />
 
                     <Redirect to="/dashboard" />
