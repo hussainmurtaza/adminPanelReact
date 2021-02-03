@@ -24,15 +24,50 @@ const botPut = async (data) => {
     );
     return response;
 };
+
 const botPutBody = (data) => {
     let _data = {};
     _data.status = data.status;
     return JSON.stringify(_data);
 };
+
+const redisFirst = async (data) => {
+    const response = await Gateway.authGateway(
+        "GET",
+        V1.operation.redis + data
+    );
+    return response;
+};
+const redisDelete = async (data) => {
+    const response = await Gateway.authGateway(
+        "DELETE",
+        V1.operation.redis + data
+    );
+    return response;
+};
+const redisToggleStatus = async (data) => {
+    const _data = redisBody(data);
+    const response = await Gateway.authGateway(
+        "PUT",
+        V1.operation.redis + data.identity,
+        _data
+    );
+    return response;
+};
+
+const redisBody = (data) => {
+    let _data = {};
+    _data.status = data.status;
+    return JSON.stringify(_data);
+};
+
 const OperationService = {
     cachePut,
     permissionsGet,
     botPut,
+    redisFirst,
+    redisDelete,
+    redisToggleStatus,
 };
 
 export default OperationService;

@@ -50,6 +50,7 @@ import MigrationFilterReducer from "Redux/V1/Migration/Filter/MigrationFilterRed
 import OperationRootReducer from "Redux/V1/Operations/OperationRootReducer";
 import WordpressUpdateAllRootReducer from "Redux/V1/WordpressUpdateAll/UpdateAllRootReducer";
 import ChangeAffiliateReducer from "Redux/V1/Customers/AffiliateAssign/AffiliatePutReducer";
+import SiteRootReducer from "Redux/V1/Sites/SiteRootReducer";
 import PremiumRootReducer from "Redux/V1/Premiums/PremiumRootReducer";
 import VoucherRootReducer from "Redux/V1/Vouchers/VoucherRootReducer";
 
@@ -106,6 +107,7 @@ export default combineReducers({
     //wordpressUpdateAll: WordpressUpdateGetReducer,
     change_affiliate: ChangeAffiliateReducer,
     wpUpdateAll: WordpressUpdateAllRootReducer,
+    siteV1: SiteRootReducer,
     premium: PremiumRootReducer,
     vouchers: VoucherRootReducer,
 });

@@ -58031,4 +58031,6 @@ button.bg-twitter:focus,
 .wd-280 {
     width: 280px;
 }
-
+.operation-component .redis-trash-icon path {
+	fill: red
+}

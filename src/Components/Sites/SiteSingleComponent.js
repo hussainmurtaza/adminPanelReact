@@ -11,6 +11,7 @@ import SiteCustomer from "Components/Sites/SiteDashboard/SiteCustomerComponent";
 import SiteOperation from "Components/Sites/SiteDashboard/SiteOperationComponent";
 import SiteAddonComponent from "Components/Sites/SiteDashboard/SiteAddonComponent";
 import WordpressGetAction from "Redux/V1/Sites/Wordpress/Get/WordpressGetAction";
+import RedisDetailAction from "Redux/V1/Sites/Features/Operations/Redis/First/RedisFirstAction";
 
 class SiteSingleComponent extends Component {
     componentDidMount() {
@@ -18,7 +19,6 @@ class SiteSingleComponent extends Component {
             SiteFirstAction.siteFirst(this.props.match.params.host)
         );
     }
-
     quickLogin = (e) => {
         const identity = e.target.getAttribute("data-identity");
         this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
@@ -29,6 +29,11 @@ class SiteSingleComponent extends Component {
                 WordpressGetAction.getWordpress(
                     this.props.site.container.identity
                 )
+            );
+        }
+        if (key === "site-operation") {
+            this.props.dispatch(
+                RedisDetailAction.redisFirst(this.props.site.container.identity)
             );
         }
     };
@@ -111,6 +116,10 @@ class SiteSingleComponent extends Component {
                                         }
                                         host={this.props.match.params.host}
                                         dis={this.props.dispatch}
+                                        redisStatus={
+                                            this.props.site.container
+                                                .redisStatus
+                                        }
                                     />
                                 </Tab>
                                 <Tab eventKey="site-addon" title="Site Addons">

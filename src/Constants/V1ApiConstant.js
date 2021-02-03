@@ -36,6 +36,7 @@ const V1 = {
         cache_clear: "v1/sites/cache/",
         permissions_reset: "v1/sites/permission/",
         bot_block: "v1/sites/bot-block/",
+        redis: "v1/sites/redis/",
     },
     wordpress: {
         update_all: "v1/sites/wp/content",

@@ -1,46 +1,46 @@
 import React, { Component } from "react";
 import LogoutHelper from "Helpers/LogoutHelper";
 class Header extends Component {
-	render() {
-		return (
-			<React.Fragment>
-				<header className="navbar navbar-header navbar-header-fixed">
-					<a href="/" id="sidebarMenuOpen" className="burger-menu">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="feather feather-menu"
-						>
-							<line x1="3" y1="12" x2="21" y2="12"></line>
-							<line x1="3" y1="6" x2="21" y2="6"></line>
-							<line x1="3" y1="18" x2="21" y2="18"></line>
-						</svg>
-					</a>
-					<div className="navbar-brand">
-						<a href="/" className="logo">
-							<img
-								src="/assets/img/logo.gif"
-								alt="logo"
-								className="img-fluid"
-							/>
-						</a>
-					</div>
-					<div className="navbar-right">
-						<button
-							className="btn btn-buy"
-							onClick={() => LogoutHelper.logout()}
-						>
-							<i data-feather="log-out"></i> <span>LogOut</span>
-						</button>
-					</div>
-					{/* <div id="navbarMenu" class="navbar-menu-wrapper">
+    render() {
+        return (
+            <React.Fragment>
+                <header className="navbar navbar-header navbar-header-fixed">
+                    <a href="/" id="sidebarMenuOpen" className="burger-menu">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-menu"
+                        >
+                            <line x1="3" y1="12" x2="21" y2="12"></line>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <line x1="3" y1="18" x2="21" y2="18"></line>
+                        </svg>
+                    </a>
+                    <div className="navbar-brand">
+                        <a href="/" className="logo">
+                            <img
+                                src="/assets/img/logo.gif"
+                                alt="logo"
+                                className="img-fluid"
+                            />
+                        </a>
+                    </div>
+                    <div className="navbar-right">
+                        <button
+                            className="btn btn-buy"
+                            onClick={() => LogoutHelper.logout()}
+                        >
+                            <i data-feather="log-out"></i> <span>LogOut</span>
+                        </button>
+                    </div>
+                    {/* <div id="navbarMenu" class="navbar-menu-wrapper">
 						<div class="navbar-menu-header">
 							<a href="/" class="df-logo">
 								<img
@@ -305,10 +305,10 @@ class Header extends Component {
 						</ul>
 					</div>
 					<div class="navbar-right"></div> */}
-				</header>
-			</React.Fragment>
-		);
-	}
+                </header>
+            </React.Fragment>
+        );
+    }
 }
 
 export default Header;
