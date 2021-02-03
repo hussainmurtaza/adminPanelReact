@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Button, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Col } from "react-bootstrap";
 
 class Operation extends Component {
@@ -89,7 +88,6 @@ class Operation extends Component {
                         }}
                     >
                         Delete
-                        {/* <FontAwesomeIcon icon={faTrash} /> */}
                     </button>
                 ) : (
                     ""
@@ -97,14 +95,7 @@ class Operation extends Component {
                 <Row>
                     <Col lg={12}>
                         {redisStatus === "in_progress" ? (
-                            <p
-                                className={`text-success  mt-3`}
-                                // onClick={() => {
-                                //     this.props.redisDeleteFunction();
-                                // }}
-                            >
-                                In Progress
-                            </p>
+                            <p className={`text-success  mt-3`}>In Progress</p>
                         ) : (
                             ""
                         )}
