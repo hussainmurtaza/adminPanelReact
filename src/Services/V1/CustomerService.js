@@ -63,6 +63,19 @@ const changeAffiliate = async (id, data) => {
     return response;
 };
 
+const customerSite = async (data) => {
+    const response = await Gateway.authGateway("GET", V1.customers.site + data);
+    return response;
+};
+
+const customerInvoice = async (data) => {
+    const response = await Gateway.authGateway(
+        "GET",
+        V1.customers.invoice + data
+    );
+    return response;
+};
+
 const CustomerService = {
     getAll,
     get,
@@ -70,6 +83,8 @@ const CustomerService = {
     put,
     search,
     changeAffiliate,
+    customerSite,
+    customerInvoice,
 };
 
 export default CustomerService;

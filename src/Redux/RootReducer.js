@@ -54,6 +54,10 @@ import SiteRootReducer from "Redux/V1/Sites/SiteRootReducer";
 import PremiumRootReducer from "Redux/V1/Premiums/PremiumRootReducer";
 import VoucherRootReducer from "Redux/V1/Vouchers/VoucherRootReducer";
 import CustomerRootReducerV3 from "Redux/V3/Customers/CustomerRootReducerV3";
+import WalletCreditReducer from "Redux/V1/Customers/Wallet/Credit/WalletCreditReducer";
+import WalletDebitReducer from "Redux/V1/Customers/Wallet/Debit/WalletDebitReducer";
+import CustomerSiteReducer from "Redux/V1/Customers/CustomerSite/CustomerSiteReducer";
+import CustomerInvoiceReducer from "Redux/V1/Customers/CustomerInvoice/CustomerInvoiceReducer";
 
 export default combineReducers({
     login: LoginReducer,
@@ -112,4 +116,8 @@ export default combineReducers({
     premium: PremiumRootReducer,
     vouchers: VoucherRootReducer,
     customerV3: CustomerRootReducerV3,
+    credit: WalletCreditReducer,
+    debit: WalletDebitReducer,
+    customerSite: CustomerSiteReducer,
+    customerInvoice: CustomerInvoiceReducer,
 });

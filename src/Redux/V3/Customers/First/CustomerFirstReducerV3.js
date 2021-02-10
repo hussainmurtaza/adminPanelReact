@@ -4,7 +4,9 @@ const CustomerFirstReducerV3 = (
     state = {
         loading: false,
         customer_response: [],
-        customer: [],
+        customer: {
+            wallet: {},
+        },
         affiliate: [],
         err_mess: null,
         fetched: false,
@@ -16,6 +18,10 @@ const CustomerFirstReducerV3 = (
             return {
                 ...state,
                 loading: true,
+                customer: {
+                    wallet: {},
+                },
+                affiliate: [],
             };
         case CUSTOMER.CUSTOMER_FIRST_SUCCESS_V3:
             return {
@@ -27,7 +33,15 @@ const CustomerFirstReducerV3 = (
                 fetched: true,
             };
         case CUSTOMER.CUSTOMER_FIRST_FAILED_V3:
-            return { ...state, loading: false, err_mess: action.response };
+            return {
+                ...state,
+                loading: false,
+                err_mess: action.response,
+                customer: {
+                    wallet: {},
+                },
+                affiliate: [],
+            };
         default:
             return state;
     }

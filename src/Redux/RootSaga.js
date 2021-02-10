@@ -50,6 +50,8 @@ import PremiumRootSaga from "Redux/V1/Premiums/PremiumRootSaga";
 import CustomerRootSaga from "Redux/V1/Customers/CustomerRootSaga";
 import VoucherRootSaga from "Redux/V1/Vouchers/VoucherRootSaga";
 import CustomerRootSagaV3 from "Redux/V3/Customers/CustomerRootSagaV3";
+import { CustomerSiteSaga } from "Redux/V1/Customers/CustomerSite/CustomerSiteSaga";
+import { CustomerInvoiceSaga } from "Redux/V1/Customers/CustomerInvoice/CustomerInvoiceSaga";
 
 export default function* rootSaga() {
     yield all([
@@ -105,5 +107,7 @@ export default function* rootSaga() {
         PremiumRootSaga(),
         VoucherRootSaga(),
         CustomerRootSagaV3(),
+        CustomerSiteSaga(),
+        CustomerInvoiceSaga(),
     ]);
 }

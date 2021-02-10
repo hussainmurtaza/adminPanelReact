@@ -43,6 +43,9 @@ const V1 = {
     },
     customers: {
         change_affiliate: "v1/affiliates/",
+        wallet: "v1/customers/wallet/",
+        site: "v1/customers/sites/",
+        invoice: "v1/customers/invoices/",
     },
     premiumplugin: {
         premium_plugins: "v1/premium/plugins",

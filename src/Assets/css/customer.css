@@ -1,0 +1,31 @@
+.topup-card {
+    border: 2px solid #1665d8;
+}
+.card-payment {
+    border-radius: 10px;
+    background: #f9f9f9;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 4%);
+    margin-bottom: 10px;
+}
+.card-payment .card-number,
+.card-payment .card-title {
+    color: #3e3f42;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 20px;
+}
+.card-payment .card-link {
+    color: #1665d8;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 19px;
+}
+.card-payment .form-group label {
+    display: none;
+}
+@media screen and (max-width: 768px) {
+    .wallet-input {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
