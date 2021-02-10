@@ -6,6 +6,7 @@ import WalletCreditAction from "Redux/V1/Customers/Wallet/Credit/WalletCreditAct
 import WalletDebitAction from "Redux/V1/Customers/Wallet/Debit/WalletDebitAction";
 import { connect } from "react-redux";
 import CustomerBillingBusiness from "Businesses/Customers/CustomerBillingBusiness";
+import PermissionHelper from "Helpers/PermissionHelper";
 
 class CustomerBillingComponent extends Component {
     state = {
@@ -102,24 +103,72 @@ class CustomerBillingComponent extends Component {
                                         />
                                     </Col>
                                     <Col lg={6} xs={12}>
-                                        <Button
-                                            type="submit"
-                                            variant="primary"
-                                            className="btn-block wallet-input"
-                                            onClick={this.walletCreditFunction}
+                                        <div
+                                            class="tooltip-wrapper"
+                                            data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title={
+                                                PermissionHelper.validate([
+                                                    "customers_wallet_credit",
+                                                    "access_all",
+                                                ]) === true
+                                                    ? ""
+                                                    : "Permission Denied!"
+                                            }
                                         >
-                                            Credit
-                                        </Button>{" "}
+                                            <Button
+                                                type="submit"
+                                                variant="primary"
+                                                className="btn-block wallet-input tooltip-wrapper"
+                                                onClick={
+                                                    this.walletCreditFunction
+                                                }
+                                                disabled={
+                                                    PermissionHelper.validate([
+                                                        "customers_wallet_credit",
+                                                        "access_all",
+                                                    ]) === true
+                                                        ? false
+                                                        : true
+                                                }
+                                            >
+                                                Credit
+                                            </Button>
+                                        </div>{" "}
                                     </Col>
                                     <Col lg={6} xs={12}>
-                                        <Button
-                                            type="submit"
-                                            variant="primary"
-                                            className="btn-block wallet-input"
-                                            onClick={this.walletDebitFunction}
+                                        <div
+                                            class="tooltip-wrapper"
+                                            data-toggle="tooltip"
+                                            data-placement="bottom"
+                                            title={
+                                                PermissionHelper.validate([
+                                                    "customers_wallet_debit",
+                                                    "access_all",
+                                                ]) === true
+                                                    ? ""
+                                                    : "Permission Denied!"
+                                            }
                                         >
-                                            Debit
-                                        </Button>{" "}
+                                            <Button
+                                                type="submit"
+                                                variant="primary"
+                                                className="btn-block wallet-input"
+                                                onClick={
+                                                    this.walletDebitFunction
+                                                }
+                                                disabled={
+                                                    PermissionHelper.validate([
+                                                        "customers_wallet_debit",
+                                                        "access_all",
+                                                    ]) === true
+                                                        ? false
+                                                        : true
+                                                }
+                                            >
+                                                Debit
+                                            </Button>
+                                        </div>{" "}
                                     </Col>
                                 </Row>
                             </div>

@@ -29,3 +29,11 @@
         margin-bottom: 10px;
     }
 }
+
+.tooltip-wrapper .btn[disabled] {
+    pointer-events: none;
+}
+
+.tooltip-wrapper.disabled {
+    cursor: not-allowed;
+}
