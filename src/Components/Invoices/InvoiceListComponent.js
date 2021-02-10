@@ -85,8 +85,6 @@ class InvoiceListComponent extends Component {
                                                                 "/invoice/" +
                                                                 invoice.id
                                                             }
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
                                                         >
                                                             {invoice.reference}
                                                         </a>

@@ -83,8 +83,6 @@ class SiteListComponent extends Component {
 
                                                     <td>
                                                         <a
-                                                            target="_blank"
-                                                            rel="noopener noreferrer"
                                                             href={
                                                                 "/site/" +
                                                                 site.host
