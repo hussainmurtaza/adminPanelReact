@@ -53,6 +53,7 @@ import ChangeAffiliateReducer from "Redux/V1/Customers/AffiliateAssign/Affiliate
 import SiteRootReducer from "Redux/V1/Sites/SiteRootReducer";
 import PremiumRootReducer from "Redux/V1/Premiums/PremiumRootReducer";
 import VoucherRootReducer from "Redux/V1/Vouchers/VoucherRootReducer";
+import CustomerRootReducerV3 from "Redux/V3/Customers/CustomerRootReducerV3";
 
 export default combineReducers({
     login: LoginReducer,
@@ -110,4 +111,5 @@ export default combineReducers({
     siteV1: SiteRootReducer,
     premium: PremiumRootReducer,
     vouchers: VoucherRootReducer,
+    customerV3: CustomerRootReducerV3,
 });
