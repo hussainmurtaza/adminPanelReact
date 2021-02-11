@@ -15,7 +15,11 @@ class InputUpdateField extends React.Component {
                         className="form-control"
                         required={this.props.required}
                         defaultValue={this.props.defaultValue}
-                        value={this.props.value}
+                        value={
+                            this.props.value
+                                ? this.props.value
+                                : this.props.defaultValue
+                        }
                         pattern={this.props.pattern}
                         step={this.props.step}
                         autocomplete="off"
