@@ -53,5 +53,6 @@ const V1 = {
     voucher: {
         vouchers: "v1/vouchers",
     },
+    wordpress_logs: "v1/sites/wordpress/logs",
 };
 export default V1;

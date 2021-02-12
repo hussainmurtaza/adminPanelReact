@@ -644,6 +644,48 @@ class Sidebar extends Component {
                                     </nav>
                                 </li>
                             ) : null}
+
+                            {PermissionHelper.validate(["access_all"]) ? (
+                                <li
+                                    className={
+                                        this.props.active === "logs" ||
+                                        this.props.active === "wp-logs"
+                                            ? "nav-item show"
+                                            : "nav-item"
+                                    }
+                                >
+                                    <a
+                                        href="/"
+                                        className={
+                                            this.props.active === "logs" ||
+                                            this.props.active === "wp-logs"
+                                                ? "active nav-link with-sub"
+                                                : "nav-link with-sub"
+                                        }
+                                    >
+                                        <i data-feather="list"></i>
+                                        Logs
+                                    </a>
+                                    <nav className="nav">
+                                        {PermissionHelper.validate([
+                                            "access_all",
+                                        ]) ? (
+                                            <a
+                                                href="/wp-logs"
+                                                className={
+                                                    this.props.active ===
+                                                    "wp-logs"
+                                                        ? "active"
+                                                        : ""
+                                                }
+                                            >
+                                                {" "}
+                                                WP Logs
+                                            </a>
+                                        ) : null}
+                                    </nav>
+                                </li>
+                            ) : null}
                         </ul>
                     </div>
                 </div>

@@ -2,21 +2,28 @@
 .dashboard-page {
 }
 .dashboard-cards {
-	color: #ffffff;
-	background-color: #1665d8;
-	border-color: #1665d8;
-	margin-bottom: 25px;
-	/* background-image: url(../img/image.png);
+    color: #ffffff;
+    background-color: #1665d8;
+    border-color: #1665d8;
+    margin-bottom: 25px;
+    /* background-image: url(../img/image.png);
     background-repeat: no-repeat;
     background-position: top right; */
 }
 .dashboard-cards .card-heading {
-	font-weight: 600;
+    font-weight: 600;
 }
 .dashboard-cards .card-number {
-	font-weight: 600;
-	font-size: 25px;
+    font-weight: 600;
+    font-size: 25px;
 }
 .dashboard-cards svg {
-	opacity: 0.8;
+    opacity: 0.8;
+}
+
+.log-approve path {
+    fill: darkgreen;
+}
+.log-cancel path {
+    fill: rgb(233, 43, 43);
 }

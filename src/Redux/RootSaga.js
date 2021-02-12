@@ -52,6 +52,7 @@ import VoucherRootSaga from "Redux/V1/Vouchers/VoucherRootSaga";
 import CustomerRootSagaV3 from "Redux/V3/Customers/CustomerRootSagaV3";
 import { CustomerSiteSaga } from "Redux/V1/Customers/CustomerSite/CustomerSiteSaga";
 import { CustomerInvoiceSaga } from "Redux/V1/Customers/CustomerInvoice/CustomerInvoiceSaga";
+import WordpressLogsRootSaga from "Redux/V1/WordpressLogs/WordpressLogsRootSaga";
 
 export default function* rootSaga() {
     yield all([
@@ -109,5 +110,6 @@ export default function* rootSaga() {
         CustomerRootSagaV3(),
         CustomerSiteSaga(),
         CustomerInvoiceSaga(),
+        WordpressLogsRootSaga(),
     ]);
 }

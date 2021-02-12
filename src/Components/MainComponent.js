@@ -39,7 +39,8 @@ import VoucherListComponent from "Components/Vouchers/VoucherListComponent";
 import VoucherCreateComponent from "Components/Vouchers/VoucherCreateComponent";
 import VoucherSingleComponent from "Components/Vouchers/VoucherSingleComponent";
 import VoucherUpdateComponent from "Components/Vouchers/VoucherUpdateComponent";
-
+import WordpressLogsComponent from "Components/Logs/WordpressLogsComponent";
+import LogsComponent from "Components/Logs/LogsComponent";
 class Main extends Component {
     render() {
         const loggedIn = this.props.Auth.isAuthenticated;
@@ -428,7 +429,18 @@ class Main extends Component {
                             "host_nodes_create",
                         ]}
                     />
-
+                    <PrivateRoute
+                        exact
+                        path="/logs"
+                        component={LogsComponent}
+                        permissions={["access_all"]}
+                    />
+                    <PrivateRoute
+                        exact
+                        path="/wp-logs"
+                        component={WordpressLogsComponent}
+                        permissions={["access_all"]}
+                    />
                     <Redirect to="/dashboard" />
                 </Switch>
                 <ToastContainer />
