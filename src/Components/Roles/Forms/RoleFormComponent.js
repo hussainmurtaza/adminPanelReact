@@ -53,7 +53,6 @@ class RoleFormComponent extends Component {
         if (this.props.method === "POST") {
             e.preventDefault();
             this.props.dispatch(PostRolesAction.postRoles(this.state.form));
-            // console.log(this.state.form);
         }
     };
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Table, Row, Col, Button } from "react-bootstrap";
-import InputUpdateField from "Components/Forms/Fields/InputUpdateField";
+import InputUpdateField2 from "Components/Forms/Fields/InputUpdateField2";
 import Confirm from "Helpers/ConfirmationHelper";
 import WalletCreditAction from "Redux/V1/Customers/Wallet/Credit/WalletCreditAction";
 import WalletDebitAction from "Redux/V1/Customers/Wallet/Debit/WalletDebitAction";
@@ -91,7 +91,7 @@ class CustomerBillingComponent extends Component {
 
                                 <Row className="mt-2">
                                     <Col lg="12" xs={12}>
-                                        <InputUpdateField
+                                        <InputUpdateField2
                                             type="number"
                                             name="wallet"
                                             placeholder="Enter Amount"

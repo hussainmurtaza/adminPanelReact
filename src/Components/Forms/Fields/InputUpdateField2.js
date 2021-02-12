@@ -1,6 +1,6 @@
 import React from "react";
 
-class InputUpdateField extends React.Component {
+class InputUpdateField2 extends React.Component {
     render() {
         return (
             <React.Fragment>
@@ -14,7 +14,7 @@ class InputUpdateField extends React.Component {
                         onInput={this.props.onChange}
                         className="form-control"
                         required={this.props.required}
-                        defaultValue={this.props.defaultValue}
+                        value={this.props.value}
                         pattern={this.props.pattern}
                         step={this.props.step}
                         autocomplete="off"
@@ -25,4 +25,4 @@ class InputUpdateField extends React.Component {
     }
 }
 
-export default InputUpdateField;
+export default InputUpdateField2;
