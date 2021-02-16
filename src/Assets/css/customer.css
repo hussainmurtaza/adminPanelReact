@@ -37,3 +37,7 @@
 .tooltip-wrapper.disabled {
     cursor: not-allowed;
 }
+
+.customer-details .dropdown-menu {
+    width: auto !important;
+}

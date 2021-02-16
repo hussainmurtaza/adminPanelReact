@@ -64,14 +64,19 @@ const changeAffiliate = async (id, data) => {
 };
 
 const customerSite = async (data) => {
-    const response = await Gateway.authGateway("GET", V1.customers.site + data);
+    const query = window.location.search;
+    const response = await Gateway.authGateway(
+        "GET",
+        `${V1.customers.site}${data}${query}`
+    );
     return response;
 };
 
 const customerInvoice = async (data) => {
+    const query = window.location.search;
     const response = await Gateway.authGateway(
         "GET",
-        V1.customers.invoice + data
+        `${V1.customers.invoice}${data}${query}`
     );
     return response;
 };

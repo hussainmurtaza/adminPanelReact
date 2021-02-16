@@ -82,7 +82,6 @@ export default function* rootSaga() {
         userStatusSaga(),
         MigrationGetSaga(),
         MigrationFirstSaga(),
-        DashboardGetSaga(),
         OneClickLoginGetSaga(),
         WordpressRefreshSaga(),
         DataCenterGetSaga(),

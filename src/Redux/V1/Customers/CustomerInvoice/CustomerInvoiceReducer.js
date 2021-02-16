@@ -5,6 +5,7 @@ const CustomerInvoiceReducer = (
         loading: false,
         invoices: [],
         err_mess: null,
+        pagination: "",
     },
     action
 ) => {
@@ -20,6 +21,7 @@ const CustomerInvoiceReducer = (
                 ...state,
                 loading: false,
                 invoices: action.response.invoices,
+                pagination: action.response.pagination,
             };
         case CUSTOMER.CUSTOMER_INVOICE_FAILED:
             return {

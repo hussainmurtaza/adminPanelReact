@@ -5,6 +5,7 @@ const CustomerSiteReducer = (
         loading: false,
         sites: [],
         err_mess: null,
+        pagination: "",
     },
     action
 ) => {
@@ -20,6 +21,7 @@ const CustomerSiteReducer = (
                 ...state,
                 loading: false,
                 sites: action.response.sites,
+                pagination: action.response.pagination,
             };
         case CUSTOMER.CUSTOMER_SITE_FAILED:
             return {

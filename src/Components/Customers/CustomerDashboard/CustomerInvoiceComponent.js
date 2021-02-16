@@ -1,10 +1,12 @@
 import React, { Component } from "react";
-import { Table } from "react-bootstrap";
+import { Table, Col, Row } from "react-bootstrap";
 import CustomerInvoiceBusiness from "Businesses/Customers/CustomerInvoiceBusiness";
+import PaginationDropDown from "Components/Includes/DropDownComponent";
+import PaginationNumber from "Components/Includes/PaginationComponent";
 
 class CustomerInvoiceComponent extends Component {
     render() {
-        const customerInvoice = this.props.customerInvoice;
+        const customerInvoice = this.props.customerInvoice.invoices;
         const customerInvoices = CustomerInvoiceBusiness.customerInvoice(
             customerInvoice
         );
@@ -22,6 +24,32 @@ class CustomerInvoiceComponent extends Component {
                     </thead>
                     <tbody>{customerInvoices}</tbody>
                 </Table>
+                <Row>
+                    <Col md={4}>
+                        <PaginationDropDown
+                            title={"Customer Invoices"}
+                            perPage={
+                                this.props.customerInvoice.pagination.per_page
+                            }
+                        />
+                    </Col>
+                    <Col md={4}>
+                        <PaginationNumber
+                            perPage={
+                                this.props.customerInvoice.pagination.per_page
+                            }
+                            totalPages={
+                                this.props.customerInvoice.pagination
+                                    .total_pages
+                            }
+                            currentPage={
+                                this.props.customerInvoice.pagination
+                                    .current_page
+                            }
+                        />
+                    </Col>
+                    <Col md={4}></Col>
+                </Row>
             </React.Fragment>
         );
     }
