@@ -9,6 +9,7 @@ import VoucherFirstAction from "Redux/V1/Vouchers/First/VoucherFirstAction";
 import Capitilize from "Helpers/CapitilizeHelper";
 import SingleDateField from "Components/Forms/Fields/SingleDateField";
 import TimeStampHelper from "Helpers/TimeStampHelper";
+import AsyncSelectField from "Components/Forms/Fields/AsyncSelectField";
 
 class VoucherFormComponent extends Component {
     state = {
@@ -55,6 +56,13 @@ class VoucherFormComponent extends Component {
             },
         });
     };
+    customerGetFunction = (data) => {
+        let { form } = this.state;
+        form["affiliate_id"] = data.value;
+        this.setState({
+            form,
+        });
+    };
 
     handleSubmit = (e) => {
         if (this.props.method === "PUT") {
@@ -66,6 +74,7 @@ class VoucherFormComponent extends Component {
                 })
             );
         }
+
         if (this.props.method === "POST") {
             e.preventDefault();
             this.props.dispatch(VoucherPostAction.voucherPost(this.state.form));
@@ -183,6 +192,20 @@ class VoucherFormComponent extends Component {
                                 required
                             />
                         </Col>
+                        {this.props.method === "POST" ? (
+                            <Col sm={6}>
+                                <label>Enter Affiliates</label>
+                                <AsyncSelectField
+                                    className="mt-1"
+                                    isMulti={false}
+                                    name="customers"
+                                    dispatch={this.props.dispatch}
+                                    placeholder={"Search Affiliates"}
+                                    customerGet={this.customerGetFunction}
+                                    customerId={true}
+                                />
+                            </Col>
+                        ) : null}
                     </Row>
 
                     <Button type="submit" variant="primary" className="mt-4">

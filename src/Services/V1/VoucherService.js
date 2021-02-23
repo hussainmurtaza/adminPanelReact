@@ -43,12 +43,12 @@ const voucherPostData = (data) => {
     _data.max_usage_limit = parseInt(data.max_usage_limit);
     _data.start_date = data.start_date;
     _data.end_date = data.end_date;
+    _data.affiliate_id = data.affiliate_id;
 
     return JSON.stringify(_data);
 };
 
 const voucherPut = async (data, id) => {
-    console.log(data);
     const response = await Gateway.authGateway(
         "PUT",
         `${V1.voucher.vouchers}/${id}`,
