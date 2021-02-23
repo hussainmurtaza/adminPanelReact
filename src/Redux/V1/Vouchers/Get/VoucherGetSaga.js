@@ -3,9 +3,9 @@ import VOUCHER from "Redux/V1/Vouchers/ActionType";
 import VoucherGetAction from "Redux/V1/Vouchers/Get/VoucherGetAction";
 import VoucherService from "Services/V1/VoucherService";
 
-function* voucherGet() {
+function* voucherGet(data) {
     try {
-        const response = yield VoucherService.voucherGet();
+        const response = yield VoucherService.voucherGet(data.request);
         if (response.success) {
             yield put(VoucherGetAction.voucherGetSuccess(response.data));
         } else {

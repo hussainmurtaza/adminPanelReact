@@ -3,7 +3,9 @@ import VOUCHER from "Redux/V1/Vouchers/ActionType";
 const VoucherFirstReducer = (
     state = {
         loading: false,
-        voucher: {},
+        voucher: {
+            user: {},
+        },
         fetched: false,
     },
     action

@@ -1,8 +1,12 @@
 import V1 from "Constants/V1ApiConstant";
 import Gateway from "Gateways/Gateway";
 
-const voucherGet = async () => {
-    const response = await Gateway.authGateway("GET", V1.voucher.vouchers);
+const voucherGet = async (data) => {
+    const query = window.location.search;
+    const response = await Gateway.authGateway(
+        "GET",
+        `${V1.voucher.vouchers}${query}`
+    );
     return response;
 };
 

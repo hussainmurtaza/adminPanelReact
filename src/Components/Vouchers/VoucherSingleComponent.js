@@ -78,6 +78,17 @@ class VoucherSingleComponent extends Component {
                                         <td>Status</td>
                                         <td>{voucher.status}</td>
                                     </tr>
+                                    <tr>
+                                        <td>Affiliate Name</td>
+                                        <td>
+                                            {voucher.user.first_name}{" "}
+                                            {voucher.user.last_name}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Affiliate Email</td>
+                                        <td>{voucher.user.email}</td>
+                                    </tr>
                                 </tbody>
                             </Table>
                             <div>

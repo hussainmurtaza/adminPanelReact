@@ -1,8 +1,9 @@
 import VOUCHER from "Redux/V1/Vouchers/ActionType";
 
-const voucherGet = () => {
+const voucherGet = (data) => {
     return {
         type: VOUCHER.VOUCHER_GET,
+        request: data,
     };
 };
 const voucherGetSuccess = (data) => {

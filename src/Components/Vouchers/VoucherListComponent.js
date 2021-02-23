@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import Sidebar from "Components/Sidebar";
-import { Table } from "react-bootstrap";
+import { Table, Row, Col } from "react-bootstrap";
 import TemplateMain from "Templates/TemplateMain";
 import { connect } from "react-redux";
 import VoucherGetAction from "Redux/V1/Vouchers/Get/VoucherGetAction";
 import VoucherDeleteAction from "Redux/V1/Vouchers/Delete/VoucherDeleteAction";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-import TimeStampHelper from "Helpers/TimeStampHelper";
-// import PaginationDropDown from "Components/Includes/DropDownComponent";
-// import PaginationNumber from "Components/Includes/PaginationComponent";
+import PaginationDropDown from "Components/Includes/DropDownComponent";
+import PaginationNumber from "Components/Includes/PaginationComponent";
 import Confirm from "Helpers/ConfirmationHelper";
-import Capitilize from "Helpers/CapitilizeHelper";
-import RoundUpHelper from "Helpers/RoundUpHelper";
-//
+import VoucherBusiness from "Businesses/Vouchers/VoucherBusiness";
+
 class VoucherListComponent extends Component {
     componentDidMount() {
         this.props.dispatch(VoucherGetAction.voucherGet());
@@ -22,6 +18,9 @@ class VoucherListComponent extends Component {
         Confirm(this.props.dispatch, VoucherDeleteAction.voucherDelete(id));
     };
     render() {
+        const vouchersData = this.props.vouchers.vouchers;
+        const pagination = this.props.vouchers.pagination;
+        const vouchers = VoucherBusiness.generate(vouchersData);
         return (
             <React.Fragment>
                 <TemplateMain>
@@ -44,94 +43,24 @@ class VoucherListComponent extends Component {
                                         <th className="text-center">Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    {this.props.vouchers.map((voucher) => (
-                                        <tr>
-                                            <td>{voucher.promo_code}</td>
-                                            <td>
-                                                ${" "}
-                                                {RoundUpHelper.twodecimalplace(
-                                                    voucher.amount
-                                                )}
-                                            </td>
-                                            <td className="text-center">
-                                                {voucher.max_usage_limit}
-                                            </td>
-
-                                            <td>
-                                                {TimeStampHelper.standardDateFormat(
-                                                    `${voucher.start_date}`
-                                                )}
-                                            </td>
-
-                                            <td>
-                                                {TimeStampHelper.standardDateFormat(
-                                                    `${voucher.end_date}`
-                                                )}
-                                            </td>
-                                            <td>
-                                                {" "}
-                                                {TimeStampHelper.standardDateFormat(
-                                                    `${voucher.created_at}`
-                                                )}
-                                            </td>
-                                            <td>
-                                                {Capitilize.capital(
-                                                    voucher.status
-                                                )}
-                                            </td>
-
-                                            <td className="text-center">
-                                                <a
-                                                    href={
-                                                        "/voucher/" + voucher.id
-                                                    }
-                                                    className="btn btn-link"
-                                                    title="View"
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faEye}
-                                                    />
-                                                </a>
-                                                <a
-                                                    href={
-                                                        "/update-voucher/" +
-                                                        voucher.id
-                                                    }
-                                                    className="btn btn-link"
-                                                    title="Edit"
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faPencilAlt}
-                                                    />
-                                                </a>
-                                                <button
-                                                    className="btn btn-link text-danger"
-                                                    title="Delete"
-                                                    onClick={() =>
-                                                        this.voucherDelete(
-                                                            voucher.id
-                                                        )
-                                                    }
-                                                >
-                                                    <FontAwesomeIcon
-                                                        icon={faTrash}
-                                                    />
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
+                                <tbody>{vouchers}</tbody>
                             </Table>
-                            {/* <Row className="d-none">
+                            <Row>
                                 <Col md={4}>
-                                    <PaginationDropDown title={"Sites"} />
+                                    <PaginationDropDown
+                                        title={"Vouchers"}
+                                        perPage={pagination.per_page}
+                                    />
                                 </Col>
                                 <Col md={4}>
-                                    <PaginationNumber />
+                                    <PaginationNumber
+                                        perPage={pagination.per_page}
+                                        totalPages={pagination.total_pages}
+                                        currentPage={pagination.current_page}
+                                    />
                                 </Col>
                                 <Col md={4}></Col>
-                            </Row> */}
+                            </Row>
                         </div>
                     </div>
                 </TemplateMain>
@@ -142,7 +71,7 @@ class VoucherListComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        vouchers: state.vouchers.list.vouchers,
+        vouchers: state.vouchers.list,
     };
 };
 
