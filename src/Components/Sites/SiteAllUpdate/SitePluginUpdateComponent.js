@@ -7,7 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import UpdateAllPutAction from "Redux/V1/WordpressUpdateAll/Put/UpdateAllPutAction";
 import OneClickLoginAction from "Redux/V1/Sites/OneClickLogin/OneClickLoginAction";
-
+import NoDataHelper from "Helpers/NoDataHelper";
 class SitePluginUpdateComponent extends Component {
     update = (type, slug, identity) => {
         const updateDetails = {
@@ -22,6 +22,8 @@ class SitePluginUpdateComponent extends Component {
         this.props.dispatch(OneClickLoginAction.getOneClickLogin(identity));
     };
     render() {
+        const wordpressPlugins = this.props.wordpressPlugins;
+        const wpPluginUpdateLoading = this.props.wpPluginUpdateLoading;
         return (
             <React.Fragment>
                 <Card className="site-card-header">
@@ -35,169 +37,174 @@ class SitePluginUpdateComponent extends Component {
                     </Card.Header>
                 </Card>
                 <Accordion className="site-core-accordion">
-                    {this.props.wordpressPlugins === undefined
-                        ? ""
-                        : this.props.wordpressPlugins.map((wpplugins, key) => {
-                              return (
-                                  <Card>
-                                      <Card.Header>
-                                          <Row className="align-items-center">
-                                              <Col md={3}>{wpplugins.name}</Col>
-                                              <Col md={3}>
-                                                  {wpplugins.update_version}
-                                              </Col>
-                                              <Col md={3}>
-                                                  {wpplugins.updates}
-                                              </Col>
-                                              <Col
-                                                  md={3}
-                                                  className="text-center"
-                                              >
-                                                  <button
-                                                      type="submit"
-                                                      className={`btn btn-update ${
-                                                          this.props
-                                                              .wordpressUpdate
-                                                              .update_slug ===
-                                                          wpplugins.slug
-                                                              ? "loading"
-                                                              : ""
-                                                      }`}
-                                                      onClick={() =>
-                                                          this.update(
-                                                              "plugin",
-                                                              wpplugins.slug,
-                                                              wpplugins.sites.map(
-                                                                  (site) =>
-                                                                      site.identity
-                                                              )
-                                                          )
-                                                      }
-                                                  >
-                                                      Update All
-                                                  </button>
-                                                  <Accordion.Toggle
-                                                      as={Button}
-                                                      variant="link"
-                                                      eventKey={key}
-                                                      className="float-right"
-                                                  >
-                                                      <FontAwesomeIcon
-                                                          icon={
-                                                              faArrowCircleDown
-                                                          }
-                                                      />
-                                                  </Accordion.Toggle>
-                                              </Col>
-                                          </Row>
-                                      </Card.Header>
-                                      <Accordion.Collapse eventKey={key}>
-                                          <Card.Body>
-                                              <Table
-                                                  bordered
-                                                  className="site-update-table"
-                                              >
-                                                  <thead>
-                                                      <tr>
-                                                          <th>Customer Name</th>
-                                                          <th>Site Name</th>
-                                                          <th>Identity</th>
-                                                          <th>Domain</th>
-                                                          <th>Login</th>
-                                                      </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                      {wpplugins.sites.map(
-                                                          (site) => (
-                                                              <tr>
-                                                                  <td>
-                                                                      <a
-                                                                          target="_blank"
-                                                                          rel="noopener noreferrer"
-                                                                          href={
-                                                                              "/customer/" +
-                                                                              site.user_id
-                                                                          }
-                                                                      >
-                                                                          {`${site.first_name} ${site.last_name}`}
-                                                                      </a>
-                                                                  </td>
-                                                                  <td>
-                                                                      <a
-                                                                          target="_blank"
-                                                                          rel="noopener noreferrer"
-                                                                          href={
-                                                                              "/site/" +
-                                                                              site.primary_domain
-                                                                          }
-                                                                      >
-                                                                          {
-                                                                              site.name
-                                                                          }
-                                                                      </a>
-                                                                  </td>
-                                                                  <td>
-                                                                      <a
-                                                                          target="_blank"
-                                                                          rel="noopener noreferrer"
-                                                                          href={
-                                                                              "/site/" +
-                                                                              site.primary_domain
-                                                                          }
-                                                                      >
-                                                                          {
-                                                                              site.identity
-                                                                          }
-                                                                      </a>
-                                                                  </td>
-                                                                  <td>
-                                                                      <a
-                                                                          target="_blank"
-                                                                          rel="noopener noreferrer"
-                                                                          className="update-domain"
-                                                                          href={
-                                                                              "https://" +
-                                                                              site.primary_domain
-                                                                          }
-                                                                      >
-                                                                          {
-                                                                              site.primary_domain
-                                                                          }
-                                                                          <FontAwesomeIcon
-                                                                              icon={
-                                                                                  faExternalLinkAlt
-                                                                              }
-                                                                              className="ml-1"
-                                                                          />
-                                                                      </a>
-                                                                  </td>
-                                                                  <td className="text-center">
-                                                                      <img
-                                                                          src="/assets/img/Wordpress.png"
-                                                                          alt="wordpresswhite"
-                                                                          className="site-wordpress"
-                                                                          data-identity={
-                                                                              site.identity
-                                                                          }
-                                                                          onClick={(
-                                                                              e
-                                                                          ) =>
-                                                                              this.quickLogin(
-                                                                                  e
-                                                                              )
-                                                                          }
-                                                                      />
-                                                                  </td>
-                                                              </tr>
-                                                          )
-                                                      )}
-                                                  </tbody>
-                                              </Table>
-                                          </Card.Body>
-                                      </Accordion.Collapse>
-                                  </Card>
-                              );
-                          })}
+                    {NoDataHelper.available(
+                        wordpressPlugins,
+                        wpPluginUpdateLoading
+                    ) ? (
+                        <div className="site-update-no-data">
+                            {NoDataHelper.available(
+                                wordpressPlugins,
+                                wpPluginUpdateLoading
+                            )}
+                        </div>
+                    ) : (
+                        this.props.wordpressPlugins.map((wpplugins, key) => {
+                            return (
+                                <Card>
+                                    <Card.Header>
+                                        <Row className="align-items-center">
+                                            <Col md={3}>{wpplugins.name}</Col>
+                                            <Col md={3}>
+                                                {wpplugins.update_version}
+                                            </Col>
+                                            <Col md={3}>
+                                                {wpplugins.updates}
+                                            </Col>
+                                            <Col md={3} className="text-center">
+                                                <button
+                                                    type="submit"
+                                                    className={`btn btn-update ${
+                                                        this.props
+                                                            .wordpressUpdate
+                                                            .update_slug ===
+                                                        wpplugins.slug
+                                                            ? "loading"
+                                                            : ""
+                                                    }`}
+                                                    onClick={() =>
+                                                        this.update(
+                                                            "plugin",
+                                                            wpplugins.slug,
+                                                            wpplugins.sites.map(
+                                                                (site) =>
+                                                                    site.identity
+                                                            )
+                                                        )
+                                                    }
+                                                >
+                                                    Update All
+                                                </button>
+                                                <Accordion.Toggle
+                                                    as={Button}
+                                                    variant="link"
+                                                    eventKey={key}
+                                                    className="float-right"
+                                                >
+                                                    <FontAwesomeIcon
+                                                        icon={faArrowCircleDown}
+                                                    />
+                                                </Accordion.Toggle>
+                                            </Col>
+                                        </Row>
+                                    </Card.Header>
+                                    <Accordion.Collapse eventKey={key}>
+                                        <Card.Body>
+                                            <Table
+                                                bordered
+                                                className="site-update-table"
+                                            >
+                                                <thead>
+                                                    <tr>
+                                                        <th>Customer Name</th>
+                                                        <th>Site Name</th>
+                                                        <th>Identity</th>
+                                                        <th>Domain</th>
+                                                        <th>Login</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {wpplugins.sites.map(
+                                                        (site) => (
+                                                            <tr>
+                                                                <td>
+                                                                    <a
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        href={
+                                                                            "/customer/" +
+                                                                            site.user_id
+                                                                        }
+                                                                    >
+                                                                        {`${site.first_name} ${site.last_name}`}
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        href={
+                                                                            "/site/" +
+                                                                            site.primary_domain
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            site.name
+                                                                        }
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        href={
+                                                                            "/site/" +
+                                                                            site.primary_domain
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            site.identity
+                                                                        }
+                                                                    </a>
+                                                                </td>
+                                                                <td>
+                                                                    <a
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        className="update-domain"
+                                                                        href={
+                                                                            "https://" +
+                                                                            site.primary_domain
+                                                                        }
+                                                                    >
+                                                                        {
+                                                                            site.primary_domain
+                                                                        }
+                                                                        <FontAwesomeIcon
+                                                                            icon={
+                                                                                faExternalLinkAlt
+                                                                            }
+                                                                            className="ml-1"
+                                                                        />
+                                                                    </a>
+                                                                </td>
+                                                                <td className="text-center">
+                                                                    <img
+                                                                        src="/assets/img/Wordpress.png"
+                                                                        alt="wordpresswhite"
+                                                                        className="site-wordpress"
+                                                                        data-identity={
+                                                                            site.identity
+                                                                        }
+                                                                        onClick={(
+                                                                            e
+                                                                        ) =>
+                                                                            this.quickLogin(
+                                                                                e
+                                                                            )
+                                                                        }
+                                                                    />
+                                                                </td>
+                                                            </tr>
+                                                        )
+                                                    )}
+                                                </tbody>
+                                            </Table>
+                                        </Card.Body>
+                                    </Accordion.Collapse>
+                                </Card>
+                            );
+                        })
+                    )}
                 </Accordion>
             </React.Fragment>
         );

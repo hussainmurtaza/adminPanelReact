@@ -11,7 +11,6 @@ import UpdateAllGetAction from "Redux/V1/WordpressUpdateAll/Get/UpdateAllGetActi
 import PaginationDropDown from "Components/Includes/DropDownComponent";
 import PaginationNumber from "Components/Includes/PaginationComponent";
 import UrlHelper from "Helpers/UrlHelper";
-
 class SiteAllUpdateComponent extends Component {
     handleSelect = (key) => {
         const url = new URL(window.location.href.split("?")[0]);
@@ -59,6 +58,7 @@ class SiteAllUpdateComponent extends Component {
         } else if (defaultTab === "plugin") {
             defaultKey = "3";
         }
+        // console.log(this.props.wp_update_all.loading, "loading");
         return (
             <React.Fragment>
                 <TemplateMain>
@@ -82,6 +82,9 @@ class SiteAllUpdateComponent extends Component {
                                             this.props.wp_update_all_put
                                         }
                                         dispatch={this.props.dispatch}
+                                        wpCoreUpdateLoading={
+                                            this.props.wp_update_all.loading
+                                        }
                                     />
                                 </Tab>
                                 <Tab eventKey={2} title="Wordpress Themes">
@@ -93,6 +96,9 @@ class SiteAllUpdateComponent extends Component {
                                             this.props.wp_update_all_put
                                         }
                                         dispatch={this.props.dispatch}
+                                        wpThemeUpdateLoading={
+                                            this.props.wp_update_all.loading
+                                        }
                                     />
                                 </Tab>
                                 <Tab eventKey={3} title="Wordpress Plugins">
@@ -104,6 +110,9 @@ class SiteAllUpdateComponent extends Component {
                                             this.props.wp_update_all_put
                                         }
                                         dispatch={this.props.dispatch}
+                                        wpPluginUpdateLoading={
+                                            this.props.wp_update_all.loading
+                                        }
                                     />
                                 </Tab>
                             </Tabs>

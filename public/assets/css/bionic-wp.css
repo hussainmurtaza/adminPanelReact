@@ -262,3 +262,15 @@ body {
     padding: 6px !important;
     font-size: 12px !important;
 }
+
+/* This is helper css for no-data  */
+
+.no-data {
+    margin: 0;
+    text-align: center;
+    color: #a7a0ab;
+    padding: 5px;
+}
+.site-update-no-data {
+    display: grid;
+}
