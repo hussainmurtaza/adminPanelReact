@@ -51,7 +51,7 @@ class SiteCoreUpdateComponent extends Component {
                             )}
                         </div>
                     ) : (
-                        wordpressCore.map((wordpressCore) => {
+                        wordpressCore.map((wordpressCore, key) => {
                             return (
                                 <Card>
                                     <Card.Header>
@@ -90,7 +90,7 @@ class SiteCoreUpdateComponent extends Component {
                                                 <Accordion.Toggle
                                                     as={Button}
                                                     variant="link"
-                                                    eventKey="0"
+                                                    eventKey={key}
                                                     className="float-right"
                                                 >
                                                     <FontAwesomeIcon
@@ -100,7 +100,7 @@ class SiteCoreUpdateComponent extends Component {
                                             </Col>
                                         </Row>
                                     </Card.Header>
-                                    <Accordion.Collapse eventKey="0">
+                                    <Accordion.Collapse eventKey={key}>
                                         <Card.Body>
                                             <Table
                                                 bordered
