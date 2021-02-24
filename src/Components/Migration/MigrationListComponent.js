@@ -83,20 +83,31 @@ class MigrationListComponent extends Component {
                                                         </a>
                                                     </td>
                                                     <td>
-                                                        <a
-                                                            href={
-                                                                "/migration/" +
-                                                                migration.id
-                                                            }
-                                                            target="
+                                                        {migration.agency_name ===
+                                                        null ? (
+                                                            "-"
+                                                        ) : (
+                                                            <a
+                                                                href={
+                                                                    "/migration/" +
+                                                                    migration.id
+                                                                }
+                                                                target="
 															_blank"
-                                                        >
-                                                            {
-                                                                migration.agency_name
-                                                            }
-                                                        </a>
+                                                            >
+                                                                {
+                                                                    migration.agency_name
+                                                                }
+                                                            </a>
+                                                        )}
                                                     </td>
                                                     <td>
+                                                        {migration.custom_domain ===
+                                                            null &&
+                                                        migration.staging_domain ===
+                                                            null
+                                                            ? "-"
+                                                            : null}
                                                         {migration.custom_domain ===
                                                         null ? null : (
                                                             <a
@@ -156,29 +167,6 @@ class MigrationListComponent extends Component {
                                                             </a>
                                                         )}
                                                     </td>
-
-                                                    {/* <td className="text-center">
-                                                        {migration.staging_domain ===
-                                                        null ? (
-                                                            "-"
-                                                        ) : (
-                                                            <a
-                                                                target="
-															_blank"
-                                                                href={
-                                                                    "https://" +
-                                                                    migration.staging_domain
-                                                                }
-                                                            >
-                                                                <FontAwesomeIcon
-                                                                    icon={
-                                                                        faGlobe
-                                                                    }
-                                                                    className="ml-2"
-                                                                />
-                                                            </a>
-                                                        )}
-                                                    </td> */}
 
                                                     <td className="migration-status">
                                                         <SingleSelectField

@@ -6,8 +6,18 @@ const capital = (string) => {
     }
 };
 
+const removeUnderscore = (string) => {
+    try {
+        const value = string.replaceAll("_", " ");
+        return value;
+    } catch {
+        console.log("Capitalize error");
+    }
+};
+
 const Capitilize = {
     capital,
+    removeUnderscore,
 };
 
 export default Capitilize;

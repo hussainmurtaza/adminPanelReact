@@ -41,6 +41,8 @@ import VoucherSingleComponent from "Components/Vouchers/VoucherSingleComponent";
 import VoucherUpdateComponent from "Components/Vouchers/VoucherUpdateComponent";
 import WordpressLogsComponent from "Components/Logs/WordpressLogsComponent";
 import LogsComponent from "Components/Logs/LogsComponent";
+import MigrationTrashComponent from "Components/Migration/MigrationTrashComponent";
+
 class Main extends Component {
     render() {
         const loggedIn = this.props.Auth.isAuthenticated;
@@ -237,6 +239,16 @@ class Main extends Component {
                         exact
                         path="/migration/:id"
                         component={MigrationSingleComponent}
+                        permissions={[
+                            "access_all",
+                            "migrations_all",
+                            "migrations_read",
+                        ]}
+                    />
+                    <PrivateRoute
+                        exact
+                        path="/migrations/trash"
+                        component={MigrationTrashComponent}
                         permissions={[
                             "access_all",
                             "migrations_all",

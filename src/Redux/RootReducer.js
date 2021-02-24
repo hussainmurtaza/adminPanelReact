@@ -59,6 +59,7 @@ import WalletDebitReducer from "Redux/V1/Customers/Wallet/Debit/WalletDebitReduc
 import CustomerSiteReducer from "Redux/V1/Customers/CustomerSite/CustomerSiteReducer";
 import CustomerInvoiceReducer from "Redux/V1/Customers/CustomerInvoice/CustomerInvoiceReducer";
 import WordpressLogsRootReducer from "Redux/V1/WordpressLogs/WordpressLogsRootReducer";
+import MigrationTrashReducer from "Redux/V1/Migration/Trash/MigrationTrashReducer";
 
 export default combineReducers({
     login: LoginReducer,
@@ -122,4 +123,5 @@ export default combineReducers({
     customerSite: CustomerSiteReducer,
     customerInvoice: CustomerInvoiceReducer,
     wordpressLogs: WordpressLogsRootReducer,
+    migrationTrash: MigrationTrashReducer,
 });

@@ -82,12 +82,22 @@ const migrationBody = (data) => {
     return JSON.stringify(_data);
 };
 
+const migrationTrash = async (data) => {
+    const query = window.location.search;
+    const response = await Gateway.authGateway(
+        "GET",
+        V1.auth.migrations + "/trashed" + query
+    );
+    return response;
+};
+
 const MigrationService = {
     getAll,
     get,
     status,
     put,
     filter,
+    migrationTrash,
 };
 
 export default MigrationService;

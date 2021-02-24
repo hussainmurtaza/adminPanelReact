@@ -285,3 +285,9 @@ body {
 .operation-component .refresh-icon-redis svg path {
     fill: none;
 }
+/*
+    Migration Trash Status Text uppercase
+*/
+.migration-trash-status {
+    text-transform: capitalize;
+}

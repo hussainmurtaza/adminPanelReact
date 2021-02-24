@@ -303,7 +303,8 @@ class Sidebar extends Component {
                             ]) ? (
                                 <li
                                     className={
-                                        this.props.active === "migrations"
+                                        this.props.active === "migrations" ||
+                                        this.props.active === "migration-trash"
                                             ? "nav-item show"
                                             : "nav-item"
                                     }
@@ -311,7 +312,10 @@ class Sidebar extends Component {
                                     <a
                                         href="/"
                                         className={
-                                            this.props.active === "migrations"
+                                            this.props.active ===
+                                                "migrations" ||
+                                            this.props.active ===
+                                                "migration-trash"
                                                 ? "active nav-link with-sub"
                                                 : "nav-link with-sub"
                                         }
@@ -363,6 +367,17 @@ class Sidebar extends Component {
                                         </a>
                                         <a href="/migrations?status=migration_closed">
                                             Migration Closed
+                                        </a>
+                                        <a
+                                            href="/migrations/trash"
+                                            className={
+                                                this.props.active ===
+                                                "migration-trash"
+                                                    ? "active"
+                                                    : ""
+                                            }
+                                        >
+                                            Trash Migrations
                                         </a>
                                     </nav>
                                 </li>
