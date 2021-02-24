@@ -2,12 +2,27 @@ import React, { Component } from "react";
 import { Button, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Col } from "react-bootstrap";
-
+// import { ReactSVG } from "react-svg";
+// import config from "Configs/Config";
+import { faUndo } from "@fortawesome/free-solid-svg-icons";
 class Operation extends Component {
     render() {
         const { redisStatus } = this.props;
         return (
             <div className="operation-component ">
+                {this.props.redisStatus === "enabled" ? (
+                    <FontAwesomeIcon
+                        title="Purge Cache"
+                        icon={faUndo}
+                        onClick={() => {
+                            this.props.redisCacheFunction();
+                        }}
+                        className="refresh-icon-redis "
+                    />
+                ) : (
+                    ""
+                )}
+
                 <FontAwesomeIcon icon={this.props.icon} className="ml-2" />
                 <h6>{this.props.title}</h6>
                 <p>{this.props.description}</p>
@@ -48,6 +63,7 @@ class Operation extends Component {
                         {this.props.button}
                     </Button>
                 )}
+                {/* Redis Status Conditions  */}
                 {this.props.redisStatus === "enabled" ? (
                     <Button
                         className={`btn-brand-02 btn-sm ${
@@ -77,7 +93,6 @@ class Operation extends Component {
                         {"Enable"}
                     </Button>
                 )}
-                {/* Redis Status Conditions  */}
                 {redisStatus !== "not_installed" &&
                 redisStatus !== "in_progress" &&
                 this.props.featureTitle === "redis" ? (

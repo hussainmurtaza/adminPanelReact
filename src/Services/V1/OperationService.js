@@ -61,6 +61,14 @@ const redisBody = (data) => {
     return JSON.stringify(_data);
 };
 
+const redisCache = async (data) => {
+    const response = await Gateway.authGateway(
+        "PUT",
+        V1.operation.redis_cache + data
+    );
+    return response;
+};
+
 const OperationService = {
     cachePut,
     permissionsGet,
@@ -68,6 +76,7 @@ const OperationService = {
     redisFirst,
     redisDelete,
     redisToggleStatus,
+    redisCache,
 };
 
 export default OperationService;

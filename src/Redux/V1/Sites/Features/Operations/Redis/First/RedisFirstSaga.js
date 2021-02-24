@@ -4,7 +4,6 @@ import RedisDetailAction from "Redux/V1/Sites/Features/Operations/Redis/First/Re
 import OperationService from "Services/V1/OperationService";
 
 function* redisDetails(data) {
-    console.log(data, "ywh h dataa");
     try {
         const response = yield OperationService.redisFirst(data.request);
         if (response.success) {

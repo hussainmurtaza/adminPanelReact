@@ -15,6 +15,8 @@ import BotBlockAction from "Redux/V1/Operations/BotBlock/Put/BotPutAction";
 import RedisToggleAction from "Redux/V1/Sites/Features/Operations/Redis/RedisToggle/RedisToggleAction";
 import RedisDeleteAction from "Redux/V1/Sites/Features/Operations/Redis/RedisDelete/RedisDeleteAction";
 import Confirm from "Helpers/ConfirmationHelper";
+import RedisCacheAction from "Redux/V1/Sites/Features/Operations/Redis/RedisCache/RedisCacheAction";
+
 class SiteOperation extends Component {
     // componentDidMount() {
     //     setTimeout(() => {
@@ -49,7 +51,13 @@ class SiteOperation extends Component {
                     ? false
                     : true,
         };
-        this.props.dis(RedisToggleAction.redisToggleStatus(data));
+        Confirm(
+            this.props.dis,
+            RedisToggleAction.redisToggleStatus(data),
+            this.props.redisDetail.redis.status === "enabled"
+                ? "Do you want to Disable Redis?"
+                : "Do you want to Enable Redis?"
+        );
     };
 
     redisDeleteFunction = () => {
@@ -59,6 +67,14 @@ class SiteOperation extends Component {
             "Do you want to delete Redis?"
         );
     };
+
+    redisCacheFunction = () => {
+        Confirm(
+            this.props.dis,
+            RedisCacheAction.redisCache(this.props.identity),
+            "Do you want to Purge Cache of Redis?"
+        );
+    };
     render() {
         const cacheClearloading = this.props.cacheClear.loading;
         const permissionsResetloading = this.props.permissionsReset.loading;
@@ -66,7 +82,6 @@ class SiteOperation extends Component {
         const botStatus = this.props.botStatus === "enable" ? true : false;
         const redisLoading = this.props.redisToggle.loading;
         const redisStatus = this.props.redisDetail.redis.status;
-        console.log(this.props.botStatus);
         return (
             <React.Fragment>
                 <h4 className="page-header mg-b-15 mt-4">Site Operations</h4>
@@ -118,6 +133,8 @@ class SiteOperation extends Component {
                             loading={redisLoading}
                             redisStatus={redisStatus}
                             redisDeleteFunction={this.redisDeleteFunction}
+                            id={this.props.identity}
+                            redisCacheFunction={this.redisCacheFunction}
                         />
                     </Col>
                 </Row>
