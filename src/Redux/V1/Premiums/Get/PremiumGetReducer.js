@@ -4,6 +4,7 @@ const PremiumListReducer = (
     state = {
         loading: false,
         premium_plugins: [],
+        pagination: "",
     },
     action
 ) => {
@@ -13,15 +14,24 @@ const PremiumListReducer = (
                 ...state,
                 loading: true,
                 error: null,
+                premium_plugins: [],
+                pagination: "",
             };
         case PREMIUM.PREMIUM_GET_SUCCESS:
             return {
                 ...state,
                 loading: false,
                 premium_plugins: action.response.premium_plugins,
+                pagination: action.response.pagination,
             };
         case PREMIUM.PREMIUM_GET_FAILED:
-            return { ...state, loading: false, error: action.response };
+            return {
+                ...state,
+                loading: false,
+                error: action.response,
+                premium_plugins: [],
+                pagination: "",
+            };
         default:
             return state;
     }

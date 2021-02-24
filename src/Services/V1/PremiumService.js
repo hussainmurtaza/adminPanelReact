@@ -2,9 +2,10 @@ import V1 from "Constants/V1ApiConstant";
 import Gateway from "Gateways/Gateway";
 
 const premiumGet = async () => {
+    const query = window.location.search;
     const response = await Gateway.authGateway(
         "GET",
-        V1.premiumplugin.premium_plugins
+        `${V1.premiumplugin.premium_plugins}${query}`
     );
     return response;
 };

@@ -20,7 +20,8 @@ class PluginListComponent extends Component {
         Confirm(this.props.dispatch, PremiumDeleteAction.premiumDelete(id));
     };
     render() {
-        console.log(this.props.premium, "asdsadsadsd");
+        const premium = this.props.premium.premium_plugins;
+        const pagination = this.props.premium.pagination;
         return (
             <React.Fragment>
                 <TemplateMain>
@@ -43,7 +44,7 @@ class PluginListComponent extends Component {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {this.props.premium.map((plugin) => (
+                                    {premium.map((plugin) => (
                                         <tr>
                                             <td>{plugin.name}</td>
 
@@ -99,12 +100,19 @@ class PluginListComponent extends Component {
                                     ))}{" "}
                                 </tbody>
                             </Table>
-                            <Row className="d-none">
+                            <Row>
                                 <Col md={4}>
-                                    <PaginationDropDown title={"Sites"} />
+                                    <PaginationDropDown
+                                        title={"Plugins"}
+                                        perPage={pagination.per_page}
+                                    />
                                 </Col>
                                 <Col md={4}>
-                                    <PaginationNumber />
+                                    <PaginationNumber
+                                        perPage={pagination.per_page}
+                                        totalPages={pagination.total_pages}
+                                        currentPage={pagination.current_page}
+                                    />
                                 </Col>
                                 <Col md={4}></Col>
                             </Row>
@@ -118,7 +126,7 @@ class PluginListComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        premium: state.premium.list.premium_plugins,
+        premium: state.premium.list,
     };
 };
 
