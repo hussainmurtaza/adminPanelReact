@@ -1,9 +1,11 @@
+import moment from "moment";
+
 const differenceInDays = (_earlier = Date.now(), _future = Date.now()) => {
     const earlier = new Date(_earlier);
-    const future = new Date(_future);
+    const future = moment(_future).valueOf();
 
-    // To calculate the time difference of two dates
-    const difference = future.getTime() - earlier.getTime();
+    //To calculate the time difference of two dates
+    const difference = future - earlier;
 
     // To calculate the no. of days between two dates
     return Math.round(difference / (1000 * 3600 * 24));
@@ -11,7 +13,7 @@ const differenceInDays = (_earlier = Date.now(), _future = Date.now()) => {
 
 const standardDateFormat = (date) => {
     if (!date) return "No Date Available";
-    const d = new Date(date);
+    const d = moment(date).valueOf();
     const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
     const mo = new Intl.DateTimeFormat("en", { month: "short" }).format(d);
     const da = new Intl.DateTimeFormat("en", { day: "2-digit" }).format(d);
@@ -36,6 +38,13 @@ const standardDateTimeFormat = (date) => {
     return `${mo} ${da}, ${ye} ${hours}:${minutes} ${ampm}`;
 };
 
+const safariDateTimeFormat = (date) => {
+    if (!date) return "No Date Available";
+    const newDate = moment(date).format("lll");
+
+    return newDate;
+};
+
 const formatDate = (date) => {
     var d = new Date(date),
         month = "" + (d.getMonth() + 1),
@@ -53,6 +62,7 @@ const TimeStampHelper = {
     standardDateFormat,
     standardDateTimeFormat,
     formatDate,
+    safariDateTimeFormat,
 };
 
 export default TimeStampHelper;

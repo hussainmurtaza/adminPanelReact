@@ -38,7 +38,7 @@ class SiteFilterForm extends Component {
             <React.Fragment>
                 <form>
                     <Row>
-                        <Col md="6">
+                        <Col md="6 mt-3">
                             <AsyncSelectField
                                 name="customers"
                                 dispatch={this.props.dispatch}
@@ -46,7 +46,7 @@ class SiteFilterForm extends Component {
                                 defaultValue={customers_options}
                             />
                         </Col>
-                        <Col md="6">
+                        <Col md="6 mt-3">
                             <AsyncSelectField
                                 name="identities"
                                 dispatch={this.props.dispatch}

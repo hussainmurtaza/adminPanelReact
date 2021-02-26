@@ -48,8 +48,8 @@ class SiteSingleComponent extends Component {
                     <div className="content content-components">
                         <div className="container">
                             <Row className="align-items-center">
-                                <Col></Col>
-                                <Col className="text-right mb-3 site-button">
+                                <Col className="col-lg-6"></Col>
+                                <Col className="col-lg-6 text-right mb-3 site-button">
                                     <a
                                         className="btn-brand-02 btn btn-primary"
                                         href={serverDetail.monit}

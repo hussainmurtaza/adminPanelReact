@@ -291,3 +291,21 @@ body {
 .migration-trash-status {
     text-transform: capitalize;
 }
+
+/* Responsive Css  */
+@media screen and (max-width: 768px) {
+    .site-button {
+        flex: none !important;
+    }
+    .site-button .btn {
+        width: auto;
+    }
+    .operation-component {
+        margin-bottom: 15px;
+    }
+    .customer-list-page .customer-action {
+        display: inline-block;
+        border-bottom: none;
+        border-left: none;
+    }
+}
